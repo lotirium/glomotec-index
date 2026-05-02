@@ -5,12 +5,23 @@ import { usePathname } from "next/navigation";
 import { Wordmark } from "@/components/brand/wordmark";
 import { cn } from "@/lib/utils";
 
-const NAV: Array<{ href: string; label: string; matchPrefix?: string }> = [
+const NAV: Array<{
+  href: string;
+  label: string;
+  matchPrefix?: string;
+  subtitle?: string;
+}> = [
   { href: "/", label: "Pipeline" },
   { href: "/clients", label: "Clients", matchPrefix: "/clients" },
   { href: "/changes", label: "Changes", matchPrefix: "/changes" },
   { href: "/sources", label: "Sources", matchPrefix: "/sources" },
   { href: "/about", label: "About", matchPrefix: "/about" },
+  {
+    href: "/signal",
+    label: "Signal",
+    matchPrefix: "/signal",
+    subtitle: "prospect preview",
+  },
 ];
 
 export function Topbar() {
@@ -32,14 +43,19 @@ export function Topbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative rounded-md px-3 py-1.5 text-sm font-medium transition-colors outline-none",
+                  "relative inline-flex items-baseline gap-2 rounded-md px-3 py-1.5 text-sm font-medium transition-colors outline-none",
                   "focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
                   active
                     ? "text-ink"
                     : "text-ink-muted hover:text-ink-soft",
                 )}
               >
-                {item.label}
+                <span>{item.label}</span>
+                {item.subtitle && (
+                  <span className="hidden lg:inline text-[11px] font-normal tracking-tight text-ink-faint">
+                    {item.subtitle}
+                  </span>
+                )}
                 {active && (
                   <span
                     aria-hidden

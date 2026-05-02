@@ -64,6 +64,24 @@ It reads from three kinds of source:
 - **Live scoring** via `/clients/new` → `/api/score`. The advisor pastes a free-text profile; the API loads the same `shared/scorer_system_prompt.md` + `shared/scorer_tool_schema.json` the Python SCORER uses, and streams batched results back as NDJSON.
 - **Live pipeline demo** on the home page (`/`), a "Run live pipeline" button drives three Vercel API routes against live gov.uk data: `/api/pipeline/crawl` (HTTP fetch, hash, version), `/api/pipeline/changefeed` (compares fresh hash to `web-next/fixtures/snapshot_v10.0.json`), `/api/pipeline/extract` (Claude Opus tool-use call against one paragraph from the freshly fetched page, using the same `shared/extractor_*` contracts the Python EXTRACTOR uses). The full Python pipeline at the repo root remains the production-shape implementation; the Vercel demo is a transparency shim so the cohort can watch CRAWLER → CHANGEFEED → EXTRACTOR → SCORER light up in ~15-20s. The button is gated on `ANTHROPIC_API_KEY`.
 
+### SIGNAL prospect preview
+
+`/signal` is a second surface inside the same Next.js app. It mirrors what glomotec's existing prospect chatbot at signal.glomotec.com does, with INDEX's substantive layer wired in for actual pre-qualification:
+
+- `/signal` — landing screen with a single text input ("Hi, I'm SIGNAL. Tell me about yourself…") and a list of past local conversations.
+- `/signal/[id]` — chat thread + qualification card. Conversations persist to `localStorage` under `signal.sessions.<uuid>`; refresh restores the active session.
+- `POST /api/signal/chat` — Claude Sonnet 4.6 conversation with a SIGNAL-style system prompt that gathers nationality, age, current visa status, education, business stage, funding, endorsement, English proficiency, and prior immigration history. After 5–8 turns the model emits a structured profile via the `record_prospect_profile` tool — that tool call is the handoff signal.
+- `POST /api/signal/qualify` — substantive-only scoring against the Innovator Founder route. Filters `shared/scorer_*` to `category === "substantive"`, scores in parallel batches via Haiku 4.5, applies the same cap rule from `web-next/lib/scoring.ts`, then runs a second synthesis call to write a 2–3 sentence prospect-friendly verdict and 1–3 plain-English gaps. Returns `substantive_pct` only; `procedural_pct` is intentionally `null`.
+
+Verdict bands are presentation-tuned for the prospect surface: `Strong fit` (≥85), `Likely fit` (60–84), `Worth exploring` (40–59), `Not a fit yet` (<40).
+
+v0 SIGNAL limitations:
+- Innovator Founder route only.
+- Substantive criteria only — procedural readiness (fees, biometrics, documents in English/Welsh, translations) is not measured.
+- Conversations are local-only; no sync across browsers or private windows.
+- The assistant turn is delivered as one chunk after Sonnet completes; token streaming is a later iteration.
+- The cap rule means any single below-threshold substantive criterion holds the aggregate at 50, even when other substantive criteria are vacuously satisfied. This is a deliberate match with the advisor-side logic.
+
 ### Shared schemas + prompts
 
 `shared/` at the repo root holds the single source of truth for the model-facing modules:

@@ -6,6 +6,7 @@ import {
   type BatchScoringToolItem,
 } from "@/lib/score-prompt";
 import { bandFromProbability, buildAssessmentRun } from "@/lib/scoring";
+import { detectQuotaError, SCORE_FALLBACK } from "@/lib/anthropic-fallback";
 import type { Criterion, ScoringResult } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -109,7 +110,7 @@ async function scoreBatch({
   profile: string;
   routeName: string;
   anthropic: Anthropic;
-}): Promise<{ results: ScoringResult[]; error?: string }> {
+}): Promise<{ results: ScoringResult[]; error?: string; quota_exceeded?: true }> {
   const { system, user } = buildBatchPrompt({ criteria, profile, routeName });
   try {
     const response = await anthropic.messages.create({
@@ -150,6 +151,18 @@ async function scoreBatch({
     });
     return { results };
   } catch (err) {
+    // Quota/billing errors take priority: signal so the outer stream can
+    // emit the friendly fallback envelope instead of returning failed
+    // per-criterion rows that would render as a wall of red.
+    if (detectQuotaError(err)) {
+      return {
+        results: criteria.map((c) =>
+          failedResult(c, "Scorer is out of API credit on this preview."),
+        ),
+        error: "quota",
+        quota_exceeded: true,
+      };
+    }
     const e = err as { status?: number; headers?: Record<string, string>; message?: string };
     let kind = "unknown";
     let msg = e.message ?? "Unknown scoring error.";
@@ -182,6 +195,23 @@ export async function POST(req: Request) {
   } catch {
     return jsonError(400, "Invalid request body.");
   }
+
+  // TEMP calibration diagnostics (remove after Tuesday).
+  // Captures the request body shape SCORER actually sees on production. We
+  // log only the request-side payload — never Claude responses. Greppable
+  // tag: "[score_request]". Field names track the parsed RequestBody.
+  console.log(
+    "[score_request]",
+    JSON.stringify({
+      ts: new Date().toISOString(),
+      slug: body?.clientSlug ?? null,
+      route: body?.routeId ?? null,
+      profile_chars:
+        typeof body?.profile === "string" ? body.profile.length : 0,
+      profile_preview:
+        typeof body?.profile === "string" ? body.profile.slice(0, 800) : "",
+    }),
+  );
 
   const profile = (body.profile ?? "").trim();
   if (!profile) {
@@ -243,13 +273,23 @@ export async function POST(req: Request) {
         batches[target].push(c);
       }
 
+      // Shared flag flipped by the first batch that detects a quota/billing
+      // error. Once flipped, no more per-criterion rows are streamed and
+      // the outer block emits the fallback envelope instead of "complete".
+      let quotaTripped = false;
+
       const runBatch = async (batch: Criterion[]) => {
-        const { results: batchResults, error } = await scoreBatch({
+        const { results: batchResults, error, quota_exceeded } = await scoreBatch({
           criteria: batch,
           profile,
           routeName: route.name,
           anthropic,
         });
+        if (quota_exceeded) {
+          quotaTripped = true;
+          return;
+        }
+        if (quotaTripped) return;
         // Stream rows in the order they appear inside this batch.
         for (const r of batchResults) {
           results.push(r);
@@ -268,6 +308,15 @@ export async function POST(req: Request) {
           message:
             err instanceof Error ? err.message : "Scoring failed unexpectedly.",
         });
+      }
+
+      if (quotaTripped) {
+        write({
+          type: "fallback_quota",
+          ...SCORE_FALLBACK,
+        });
+        controller.close();
+        return;
       }
 
       // Sort results into criterion order before assembling the final envelope.

@@ -2,6 +2,10 @@ import "server-only";
 import fs from "fs";
 import path from "path";
 import Anthropic from "@anthropic-ai/sdk";
+import {
+  detectQuotaError,
+  EXTRACT_FALLBACK_MESSAGE,
+} from "@/lib/anthropic-fallback";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -137,6 +141,25 @@ export async function POST(req: Request) {
       messages: [{ role: "user", content: userMessage }],
     });
   } catch (err) {
+    if (detectQuotaError(err)) {
+      // Friendly fallback envelope for the live cohort demo. The shape
+      // intentionally keeps `ok: true` so the live-pipeline UI marks the
+      // EXTRACTOR step as a calm "paused" state instead of red "failed".
+      return Response.json(
+        {
+          ok: true,
+          status: "fallback_quota",
+          message: EXTRACT_FALLBACK_MESSAGE,
+          model_version: MODEL,
+          section_heading: sectionHeading,
+          section_text: sectionText,
+          criteria: [],
+          rejected: [],
+          wall_ms: Math.round(performance.now() - t0),
+        },
+        { status: 200 },
+      );
+    }
     const e = err as { status?: number; message?: string };
     let message = e.message ?? "EXTRACTOR call failed.";
     if (e.status === 429) message = "Rate limit reached on EXTRACTOR call.";

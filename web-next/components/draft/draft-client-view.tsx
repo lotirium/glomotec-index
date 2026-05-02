@@ -47,6 +47,11 @@ interface ScoringState {
   done: boolean;
   wallMs: number | null;
   error: string | null;
+  /**
+   * Set when the stream emits a fallback_quota event. Tells the view to
+   * render a calm fallback card instead of the verdict hero / criteria list.
+   */
+  fallbackQuota: { headline: string; body: string } | null;
 }
 
 export function DraftClientView({
@@ -68,6 +73,7 @@ export function DraftClientView({
       done: false,
       wallMs: null,
       error: null,
+      fallbackQuota: null,
     }),
     [preloadedCriteria],
   );
@@ -177,7 +183,30 @@ export function DraftClientView({
                 done: true,
                 wallMs,
                 error: null,
+                fallbackQuota: null,
               });
+            } else if (event.type === "fallback_quota") {
+              const headline = String(
+                event.headline ?? "The rules engine has stepped out for tea.",
+              );
+              const fallbackBody = String(
+                event.body ??
+                  "We are out of API credit on this preview. Top up the meter and rerun.",
+              );
+              // Persist so a refresh keeps the calm card and doesn't auto-rerun.
+              const updated: Draft = {
+                ...current,
+                result: null,
+                error: null,
+              };
+              saveDraft(updated);
+              setDraft(updated);
+              setScoring((s) => ({
+                ...s,
+                fallbackQuota: { headline, body: fallbackBody },
+                done: true,
+                error: null,
+              }));
             } else if (event.type === "error") {
               const msg = String(event.message ?? "Scoring failed.");
               setScoring((s) => ({ ...s, error: msg }));
@@ -268,6 +297,19 @@ export function DraftClientView({
         message={scoring.error ?? draft.error ?? "Scoring couldn't complete."}
         onRetry={handleRescore}
         slug={draft.slug}
+        onDelete={handleDelete}
+      />
+    );
+  }
+
+  if (scoring.fallbackQuota && !persisted) {
+    return (
+      <DraftQuotaFallback
+        slug={draft.slug}
+        displayName={draft.displayName}
+        headline={scoring.fallbackQuota.headline}
+        body={scoring.fallbackQuota.body}
+        onRetry={handleRescore}
         onDelete={handleDelete}
       />
     );
@@ -459,6 +501,53 @@ function DraftError({
       <div className="container py-10">
         <Card className="p-6 max-w-2xl space-y-4">
           <div className="flex items-center gap-2">
+            <Button onClick={onRetry} variant="primary" size="sm">
+              <RefreshCw className="h-3.5 w-3.5" />
+              Try again
+            </Button>
+            <Button onClick={onDelete} variant="ghost" size="sm">
+              <Trash2 className="h-3.5 w-3.5" />
+              Delete this draft
+            </Button>
+          </div>
+        </Card>
+      </div>
+    </>
+  );
+}
+
+function DraftQuotaFallback({
+  slug,
+  displayName,
+  headline,
+  body,
+  onRetry,
+  onDelete,
+}: {
+  slug: string;
+  displayName: string;
+  headline: string;
+  body: string;
+  onRetry: () => void;
+  onDelete: () => void;
+}) {
+  return (
+    <>
+      <PageHeader
+        eyebrow={`Test profile · ${slug}`}
+        title={displayName}
+        description="Scoring is paused on this preview."
+      />
+      <div className="container py-10">
+        <Card className="max-w-2xl p-6 md:p-8">
+          <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
+            glomotec preview status
+          </p>
+          <h2 className="mt-3 text-xl font-semibold tracking-tight text-ink leading-tight">
+            {headline}
+          </h2>
+          <p className="mt-3 text-sm text-ink-soft leading-relaxed">{body}</p>
+          <div className="mt-6 flex items-center gap-2">
             <Button onClick={onRetry} variant="primary" size="sm">
               <RefreshCw className="h-3.5 w-3.5" />
               Try again

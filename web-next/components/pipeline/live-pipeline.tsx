@@ -20,7 +20,13 @@ import type { ModuleStatus } from "@/lib/types";
  * the cohort sees a clear note explaining why.
  */
 
-type DemoState = "idle" | "running" | "complete" | "failed" | "skipped";
+type DemoState =
+  | "idle"
+  | "running"
+  | "complete"
+  | "failed"
+  | "skipped"
+  | "fallback_quota";
 
 interface DemoStep {
   state: DemoState;
@@ -70,6 +76,8 @@ interface ExtractedCriterion {
 
 interface ExtractResponse {
   ok: boolean;
+  /** "fallback_quota" when the route absorbed a billing/credit error. */
+  status?: "fallback_quota";
   criteria?: ExtractedCriterion[];
   rejected?: Array<{ id?: string; reason: string }>;
   wall_ms?: number;
@@ -222,18 +230,28 @@ export function LivePipelineDemo({
           sectionHeading: crawl.demo_section?.heading,
           sectionText: crawl.demo_section?.text,
         });
-        const n = ext.criteria?.length ?? 0;
-        const stage = ext.criteria?.[0]?.decision_stage;
-        update("extractor", {
-          state: "complete",
-          result:
-            n === 0
-              ? "no criteria in this section (commentary or examples only)"
-              : n === 1
-                ? `1 criterion extracted${stage ? " · " + stage : ""}`
-                : `${n} criteria extracted`,
-          wall_ms: ext.wall_ms,
-        });
+        if (ext.status === "fallback_quota") {
+          update("extractor", {
+            state: "fallback_quota",
+            status:
+              ext.message ??
+              "EXTRACTOR is out of API credit. Refill required before rerunning.",
+            wall_ms: ext.wall_ms,
+          });
+        } else {
+          const n = ext.criteria?.length ?? 0;
+          const stage = ext.criteria?.[0]?.decision_stage;
+          update("extractor", {
+            state: "complete",
+            result:
+              n === 0
+                ? "no criteria in this section (commentary or examples only)"
+                : n === 1
+                  ? `1 criterion extracted${stage ? " · " + stage : ""}`
+                  : `${n} criteria extracted`,
+            wall_ms: ext.wall_ms,
+          });
+        }
       } catch (err) {
         const msg = err instanceof Error ? err.message : "EXTRACTOR failed.";
         update("extractor", { state: "failed", error: msg });
@@ -358,6 +376,7 @@ function ModuleCard({
   const isComplete = demoState === "complete";
   const isFailed = demoState === "failed";
   const isSkipped = demoState === "skipped";
+  const isFallback = demoState === "fallback_quota";
 
   // Visual: when running, swap the live-status pill for a "running" pulse.
   // When complete, swap for a check + the result string. When idle, fall back
@@ -369,6 +388,7 @@ function ModuleCard({
         isRunning && "ring-2 ring-accent/30 shadow-card",
         isComplete && "ring-1 ring-band-high-fg/20",
         isFailed && "ring-1 ring-band-low-fg/30",
+        isFallback && "ring-1 ring-line",
       )}
     >
       <div className="flex items-center justify-between gap-2">
@@ -394,6 +414,9 @@ function ModuleCard({
         )}
         {isSkipped && step?.status && (
           <p className="text-2xs text-ink-muted leading-relaxed">{step.status}</p>
+        )}
+        {isFallback && step?.status && (
+          <p className="text-2xs text-ink-soft leading-relaxed">{step.status}</p>
         )}
         {demoState === "idle" && (
           <p className="text-2xs text-ink-muted leading-relaxed line-clamp-3">
@@ -460,6 +483,13 @@ function ModulePill({
     return (
       <span className="inline-flex items-center gap-1 text-2xs font-medium text-ink-muted">
         skipped
+      </span>
+    );
+  }
+  if (state === "fallback_quota") {
+    return (
+      <span className="inline-flex items-center gap-1 text-2xs font-medium text-ink-muted">
+        paused
       </span>
     );
   }
