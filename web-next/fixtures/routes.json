@@ -1,0 +1,42 @@
+[
+  {
+    "id": "innovator_founder",
+    "name": "Innovator Founder",
+    "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+    "document_version": "v10.0 27 February 2026",
+    "enabled": true,
+    "criteria_count": 16,
+    "polling_cadence_days": 7,
+    "last_refreshed": "2026-05-02T03:14:00Z"
+  },
+  {
+    "id": "global_business_mobility",
+    "name": "Global Business Mobility",
+    "document_url": "https://www.gov.uk/government/publications/global-business-mobility-routes-caseworker-guidance/global-business-mobility-routes-caseworker-guidance-accessible",
+    "document_version": "v23.1 18 March 2026",
+    "enabled": false,
+    "criteria_count": 0,
+    "polling_cadence_days": 7,
+    "last_refreshed": "2026-04-29T08:00:00Z"
+  },
+  {
+    "id": "global_talent",
+    "name": "Global Talent",
+    "document_url": "https://www.gov.uk/government/publications/global-talent-appendix-w-workers/global-talent-caseworker-guidance-accessible",
+    "document_version": "v15.0 11 February 2026",
+    "enabled": false,
+    "criteria_count": 0,
+    "polling_cadence_days": 7,
+    "last_refreshed": "2026-04-28T08:00:00Z"
+  },
+  {
+    "id": "high_potential_individual",
+    "name": "High Potential Individual",
+    "document_url": "https://www.gov.uk/government/publications/high-potential-individual-caseworker-guidance",
+    "document_version": "v8.2 09 January 2026",
+    "enabled": false,
+    "criteria_count": 0,
+    "polling_cadence_days": 14,
+    "last_refreshed": "2026-04-21T08:00:00Z"
+  }
+]

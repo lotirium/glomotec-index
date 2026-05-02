@@ -1,0 +1,28 @@
+routes:
+  - id: innovator_founder
+    name: Innovator Founder
+    html_url: https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible
+    pdf_url: https://www.gov.uk/government/publications/innovator-appendix-w-workers
+    polling_cadence_days: 7
+    enabled: true
+
+  - id: global_business_mobility
+    name: Global Business Mobility (all five sub-routes)
+    html_url: https://www.gov.uk/government/publications/global-business-mobility-routes-caseworker-guidance/global-business-mobility-routes-caseworker-guidance-accessible
+    pdf_url: https://www.gov.uk/government/publications/global-business-mobility-routes-caseworker-guidance
+    polling_cadence_days: 7
+    enabled: false
+
+  - id: global_talent
+    name: Global Talent
+    html_url: https://www.gov.uk/government/publications/global-talent-appendix-w-workers/global-talent-caseworker-guidance-accessible
+    pdf_url: https://www.gov.uk/government/publications/global-talent-appendix-w-workers
+    polling_cadence_days: 7
+    enabled: false
+
+  - id: high_potential_individual
+    name: High Potential Individual
+    html_url: https://www.gov.uk/government/publications/high-potential-individual-caseworker-guidance
+    pdf_url: https://www.gov.uk/government/publications/high-potential-individual-caseworker-guidance
+    polling_cadence_days: 14
+    enabled: false

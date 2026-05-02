@@ -1,0 +1,46 @@
+{
+  "slug": "tomas-almeida",
+  "candidate_id": "tomas-003",
+  "full_name": "Tomás Almeida",
+  "nationality": "Brazil",
+  "intended_route": "innovator_founder",
+  "stage": "endorsement_sought",
+  "filed_on": null,
+  "endorsement": {
+    "endorsing_body": "UK Endorsement Services",
+    "endorsement_path": "same_business",
+    "letter_issued_date": "2025-03-12",
+    "letter_received_application_date": null,
+    "withdrawn": false,
+    "endorsement_letter_states_innovative_viable_scalable": true,
+    "endorsement_letter_describes_how_requirements_met": false
+  },
+  "business": {
+    "stage": "growth",
+    "founded": "2022-03-01",
+    "applicant_role": "CTO and co-founder",
+    "applicant_active_in_day_to_day_management": true,
+    "investment_to_date_gbp": 410000,
+    "annual_revenue_gbp": 95000,
+    "customers_count": 6,
+    "ip_filings": 0,
+    "full_time_jobs_for_settled_workers": 1
+  },
+  "english_language": {
+    "level": "B1",
+    "evidence_type": "IELTS for UKVI",
+    "score_overall": 5.5,
+    "test_date": "2025-09-22"
+  },
+  "finance": {
+    "personal_funds_gbp": 1300,
+    "held_for_at_least_28_days": false
+  },
+  "documents_in_english_or_welsh": false,
+  "absences_from_uk_days_last_12_months": 96,
+  "suitability_concerns": null,
+  "previous_visa_history": [
+    { "category": "Start-up", "from": "2022-04-01", "to": "2024-04-01" },
+    { "category": "Innovator Founder", "from": "2024-04-15", "to": "2027-04-15" }
+  ]
+}

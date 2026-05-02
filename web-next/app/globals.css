@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --bg: 222 38% 97%;
+    --surface: 0 0% 100%;
+    --surface-soft: 220 23% 98%;
+    --line: 217 25% 92%;
+    --line-soft: 217 35% 95%;
+    /* Ink */
+    --ink: 230 56% 12%;
+    --ink-soft: 222 36% 27%;
+    --ink-muted: 224 13% 50%;
+    --ink-faint: 224 16% 66%;
+    /* Brand */
+    --accent: 218 75% 49%;
+    --accent-soft: 215 82% 61%;
+    --accent-deep: 219 76% 33%;
+    --accent-tint: 218 89% 95%;
+    /* Bands */
+    --band-high-bg: 144 35% 92%;
+    --band-high-fg: 145 64% 30%;
+    --band-medium-bg: 41 100% 93%;
+    --band-medium-fg: 39 100% 30%;
+    --band-low-bg: 0 70% 94%;
+    --band-low-fg: 0 49% 47%;
+    --band-below-bg: 220 22% 94%;
+    --band-below-fg: 224 22% 38%;
+    /* Radius */
+    --radius: 0.875rem;
+  }
+
+  html, body {
+    background:
+      radial-gradient(ellipse 70% 50% at 80% 0%, hsl(var(--accent) / 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 10% 0%, hsl(var(--band-medium-fg) / 0.04) 0%, transparent 55%),
+      hsl(var(--bg));
+    background-attachment: fixed;
+    color: hsl(var(--ink));
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Tabular figures for any element using the .tabular class */
+  .tabular { font-variant-numeric: tabular-nums lining-nums; }
+}
+
+@layer components {
+  /* Skeleton shimmer base */
+  .skeleton {
+    @apply rounded bg-line;
+    background-image: linear-gradient(
+      90deg,
+      hsl(var(--line)) 0%,
+      hsl(var(--line-soft)) 50%,
+      hsl(var(--line)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+
+  /* The small heading-bar loader in the verdict hero. 1.5s sweep, slightly
+     more contrast than .skeleton because it sits over the surface bg. */
+  .shimmer-bar {
+    background-image: linear-gradient(
+      90deg,
+      hsl(var(--line-soft)) 0%,
+      hsl(var(--line)) 50%,
+      hsl(var(--line-soft)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s linear infinite;
+  }
+
+  /* Translucent gradient overlay used on pending criterion rows. Sweeps
+     left-to-right; the predicate text underneath remains visible at
+     opacity-70 so the advisor can read what's being scored while waiting. */
+  .shimmer-row {
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--surface) / 0.65) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    animation: shimmer-row 1.8s linear infinite;
+  }
+  @keyframes shimmer-row {
+    0% { background-position: 200% 0; }
+    100% { background-position: -100% 0; }
+  }
+
+  /* Hairline rule used in editorial-style separators */
+  .hairline { @apply border-t border-line; }
+}

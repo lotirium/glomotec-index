@@ -1,0 +1,606 @@
+[
+  {
+    "id": "INNF.eligibility.endorsement_required.001",
+    "route": "innovator_founder",
+    "decision_stage": "eligibility",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "substantive",
+    "predicate": {
+      "statement": "The application must be supported by an endorsing body."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Obtain support for the application from an endorsing body."
+      ],
+      "endorsing_body": [
+        "Provide endorsement to support the application."
+      ],
+      "caseworker": [
+        "Verify that the application is supported by an endorsing body."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "About this guidance",
+        "verbatim_text": "The application must be supported by an endorsing body."
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.eligibility.key_role_in_business.001",
+    "route": "innovator_founder",
+    "decision_stage": "eligibility",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "substantive",
+    "predicate": {
+      "statement": "The applicant must have a key role in the day-to-day management and development of the business."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Hold a key role in day-to-day management and development of the business."
+      ],
+      "caseworker": [
+        "Be satisfied that the applicant has a key role in the day-to-day management and development of the business."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "About this guidance",
+        "verbatim_text": "An applicant must have a key role in the day-to-day management and development of the business."
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.documents_english_language.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "procedural",
+    "predicate": {
+      "statement": "All documents submitted with the application must be in English or Welsh; if not, the applicant must provide the original document together with a full, independently verified translation."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Provide all documents in English or Welsh, or provide the original plus a full independently verified translation."
+      ],
+      "caseworker": [
+        "Check that documents are in English or Welsh, or that an acceptable translation accompanies a non-English/Welsh original."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Documents not in English",
+        "verbatim_text": "All documents provided with an application must be in English or Welsh. If they are not, the applicant must provide the original and a full translation which has been independently verified."
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.translation_requirements.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "compound_threshold",
+    "category": "procedural",
+    "predicate": {
+      "statement": "Any translation of a non-English/Welsh document must confirm it is an accurate translation of the original, be dated, include the full name and signature of the translator (or authorised official of the translation company), and include the translator's or company's contact details."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Submit a translation that confirms accuracy, is dated, is signed by the translator or authorised official, and includes contact details."
+      ],
+      "caseworker": [
+        "Verify the translation contains all four required elements (accuracy statement, date, signed name, contact details)."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Documents not in English",
+        "verbatim_text": "The translation must: confirm that it is an accurate translation of the original document; be dated; include the full name and signature of the translator or an authorised official of the translation company; include the translator or translation company’s contact details"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.translation_certification_in_uk.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "procedural",
+    "predicate": {
+      "statement": "If the applicant is applying in the UK, the translation must additionally be fully certified and include details of the translator's or translation company's credentials."
+    },
+    "exceptions": [
+      {
+        "condition": "Applicant is applying from outside the UK",
+        "applies_to": [
+          "full certification",
+          "credentials of translator/translation company"
+        ]
+      }
+    ],
+    "burden_allocation": {
+      "applicant": [
+        "If applying in the UK, ensure the translation is fully certified and includes the translator's or translation company's credentials."
+      ],
+      "caseworker": [
+        "Where the application is made in the UK, check the translation is fully certified and includes credentials."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Documents not in English",
+        "verbatim_text": "be fully certified and include details of the translator or translation company’s credentials, if the applicant is applying in the UK"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.application_validity.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "procedural",
+    "predicate": {
+      "statement": "The caseworker must check that the application is valid before considering an Innovator Founder application."
+    },
+    "burden_allocation": {
+      "caseworker": [
+        "Confirm that the application is valid before substantive consideration."
+      ],
+      "applicant": [
+        "Submit a valid application."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Initial checks: all applications",
+        "verbatim_text": "Before you consider an application, you must check that the: application is valid"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.biometrics_registered.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "procedural",
+    "predicate": {
+      "statement": "The caseworker must check that the application and biometric information are registered and verified before considering an Innovator Founder application."
+    },
+    "burden_allocation": {
+      "caseworker": [
+        "Confirm that the application and biometric information have been registered and verified."
+      ],
+      "applicant": [
+        "Provide biometric information for registration and verification."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Initial checks: all applications",
+        "verbatim_text": "application and biometric information are registered and verified"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.fee_and_ihc.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "procedural",
+    "predicate": {
+      "statement": "Any application fee and Immigration Health Charge (IHC) must have been paid."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Pay any required fee and the Immigration Health Charge."
+      ],
+      "caseworker": [
+        "Verify fee and IHC have been paid."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Validation",
+        "verbatim_text": "any fee and Immigration Health Charge (IHC) must have been paid"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.biometrics.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "procedural",
+    "predicate": {
+      "statement": "The applicant must have provided any required biometrics."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Provide required biometrics."
+      ],
+      "caseworker": [
+        "Verify biometrics have been provided."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Validation",
+        "verbatim_text": "the applicant must have provided any required biometrics"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.identity_document.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "procedural",
+    "predicate": {
+      "statement": "The applicant must have provided a passport or other travel document which satisfactorily establishes their identity and nationality."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Provide a passport or other travel document establishing identity and nationality."
+      ],
+      "caseworker": [
+        "Be satisfied the document establishes identity and nationality."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Validation",
+        "verbatim_text": "the applicant must have provided a passport or other travel document which satisfactorily establishes their identity and nationality"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.endorsement_letter.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "compound_threshold",
+    "category": "procedural",
+    "predicate": {
+      "statement": "The applicant must have been issued with an endorsement letter by an endorsing body no more than 3 months before the date of application, and that endorsement must not have been withdrawn."
+    },
+    "thresholds": [
+      {
+        "value": 3,
+        "unit": "months",
+        "direction": "at_most",
+        "scope": "time_between_endorsement_issue_and_application_date"
+      }
+    ],
+    "burden_allocation": {
+      "applicant": [
+        "Hold a valid, unwithdrawn endorsement letter issued within 3 months of the application date."
+      ],
+      "endorsing_body": [
+        "Issue the endorsement letter and not withdraw it."
+      ],
+      "caseworker": [
+        "Check the endorsement letter is within the 3-month window and not withdrawn."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Validation",
+        "verbatim_text": "the applicant must have been issued with an endorsement letter by an endorsing body no more than 3 months before the date of application and that endorsement must not have been withdrawn"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.not_on_immigration_bail.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "substantive",
+    "predicate": {
+      "statement": "The applicant must not be on immigration bail at the time of application."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Not be on immigration bail when applying."
+      ],
+      "caseworker": [
+        "Verify the applicant is not on immigration bail at the time of application."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Validation",
+        "verbatim_text": "the applicant must not be on immigration bail at the time of application"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.minimum_age.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "quantified_threshold",
+    "category": "substantive",
+    "predicate": {
+      "statement": "All applicants must be aged 18 or over at the time of application."
+    },
+    "thresholds": [
+      {
+        "value": 18,
+        "unit": "years",
+        "direction": "at_least",
+        "scope": "applicant_age_at_date_of_application"
+      }
+    ],
+    "burden_allocation": {
+      "applicant": [
+        "Be aged 18 or over at the time of application."
+      ],
+      "caseworker": [
+        "Verify applicant is at least 18 at the date of application."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Validation",
+        "verbatim_text": "all applicants must be aged 18 or over at the time of application"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.scholarship_consent.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "substantive",
+    "predicate": {
+      "statement": "If the applicant has, in the 12 months before the date of application, received an award from a government or international scholarship agency covering both fees and living costs for study in the UK, they must have provided written consent to the application from that government or agency."
+    },
+    "thresholds": [
+      {
+        "value": 12,
+        "unit": "months",
+        "direction": "at_most",
+        "scope": "lookback_period_before_application_for_relevant_scholarship"
+      }
+    ],
+    "burden_allocation": {
+      "applicant": [
+        "Provide written consent from the awarding government or international scholarship agency where the trigger applies."
+      ],
+      "caseworker": [
+        "Identify whether the applicant received a qualifying scholarship in the past 12 months and check that written consent has been provided."
+      ]
+    },
+    "exceptions": [
+      {
+        "condition": "Applicant has not received an award from a government or international scholarship agency covering both fees and living costs for study in the UK in the 12 months before the date of application.",
+        "applies_to": [
+          "all applicants outside the trigger condition"
+        ]
+      }
+    ],
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Validation",
+        "verbatim_text": "If the applicant has in the 12 months before the date of application received an award from a government or international scholarship agency covering both fees and living costs for study in the UK, they must have provided written consent to the application from that government or agency."
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.switching_prohibited_categories.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "substantive",
+    "predicate": {
+      "statement": "An applicant in the UK cannot switch into the Innovator Founder route if they have, or were last granted, permission as a Visitor, Short-term Student, Parent of a Child Student, Seasonal Worker, domestic worker in a private household, or outside the Immigration Rules.",
+      "structured": {
+        "actor": "applicant",
+        "verb": "must_not_hold_or_have_last_held",
+        "prohibited_categories": [
+          "Visitor",
+          "Short-term Student",
+          "Parent of a Child Student",
+          "Seasonal Worker",
+          "domestic worker in a private household",
+          "outside the Immigration Rules"
+        ]
+      }
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Not be in or last granted one of the prohibited permission categories when switching in-country."
+      ],
+      "caseworker": [
+        "Check the applicant's current or most recent permission category against the prohibited list."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Switching",
+        "verbatim_text": "An applicant who is in the UK cannot apply to switch into the Innovator Founder route if they have, or were last granted, permission as any of the following: as a Visitor, as a Short-term Student, as a Parent of a Child Student, as a Seasonal Worker, as a domestic worker in a private household, outside the Immigration Rules"
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.validity.student_course_completion.001",
+    "route": "innovator_founder",
+    "decision_stage": "validity",
+    "modality": "mandatory",
+    "assessment_mechanism": "n_of_m_alternatives",
+    "category": "substantive",
+    "predicate": {
+      "statement": "An applicant switching from Student permission must have completed the course of study for which their CAS was assigned (or a course to which paragraph ST 27.3 of Appendix Student applies), or, if the course was leading to a PhD award, must have completed at least 12 months of that course."
+    },
+    "thresholds": [
+      {
+        "value": 12,
+        "unit": "months",
+        "direction": "at_least",
+        "scope": "PhD_course_duration_completed"
+      }
+    ],
+    "alternatives": {
+      "minimum_required": 1,
+      "options": [
+        {
+          "id": "course_completed",
+          "statement": "The applicant has completed the course of study for which the CAS was assigned."
+        },
+        {
+          "id": "appendix_student_st_27_3",
+          "statement": "The course is one to which paragraph ST 27.3 of Appendix Student applies and has been completed."
+        },
+        {
+          "id": "phd_12_months",
+          "statement": "The course was leading to a PhD award and the applicant has completed at least 12 months of that course."
+        }
+      ]
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Demonstrate completion of the CAS course, or completion of at least 12 months of a PhD course."
+      ],
+      "caseworker": [
+        "Check the CAS end date.",
+        "Consider supporting evidence such as a results transcript or Student Sponsor notification where the CAS end date suggests the course is not yet complete.",
+        "Where the CAS course is at PhD level, use the course start date to assess whether at least 12 months have been completed.",
+        "If required, write to the applicant using the Validity reminder template before rejecting the application as invalid."
+      ]
+    },
+    "cross_references": [
+      "Appendix Student paragraph ST 27.3",
+      "Confirmation of Acceptance for Studies (CAS)",
+      "Validity reminder template"
+    ],
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Switching",
+        "verbatim_text": "An applicant who is applying for permission to stay and has, or last had, permission as a student must have completed the course of study for which the Confirmation of Acceptance for Studies was assigned (or a course to which paragraph ST 27.3 of Appendix Student applies). Alternatively, if the course was leading to a PhD award they must have completed at least 12 months of that course."
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  }
+]

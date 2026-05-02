@@ -1,0 +1,432 @@
+{
+  "client_slug": "alex-mendez",
+  "route_id": "innovator_founder",
+  "scored_at": "2026-05-01T18:10:39.066404+00:00",
+  "total": 16,
+  "cached": 16,
+  "cold": 0,
+  "results": [
+    {
+      "criterion_id": "INNF.eligibility.endorsement_required.001",
+      "probability_meets": 0.95,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "endorsement.endorsing_body",
+          "value": "Envestors Limited",
+          "matches": "Application supported by a named endorsing body (Envestors is a recognised Innovator Founder endorsing body)."
+        },
+        {
+          "field": "endorsement.letter_issued_date",
+          "value": "2026-04-01",
+          "matches": "Endorsement letter has been issued."
+        },
+        {
+          "field": "endorsement.withdrawn",
+          "value": false,
+          "matches": "Endorsement has not been withdrawn, so support remains in place."
+        },
+        {
+          "field": "endorsement.letter_received_application_date",
+          "value": "2026-04-25",
+          "matches": "Endorsement is tied to a specific application, evidencing that the application is supported."
+        }
+      ],
+      "missing_inputs": [
+        "copy_of_endorsement_letter_text",
+        "endorsing_body_unique_reference_number"
+      ],
+      "reasoning": "The candidate's profile shows an issued, non-withdrawn endorsement from Envestors Limited (a listed Innovator Founder endorsing body) attached to the application, which directly satisfies the binary requirement that the application be \"supported by an endorsing body.\" Other detailed endorsement-quality requirements (innovation/viability/scalability) are addressed in separate criteria; this criterion only asks whether endorsement exists, which it does. The small residual uncertainty reflects that the caseworker still verifies the endorsement reference with the endorsing body, but no red flags are present.",
+      "scored_at": "2026-05-01T18:10:39.066404+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.eligibility.key_role_in_business.001",
+      "probability_meets": 0.94,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "business.applicant_role",
+          "value": "Co-founder and CEO",
+          "matches": "A CEO/co-founder role is prima facie a key role in management and development."
+        },
+        {
+          "field": "business.applicant_active_in_day_to_day_management",
+          "value": true,
+          "matches": "Directly affirms day-to-day management involvement, which is the exact language of the criterion."
+        },
+        {
+          "field": "endorsement.endorsement_letter_describes_how_requirements_met",
+          "value": true,
+          "matches": "Endorsing body's letter describes how requirements are met, which typically includes the applicant's role in the business."
+        }
+      ],
+      "missing_inputs": [
+        "narrative description of the applicant's specific responsibilities (strategy, hiring, product, finance) to corroborate the CEO title",
+        "evidence of shareholding or directorship (e.g., Companies House filing) demonstrating control"
+      ],
+      "reasoning": "The candidate's stated role as Co-founder and CEO, combined with the explicit affirmation of active day-to-day management, directly maps onto the predicate's language. The endorsement letter further describes how requirements are met, providing third-party corroboration. While additional documentary evidence (Companies House, detailed role description) would strengthen the case, the available evidence comfortably satisfies a binary pass on this mandatory criterion.",
+      "scored_at": "2026-05-01T18:10:47.345593+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.documents_english_language.001",
+      "probability_meets": 0.93,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "documents_in_english_or_welsh",
+          "value": true,
+          "matches": "Directly affirms that all submitted documents are in English or Welsh, satisfying the predicate without need for translation."
+        }
+      ],
+      "missing_inputs": [
+        "explicit confirmation that no non-English/Welsh originals exist (e.g., foreign-language birth certificate, foreign bank statements)",
+        "if any non-English documents do exist, evidence of independently verified translations including translator credentials and certification statement"
+      ],
+      "reasoning": "The candidate profile explicitly flags `documents_in_english_or_welsh: true`, which directly meets the requirement of this validity criterion. There is no indication of any foreign-language document requiring a certified translation, and no contradictory evidence in the profile. Confidence is high, with only a small residual risk that some supporting document (e.g., overseas-issued personal records) might in practice be non-English and require a verified translation that hasn't been described.",
+      "scored_at": "2026-05-01T18:10:55.207210+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.translation_requirements.001",
+      "probability_meets": 0.9,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "documents_in_english_or_welsh",
+          "value": true,
+          "matches": "All documents are in English or Welsh, so translation requirements do not bite."
+        }
+      ],
+      "missing_inputs": [
+        "explicit confirmation that no document required translation",
+        "if any non-English documents exist, the translator's accuracy statement, date, signature, and contact details"
+      ],
+      "reasoning": "The candidate profile asserts that all documents are in English or Welsh, which means the translation requirement is not engaged and is therefore vacuously satisfied. There is no indication of any non-English/Welsh document that would require a compliant translation. A small residual risk remains in case any underlying document (e.g., foreign-issued) does require translation but was not flagged, hence not a perfect score.",
+      "scored_at": "2026-05-01T18:11:01.445047+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.translation_certification_in_uk.001",
+      "probability_meets": 0.9,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "documents_in_english_or_welsh",
+          "value": true,
+          "matches": "All documents are in English or Welsh, so no translations are required and the certification requirement is moot."
+        }
+      ],
+      "missing_inputs": [
+        "application_location_in_or_outside_uk",
+        "translation_certification_details_if_any_translation_provided"
+      ],
+      "reasoning": "The candidate's profile states all documents are in English or Welsh, meaning no translations are submitted and the certification requirement does not bite. The criterion is therefore satisfied vacuously regardless of whether the application is made in or outside the UK. Probability is set high but not at ceiling because the application location is not explicitly recorded and there is a small chance an undisclosed translated document exists.",
+      "scored_at": "2026-05-01T18:11:07.385404+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.application_validity.001",
+      "probability_meets": 0.78,
+      "confidence_level": "medium",
+      "supporting_evidence": [
+        {
+          "field": "intended_route",
+          "value": "innovator_founder",
+          "matches": "Application is on the Innovator Founder route to which this validity check applies."
+        },
+        {
+          "field": "endorsement.endorsing_body",
+          "value": "Envestors Limited",
+          "matches": "Endorsement from a recognised endorsing body, a core validity requirement for the route."
+        },
+        {
+          "field": "endorsement.letter_issued_date",
+          "value": "2026-04-01",
+          "matches": "Endorsement letter dated 2026-04-01; application received 2026-04-25, within the 3-month validity window."
+        },
+        {
+          "field": "endorsement.withdrawn",
+          "value": false,
+          "matches": "Endorsement not withdrawn, supporting validity."
+        },
+        {
+          "field": "documents_in_english_or_welsh",
+          "value": true,
+          "matches": "Documents in English/Welsh as required for a valid application."
+        },
+        {
+          "field": "suitability_concerns",
+          "value": null,
+          "matches": "No flagged issues that would render application invalid on face."
+        }
+      ],
+      "missing_inputs": [
+        "confirmation that the correct application form was used",
+        "confirmation that the application fee was paid",
+        "confirmation that the Immigration Health Surcharge was paid",
+        "confirmation that biometrics were provided",
+        "confirmation that proof of identity was provided"
+      ],
+      "reasoning": "Validity for Innovator Founder typically requires the correct form, fee, IHS, biometrics, identity, and a current endorsement. The profile shows a non-withdrawn endorsement letter issued well within the 3-month window before submission, documents in English, and no suitability issues, which are positive validity signals. However, the profile does not explicitly confirm form, fee, IHS, biometrics, or identity provision \u2014 all load-bearing validity requirements \u2014 so while nothing suggests invalidity, completeness cannot be fully verified, warranting a moderate-to-high but not maximal probability.",
+      "scored_at": "2026-05-01T18:11:18.341537+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.biometrics_registered.001",
+      "probability_meets": 0.7,
+      "confidence_level": "medium",
+      "supporting_evidence": [],
+      "missing_inputs": [
+        "biometrics_enrolled",
+        "biometrics_appointment_attended",
+        "biometrics_registration_confirmation",
+        "ukvcas_or_idv_app_completion_status"
+      ],
+      "reasoning": "The candidate profile contains no field indicating whether biometric information has been provided, enrolled, or verified. This is a routine procedural step that most applicants complete as part of submitting an application, so a baseline likelihood of compliance is reasonable, but no positive evidence is present. The burden of confirming registration/verification falls on the caseworker, while the applicant's obligation is simply to provide biometrics \u2014 neither is documented here. Score reflects baseline compliance assumption tempered by absence of any confirming field.",
+      "scored_at": "2026-05-01T18:11:25.303677+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.fee_and_ihc.001",
+      "probability_meets": 0.5,
+      "confidence_level": "low",
+      "supporting_evidence": [],
+      "missing_inputs": [
+        "fee_paid",
+        "ihc_paid",
+        "payment_confirmation_reference",
+        "application_fee_amount_gbp",
+        "ihc_amount_gbp"
+      ],
+      "reasoning": "The candidate profile contains no fields indicating whether the application fee or the Immigration Health Charge has been paid. This is a load-bearing validity requirement and the applicant bears the burden of payment. Without any payment evidence, I cannot conclude the criterion is met; I default to a low-confidence midpoint reflecting that most genuine applicants do pay both at submission, but the absence of confirmation in the profile prevents a higher score.",
+      "scored_at": "2026-05-01T18:11:31.550470+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.biometrics.001",
+      "probability_meets": 0.5,
+      "confidence_level": "low",
+      "supporting_evidence": [],
+      "missing_inputs": [
+        "biometrics_enrolled",
+        "biometrics_appointment_date",
+        "ukvcas_or_ukvi_biometric_confirmation"
+      ],
+      "reasoning": "The candidate profile contains no field indicating whether biometrics (fingerprints/photo) have been enrolled or an appointment booked. This is a load-bearing validity requirement and the applicant carries the burden. Without any evidence either way, the probability defaults to roughly even \u2014 biometrics are routinely provided by applicants who reach this stage, but absence of confirmation prevents a higher score.",
+      "scored_at": "2026-05-01T18:11:37.252291+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.identity_document.001",
+      "probability_meets": 0.5,
+      "confidence_level": "low",
+      "supporting_evidence": [
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "route": "student",
+              "from": "2020-09-01",
+              "to": "2024-06-30",
+              "outcome": "completed"
+            }
+          ],
+          "matches": "Prior successful UK student visa implies the applicant has held a passport, but no current passport details are provided."
+        },
+        {
+          "field": "full_name",
+          "value": "Alex Mendez",
+          "matches": "Identity asserted but no travel document field present."
+        }
+      ],
+      "missing_inputs": [
+        "passport_or_travel_document.document_number",
+        "passport_or_travel_document.nationality",
+        "passport_or_travel_document.expiry_date",
+        "passport_or_travel_document.issuing_authority",
+        "passport_or_travel_document.provided_with_application"
+      ],
+      "reasoning": "The candidate profile contains no field documenting that a passport or other travel document was provided with the application, nor any nationality/passport identifiers. While the prior completed UK student visa makes it plausible the applicant holds a valid travel document, the load-bearing evidence for this validity criterion is simply absent from the profile. Per calibration guidance, missing evidence on a mandatory load-bearing requirement warrants a probability in the 0.3\u20130.55 range.",
+      "scored_at": "2026-05-01T18:11:45.169540+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.endorsement_letter.001",
+      "probability_meets": 0.95,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "endorsement.letter_issued_date",
+          "value": "2026-04-01",
+          "matches": "Issue date is 24 days before application date (2026-04-25), well within 3-month window"
+        },
+        {
+          "field": "endorsement.letter_received_application_date",
+          "value": "2026-04-25",
+          "matches": "Application date used to compute 3-month window"
+        },
+        {
+          "field": "endorsement.withdrawn",
+          "value": false,
+          "matches": "Endorsement has not been withdrawn"
+        },
+        {
+          "field": "endorsement.endorsing_body",
+          "value": "Envestors Limited",
+          "matches": "Letter issued by an endorsing body"
+        }
+      ],
+      "missing_inputs": [],
+      "reasoning": "The endorsement letter was issued on 2026-04-01 and the application was received on 2026-04-25 \u2014 a gap of approximately 24 days, comfortably within the 3-month maximum. The endorsement is explicitly not withdrawn and was issued by a named endorsing body. Both prongs of the compound threshold are met by a wide margin with complete evidence, so a high probability is warranted.",
+      "scored_at": "2026-05-01T18:11:51.898439+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.not_on_immigration_bail.001",
+      "probability_meets": 0.95,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "route": "student",
+              "from": "2020-09-01",
+              "to": "2024-06-30",
+              "outcome": "completed"
+            }
+          ],
+          "matches": "Previous visa history shows a completed student visa with no indication of immigration bail status"
+        },
+        {
+          "field": "suitability_concerns",
+          "value": null,
+          "matches": "No suitability concerns flagged that might indicate immigration bail"
+        }
+      ],
+      "missing_inputs": [
+        "explicit_immigration_bail_status_field",
+        "current_immigration_status_at_application"
+      ],
+      "reasoning": "The candidate profile contains no indication that Alex is on immigration bail. The previous visa history shows a completed student visa with no enforcement or detention history, and suitability_concerns is null. While there is no explicit field stating \"not on immigration bail,\" the absence of any negative indicators combined with a clean completed prior visa makes it highly likely the candidate satisfies this validity requirement. Caseworker will verify directly via Home Office records.",
+      "scored_at": "2026-05-01T18:11:59.280667+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.minimum_age.001",
+      "probability_meets": 0.75,
+      "confidence_level": "medium",
+      "supporting_evidence": [
+        {
+          "field": "business.applicant_role",
+          "value": "Co-founder and CEO",
+          "matches": "Holding a CEO role of a business founded in 2024 is consistent with an adult applicant."
+        }
+      ],
+      "missing_inputs": [
+        "candidate.date_of_birth",
+        "candidate.age_at_application"
+      ],
+      "reasoning": "The candidate profile does not include a date of birth or age, which is the load-bearing field for this criterion. However, strong circumstantial evidence (a UK student visa held 2020-2024, then founding a company in 2024 and serving as CEO with an IELTS test in late 2025) makes it highly likely the applicant is well over 18 at the 2026 application date. Because the actual DOB is missing, I cannot mark this with high confidence, but the inferential basis is solid.",
+      "scored_at": "2026-05-01T18:12:07.984281+00:00",
+      "model_version": "claude-opus-4-7",
+      "sanity_check_flags": [
+        {
+          "field": "previous_visa_history[0]",
+          "reason": "field_not_in_candidate_profile"
+        }
+      ]
+    },
+    {
+      "criterion_id": "INNF.validity.scholarship_consent.001",
+      "probability_meets": 0.9,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "route": "student",
+              "from": "2020-09-01",
+              "to": "2024-06-30",
+              "outcome": "completed"
+            }
+          ],
+          "matches": "Previous student visa ended 2024-06-30, more than 12 months before the application in April 2026, so any study/scholarship period falls outside the 12-month lookback window."
+        },
+        {
+          "field": "intended_route",
+          "value": "innovator_founder",
+          "matches": "Application date is on or after 2026-04-25 (endorsement received). The trigger period is the 12 months before that date (2025-04-25 to 2026-04-25)."
+        }
+      ],
+      "missing_inputs": [
+        "Explicit declaration of whether any government/international scholarship was received in the 12 months before application",
+        "Written consent letter from awarding body if applicable"
+      ],
+      "reasoning": "The candidate's only known UK study ended on 2024-06-30, which is well outside the 12-month lookback window before the April 2026 application date. There is no indication of any government or international scholarship in the profile, so the exception (\"applicant has not received such an award\") most likely applies and the consent requirement is not triggered. The small residual uncertainty reflects that the profile does not explicitly affirm the absence of any qualifying scholarship within the lookback period.",
+      "scored_at": "2026-05-01T18:12:16.222396+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.switching_prohibited_categories.001",
+      "probability_meets": 0.9,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "route": "student",
+              "from": "2020-09-01",
+              "to": "2024-06-30",
+              "outcome": "completed"
+            }
+          ],
+          "matches": "Most recent permission was as a Student, which is not on the prohibited list (prohibited list excludes regular Student route; only Short-term Student is prohibited)."
+        }
+      ],
+      "missing_inputs": [
+        "current_immigration_status_in_uk",
+        "whether_applicant_currently_in_uk_or_applying_from_overseas",
+        "any_permission_held_between_2024-06-30_and_application_date"
+      ],
+      "reasoning": "The candidate's only recorded prior UK permission is as a Student (2020-2024), which is not among the prohibited switching categories (Visitor, Short-term Student, Parent of a Child Student, Seasonal Worker, domestic worker, or outside the Rules). The Student route is distinct from the prohibited Short-term Student category. However, there is a gap between June 2024 and the April 2026 endorsement with no information about the candidate's current location or any permission held in that interval, so we cannot fully exclude the possibility they later entered as a Visitor or fell outside the Rules. On the available evidence the criterion is most likely met, but the missing current-status information prevents full confidence.",
+      "scored_at": "2026-05-01T18:12:24.696262+00:00",
+      "model_version": "claude-opus-4-7"
+    },
+    {
+      "criterion_id": "INNF.validity.student_course_completion.001",
+      "probability_meets": 0.82,
+      "confidence_level": "medium",
+      "supporting_evidence": [],
+      "missing_inputs": [
+        "CAS reference and CAS end date",
+        "Course level (e.g., bachelor's, master's, PhD)",
+        "Results transcript or Student Sponsor completion notification",
+        "Confirmation of qualification awarded"
+      ],
+      "reasoning": "The candidate's previous_visa_history records a Student visa from 2020-09-01 to 2024-06-30 with outcome \"completed\", which is a strong indicator that the CAS course was completed (satisfying the 'course_completed' alternative). However, this criterion is also potentially moot \u2014 the applicant is switching now in 2026, well after their Student permission ended in mid-2024, so they may not be 'switching from Student' at all (the criterion may not apply). Assuming it does apply, the \"completed\" outcome tag is supportive but not definitive without a transcript or sponsor notification, hence a medium-high but not maximal probability.",
+      "scored_at": "2026-05-01T18:12:34.732314+00:00",
+      "model_version": "claude-opus-4-7",
+      "sanity_check_flags": [
+        {
+          "field": "previous_visa_history[0]",
+          "reason": "field_not_in_candidate_profile"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "high": 9,
+    "medium": 4,
+    "low": 3,
+    "below_threshold": 0,
+    "error": 0
+  },
+  "overall_pct": 80,
+  "verdict_class": "high",
+  "verdict_headline": "Mostly there"
+}

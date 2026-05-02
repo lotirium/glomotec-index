@@ -1,0 +1,26 @@
+{
+  "route_id": "innovator_founder",
+  "version_string": "v10.0 27 February 2026",
+  "content_hash": "6cd1e56048db3f0417993977db180c964a996ebd068e1a5f9f3434c646cce2b0",
+  "fetched_at": "2026-05-02T17:06:39.906893+00:00",
+  "source_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+  "criterion_count": 16,
+  "criterion_ids": [
+    "INNF.eligibility.endorsement_required.001",
+    "INNF.eligibility.key_role_in_business.001",
+    "INNF.validity.application_validity.001",
+    "INNF.validity.biometrics.001",
+    "INNF.validity.biometrics_registered.001",
+    "INNF.validity.documents_english_language.001",
+    "INNF.validity.endorsement_letter.001",
+    "INNF.validity.fee_and_ihc.001",
+    "INNF.validity.identity_document.001",
+    "INNF.validity.minimum_age.001",
+    "INNF.validity.not_on_immigration_bail.001",
+    "INNF.validity.scholarship_consent.001",
+    "INNF.validity.student_course_completion.001",
+    "INNF.validity.switching_prohibited_categories.001",
+    "INNF.validity.translation_certification_in_uk.001",
+    "INNF.validity.translation_requirements.001"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "candidate_id": "alex-001",
+  "full_name": "Alex Mendez",
+  "intended_route": "innovator_founder",
+  "endorsement": {
+    "endorsing_body": "Envestors Limited",
+    "letter_issued_date": "2026-04-01",
+    "letter_received_application_date": "2026-04-25",
+    "withdrawn": false,
+    "endorsement_path": "new_business",
+    "endorsement_letter_states_innovative_viable_scalable": true,
+    "endorsement_letter_describes_how_requirements_met": true
+  },
+  "business": {
+    "stage": "early",
+    "founded": "2024-09-15",
+    "applicant_role": "Co-founder and CEO",
+    "applicant_active_in_day_to_day_management": true,
+    "investment_to_date_gbp": 65000,
+    "annual_revenue_gbp": null,
+    "customers_count": 12,
+    "ip_filings": 1,
+    "full_time_jobs_for_settled_workers": 0
+  },
+  "english_language": {
+    "level": "B2",
+    "evidence_type": "IELTS UKVI Academic",
+    "score_overall": 7.0,
+    "test_date": "2025-11-12"
+  },
+  "finance": {
+    "personal_funds_gbp": 8500,
+    "held_for_at_least_28_days": true
+  },
+  "documents_in_english_or_welsh": true,
+  "absences_from_uk_days_last_12_months": 22,
+  "suitability_concerns": null,
+  "previous_visa_history": [
+    {"route": "student", "from": "2020-09-01", "to": "2024-06-30", "outcome": "completed"}
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "name": "record_criterion",
+  "description": "Record one extracted assessable criterion. Call once per distinct criterion in the section. If the section contains commentary, examples, or no actual rules, do not call this tool at all.",
+  "input_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "AssessableCriterion",
+    "type": "object",
+    "required": [
+      "id",
+      "route",
+      "decision_stage",
+      "modality",
+      "assessment_mechanism",
+      "predicate",
+      "burden_allocation",
+      "source"
+    ],
+    "additionalProperties": true,
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Stable identifier across versions, e.g. 'INNF.eligibility.endorsement_validity.001'"
+      },
+      "route": {
+        "type": "string"
+      },
+      "decision_stage": {
+        "type": "string",
+        "enum": [
+          "validity",
+          "suitability",
+          "eligibility",
+          "points",
+          "discretionary",
+          "settlement",
+          "post_grant"
+        ]
+      },
+      "modality": {
+        "type": "string",
+        "enum": [
+          "mandatory",
+          "discretionary",
+          "evidential_threshold"
+        ]
+      },
+      "assessment_mechanism": {
+        "type": "string",
+        "enum": [
+          "binary_pass",
+          "points_arithmetic",
+          "n_of_m_alternatives",
+          "endorser_attestation",
+          "balance_of_probability",
+          "quantified_threshold",
+          "compound_threshold"
+        ]
+      },
+      "predicate": {
+        "type": "object",
+        "required": [
+          "statement"
+        ],
+        "properties": {
+          "statement": {
+            "type": "string"
+          },
+          "structured": {
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        }
+      },
+      "thresholds": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "value",
+            "unit",
+            "direction"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "number",
+                "string"
+              ]
+            },
+            "unit": {
+              "type": "string"
+            },
+            "direction": {
+              "type": "string",
+              "enum": [
+                "at_least",
+                "at_most",
+                "exactly",
+                "between"
+              ]
+            },
+            "scope": {
+              "type": "string"
+            },
+            "derivation_rule": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "default_behaviour": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "trigger_for_departure": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "burden_allocation": {
+        "type": "object",
+        "properties": {
+          "applicant": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "endorsing_body": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sponsor": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "caseworker": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "alternatives": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "minimum_required": {
+            "type": "integer"
+          },
+          "options": {
+            "type": "array"
+          },
+          "non_double_counting_rule": {
+            "type": "string"
+          }
+        }
+      },
+      "exceptions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "condition": {
+              "type": "string"
+            },
+            "applies_to": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "cross_references": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "source": {
+        "type": "object",
+        "required": [
+          "document_url",
+          "document_version",
+          "anchor"
+        ],
+        "properties": {
+          "document_url": {
+            "type": "string"
+          },
+          "document_version": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "object",
+            "properties": {
+              "section_heading": {
+                "type": "string"
+              },
+              "paragraph_id": {
+                "type": "string"
+              },
+              "verbatim_text": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "lifecycle": {
+        "type": "object",
+        "properties": {
+          "version_first_seen": {
+            "type": "string"
+          },
+          "last_modified_in_version": {
+            "type": "string"
+          },
+          "last_change_class": {
+            "type": "string",
+            "enum": [
+              "numeric",
+              "pathway",
+              "process",
+              "cosmetic",
+              "novel"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

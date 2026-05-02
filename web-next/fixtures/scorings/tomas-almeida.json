@@ -1,0 +1,592 @@
+{
+  "client_slug": "tomas-almeida",
+  "route_id": "innovator_founder",
+  "scored_at": "2026-05-02T17:20:52.122741+00:00",
+  "total": 16,
+  "cached": 16,
+  "cold": 0,
+  "results": [
+    {
+      "criterion_id": "INNF.eligibility.endorsement_required.001",
+      "probability_meets": 0.92,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "endorsement.endorsing_body",
+          "value": "UK Endorsement Services",
+          "matches": "An endorsing body is identified and has provided support for the application."
+        },
+        {
+          "field": "endorsement.letter_issued_date",
+          "value": "2025-03-12",
+          "matches": "An endorsement letter has been issued, confirming active support from the endorsing body."
+        },
+        {
+          "field": "endorsement.withdrawn",
+          "value": false,
+          "matches": "The endorsement has not been withdrawn, so support remains in place."
+        },
+        {
+          "field": "endorsement.endorsement_path",
+          "value": "same_business",
+          "matches": "Endorsement path is specified, indicating an established endorsement relationship for this business."
+        }
+      ],
+      "missing_inputs": [
+        "endorsement.letter_received_application_date"
+      ],
+      "reasoning": "The candidate has a named endorsing body (\"UK Endorsement Services\"), a dated endorsement letter (2025-03-12), and the endorsement has not been withdrawn \u2014 all strongly indicating the application is supported by an endorsing body as required. The only minor gap is that `letter_received_application_date` is null, meaning it cannot be confirmed the letter was received at the point of application, but this is largely a caseworker verification step rather than a candidate burden. The core applicant obligation \u2014 obtaining endorsement \u2014 appears clearly satisfied.",
+      "scored_at": "2026-05-02T17:20:52.122741+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.eligibility.key_role_in_business.001",
+      "probability_meets": 0.92,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "business.applicant_role",
+          "value": "CTO and co-founder",
+          "matches": "CTO and co-founder is a senior, key role in business development and management"
+        },
+        {
+          "field": "business.applicant_active_in_day_to_day_management",
+          "value": true,
+          "matches": "Explicitly confirms active participation in day-to-day management"
+        }
+      ],
+      "missing_inputs": [
+        "Description of specific day-to-day responsibilities or duties",
+        "Confirmation from endorsing body narrative describing applicant's key role"
+      ],
+      "reasoning": "The candidate is the CTO and co-founder of the business, which is inherently a key leadership role encompassing both management and technical development. The profile explicitly states the applicant is active in day-to-day management, directly satisfying the criterion's predicate. The endorsing body has issued an endorsement letter, implying their satisfaction with the applicant's role, although the letter is noted as not fully describing how all requirements are met. The combination of the senior title and the explicit day-to-day management flag provides strong evidence this criterion is met.",
+      "scored_at": "2026-05-02T17:20:58.476754+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.documents_english_language.001",
+      "probability_meets": 0.12,
+      "confidence_level": "below_threshold",
+      "supporting_evidence": [
+        {
+          "field": "documents_in_english_or_welsh",
+          "value": false,
+          "matches": "Candidate has explicitly indicated that documents are NOT in English or Welsh."
+        }
+      ],
+      "missing_inputs": [
+        "confirmation_of_independently_verified_translation_provided",
+        "list_of_non_english_documents_submitted"
+      ],
+      "reasoning": "The candidate profile explicitly records `documents_in_english_or_welsh: false`, which is a direct flag that documents are not in English or Welsh. The criterion requires that in such a case, the applicant must provide the original document together with a full, independently verified translation. There is no evidence in the profile that such translations have been provided. Without confirmation that independently verified translations accompany the non-English/Welsh originals, the criterion is very likely to fail at the validity stage. A small residual probability is retained only because it is possible translations exist but were not captured in this profile.",
+      "scored_at": "2026-05-02T17:21:04.395717+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.translation_requirements.001",
+      "probability_meets": 0.12,
+      "confidence_level": "below_threshold",
+      "supporting_evidence": [
+        {
+          "field": "documents_in_english_or_welsh",
+          "value": false,
+          "matches": "Candidate has documents that are NOT in English or Welsh, meaning translation requirements are directly triggered."
+        }
+      ],
+      "missing_inputs": [
+        "translation_accuracy_statement_confirmed",
+        "translation_date_present",
+        "translator_name_and_signature_present",
+        "translator_or_company_contact_details_present",
+        "details_of_which_documents_require_translation"
+      ],
+      "reasoning": "The candidate's profile explicitly states `documents_in_english_or_welsh: false`, which directly triggers the translation requirement criterion. However, the profile contains no evidence whatsoever that any translations have been provided, let alone that they meet all four mandatory elements (accuracy statement, date, signed name/signature, and contact details). Because the criterion is mandatory and compound \u2014 all four elements must be present \u2014 and zero evidence of compliant translations exists in the profile, the probability of meeting this criterion is very low. The missing translation compliance data is load-bearing, driving the score well below threshold.",
+      "scored_at": "2026-05-02T17:21:11.405257+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.translation_certification_in_uk.001",
+      "probability_meets": 0.35,
+      "confidence_level": "low",
+      "supporting_evidence": [
+        {
+          "field": "documents_in_english_or_welsh",
+          "value": false,
+          "matches": "Candidate has documents NOT in English or Welsh, meaning translations are required and this criterion is directly triggered."
+        },
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "category": "Innovator Founder",
+              "from": "2024-04-15",
+              "to": "2027-04-15"
+            }
+          ],
+          "matches": "Candidate holds a current Innovator Founder visa valid until 2027, strongly suggesting they are present in and applying from within the UK, triggering the full certification and credentials requirement."
+        },
+        {
+          "field": "stage",
+          "value": "endorsement_sought",
+          "matches": "Application is at endorsement stage; no explicit confirmation of in-UK application location, but UK presence is highly implied by active UK visa."
+        }
+      ],
+      "missing_inputs": [
+        "explicit_application_location (in_uk vs outside_uk)",
+        "translation_certification_status (whether translations are fully certified)",
+        "translator_credentials_included (whether translator/company credentials are present in the translation documents)"
+      ],
+      "reasoning": "The candidate's documents are not in English or Welsh, so translations are required and this criterion is directly engaged. The candidate holds an active Innovator Founder visa (valid to 2027), making it highly probable they are applying from within the UK, which triggers the mandatory requirement for fully certified translations including translator/company credentials. However, the profile contains no information confirming (a) that the application is definitively in-country, (b) whether any translations provided are fully certified, or (c) whether translator credentials are included. Given the absence of these load-bearing details and the added risk that non-certified translations of non-English documents would be a clear validity failure, the probability of meeting this criterion cannot be rated highly.",
+      "scored_at": "2026-05-02T17:21:21.363507+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.application_validity.001",
+      "probability_meets": 0.5,
+      "confidence_level": "low",
+      "supporting_evidence": [
+        {
+          "field": "intended_route",
+          "value": "innovator_founder",
+          "matches": "Candidate is applying on the correct Innovator Founder route"
+        },
+        {
+          "field": "stage",
+          "value": "endorsement_sought",
+          "matches": "Application is at an active procedural stage, suggesting a submission attempt"
+        },
+        {
+          "field": "endorsement.letter_issued_date",
+          "value": "2025-03-12",
+          "matches": "Endorsement letter has been issued, a key prerequisite for a valid application"
+        },
+        {
+          "field": "endorsement.withdrawn",
+          "value": false,
+          "matches": "Endorsement has not been withdrawn"
+        },
+        {
+          "field": "filed_on",
+          "value": null,
+          "matches": "No application filing date recorded \u2014 application may not yet have been formally submitted"
+        },
+        {
+          "field": "endorsement.letter_received_application_date",
+          "value": null,
+          "matches": "No date confirming the endorsement letter was received alongside the application \u2014 a required element for validity"
+        },
+        {
+          "field": "finance.personal_funds_gbp",
+          "value": 1300,
+          "matches": "Personal funds (\u00a31,300) appear below the typical maintenance requirement, potentially affecting validity"
+        },
+        {
+          "field": "finance.held_for_at_least_28_days",
+          "value": false,
+          "matches": "Funds have NOT been held for the required 28-day period \u2014 a common validity disqualifier"
+        },
+        {
+          "field": "documents_in_english_or_welsh",
+          "value": false,
+          "matches": "Documents are not in English or Welsh \u2014 this may render supporting evidence invalid"
+        },
+        {
+          "field": "english_language.evidence_type",
+          "value": "IELTS for UKVI",
+          "matches": "Approved English language test type provided"
+        },
+        {
+          "field": "english_language.score_overall",
+          "value": 5.5,
+          "matches": "IELTS overall score of 5.5 meets the B1 minimum threshold"
+        }
+      ],
+      "missing_inputs": [
+        "filed_on",
+        "endorsement.letter_received_application_date",
+        "confirmation of maintenance funds threshold met",
+        "full list of required documents submitted"
+      ],
+      "reasoning": "The criterion is a caseworker-side procedural check, but it is triggered by the applicant having submitted a valid application. Several red flags undermine validity confidence: the application has no recorded filing date (`filed_on` is null), the endorsement letter receipt date at application is also null, the maintenance funds (\u00a31,300) are almost certainly below threshold and have not been held for the required 28 days, and supporting documents are not in English or Welsh. These are each independently capable of invalidating an application. While the endorsement letter has been issued and not withdrawn, the cumulative procedural deficiencies make it unlikely a caseworker would confirm the application as valid without remediation.",
+      "scored_at": "2026-05-02T17:21:32.968969+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.biometrics_registered.001",
+      "probability_meets": 0.7,
+      "confidence_level": "medium",
+      "supporting_evidence": [
+        {
+          "field": "intended_route",
+          "value": "innovator_founder",
+          "matches": "Candidate is applying under the Innovator Founder route, making this criterion applicable."
+        },
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "category": "Start-up",
+              "from": "2022-04-01",
+              "to": "2024-04-01"
+            },
+            {
+              "category": "Innovator Founder",
+              "from": "2024-04-15",
+              "to": "2027-04-15"
+            }
+          ],
+          "matches": "Candidate has prior UK visa history, suggesting biometrics were previously registered with UKVI, which may facilitate verification."
+        },
+        {
+          "field": "stage",
+          "value": "endorsement_sought",
+          "matches": "Application is at endorsement stage, not yet at the formal Home Office submission stage where biometric registration is confirmed."
+        }
+      ],
+      "missing_inputs": [
+        "biometric_registration_confirmed",
+        "filed_on",
+        "application_reference_number"
+      ],
+      "reasoning": "This criterion is primarily a caseworker-side obligation: the caseworker must confirm that biometric information has been registered and verified before proceeding. The applicant's burden is to provide biometric information, which cannot be confirmed from the profile as no biometric registration field is present. The candidate has prior UK visa history (Start-up and Innovator Founder visas), suggesting biometrics are likely already on file with UKVI, which is a positive indicator. However, the application has not yet been formally filed (filed_on is null) and the stage is 'endorsement_sought', meaning formal biometric registration for this application cannot yet be confirmed. A medium probability reflects the likely prior biometric enrolment but uncertainty about formal registration for the current application.",
+      "scored_at": "2026-05-02T17:21:41.564014+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.fee_and_ihc.001",
+      "probability_meets": 0.5,
+      "confidence_level": "low",
+      "supporting_evidence": [
+        {
+          "field": "stage",
+          "value": "endorsement_sought",
+          "matches": "Candidate is at pre-application stage; no application has been filed yet, so fee/IHC payment status is not recorded in the profile"
+        },
+        {
+          "field": "filed_on",
+          "value": null,
+          "matches": "No application filing date present, suggesting the application (and associated fee/IHC payment) has not yet been submitted"
+        }
+      ],
+      "missing_inputs": [
+        "fee_paid",
+        "ihc_paid",
+        "filed_on",
+        "application_submission_confirmation"
+      ],
+      "reasoning": "The candidate profile contains no evidence of fee or Immigration Health Charge payment \u2014 the `filed_on` field is null and the stage is `endorsement_sought`, indicating no application has yet been formally submitted. Because this is a caseworker-verified procedural requirement triggered at the point of application submission, it cannot be confirmed or denied from the current profile data. The applicant burden (paying the fee and IHC) may well be discharged at the time of filing, but absent any payment confirmation or filing record, the probability of demonstrated compliance is uncertain. A neutral 0.5 reflects genuine uncertainty rather than a positive or negative finding.",
+      "scored_at": "2026-05-02T17:21:48.671486+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.biometrics.001",
+      "probability_meets": 0.62,
+      "confidence_level": "medium",
+      "supporting_evidence": [
+        {
+          "field": "candidate_id",
+          "value": "tomas-003",
+          "matches": "Candidate exists and has a profile; prior visa history (Start-up visa 2022\u20132024, Innovator Founder 2024\u20132027) implies biometrics were collected at least once previously as part of those applications."
+        },
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "category": "Start-up",
+              "from": "2022-04-01",
+              "to": "2024-04-01"
+            },
+            {
+              "category": "Innovator Founder",
+              "from": "2024-04-15",
+              "to": "2027-04-15"
+            }
+          ],
+          "matches": "Two prior UK visa grants suggest the applicant is enrolled in the biometric system, making compliance with biometric requirements plausible."
+        },
+        {
+          "field": "stage",
+          "value": "endorsement_sought",
+          "matches": "Application is still at endorsement stage; biometric enrolment typically occurs at the formal application/visa appointment stage, so it cannot be confirmed as completed yet."
+        }
+      ],
+      "missing_inputs": [
+        "biometrics_provided",
+        "biometric_enrolment_confirmation",
+        "application_submission_date (filed_on is null)"
+      ],
+      "reasoning": "The candidate profile contains no explicit field confirming that biometrics have been provided for the current application. The application stage is 'endorsement_sought' and 'filed_on' is null, indicating the formal visa application has not yet been submitted, meaning biometric enrolment has likely not yet occurred. However, the candidate's prior visa history (two UK visa grants) shows they are already enrolled in the UK biometric system, which somewhat reduces the risk of non-compliance when the time comes. Because this is a procedural/binary requirement that cannot be verified from the profile data provided, and the application has not been formally filed, the probability is assessed as moderately uncertain rather than high.",
+      "scored_at": "2026-05-02T17:21:57.923360+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.identity_document.001",
+      "probability_meets": 0.5,
+      "confidence_level": "low",
+      "supporting_evidence": [
+        {
+          "field": "nationality",
+          "value": "Brazil",
+          "matches": "Nationality is recorded, suggesting some identity document was presented or recorded at profile stage."
+        },
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "category": "Start-up",
+              "from": "2022-04-01",
+              "to": "2024-04-01"
+            },
+            {
+              "category": "Innovator Founder",
+              "from": "2024-04-15",
+              "to": "2027-04-15"
+            }
+          ],
+          "matches": "Prior UK visa grants imply a passport or travel document was previously accepted by UKVI, suggesting one likely exists."
+        },
+        {
+          "field": "documents_in_english_or_welsh",
+          "value": false,
+          "matches": "Documents are noted as NOT in English or Welsh, which may indicate translation/certification issues with submitted documents, though this field may not directly relate to the identity document itself."
+        }
+      ],
+      "missing_inputs": [
+        "passport_number",
+        "passport_expiry_date",
+        "travel_document_type",
+        "confirmation_that_passport_or_travel_document_submitted",
+        "document_certified_translation_status"
+      ],
+      "reasoning": "The candidate profile does not explicitly record whether a passport or travel document has been provided as part of this application. While the candidate's nationality (Brazilian) is noted and prior UK visa grants strongly suggest a valid passport exists, there is no field in the profile confirming that a passport or travel document has been submitted for this application. The `documents_in_english_or_welsh: false` flag introduces mild additional uncertainty about document compliance. Without explicit confirmation of identity document submission, this load-bearing requirement cannot be verified, warranting a 0.5 probability reflecting genuine uncertainty rather than a likely pass.",
+      "scored_at": "2026-05-02T17:22:06.698560+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.endorsement_letter.001",
+      "probability_meets": 0.35,
+      "confidence_level": "below_threshold",
+      "supporting_evidence": [
+        {
+          "field": "endorsement.letter_issued_date",
+          "value": "2025-03-12",
+          "matches": "Endorsement letter has been issued \u2014 satisfies the 'letter exists' component."
+        },
+        {
+          "field": "endorsement.withdrawn",
+          "value": false,
+          "matches": "Endorsement has not been withdrawn \u2014 satisfies the non-withdrawal requirement."
+        },
+        {
+          "field": "endorsement.letter_received_application_date",
+          "value": null,
+          "matches": "Application date is unknown \u2014 cannot verify the 3-month window between issue (2025-03-12) and application."
+        },
+        {
+          "field": "filed_on",
+          "value": null,
+          "matches": "Application filing date is null \u2014 cannot compute time elapsed since endorsement letter was issued."
+        }
+      ],
+      "missing_inputs": [
+        "filed_on",
+        "endorsement.letter_received_application_date"
+      ],
+      "reasoning": "The endorsement letter was issued on 2025-03-12 and has not been withdrawn, both of which are positive indicators. However, the application date is unknown (both `filed_on` and `endorsement.letter_received_application_date` are null), making it impossible to confirm whether the application was filed within 3 months of the letter's issue date. Without the application date, the load-bearing threshold \u2014 letter issued no more than 3 months before application \u2014 cannot be verified. This missing critical data point substantially reduces confidence, warranting a below-threshold probability.",
+      "scored_at": "2026-05-02T17:22:12.699882+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.not_on_immigration_bail.001",
+      "probability_meets": 0.85,
+      "confidence_level": "medium",
+      "supporting_evidence": [
+        {
+          "field": "suitability_concerns",
+          "value": null,
+          "matches": "No suitability concerns recorded, including no mention of immigration bail."
+        },
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "category": "Start-up",
+              "from": "2022-04-01",
+              "to": "2024-04-01"
+            },
+            {
+              "category": "Innovator Founder",
+              "from": "2024-04-15",
+              "to": "2027-04-15"
+            }
+          ],
+          "matches": "Candidate holds an active Innovator Founder visa (valid to 2027-04-15), suggesting lawful leave rather than immigration bail status."
+        },
+        {
+          "field": "stage",
+          "value": "endorsement_sought",
+          "matches": "Application is at endorsement stage, not post-refusal or removal stage where bail is more typically encountered."
+        }
+      ],
+      "missing_inputs": [
+        "explicit_immigration_bail_status",
+        "current_leave_status_confirmation"
+      ],
+      "reasoning": "The candidate profile contains no explicit field confirming or denying immigration bail status. However, strong indirect evidence supports that the candidate is not on bail: they hold an active Innovator Founder visa valid until April 2027, their suitability_concerns field is null, and there are no indicators of curtailment, refusal, or removal proceedings. Immigration bail typically arises after leave has expired or been curtailed, which is inconsistent with the candidate's active visa. The absence of a direct bail status field prevents a higher-confidence score, but the available evidence points clearly away from bail.",
+      "scored_at": "2026-05-02T17:22:19.967394+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.minimum_age.001",
+      "probability_meets": 0.62,
+      "confidence_level": "medium",
+      "supporting_evidence": [
+        {
+          "field": "candidate_id",
+          "value": "tomas-003",
+          "matches": "Candidate is identified but no date of birth is provided in the profile."
+        },
+        {
+          "field": "business.founded",
+          "value": "2022-03-01",
+          "matches": "Co-founded a business in March 2022, which strongly implies adulthood at that time and therefore 18+ at the current application date."
+        },
+        {
+          "field": "business.applicant_role",
+          "value": "CTO and co-founder",
+          "matches": "Active co-founder role in a business founded in 2022 is consistent with being an adult."
+        }
+      ],
+      "missing_inputs": [
+        "date_of_birth",
+        "filed_on"
+      ],
+      "reasoning": "The candidate profile does not include a date of birth, which is the direct load-bearing input for this threshold. However, circumstantial evidence \u2014 including holding a Start-up visa since April 2022, co-founding a business in March 2022, and the CTO role \u2014 strongly implies the candidate was an adult at least as of 2022, making it very likely they are 18 or over at the time of application. The absence of an explicit date of birth prevents a high-confidence score, but the indirect evidence keeps the probability well above the midpoint. The application date (`filed_on`) is also null, meaning the precise reference date for age calculation cannot be confirmed.",
+      "scored_at": "2026-05-02T17:22:28.160107+00:00",
+      "model_version": "claude-sonnet-4-6",
+      "sanity_check_flags": [
+        {
+          "field": "previous_visa_history[0].from",
+          "reason": "field_not_in_candidate_profile"
+        }
+      ]
+    },
+    {
+      "criterion_id": "INNF.validity.scholarship_consent.001",
+      "probability_meets": 0.92,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "intended_route",
+          "value": "innovator_founder",
+          "matches": "Candidate is applying under the Innovator Founder route, to which this criterion applies."
+        },
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "category": "Start-up",
+              "from": "2022-04-01",
+              "to": "2024-04-01"
+            },
+            {
+              "category": "Innovator Founder",
+              "from": "2024-04-15",
+              "to": "2027-04-15"
+            }
+          ],
+          "matches": "Visa history shows Start-up and Innovator Founder categories only \u2014 no indication of a government or international scholarship award covering fees and living costs for UK study."
+        },
+        {
+          "field": "business.stage",
+          "value": "growth",
+          "matches": "Candidate is an active business operator (CTO and co-founder), not a student on a scholarship-funded programme."
+        },
+        {
+          "field": "finance.personal_funds_gbp",
+          "value": 1300,
+          "matches": "Self-held personal funds are present; no mention of scholarship-sourced funding for study."
+        }
+      ],
+      "missing_inputs": [
+        "explicit_scholarship_award_flag",
+        "scholarship_agency_name",
+        "scholarship_consent_document"
+      ],
+      "reasoning": "The criterion is conditional: it only applies if the candidate received a government or international scholarship covering both fees and living costs for UK study in the 12 months before the application date. There is no evidence in the candidate profile of any such scholarship \u2014 the visa history shows only Start-up and Innovator Founder leave, the business profile indicates active commercial operation, and no scholarship or study-funding source is mentioned anywhere. The exception clause therefore almost certainly applies, meaning no written consent is required. The small residual uncertainty arises solely because the profile does not contain an explicit field confirming the absence of a qualifying scholarship, so a caseworker would need to verify this directly.",
+      "scored_at": "2026-05-02T17:22:38.400232+00:00",
+      "model_version": "claude-sonnet-4-6"
+    },
+    {
+      "criterion_id": "INNF.validity.switching_prohibited_categories.001",
+      "probability_meets": 0.97,
+      "confidence_level": "high",
+      "supporting_evidence": [],
+      "missing_inputs": [],
+      "reasoning": "The candidate's visa history shows two prior permissions: a Start-up visa (2022\u20132024) followed by an Innovator Founder visa (2024\u20132027), which is the current and most recently granted permission. Neither category appears in the prohibited list (Visitor, Short-term Student, Parent of a Child Student, Seasonal Worker, domestic worker in a private household, or outside the Immigration Rules). The candidate is therefore extending/continuing within the Innovator Founder route rather than switching from a prohibited category, clearly satisfying this criterion. No evidence of any prohibited permission is present in the profile.",
+      "scored_at": "2026-05-02T17:22:44.662160+00:00",
+      "model_version": "claude-sonnet-4-6",
+      "sanity_check_flags": [
+        {
+          "field": "previous_visa_history[0].category",
+          "reason": "field_not_in_candidate_profile"
+        },
+        {
+          "field": "previous_visa_history[1].category",
+          "reason": "field_not_in_candidate_profile"
+        },
+        {
+          "field": "previous_visa_history[1].to",
+          "reason": "field_not_in_candidate_profile"
+        }
+      ]
+    },
+    {
+      "criterion_id": "INNF.validity.student_course_completion.001",
+      "probability_meets": 0.92,
+      "confidence_level": "high",
+      "supporting_evidence": [
+        {
+          "field": "intended_route",
+          "value": "innovator_founder",
+          "matches": "Criterion applies to Innovator Founder route applicants."
+        },
+        {
+          "field": "previous_visa_history",
+          "value": [
+            {
+              "category": "Start-up",
+              "from": "2022-04-01",
+              "to": "2024-04-01"
+            },
+            {
+              "category": "Innovator Founder",
+              "from": "2024-04-15",
+              "to": "2027-04-15"
+            }
+          ],
+          "matches": "Candidate's previous visa categories are Start-up and Innovator Founder \u2014 neither is a Student visa. This criterion only applies to applicants switching from Student permission. No switch from Student is present in the visa history."
+        },
+        {
+          "field": "stage",
+          "value": "endorsement_sought",
+          "matches": "Candidate is at endorsement/application stage on an existing Innovator Founder permission, not switching from Student."
+        }
+      ],
+      "missing_inputs": [],
+      "reasoning": "This criterion is exclusively triggered by applicants switching from Student permission. Tom\u00e1s Almeida's visa history shows only a Start-up visa (2022\u20132024) followed by an Innovator Founder visa (2024\u20132027); there is no Student permission in his history. Because the predicate condition \u2014 switching from Student \u2014 is not met, this criterion does not apply to him and he passes it by default. The probability is set high (0.92 rather than 1.0) to account for the small possibility that undisclosed Student permission exists that is not reflected in the provided profile.",
+      "scored_at": "2026-05-02T17:22:52.171684+00:00",
+      "model_version": "claude-sonnet-4-6"
+    }
+  ],
+  "summary": {
+    "high": 5,
+    "medium": 4,
+    "low": 4,
+    "below_threshold": 3,
+    "error": 0
+  },
+  "overall_pct": 62,
+  "verdict_class": "medium",
+  "verdict_headline": "Blocking gaps to resolve"
+}

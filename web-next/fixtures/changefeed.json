@@ -1,0 +1,143 @@
+[
+  {
+    "id": "chg-2026-04-22-01",
+    "observed_at": "2026-04-22T08:14:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.4 15 November 2025",
+    "document_version_after": "v10.0 27 February 2026",
+    "kind": "threshold_changed",
+    "headline": "Endorsement letter validity window confirmed at 3 months from issue",
+    "summary": "v10.0 makes explicit that the 3-month window runs from the date the endorsing body issued the letter, not the date it was countersigned. Caseworkers will refuse where the letter is older than 3 months at the date of application.",
+    "affected_criterion_ids": ["INNF.validity.endorsement_letter.001"],
+    "source_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+    "diff_excerpt": {
+      "before": "An endorsement letter must have been issued no more than 3 months before the date of application.",
+      "after": "An endorsement letter must have been issued no more than 3 months before the date of application. The 3-month period runs from the date the endorsing body issued the letter."
+    },
+    "advisor_impact": "high"
+  },
+  {
+    "id": "chg-2026-04-22-02",
+    "observed_at": "2026-04-22T08:14:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.4 15 November 2025",
+    "document_version_after": "v10.0 27 February 2026",
+    "kind": "guidance_clarified",
+    "headline": "Same-business endorsement path: 'innovative, viable, scalable' must be re-confirmed",
+    "summary": "Where an applicant is endorsed under the same-business path, the endorsing body must re-confirm at every contact point that the business remains innovative, viable and scalable. Letters that simply reference the original endorsement no longer suffice.",
+    "affected_criterion_ids": ["INNF.validity.endorsement_letter.001", "INNF.eligibility.endorsement_required.001"],
+    "source_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+    "advisor_impact": "high"
+  },
+  {
+    "id": "chg-2026-03-04-01",
+    "observed_at": "2026-03-04T10:02:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.3 02 September 2025",
+    "document_version_after": "v9.4 15 November 2025",
+    "kind": "evidence_requirement_changed",
+    "headline": "Translation certifications must now name the translator's UK business address",
+    "summary": "Translations submitted to support an Innovator Founder application must include the translator's UK business address where the applicant is in the UK at the date of application. Personal addresses or PO boxes are no longer accepted.",
+    "affected_criterion_ids": [
+      "INNF.validity.translation_requirements.001",
+      "INNF.validity.translation_certification_in_uk.001"
+    ],
+    "source_url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-introduction",
+    "diff_excerpt": {
+      "before": "Translations must be certified by a professional translator with a name, signature, date and contact details.",
+      "after": "Translations must be certified by a professional translator with a name, signature, date and UK business address where the applicant is in the UK."
+    },
+    "advisor_impact": "medium"
+  },
+  {
+    "id": "chg-2026-02-27-01",
+    "observed_at": "2026-02-27T08:00:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.4 15 November 2025",
+    "document_version_after": "v10.0 27 February 2026",
+    "kind": "criterion_added",
+    "headline": "Suitability check now lists company-officer disqualification as automatic refusal",
+    "summary": "v10.0 adds an explicit suitability check: an applicant disqualified as a company director under the Company Directors Disqualification Act 1986 will be refused. Previously this was a discretionary suitability factor.",
+    "affected_criterion_ids": [],
+    "source_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+    "advisor_impact": "medium"
+  },
+  {
+    "id": "chg-2026-02-27-02",
+    "observed_at": "2026-02-27T08:00:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.4 15 November 2025",
+    "document_version_after": "v10.0 27 February 2026",
+    "kind": "guidance_clarified",
+    "headline": "Founders may hold the role across more than one endorsed business",
+    "summary": "v10.0 confirms that an Innovator Founder applicant may take a key role in more than one endorsed business, provided each business retains its own endorsement and the applicant remains active in day-to-day management of each.",
+    "affected_criterion_ids": ["INNF.eligibility.key_role_in_business.001"],
+    "source_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+    "advisor_impact": "low"
+  },
+  {
+    "id": "chg-2026-01-19-01",
+    "observed_at": "2026-01-19T09:30:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.3 02 September 2025",
+    "document_version_after": "v9.4 15 November 2025",
+    "kind": "form_updated",
+    "headline": "Online application form: endorsement reference number now mandatory",
+    "summary": "The Innovator Founder online application form now requires the endorsement reference number issued by the endorsing body. Applications without a reference number are returned as invalid before substantive consideration.",
+    "affected_criterion_ids": ["INNF.validity.application_validity.001"],
+    "source_url": "https://www.gov.uk/apply-to-come-to-the-uk",
+    "advisor_impact": "medium"
+  },
+  {
+    "id": "chg-2025-12-15-01",
+    "observed_at": "2025-12-15T11:48:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.3 02 September 2025",
+    "document_version_after": "v9.4 15 November 2025",
+    "kind": "evidence_requirement_changed",
+    "headline": "Personal funds: 28-day rule cannot be satisfied by a single transfer in",
+    "summary": "Caseworkers must now refuse where personal funds were credited to the maintenance account by a single transfer within the 28-day window. Continuous holding from before the window remains the only accepted pattern.",
+    "affected_criterion_ids": [],
+    "source_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+    "advisor_impact": "high"
+  },
+  {
+    "id": "chg-2025-11-22-01",
+    "observed_at": "2025-11-22T15:11:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.2 12 May 2025",
+    "document_version_after": "v9.3 02 September 2025",
+    "kind": "guidance_clarified",
+    "headline": "Switching from Graduate route confirmed permitted",
+    "summary": "v9.3 makes the switching position explicit: applicants holding Graduate route permission may switch into Innovator Founder without leaving the UK, provided the endorsement and other validity checks are satisfied.",
+    "affected_criterion_ids": ["INNF.validity.switching_prohibited_categories.001"],
+    "source_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+    "advisor_impact": "low"
+  },
+  {
+    "id": "chg-2025-11-08-01",
+    "observed_at": "2025-11-08T07:25:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.2 12 May 2025",
+    "document_version_after": "v9.3 02 September 2025",
+    "kind": "criterion_amended",
+    "headline": "Endorsing body contact-point review now described as a 'live' check, not annual",
+    "summary": "Contact-point reviews by the endorsing body — at 12 and 24 months — are framed in v9.3 as live checks: the endorsing body may withdraw at any contact point if requirements are no longer met, not only at the scheduled review date.",
+    "affected_criterion_ids": ["INNF.validity.endorsement_letter.001"],
+    "source_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+    "advisor_impact": "medium"
+  },
+  {
+    "id": "chg-2025-10-30-01",
+    "observed_at": "2025-10-30T13:00:00Z",
+    "route_id": "innovator_founder",
+    "document_version_before": "v9.1 04 February 2025",
+    "document_version_after": "v9.2 12 May 2025",
+    "kind": "threshold_changed",
+    "headline": "Immigration Health Surcharge increased — fee table updated",
+    "summary": "The Immigration Health Surcharge applicable to Innovator Founder applicants and dependants increased on 6 February 2025. v9.2 publishes the revised fee table; older worked examples have been retired.",
+    "affected_criterion_ids": ["INNF.validity.fee_and_ihc.001"],
+    "source_url": "https://www.gov.uk/healthcare-immigration-application",
+    "advisor_impact": "low"
+  }
+]

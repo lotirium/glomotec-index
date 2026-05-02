@@ -1,0 +1,131 @@
+{
+  "module": "EXTRACTOR",
+  "gold_set_version": "0.1",
+  "total_entries": 10,
+  "passed": 4,
+  "pass_rate": 0.4,
+  "per_entry": [
+    {
+      "section_heading": "Endorsement validity",
+      "best_extracted_id": "INNF.eligibility.endorsement_validity.001",
+      "passed": true,
+      "checks": {
+        "id_pattern": true,
+        "modality": true,
+        "assessment_mechanism": true,
+        "decision_stage": true,
+        "thresholds_count_min": true,
+        "burden_includes": true
+      }
+    },
+    {
+      "section_heading": "Genuineness assessment",
+      "best_extracted_id": "INNF.discretionary.genuineness.001",
+      "passed": true,
+      "checks": {
+        "id_pattern": true,
+        "modality": true,
+        "assessment_mechanism": true,
+        "decision_stage": true,
+        "burden_includes": true,
+        "has_default_behaviour": true,
+        "has_trigger_for_departure": true
+      }
+    },
+    {
+      "section_heading": "Documents in English",
+      "best_extracted_id": "INNF.validity.documents_in_english.001",
+      "passed": true,
+      "checks": {
+        "id_pattern": true,
+        "modality": true,
+        "assessment_mechanism": true,
+        "decision_stage": true,
+        "burden_includes": true
+      }
+    },
+    {
+      "section_heading": "Points requirement",
+      "best_extracted_id": "INNF.points.total_points.001",
+      "passed": false,
+      "checks": {
+        "id_pattern": false,
+        "modality": true,
+        "assessment_mechanism": true,
+        "decision_stage": true,
+        "thresholds_count_min": false
+      }
+    },
+    {
+      "section_heading": "Absences from the UK",
+      "best_extracted_id": "INNF.settlement.absences.001",
+      "passed": false,
+      "checks": {
+        "id_pattern": false,
+        "modality": true,
+        "assessment_mechanism": true,
+        "thresholds_count_min": true,
+        "burden_includes": true
+      }
+    },
+    {
+      "section_heading": "Settlement business success",
+      "best_extracted_id": "INNF.settlement.business_success.001",
+      "passed": false,
+      "checks": {
+        "id_pattern": true,
+        "modality": false,
+        "assessment_mechanism": true,
+        "decision_stage": true,
+        "has_alternatives": true,
+        "alternatives_minimum_required": true,
+        "alternatives_options_min": true
+      }
+    },
+    {
+      "section_heading": "Endorsement letter content",
+      "best_extracted_id": "INNF.eligibility.endorsement_letter_content.001",
+      "passed": false,
+      "checks": {
+        "id_pattern": true,
+        "modality": false,
+        "assessment_mechanism": true,
+        "burden_includes": true
+      }
+    },
+    {
+      "section_heading": "English language",
+      "best_extracted_id": "INNF.eligibility.english_language.001",
+      "passed": false,
+      "checks": {
+        "id_pattern": true,
+        "modality": false,
+        "burden_includes": true,
+        "has_cross_references": true
+      }
+    },
+    {
+      "section_heading": "Suitability",
+      "best_extracted_id": "INNF.suitability.part_suitability.001",
+      "passed": true,
+      "checks": {
+        "id_pattern": true,
+        "modality": true,
+        "decision_stage": true,
+        "burden_includes": true,
+        "has_cross_references": true
+      }
+    },
+    {
+      "section_heading": "Active in business",
+      "best_extracted_id": "INNF.eligibility.active_in_business.001",
+      "passed": false,
+      "checks": {
+        "id_pattern": false,
+        "modality": true,
+        "burden_includes": true
+      }
+    }
+  ],
+  "run_at": "2026-05-01T18:14:34.849336+00:00"
+}

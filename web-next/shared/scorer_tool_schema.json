@@ -1,0 +1,67 @@
+{
+  "name": "record_scoring",
+  "description": "Record the scoring result for one (criterion, candidate) pair. Call exactly once per criterion.",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "criterion_id",
+      "probability_meets",
+      "supporting_evidence",
+      "missing_inputs",
+      "reasoning"
+    ],
+    "properties": {
+      "criterion_id": {
+        "type": "string",
+        "description": "The id of the criterion being scored, verbatim."
+      },
+      "probability_meets": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1,
+        "description": "Probability the predicate is met on the current evidence."
+      },
+      "supporting_evidence": {
+        "type": "array",
+        "maxItems": 3,
+        "description": "1-3 short quotes or paraphrases from the candidate profile that bear on the predicate. Empty array if the profile contains nothing relevant. Do NOT invent evidence.",
+        "items": {
+          "type": "object",
+          "required": ["matches"],
+          "properties": {
+            "field": {
+              "type": "string",
+              "description": "Optional: the candidate-profile field this evidence quotes from. Used for hallucination sanity-check."
+            },
+            "value": {
+              "description": "Optional: the literal value of the referenced field."
+            },
+            "matches": {
+              "type": "string",
+              "description": "Short quote or paraphrase from the profile."
+            }
+          }
+        }
+      },
+      "missing_inputs": {
+        "type": "array",
+        "maxItems": 3,
+        "description": "0-3 short noun phrases naming evidence gaps that would resolve uncertainty. Do not invent items just to fill the array.",
+        "items": {"type": "string"}
+      },
+      "reasoning": {
+        "type": "string",
+        "description": "2-4 sentence trace: enumerated evidence, threshold check, burden actor, then implication for the probability."
+      },
+      "burden_actor": {
+        "type": "string",
+        "enum": ["applicant", "endorsing_body", "sponsor", "caseworker"],
+        "description": "Optional: the actor whose obligation drives this test."
+      },
+      "burden_obligation_met": {
+        "type": "boolean",
+        "description": "Optional: whether the burden actor's obligation is met by the enumerated evidence."
+      }
+    }
+  }
+}

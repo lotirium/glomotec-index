@@ -1,0 +1,117 @@
+{
+  "version": "0.1",
+  "notes": "Seed golden set of hand-labelled criteria from the Innovator Founder caseworker guidance v10.0 (27 Feb 2026). Each entry pairs a verbatim section of prose with the canonical extracted criterion. Used as the regression test set for EXTRACTOR. Expand to 50-100 entries across all four anchor documents per strategy_memo.md section 8.",
+  "entries": [
+    {
+      "section_heading": "Endorsement validity",
+      "section_text": "The applicant must have been issued with an endorsement letter by an endorsing body no more than 3 months before the date of application and that endorsement must not have been withdrawn.",
+      "expected": {
+        "id_pattern": "INNF.eligibility.endorsement_validity",
+        "modality": "mandatory",
+        "assessment_mechanism": "compound_threshold",
+        "decision_stage": "eligibility",
+        "thresholds_count_min": 1,
+        "burden_includes": ["applicant", "endorsing_body", "caseworker"]
+      }
+    },
+    {
+      "section_heading": "Genuineness assessment",
+      "section_text": "You will not normally need to carry out a genuineness assessment for Innovator Founder applications. A balance of probability test should only be carried out on an application if you have reason to believe that there are specific grounds to doubt a migrant's genuineness.",
+      "expected": {
+        "id_pattern": "INNF.discretionary.genuineness",
+        "modality": "discretionary",
+        "assessment_mechanism": "balance_of_probability",
+        "decision_stage": "discretionary",
+        "has_default_behaviour": true,
+        "has_trigger_for_departure": true,
+        "burden_includes": ["caseworker"]
+      }
+    },
+    {
+      "section_heading": "Documents in English",
+      "section_text": "All documents provided with an application must be in English or Welsh. If they are not, the applicant must provide the original and a full translation which has been independently verified.",
+      "expected": {
+        "id_pattern": "INNF.validity.documents_in_english",
+        "modality": "mandatory",
+        "assessment_mechanism": "binary_pass",
+        "decision_stage": "validity",
+        "burden_includes": ["applicant"]
+      }
+    },
+    {
+      "section_heading": "Points requirement",
+      "section_text": "An applicant for entry clearance or permission to stay must be awarded 70 points from the table below, of which 50 must either be under the new business criteria or under the same business criteria, but not both.",
+      "expected": {
+        "id_pattern": "INNF.points.total_required",
+        "modality": "mandatory",
+        "assessment_mechanism": "points_arithmetic",
+        "decision_stage": "points",
+        "thresholds_count_min": 2
+      }
+    },
+    {
+      "section_heading": "Absences from the UK",
+      "section_text": "You must be satisfied that the applicant has not had combined absences from the UK in excess of 180 days in any consecutive 12-month period.",
+      "expected": {
+        "id_pattern": "INNF.eligibility.absences",
+        "modality": "evidential_threshold",
+        "assessment_mechanism": "quantified_threshold",
+        "thresholds_count_min": 1,
+        "burden_includes": ["caseworker"]
+      }
+    },
+    {
+      "section_heading": "Settlement business success",
+      "section_text": "Confirmation the applicant's business venture has met at least two of the following requirements: (i) at least £50,000 has been invested into the business and actively spent furthering the business; or (ii) the number of the business's customers has at least doubled within the most recent three years and is currently higher than the mean number of customers for other UK businesses offering comparable main products or services; or (iii) the business has engaged in significant research and development activity and has applied for intellectual property protection in the UK; or (iv) the business has generated a minimum annual gross revenue of £1million in the last full year covered by its accounts; or (v) the business is generating a minimum annual gross revenue of £500,000 in the last full year covered by its accounts, with at least £100,000 from exporting overseas; or (vi) the business has created the equivalent of at least 10 full-time jobs for settled workers; or (vii) the business has created the equivalent of at least 5 full-time jobs for settled workers, each of which has a mean salary of at least £25,000 a year.",
+      "expected": {
+        "id_pattern": "INNF.settlement.business_success",
+        "modality": "mandatory",
+        "assessment_mechanism": "n_of_m_alternatives",
+        "decision_stage": "settlement",
+        "has_alternatives": true,
+        "alternatives_minimum_required": 2,
+        "alternatives_options_min": 5
+      }
+    },
+    {
+      "section_heading": "Endorsement letter content",
+      "section_text": "The endorsing body supporting the application must state in the endorsement letter that they are satisfied the requirements have been met and provide a short description of how the applicant has done so.",
+      "expected": {
+        "id_pattern": "INNF.eligibility.endorsement_letter_content",
+        "modality": "evidential_threshold",
+        "assessment_mechanism": "endorser_attestation",
+        "burden_includes": ["endorsing_body"]
+      }
+    },
+    {
+      "section_heading": "English language",
+      "section_text": "The applicant must demonstrate that they meet the English Language requirement as shown in Appendix English Language.",
+      "expected": {
+        "id_pattern": "INNF.eligibility.english_language",
+        "modality": "mandatory",
+        "burden_includes": ["applicant"],
+        "has_cross_references": true
+      }
+    },
+    {
+      "section_heading": "Suitability",
+      "section_text": "You must be satisfied that none of the suitability requirements or grounds for cancellation of entry clearance or permission in Part Suitability apply.",
+      "expected": {
+        "id_pattern": "INNF.suitability.part_suitability",
+        "modality": "evidential_threshold",
+        "decision_stage": "suitability",
+        "burden_includes": ["caseworker"],
+        "has_cross_references": true
+      }
+    },
+    {
+      "section_heading": "Active in business",
+      "section_text": "An applicant must be actively involved in the day-to-day management and development of the business.",
+      "expected": {
+        "id_pattern": "INNF.eligibility.active_management",
+        "modality": "mandatory",
+        "burden_includes": ["applicant"]
+      }
+    }
+  ]
+}

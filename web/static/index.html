@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>INDEX, powered by glomotec</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <svg class="logo" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="16" cy="16" r="3" fill="#1F5BD9"/>
+                    <path d="M9 16a7 7 0 0 1 14 0" stroke="#1F5BD9" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M5 16a11 11 0 0 1 22 0" stroke="#4A8DEE" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+                </svg>
+                <div class="wordmark">index</div>
+            </div>
+
+            <button class="btn-primary" id="btn-new">+ New assessment</button>
+
+            <input class="search" placeholder="Search routes" id="search" />
+
+            <div class="section-label">Routes</div>
+            <div class="route-list" id="route-list">
+                <div class="route-item disabled">loading…</div>
+            </div>
+
+            <div class="section-label" style="margin-top:auto">Pipeline</div>
+            <div class="sidebar-meta">
+                <div><span class="dot live"></span>CRAWLER live</div>
+                <div><span class="dot live"></span>EXTRACTOR live</div>
+                <div><span class="dot live"></span>SCORER live</div>
+                <div><span class="dot offline"></span>CHANGEFEED idle</div>
+                <div><span class="dot offline"></span>EVALUATOR idle</div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+                    <circle cx="16" cy="16" r="3" fill="#1F5BD9"/>
+                    <path d="M9 16a7 7 0 0 1 14 0" stroke="#1F5BD9" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M5 16a11 11 0 0 1 22 0" stroke="#4A8DEE" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+                </svg>
+                <span class="product">index</span>
+                <span class="powered">POWERED BY glomotec®</span>
+            </header>
+
+            <div class="workspace">
+                <div class="workspace-inner">
+
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title" id="route-title">Innovator Founder</h1>
+                            <div class="page-subtitle" id="route-subtitle">Score this applicant against the live caseworker guidance.</div>
+                        </div>
+                    </div>
+
+                    <section class="hero-card" id="profile-hero">
+                        <div class="hero-left">
+                            <div class="hero-eyebrow">Sample applicant</div>
+                            <h2 class="hero-name" id="hero-name">Alex Mendez</h2>
+                            <div class="hero-summary" id="hero-summary"></div>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="btn-ghost" id="btn-toggle-form">Edit profile</button>
+                            <button class="btn-primary hero-cta" id="btn-score">Run assessment →</button>
+                        </div>
+                    </section>
+
+                    <form id="profile-form" class="card profile-form" hidden autocomplete="off">
+
+                        <div class="form-section">
+                            <div class="form-section-title">Applicant</div>
+                            <div class="form-grid">
+                                <label class="field"><span class="field-label">Full name</span><input type="text" name="full_name" required /></label>
+                                <label class="field"><span class="field-label">Visa route</span>
+                                    <select name="intended_route" disabled>
+                                        <option value="innovator_founder">Innovator Founder</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">Endorsement
+                                <span class="field-help">required for Innovator Founder</span>
+                            </div>
+                            <div class="form-grid">
+                                <label class="field"><span class="field-label">Endorsing body</span><input type="text" name="endorsement.endorsing_body" /></label>
+                                <label class="field"><span class="field-label">Endorsement type</span>
+                                    <select name="endorsement.endorsement_path">
+                                        <option value="new_business">New business</option>
+                                        <option value="same_business">Same business</option>
+                                    </select>
+                                </label>
+                                <label class="field"><span class="field-label">Letter issued</span><input type="date" name="endorsement.letter_issued_date" /></label>
+                                <label class="field"><span class="field-label">Letter received with application</span><input type="date" name="endorsement.letter_received_application_date" /></label>
+                            </div>
+                            <div class="toggle-grid">
+                                <label class="toggle"><input type="checkbox" name="endorsement.endorsement_letter_states_innovative_viable_scalable" /><span class="toggle-text">Letter states the venture is innovative, viable, and scalable</span></label>
+                                <label class="toggle"><input type="checkbox" name="endorsement.endorsement_letter_describes_how_requirements_met" /><span class="toggle-text">Letter explains how endorsement requirements are met</span></label>
+                                <label class="toggle"><input type="checkbox" name="endorsement.withdrawn" /><span class="toggle-text">Endorsement has been withdrawn</span></label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">The business</div>
+                            <div class="form-grid">
+                                <label class="field"><span class="field-label">Stage</span>
+                                    <select name="business.stage">
+                                        <option value="pre_launch">Pre-launch</option>
+                                        <option value="early">Early</option>
+                                        <option value="growth">Growth</option>
+                                    </select>
+                                </label>
+                                <label class="field"><span class="field-label">Founded</span><input type="date" name="business.founded" /></label>
+                                <label class="field"><span class="field-label">Applicant role</span><input type="text" name="business.applicant_role" /></label>
+                                <label class="field"><span class="field-label">Investment to date (£)</span><input type="number" name="business.investment_to_date_gbp" min="0" /></label>
+                                <label class="field"><span class="field-label">Annual revenue (£)</span><input type="number" name="business.annual_revenue_gbp" min="0" /></label>
+                                <label class="field"><span class="field-label">Customers</span><input type="number" name="business.customers_count" min="0" /></label>
+                                <label class="field"><span class="field-label">IP filings</span><input type="number" name="business.ip_filings" min="0" /></label>
+                                <label class="field"><span class="field-label">FT jobs for settled workers</span><input type="number" name="business.full_time_jobs_for_settled_workers" min="0" /></label>
+                            </div>
+                            <div class="toggle-grid">
+                                <label class="toggle"><input type="checkbox" name="business.applicant_active_in_day_to_day_management" /><span class="toggle-text">Applicant is active in day-to-day management</span></label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">English language</div>
+                            <div class="form-grid">
+                                <label class="field"><span class="field-label">CEFR level</span>
+                                    <select name="english_language.level">
+                                        <option value="A2">A2</option>
+                                        <option value="B1">B1</option>
+                                        <option value="B2">B2</option>
+                                        <option value="C1">C1</option>
+                                        <option value="C2">C2</option>
+                                        <option value="native">Native English speaker</option>
+                                    </select>
+                                </label>
+                                <label class="field"><span class="field-label">Evidence type</span><input type="text" name="english_language.evidence_type" /></label>
+                                <label class="field"><span class="field-label">Test score</span><input type="number" name="english_language.score_overall" step="0.5" /></label>
+                                <label class="field"><span class="field-label">Test date</span><input type="date" name="english_language.test_date" /></label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">Finance and other</div>
+                            <div class="form-grid">
+                                <label class="field"><span class="field-label">Personal funds (£)</span><input type="number" name="finance.personal_funds_gbp" min="0" /></label>
+                                <label class="field"><span class="field-label">UK absences last 12 months (days)</span><input type="number" name="absences_from_uk_days_last_12_months" min="0" /></label>
+                            </div>
+                            <div class="toggle-grid">
+                                <label class="toggle"><input type="checkbox" name="finance.held_for_at_least_28_days" /><span class="toggle-text">Funds held for at least 28 days</span></label>
+                                <label class="toggle"><input type="checkbox" name="documents_in_english_or_welsh" /><span class="toggle-text">All supporting documents are in English or Welsh</span></label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-ghost" id="btn-load-example">Reset to example</button>
+                            <div style="flex:1"></div>
+                            <button type="button" class="btn-link" id="btn-toggle-json">View raw JSON</button>
+                            <button type="button" class="btn-ghost" id="btn-close-form">Done editing</button>
+                        </div>
+
+                        <div class="json-panel" id="json-panel" hidden>
+                            <div class="json-panel-header">Raw JSON sent to <code>/api/score</code></div>
+                            <textarea class="profile-input" id="json-output" readonly spellcheck="false"></textarea>
+                        </div>
+                    </form>
+
+                    <div id="results-area"></div>
+
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
