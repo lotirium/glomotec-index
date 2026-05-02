@@ -4,8 +4,8 @@ INDEX is glomotec's regulatory intelligence layer. It fetches UK caseworker guid
 
 This repo contains two complementary surfaces over the same system:
 
-1. **Python pipeline** (this directory) — the actual regulatory intelligence pipeline. Five modules run via a single command, output structured artefacts.
-2. **Vercel advisor UI** ([`web-next/`](./web-next/)) — the advisor-facing presentation layer over the pipeline's output. Live at [https://index-advisor.vercel.app](https://index-advisor.vercel.app).
+1. **Python pipeline** (this directory), the actual regulatory intelligence pipeline. Five modules run via a single command, output structured artefacts.
+2. **Vercel advisor UI** ([`web-next/`](./web-next/)), the advisor-facing presentation layer over the pipeline's output. Live at [https://index-advisor.vercel.app](https://index-advisor.vercel.app).
 
 ## The Python pipeline
 
@@ -49,7 +49,7 @@ python run.py --score examples/candidate_priya.json
 python run.py --evaluate                         # golden-set regression
 ```
 
-Three sample candidates ship: Alex Mendez, Priya Iyer, Tomás Almeida — all in `examples/`. Each has a corresponding `output/scoring_<id>_innovator_founder.json` from a real SCORER run.
+Three sample candidates ship: Alex Mendez, Priya Iyer, Tomás Almeida, all in `examples/`. Each has a corresponding `output/scoring_<id>_innovator_founder.json` from a real SCORER run.
 
 ## The Vercel advisor UI
 
@@ -57,18 +57,18 @@ Three sample candidates ship: Alex Mendez, Priya Iyer, Tomás Almeida — all in
 
 It reads from three kinds of source:
 
-- **Static fixtures** at `web-next/fixtures/` — derived directly from `output/`. The criteria, the three seeded clients' assessments, and the live module-status header all come from real Python pipeline runs. The fixture build is reproducible: `output/criteria_innovator_founder.json` is copied verbatim, and `output/scoring_<id>_innovator_founder.json` is wrapped in the UI envelope (verdict, summary, category split) for `web-next/fixtures/scorings/`.
+- **Static fixtures** at `web-next/fixtures/`, derived directly from `output/`. The criteria, the three seeded clients' assessments, and the live module-status header all come from real Python pipeline runs. The fixture build is reproducible: `output/criteria_innovator_founder.json` is copied verbatim, and `output/scoring_<id>_innovator_founder.json` is wrapped in the UI envelope (verdict, summary, category split) for `web-next/fixtures/scorings/`.
 - **Live scoring** via `/clients/new` → `/api/score`. The advisor pastes a free-text profile; the API loads the same `shared/scorer_system_prompt.md` + `shared/scorer_tool_schema.json` the Python SCORER uses, and streams batched results back as NDJSON.
-- **Live pipeline demo** on the home page (`/`) — a "Run live pipeline" button drives three Vercel API routes against live gov.uk data: `/api/pipeline/crawl` (HTTP fetch, hash, version), `/api/pipeline/changefeed` (compares fresh hash to `web-next/fixtures/snapshot_v10.0.json`), `/api/pipeline/extract` (Claude Opus tool-use call against one paragraph from the freshly fetched page, using the same `shared/extractor_*` contracts the Python EXTRACTOR uses). The full Python pipeline at the repo root remains the production-shape implementation; the Vercel demo is a transparency shim so the cohort can watch CRAWLER → CHANGEFEED → EXTRACTOR → SCORER light up in ~15-20s. The button is gated on `ANTHROPIC_API_KEY`.
+- **Live pipeline demo** on the home page (`/`), a "Run live pipeline" button drives three Vercel API routes against live gov.uk data: `/api/pipeline/crawl` (HTTP fetch, hash, version), `/api/pipeline/changefeed` (compares fresh hash to `web-next/fixtures/snapshot_v10.0.json`), `/api/pipeline/extract` (Claude Opus tool-use call against one paragraph from the freshly fetched page, using the same `shared/extractor_*` contracts the Python EXTRACTOR uses). The full Python pipeline at the repo root remains the production-shape implementation; the Vercel demo is a transparency shim so the cohort can watch CRAWLER → CHANGEFEED → EXTRACTOR → SCORER light up in ~15-20s. The button is gated on `ANTHROPIC_API_KEY`.
 
 ### Shared schemas + prompts
 
 `shared/` at the repo root holds the single source of truth for the model-facing modules:
 
-- `shared/scorer_system_prompt.md` — the SCORER system prompt, including the substantive vs procedural reasoning split documented in framework §03.
-- `shared/scorer_tool_schema.json` — the canonical `record_scoring` tool schema both SCORER consumers register with the model.
-- `shared/extractor_system_prompt.md` — the EXTRACTOR system prompt, including worked examples for both mandatory binary criteria and discretionary two-part criteria.
-- `shared/extractor_tool_schema.json` — the canonical `record_criterion` tool schema, sourced from `schema/assessable_criterion.json`.
+- `shared/scorer_system_prompt.md`, the SCORER system prompt, including the substantive vs procedural reasoning split documented in framework §03.
+- `shared/scorer_tool_schema.json`, the canonical `record_scoring` tool schema both SCORER consumers register with the model.
+- `shared/extractor_system_prompt.md`, the EXTRACTOR system prompt, including worked examples for both mandatory binary criteria and discretionary two-part criteria.
+- `shared/extractor_tool_schema.json`, the canonical `record_criterion` tool schema, sourced from `schema/assessable_criterion.json`.
 
 Python loads all four directly. Next.js mirrors them into `web-next/shared/` via a `prebuild` script (`web-next/scripts/sync-shared.mjs`), so Vercel sees them at deploy time. If either consumer's tool call shape drifts from the shared files, the relevant module drifts; both consumers fail loudly if the shared files are missing.
 
