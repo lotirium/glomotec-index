@@ -2,6 +2,9 @@
 
 INDEX is glomotec's regulatory intelligence layer. It fetches UK caseworker guidance, structures it into machine-evaluable criteria, detects changes between versions, and scores candidate profiles against the live ruleset with calibrated confidence. The framework is described in full in [`B02_NilyufarShodmonova_UK-Caseworker-Guidance-Framework_v1.pdf`](./B02_NilyufarShodmonova_UK-Caseworker-Guidance-Framework_v1.pdf) (also at the repo root).
 
+**Live demo:** https://index-advisor.vercel.app
+**Framework PDF:** [B02_NilyufarShodmonova_UK-Caseworker-Guidance-Framework_v1.pdf](./B02_NilyufarShodmonova_UK-Caseworker-Guidance-Framework_v1.pdf)
+
 This repo contains two complementary surfaces over the same system:
 
 1. **Python pipeline** (this directory), the actual regulatory intelligence pipeline. Five modules run via a single command, output structured artefacts.
