@@ -25,7 +25,8 @@ export type VerdictHeadline =
   | "Strong candidate, preparation needed"
   | "Mixed signals"
   | "Notable gaps"
-  | "Not yet";
+  | "Not yet"
+  | "Refusal risk identified";
 
 export interface VerdictSummary {
   high: number;
@@ -51,16 +52,25 @@ const EMPTY_CATEGORY: CategorySummary = {
   below_threshold: 0,
 };
 
+/** Suitability is a hard gate: any real refusal risk overrides the substantive+procedural matrix. */
+const SUITABILITY_GATE_PCT = 50;
+
 /**
- * Two-score headline rubric. Substantive band is the dominant axis; the
- * submission band only affects the headline when the substantive band is HIGH
- * (so a procedurally-incomplete pre-application client is recognised as a
- * strong candidate that needs preparation, not as a weak match).
+ * Three-axis headline rubric. Suitability is a hard gate: when
+ * suitability_pct is non-null and below the gate (any real refusal risk),
+ * the headline is "Refusal risk identified" regardless of how strong
+ * substantive and procedural look. Otherwise the existing two-axis rubric
+ * applies: substantive band is the dominant axis; the submission band only
+ * affects the headline when the substantive band is HIGH.
  */
 export function headlineFromBands(
   substantive: Band,
   submission: Band,
+  suitability_pct: number | null,
 ): { headline: VerdictHeadline; verdict_class: "high" | "medium" | "low" } {
+  if (suitability_pct !== null && suitability_pct < SUITABILITY_GATE_PCT) {
+    return { headline: "Refusal risk identified", verdict_class: "low" };
+  }
   if (substantive === "below_threshold") {
     return { headline: "Not yet", verdict_class: "low" };
   }
@@ -92,7 +102,7 @@ function categoryOf(r: ScoringResult): CriterionCategory {
  * will score ~1.0 for almost everyone and inflate the mean even when a
  * load-bearing criterion in the same category has clearly failed. Without
  * the cap, dealbreakers reflected in per-criterion pills can be hidden by
- * the aggregate.
+ * the aggregate. The cap applies identically to suitability.
  *
  * Mirrored in scorer/aggregator.py so Python-side aggregates and Next.js
  * aggregates match.
@@ -122,10 +132,13 @@ export function computeAggregates(results: ScoringResult[]) {
   };
   const subStats = { ...EMPTY_CATEGORY, total_p: 0, any_below: false };
   const procStats = { ...EMPTY_CATEGORY, total_p: 0, any_below: false };
+  const suitStats = { ...EMPTY_CATEGORY, total_p: 0, any_below: false };
 
   for (const r of results) {
     summary[r.confidence_level] += 1;
-    const target = categoryOf(r) === "substantive" ? subStats : procStats;
+    const cat = categoryOf(r);
+    const target =
+      cat === "substantive" ? subStats : cat === "suitability" ? suitStats : procStats;
     target.count += 1;
     target.total_p += r.probability_meets;
     target[r.confidence_level] += 1;
@@ -148,12 +161,17 @@ export function computeAggregates(results: ScoringResult[]) {
     procStats.count,
     procStats.any_below,
   );
+  const suitability_pct =
+    suitStats.count === 0
+      ? null
+      : categoryReadiness(suitStats.total_p, suitStats.count, suitStats.any_below);
 
   const substantive_band = bandFromPct(substantive_pct);
   const submission_band = bandFromPct(submission_pct);
   const { headline, verdict_class } = headlineFromBands(
     substantive_band,
     submission_band,
+    suitability_pct,
   );
 
   // Strip the working `total_p` field before returning category summaries.
@@ -170,11 +188,13 @@ export function computeAggregates(results: ScoringResult[]) {
     overall_pct,
     substantive_pct,
     submission_pct,
+    suitability_pct,
     substantive_band,
     submission_band,
     category_summary: {
       substantive: stripTotal(subStats),
       procedural: stripTotal(procStats),
+      suitability: stripTotal(suitStats),
     },
     headline,
     verdict_class,
@@ -205,6 +225,7 @@ export function buildAssessmentRun({
     overall_pct: agg.overall_pct,
     substantive_pct: agg.substantive_pct,
     submission_pct: agg.submission_pct,
+    suitability_pct: agg.suitability_pct,
     category_summary: agg.category_summary,
     verdict_class: agg.verdict_class,
     verdict_headline: agg.headline,

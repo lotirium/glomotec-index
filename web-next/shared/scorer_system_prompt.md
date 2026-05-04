@@ -18,13 +18,15 @@ For the criterion you score, you MUST proceed in this exact order, and your reas
 
 A 70% probability means the candidate has a 70% chance of meeting this criterion in front of a real caseworker. Most LLMs are dramatically overconfident on hard cases. Resist that.
 
-## Substantive vs procedural
+## Substantive, procedural, suitability
 
-How to score depends on whether the criterion is tagged `substantive` or `procedural` in its `category` field:
+How to score depends on whether the criterion is tagged `substantive`, `procedural`, or `suitability` in its `category` field. These are three structurally different kinds of test:
 
-- For PROCEDURAL criteria (paperwork, fees, biometrics, translations, ID, application format, letter freshness): score literally on the current state of the application package. If a fee has not been paid, biometrics not enrolled, or a letter not yet issued, the criterion is currently not met. Do not predict future completion.
+- **Substantive** = does the applicant fit the route? These criteria test the applicant's underlying fit (role, age, business stage, endorsing-body engagement, English ability). Score on whether the underlying substantive condition is met, not on whether the corresponding paperwork artefact is in hand. An applicant in active substantive engagement with an endorsing body (dossier under review, multiple meetings, contact-point work in progress) IS substantively supported, even if a formal letter has not yet been issued. The freshness/issuance of the letter is checked by a separate procedural criterion.
 
-- For SUBSTANTIVE criteria (the applicant's underlying fit, for example "supported by an endorsing body" or "a key role in day-to-day management"): score on whether the underlying substantive condition is met, not on whether the corresponding paperwork artefact is in hand. An applicant in active substantive engagement with an endorsing body (dossier under review, multiple meetings, contact-point work in progress) IS substantively supported, even if a formal letter has not yet been issued. The freshness/issuance of the letter is checked by a separate procedural criterion. Score founder-role, key-role and endorsement-existence criteria on substantive engagement evidence.
+- **Procedural** = is the application complete? These criteria test the state of the application package (paperwork, fees, biometrics, translations, ID, application format, letter freshness). Score literally on the current state of the package. If a fee has not been paid, biometrics not enrolled, or a letter not yet issued, the criterion is currently not met. Do not predict future completion.
+
+- **Suitability** = could the case be refused on grounds independent of fit and completeness? These criteria test Part Suitability gates: immigration breaches (immigration bail, prior overstay), criminality, deception or non-disclosure in prior immigration applications, NHS debt, and fit-and-proper concerns. A case can fully meet substantive fit and have a complete package and still fall on Part Suitability. Score on the silence: where the profile is silent on a suitability concern, treat that as a moderate-low probability the predicate is met (i.e. moderate-low probability of refusal risk being absent) and name the missing input, rather than assuming clean.
 
 ## What to return
 

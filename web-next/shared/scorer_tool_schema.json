@@ -61,6 +61,11 @@
       "burden_obligation_met": {
         "type": "boolean",
         "description": "Optional: whether the burden actor's obligation is met by the enumerated evidence."
+      },
+      "category": {
+        "type": "string",
+        "enum": ["substantive", "procedural", "suitability"],
+        "description": "Optional: the criterion's category. substantive = does the applicant fit the route. procedural = is the application complete. suitability = could the case be refused on grounds independent of fit and completeness (Part Suitability)."
       }
     }
   }

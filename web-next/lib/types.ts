@@ -23,7 +23,7 @@ export interface Route {
 }
 
 // ---------- Criteria ----------
-export type CriterionCategory = "substantive" | "procedural";
+export type CriterionCategory = "substantive" | "procedural" | "suitability";
 
 export interface Criterion {
   id: string;
@@ -134,10 +134,18 @@ export interface AssessmentRun {
   substantive_pct: number;
   /** Average probability for `procedural` criteria, expressed 0–100. */
   submission_pct: number;
+  /**
+   * Average probability for `suitability` criteria, expressed 0–100. Null when
+   * the route has no suitability criteria. Suitability is a hard gate: when
+   * this score is below 50, the verdict headline is overridden to "Refusal
+   * risk identified" regardless of substantive and procedural readiness.
+   */
+  suitability_pct: number | null;
   /** Counts split by category, useful for the verdict-hero readout. */
   category_summary: {
     substantive: { count: number; high: number; medium: number; low: number; below_threshold: number };
     procedural: { count: number; high: number; medium: number; low: number; below_threshold: number };
+    suitability: { count: number; high: number; medium: number; low: number; below_threshold: number };
   };
   verdict_class: "high" | "medium" | "low";
   verdict_headline: string;
@@ -165,7 +173,14 @@ export interface ChangefeedEntry {
   affected_criterion_ids: string[];
   source_url: string;
   diff_excerpt?: { before?: string; after?: string };
-  advisor_impact: "high" | "medium" | "low";
+  /**
+   * What the team should do with this change. operational_disruption =
+   * immediate action required by operations; could materially change how
+   * teams process or structure cases. advisory = helpful but non-urgent;
+   * may affect advice quality or strategy. informational = good to know,
+   * minimal immediate consequence.
+   */
+  advisor_impact: "operational_disruption" | "advisory" | "informational";
 }
 
 // ---------- Pipeline status ----------

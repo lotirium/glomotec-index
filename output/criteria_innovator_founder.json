@@ -380,7 +380,7 @@
     "decision_stage": "validity",
     "modality": "mandatory",
     "assessment_mechanism": "binary_pass",
-    "category": "substantive",
+    "category": "suitability",
     "predicate": {
       "statement": "The applicant must not be on immigration bail at the time of application."
     },
@@ -595,6 +595,110 @@
       "anchor": {
         "section_heading": "Switching",
         "verbatim_text": "An applicant who is applying for permission to stay and has, or last had, permission as a student must have completed the course of study for which the Confirmation of Acceptance for Studies was assigned (or a course to which paragraph ST 27.3 of Appendix Student applies). Alternatively, if the course was leading to a PhD award they must have completed at least 12 months of that course."
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.suitability.no_relevant_criminal_conviction.001",
+    "route": "innovator_founder",
+    "decision_stage": "suitability",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "suitability",
+    "predicate": {
+      "statement": "The applicant must not have a relevant criminal conviction or pending criminal proceedings that would engage Part Suitability of the Immigration Rules."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Disclose any criminal convictions or pending criminal proceedings that would engage Part Suitability."
+      ],
+      "caseworker": [
+        "Verify against Part Suitability whether the applicant has any conviction or pending proceedings that would lead to refusal."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Part Suitability",
+        "verbatim_text": "An application falls for refusal where the applicant has a relevant criminal conviction or pending criminal proceedings that engage the grounds in Part Suitability of the Immigration Rules."
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.suitability.no_false_representations.001",
+    "route": "innovator_founder",
+    "decision_stage": "suitability",
+    "modality": "mandatory",
+    "assessment_mechanism": "binary_pass",
+    "category": "suitability",
+    "predicate": {
+      "statement": "The applicant must not have made false representations or failed to disclose material facts in a previous UK immigration application."
+    },
+    "burden_allocation": {
+      "applicant": [
+        "Disclose any prior immigration application in which false representations were made or material facts were withheld."
+      ],
+      "caseworker": [
+        "Check Home Office records for false representations or non-disclosure in any previous UK immigration application."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Part Suitability",
+        "verbatim_text": "An application falls for refusal where false representations or material non-disclosure have occurred in a previous UK immigration application, on the grounds set out in Part Suitability of the Immigration Rules."
+      }
+    },
+    "lifecycle": {
+      "version_first_seen": "v10.0 27 February 2026",
+      "last_modified_in_version": "v10.0 27 February 2026",
+      "last_change_class": "novel"
+    }
+  },
+  {
+    "id": "INNF.suitability.no_unpaid_nhs_debt.001",
+    "route": "innovator_founder",
+    "decision_stage": "suitability",
+    "modality": "mandatory",
+    "assessment_mechanism": "quantified_threshold",
+    "category": "suitability",
+    "predicate": {
+      "statement": "The applicant must not have outstanding NHS debt of GBP 500 or more, on the grounds set out in Part Suitability of the Immigration Rules."
+    },
+    "thresholds": [
+      {
+        "value": 500,
+        "unit": "GBP",
+        "direction": "below",
+        "scope": "outstanding_NHS_debt"
+      }
+    ],
+    "burden_allocation": {
+      "applicant": [
+        "Settle any outstanding NHS debt of GBP 500 or more before applying, or disclose it."
+      ],
+      "caseworker": [
+        "Check NHS debt records for outstanding charges of GBP 500 or more under Part Suitability."
+      ]
+    },
+    "source": {
+      "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
+      "document_version": "v10.0 27 February 2026",
+      "anchor": {
+        "section_heading": "Part Suitability",
+        "verbatim_text": "An application falls for refusal where the applicant has outstanding NHS debt of 500 pounds or more, in line with Part Suitability of the Immigration Rules."
       }
     },
     "lifecycle": {

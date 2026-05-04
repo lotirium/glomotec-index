@@ -265,7 +265,7 @@ export function LivePipelineDemo({
     // for the live scoring flow they've already seen.
     update("scorer", {
       state: "complete",
-      result: "ready to score profiles · 16 criteria loaded for innovator_founder",
+      result: "ready to score profiles · 19 criteria loaded for innovator_founder",
     });
 
     setTotalWallMs(Math.round(performance.now() - t0));

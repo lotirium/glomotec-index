@@ -266,8 +266,8 @@ export function NewProfileForm() {
             What gets scored
           </p>
           <p className="mt-2 text-sm text-ink leading-relaxed">
-            All 16 criteria from v10.0 (27 February 2026) of the Innovator Founder caseworker
-            guidance.
+            All criteria from v10.0 (27 February 2026) of the Innovator Founder caseworker
+            guidance — substantive fit, submission readiness, and Part Suitability.
           </p>
           <p className="mt-3 text-2xs text-ink-muted leading-relaxed">
             Each criterion gets a probability, a 4-step reasoning trace and a band

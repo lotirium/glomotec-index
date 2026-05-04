@@ -203,13 +203,13 @@ async function scoreBatch({
  * Cap rule mirrors the canonical web-next/lib/scoring.ts:computeAggregates
  * implementation: arithmetic mean of probability_meets, capped at 50 when any
  * criterion in the category is below the 0.35 threshold. We re-implement
- * here only for the substantive subset because SIGNAL never reports the
- * procedural axis.
+ * here for the substantive and suitability subsets because SIGNAL never
+ * reports the procedural axis.
  */
 const BELOW_THRESHOLD_PROB = 0.35;
 const CAPPED_READINESS = 50;
 
-function substantivePctFromResults(results: ScoringResult[]): number {
+function pctFromResults(results: ScoringResult[]): number {
   if (results.length === 0) return 0;
   const live = results.filter((r) => !r.error);
   if (live.length === 0) return 0;
@@ -228,17 +228,19 @@ async function synthesiseVerdict({
 }): Promise<{
   explanation: string;
   gaps: string[];
+  suitability_flags: string[];
   quota_exceeded?: true;
 }> {
-  const fallback: ProspectVerdictBody = {
+  const fallback = {
     explanation:
       "The substantive picture is mixed and we couldn't write a verdict automatically. The criteria below describe what the scorer found.",
-    gaps: [],
+    gaps: [] as string[],
+    suitability_flags: [] as string[],
   };
   try {
     const response = await anthropic.messages.create({
       model: VERDICT_MODEL,
-      max_tokens: 600,
+      max_tokens: 700,
       system: VERDICT_SYNTH_SYSTEM_PROMPT,
       tools: [RECORD_PROSPECT_VERDICT_TOOL] as unknown as Anthropic.Tool[],
       tool_choice: { type: "tool", name: RECORD_PROSPECT_VERDICT_TOOL.name },
@@ -256,7 +258,13 @@ async function synthesiseVerdict({
     const gaps = Array.isArray(input.gaps)
       ? input.gaps.slice(0, 3).map(String).filter((s) => s.trim().length > 0)
       : [];
-    return { explanation, gaps };
+    const suitability_flags = Array.isArray(input.suitability_flags)
+      ? input.suitability_flags
+          .slice(0, 3)
+          .map(String)
+          .filter((s) => s.trim().length > 0)
+      : [];
+    return { explanation, gaps, suitability_flags };
   } catch (err) {
     if (detectQuotaError(err)) {
       return { ...fallback, quota_exceeded: true };
@@ -296,17 +304,21 @@ export async function POST(req: Request) {
   if (!route) return jsonError(400, "Innovator Founder route is not loaded.");
 
   const allCriteria = await getCriteria(ROUTE_ID);
-  const substantive = allCriteria.filter((c) => c.category === "substantive");
-  if (substantive.length === 0) {
-    return jsonError(500, "No substantive criteria available for this route.");
+  // SIGNAL pre-qualifies on substantive fit and the suitability gate. The
+  // procedural axis is checked at submission with a regulated advisor.
+  const scored = allCriteria.filter(
+    (c) => c.category === "substantive" || c.category === "suitability",
+  );
+  if (scored.length === 0) {
+    return jsonError(500, "No scoreable criteria available for this route.");
   }
 
   const anthropic = new Anthropic({ apiKey, maxRetries: 3 });
   const t0 = performance.now();
 
-  const batchCount = Math.max(1, Math.ceil(substantive.length / BATCH_SIZE));
+  const batchCount = Math.max(1, Math.ceil(scored.length / BATCH_SIZE));
   const batches: Criterion[][] = Array.from({ length: batchCount }, () => []);
-  substantive.forEach((c, i) => batches[i % batchCount].push(c));
+  scored.forEach((c, i) => batches[i % batchCount].push(c));
 
   const batchResults = await Promise.all(
     batches.map((batch) =>
@@ -335,14 +347,26 @@ export async function POST(req: Request) {
   }
 
   const results = batchResults.flatMap((b) => b.results);
-  const order = new Map(substantive.map((c, i) => [c.id, i]));
+  const order = new Map(scored.map((c, i) => [c.id, i]));
   results.sort(
     (a, b) =>
       (order.get(a.criterion_id) ?? 0) - (order.get(b.criterion_id) ?? 0),
   );
 
-  const substantive_pct = substantivePctFromResults(results);
-  const { headline, verdict_class } = verdictFromSubstantivePct(substantive_pct);
+  const substantiveResults = results.filter(
+    (r) => r.criterion?.category === "substantive",
+  );
+  const suitabilityResults = results.filter(
+    (r) => r.criterion?.category === "suitability",
+  );
+  const substantive_pct = pctFromResults(substantiveResults);
+  const suitability_pct =
+    suitabilityResults.length === 0 ? null : pctFromResults(suitabilityResults);
+
+  const { headline, verdict_class } = verdictFromSubstantivePct(
+    substantive_pct,
+    suitability_pct,
+  );
   const next_step = nextStepForVerdict(headline);
 
   const synth = await synthesiseVerdict({ results, anthropic });
@@ -364,10 +388,12 @@ export async function POST(req: Request) {
   const qualification: SignalQualification = {
     substantive_pct,
     procedural_pct: null,
+    suitability_pct,
     verdict_class,
     verdict_headline: headline,
     explanation: synth.explanation,
     gaps: synth.gaps,
+    suitability_flags: synth.suitability_flags,
     next_step,
     results,
     scored_at: new Date().toISOString(),

@@ -43,6 +43,10 @@ export function VerdictHero({
   const t = headlineTone[run.verdict_class];
   const total = expectedTotal ?? run.total;
   const scored = scoredCount ?? run.total;
+  const showSuitability =
+    run.suitability_pct !== null &&
+    run.suitability_pct !== undefined &&
+    run.category_summary.suitability?.count > 0;
   return (
     <div className="relative overflow-hidden rounded-lg border border-line bg-surface shadow-hero">
       <div
@@ -70,7 +74,12 @@ export function VerdictHero({
           {scoring ? (
             <LiveCounter scored={scored} total={total} />
           ) : (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 animate-result-arrive">
+            <div
+              className={cn(
+                "grid grid-cols-1 gap-6 animate-result-arrive",
+                showSuitability ? "sm:grid-cols-3" : "sm:grid-cols-2",
+              )}
+            >
               <ScoreColumn
                 label="Substantive readiness"
                 tooltip="Average across criteria that test the applicant's underlying fit (role, age, status, history)."
@@ -83,6 +92,15 @@ export function VerdictHero({
                 pct={run.submission_pct}
                 count={run.category_summary.procedural.count}
               />
+              {showSuitability && (
+                <ScoreColumn
+                  label="Suitability readiness"
+                  tooltip="Average across Part Suitability criteria (immigration breaches, criminality, deception, NHS debt). A real refusal risk here overrides substantive and submission readiness."
+                  pct={run.suitability_pct as number}
+                  count={run.category_summary.suitability.count}
+                  variant="suitability"
+                />
+              )}
             </div>
           )}
 
@@ -191,11 +209,18 @@ function ScoreColumn({
   tooltip,
   pct,
   count,
+  variant,
 }: {
   label: string;
   tooltip: string;
   pct: number;
   count: number;
+  /**
+   * Visual treatment. Suitability gets a calm-but-distinct deeper-amber label
+   * so the eye picks the gate axis out of the row without clashing with the
+   * existing palette.
+   */
+  variant?: "suitability";
 }) {
   const band = bandFromPct(pct);
   const bandColor =
@@ -214,9 +239,18 @@ function ScoreColumn({
         : band === "low"
           ? "Low"
           : "Below threshold";
+  const labelClass =
+    variant === "suitability"
+      ? "text-[#9A4515]"
+      : "text-ink-faint";
   return (
     <div title={tooltip}>
-      <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
+      <p
+        className={cn(
+          "font-mono text-2xs uppercase tracking-[0.18em]",
+          labelClass,
+        )}
+      >
         {label}
       </p>
       <p className="mt-1 flex items-baseline gap-1.5">

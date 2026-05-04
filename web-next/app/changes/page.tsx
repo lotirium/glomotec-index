@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { Badge, type BadgeProps } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { formatDate } from "@/lib/utils";
-import type { ChangeKind } from "@/lib/types";
+import type { ChangefeedEntry, ChangeKind } from "@/lib/types";
 
 export const metadata = { title: "Changes" };
 
@@ -18,10 +18,23 @@ const kindLabel: Record<ChangeKind, string> = {
   form_updated: "Form updated",
 };
 
-const impactTone: Record<"high" | "medium" | "low", BadgeProps["tone"]> = {
-  high: "low",
-  medium: "medium",
-  low: "neutral",
+type ImpactKind = ChangefeedEntry["advisor_impact"];
+
+/**
+ * Reframed from "advisor impact" (how big) to "what should the team do".
+ * operational_disruption stays loud (low tone), advisory sits on the medium
+ * tier, informational drops to neutral so the eye glides past it.
+ */
+const impactTone: Record<ImpactKind, BadgeProps["tone"]> = {
+  operational_disruption: "low",
+  advisory: "medium",
+  informational: "neutral",
+};
+
+const impactLabel: Record<ImpactKind, string> = {
+  operational_disruption: "Operational disruption",
+  advisory: "Advisory",
+  informational: "Informational",
 };
 
 export default async function ChangesPage() {
@@ -36,7 +49,7 @@ export default async function ChangesPage() {
       <PageHeader
         eyebrow="Change feed"
         title="Guidance changes worth knowing about"
-        description="Each entry is a diff between two versions of caseworker guidance. The advisor impact is INDEX's read on whether it changes how a file should be prepared."
+        description="Each entry is a diff between two versions of caseworker guidance. Each entry is labelled by what the team should do with it: operational disruption (immediate action), advisory (shapes future advice), or informational."
         meta={
           <>
             <span>
@@ -73,7 +86,7 @@ export default async function ChangesPage() {
                     <div className="flex flex-wrap items-center gap-2">
                       <Badge tone="neutral">{kindLabel[entry.kind]}</Badge>
                       <Badge tone={impactTone[entry.advisor_impact]}>
-                        {entry.advisor_impact} advisor impact
+                        {impactLabel[entry.advisor_impact]}
                       </Badge>
                     </div>
                     <h3 className="mt-3 text-base font-semibold text-ink leading-snug tracking-tight">

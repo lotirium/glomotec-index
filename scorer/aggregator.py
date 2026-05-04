@@ -2,17 +2,21 @@
 Per-profile aggregator. Takes a list of SCORER results plus the criteria they
 were scored against, returns the same envelope shape the Next.js advisor UI
 computes in lib/scoring.ts:computeAggregates(). Both surfaces apply the same
-cap rule, so a profile's substantive_pct and procedural_pct read identically
-whether the run was Python or Next.js.
+cap rule, so a profile's substantive_pct, submission_pct and suitability_pct
+read identically whether the run was Python or Next.js.
 
-Cap rule: substantive_pct and procedural_pct are the arithmetic mean of
-probability_meets * 100 across criteria in each category, but capped at 50
-when ANY criterion in the category falls below probability_meets 0.35. The
-cap exists because a vacuously-satisfied universal eligibility criterion
-("applicant must be 18 or over") scores ~1.0 for almost everyone and
-inflates the mean even when a load-bearing criterion in the same category
-clearly failed. Without the cap, dealbreakers reflected in per-criterion
-output can be hidden by the aggregate.
+Cap rule: each *_pct is the arithmetic mean of probability_meets * 100 across
+criteria in that category, but capped at 50 when ANY criterion in the
+category falls below probability_meets 0.35. The cap exists because a
+vacuously-satisfied universal eligibility criterion ("applicant must be 18
+or over") scores ~1.0 for almost everyone and inflates the mean even when a
+load-bearing criterion in the same category clearly failed. Without the
+cap, dealbreakers reflected in per-criterion output can be hidden by the
+aggregate. The cap applies identically to suitability.
+
+Suitability gate: when suitability_pct is non-null and below 50 (any real
+refusal risk), the verdict headline is overridden to "Refusal risk
+identified" regardless of how strong substantive and procedural look.
 """
 
 from __future__ import annotations
@@ -21,6 +25,7 @@ from typing import Any, Iterable
 
 BELOW_THRESHOLD_PROB = 0.35
 CAPPED_READINESS = 50
+SUITABILITY_GATE_PCT = 50
 
 
 def _band_from_pct(pct: int) -> str:
@@ -42,8 +47,12 @@ def _category_readiness(total_p: float, count: int, any_below: bool) -> int:
     return arithmetic_mean
 
 
-def _headline_from_bands(substantive: str, submission: str) -> dict[str, str]:
+def _headline_from_bands(
+    substantive: str, submission: str, suitability_pct: int | None
+) -> dict[str, str]:
     """Mirrors web-next/lib/scoring.ts:headlineFromBands."""
+    if suitability_pct is not None and suitability_pct < SUITABILITY_GATE_PCT:
+        return {"headline": "Refusal risk identified", "verdict_class": "low"}
     if substantive == "below_threshold":
         return {"headline": "Not yet", "verdict_class": "low"}
     if substantive == "low":
@@ -84,8 +93,21 @@ def build_assessment_run(
         "below_threshold": 0,
         "error": 0,
     }
-    sub = {"count": 0, "total_p": 0.0, "high": 0, "medium": 0, "low": 0, "below_threshold": 0, "any_below": False}
-    proc = {"count": 0, "total_p": 0.0, "high": 0, "medium": 0, "low": 0, "below_threshold": 0, "any_below": False}
+
+    def _empty_cat() -> dict[str, Any]:
+        return {
+            "count": 0,
+            "total_p": 0.0,
+            "high": 0,
+            "medium": 0,
+            "low": 0,
+            "below_threshold": 0,
+            "any_below": False,
+        }
+
+    sub = _empty_cat()
+    proc = _empty_cat()
+    suit = _empty_cat()
 
     results = list(results)
     for r in results:
@@ -97,7 +119,12 @@ def build_assessment_run(
             summary[confidence] += 1
         criterion = criteria_index.get(r["criterion_id"], {})
         category = criterion.get("category", "procedural")
-        target = sub if category == "substantive" else proc
+        if category == "substantive":
+            target = sub
+        elif category == "suitability":
+            target = suit
+        else:
+            target = proc
         target["count"] += 1
         target["total_p"] += float(r.get("probability_meets", 0.0))
         if confidence in ("high", "medium", "low", "below_threshold"):
@@ -111,10 +138,15 @@ def build_assessment_run(
     )
     substantive_pct = _category_readiness(sub["total_p"], sub["count"], sub["any_below"])
     submission_pct = _category_readiness(proc["total_p"], proc["count"], proc["any_below"])
+    suitability_pct = (
+        None
+        if suit["count"] == 0
+        else _category_readiness(suit["total_p"], suit["count"], suit["any_below"])
+    )
 
     sub_band = _band_from_pct(substantive_pct)
     sub_band_submission = _band_from_pct(submission_pct)
-    headline = _headline_from_bands(sub_band, sub_band_submission)
+    headline = _headline_from_bands(sub_band, sub_band_submission, suitability_pct)
 
     def _strip(s: dict) -> dict:
         return {
@@ -137,9 +169,11 @@ def build_assessment_run(
         "overall_pct": overall_pct,
         "substantive_pct": substantive_pct,
         "submission_pct": submission_pct,
+        "suitability_pct": suitability_pct,
         "category_summary": {
             "substantive": _strip(sub),
             "procedural": _strip(proc),
+            "suitability": _strip(suit),
         },
         "verdict_class": headline["verdict_class"],
         "verdict_headline": headline["headline"],

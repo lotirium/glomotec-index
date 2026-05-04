@@ -31,19 +31,32 @@ export type SignalVerdict =
   | "Strong fit"
   | "Likely fit"
   | "Worth exploring"
-  | "Not a fit yet";
+  | "Not a fit yet"
+  | "Refusal risk identified";
 
 export interface SignalQualification {
   /** Aggregate readiness for substantive criteria, 0–100. Cap rule applied. */
   substantive_pct: number;
   /** SIGNAL never measures procedural readiness; always null. */
   procedural_pct: null;
+  /**
+   * Aggregate readiness for suitability criteria, 0–100. Cap rule applied.
+   * Null when the route has no suitability criteria. When non-null and
+   * below 50, the verdict is forced to "Refusal risk identified".
+   */
+  suitability_pct: number | null;
   verdict_class: "high" | "medium" | "low";
   verdict_headline: SignalVerdict;
   /** 2–3 sentence plain-language explanation. */
   explanation: string;
   /** 1–3 gaps named in plain English. No schema fields. No criterion ids. */
   gaps: string[];
+  /**
+   * Suitability findings (Part Suitability flags) named in plain English.
+   * Surfaced first in the qualification card because suitability gaps often
+   * kill a case even when route fit is strong.
+   */
+  suitability_flags: string[];
   next_step: string;
   results: ScoringResult[];
   scored_at: string;

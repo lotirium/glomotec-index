@@ -107,7 +107,7 @@ function DraftsEmpty() {
         </h3>
         <p className="mx-auto mt-1 max-w-md text-2xs text-ink-muted leading-relaxed">
           Run a hypothetical or anonymised profile through the scorer and see how it lands on
-          all 16 criteria. Results stay in your browser.
+          all Innovator Founder criteria. Results stay in your browser.
         </p>
         <Button asChild variant="primary" size="sm" className="mt-4">
           <Link href="/clients/new">

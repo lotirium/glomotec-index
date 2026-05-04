@@ -19,10 +19,10 @@ export const maxDuration = 60;
  */
 const MODEL = "claude-haiku-4-5-20251001";
 /**
- * Criteria per batch. With 16 criteria total at 4-per-batch we make 4
- * concurrent requests — well under Tier 1 RPM (50/min) — and the wall
- * time is one batch's latency. Smaller batches generate less output
- * per call, so the slowest batch finishes faster.
+ * Criteria per batch. With ~19 criteria total at 4-per-batch we make a
+ * handful of concurrent requests — well under Tier 1 RPM (50/min) — and
+ * the wall time is one batch's latency. Smaller batches generate less
+ * output per call, so the slowest batch finishes faster.
  */
 const BATCH_SIZE = 4;
 const MAX_TOKENS_PER_BATCH = 500 * BATCH_SIZE;

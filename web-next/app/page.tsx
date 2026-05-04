@@ -27,10 +27,21 @@ export default async function HomePage() {
   const enabledRoute = routes.find((r) => r.enabled);
   const totalCriteria = routes.reduce((sum, r) => sum + r.criteria_count, 0);
 
-  const advisorImpactTone: Record<"high" | "medium" | "low", "low" | "medium" | "neutral"> = {
-    high: "low",
-    medium: "medium",
-    low: "neutral",
+  const advisorImpactTone: Record<
+    "operational_disruption" | "advisory" | "informational",
+    "low" | "medium" | "neutral"
+  > = {
+    operational_disruption: "low",
+    advisory: "medium",
+    informational: "neutral",
+  };
+  const advisorImpactLabel: Record<
+    "operational_disruption" | "advisory" | "informational",
+    string
+  > = {
+    operational_disruption: "Operational disruption",
+    advisory: "Advisory",
+    informational: "Informational",
   };
 
   return (
@@ -224,7 +235,7 @@ export default async function HomePage() {
                         {formatDate(entry.observed_at)}
                       </p>
                       <Badge tone={advisorImpactTone[entry.advisor_impact]}>
-                        {entry.advisor_impact} impact
+                        {advisorImpactLabel[entry.advisor_impact]}
                       </Badge>
                     </div>
                     <p className="mt-2 text-sm font-semibold text-ink leading-snug group-hover:text-accent-deep transition-colors">
