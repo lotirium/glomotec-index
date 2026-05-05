@@ -329,7 +329,7 @@ def slide_1_title(prs):
         Inches(5.05),
         Inches(12.13),
         Inches(0.6),
-        "A framework for glomotec's regulatory intelligence layer.",
+        "A system that reads UK immigration rules so advisors do not have to.",
         size=20,
         color=IVORY,
         align=PP_ALIGN.CENTER,
@@ -350,8 +350,8 @@ def slide_1_title(prs):
     add_speaker_notes(
         s,
         "Hi everyone. I'm Nilyufar. Brief 02. I'll walk you through INDEX, "
-        "the regulatory intelligence layer I designed and built a working "
-        "version of, in five minutes.",
+        "a system that reads UK immigration rules so advisors do not have "
+        "to. I designed it and built a working version. Five minutes.",
     )
 
 
@@ -376,29 +376,51 @@ def slide_2_problem(prs):
         line_spacing=1.15,
     )
 
-    add_lines(
+    # Single oversized stat replaces the bullet list. The presenter speaks
+    # the bullets; the slide is a visual anchor for the price.
+    add_text(
         s,
         Inches(0.6),
-        Inches(3.85),
+        Inches(3.7),
         Inches(12.13),
-        Inches(3.2),
-        [
-            "·  The UK Home Office publishes guidance for caseworkers across roughly 18 active immigration routes.",
-            "·  These documents update every 1 to 4 months, without changelogs.",
-            "·  A typical advisor charges between £8,000 and £25,000 per case. Failed applications cost clients time, money, and trust.",
-        ],
-        size=21,
-        color=INK_SOFT,
-        line_spacing=1.55,
+        Inches(2.0),
+        "£8,000–£25,000 per case",
+        size=88,
+        color=ACCENT,
+        bold=True,
+        align=PP_ALIGN.CENTER,
+        anchor=MSO_ANCHOR.MIDDLE,
+        line_spacing=1.05,
+        spc=-30,
+    )
+    add_text(
+        s,
+        Inches(0.6),
+        Inches(5.7),
+        Inches(12.13),
+        Inches(0.45),
+        "TYPICAL ADVISOR FEE",
+        size=12,
+        color=INK_FAINT,
+        bold=True,
+        align=PP_ALIGN.CENTER,
+        spc=400,
     )
 
+    # Speaker notes carry the original bullets so the presenter still narrates
+    # the points the slide no longer prints.
     add_speaker_notes(
         s,
-        "glomotec advises on UK immigration. The rules are written for "
-        "caseworkers, published by the Home Office, and updated every few "
-        "months without any notice. Most firms read each document once and "
-        "trust their memory. Almost nobody tracks what changes between "
-        "versions. That's the gap I'm filling.",
+        "The UK Home Office publishes guidance for caseworkers across "
+        "roughly 18 active immigration routes. These documents update "
+        "every 1 to 4 months, without warning. A typical advisor charges "
+        "between £8,000 and £25,000 per case. Failed applications cost "
+        "clients time, money, and trust. glomotec advises on UK "
+        "immigration. The rules are written for Home Office caseworkers, "
+        "published online, and updated every few months without any "
+        "notice. Most firms read each document once and trust their "
+        "memory. Almost nobody tracks what changes between versions. "
+        "That is the gap I am filling.",
     )
 
 
@@ -423,29 +445,82 @@ def slide_3_what_i_built(prs):
         line_spacing=1.15,
     )
 
-    add_lines(
-        s,
-        Inches(0.6),
-        Inches(3.85),
-        Inches(12.13),
-        Inches(3.2),
-        [
-            "·  It fetches every government guidance page.",
-            "·  It turns flowing prose into checkable rules.",
-            "·  It scores a client's profile against those rules.",
-        ],
-        size=22,
-        color=INK_SOFT,
-        line_spacing=1.55,
-    )
+    # Three-step icon row replaces the bullet list. Each step is a circular
+    # accent disc with a tiny label beneath. Arrows between the discs make
+    # the read → structure → check flow legible at a glance.
+    step_y = Inches(3.85)
+    disc_d = Inches(0.95)
+    label_h = Inches(0.45)
+    n = 3
+    margin_x = Inches(2.4)
+    available = SLIDE_W - 2 * margin_x
+    # Three discs with two arrows between. Disc-to-disc gap balances arrow length.
+    gap = (available - n * disc_d) / (n - 1)
 
+    steps = ["READ", "STRUCTURE", "CHECK"]
+    centers = []
+    for i, label in enumerate(steps):
+        cx = margin_x + i * (disc_d + gap)
+        # Disc.
+        disc = s.shapes.add_shape(
+            MSO_SHAPE.OVAL, _i(cx), _i(step_y), _i(disc_d), _i(disc_d),
+        )
+        disc.fill.solid()
+        disc.fill.fore_color.rgb = RGBColor(0xEE, 0xF3, 0xFB)
+        disc.line.color.rgb = ACCENT
+        disc.line.width = Pt(1.0)
+        # Numeral inside the disc.
+        add_text(
+            s,
+            cx,
+            step_y,
+            disc_d,
+            disc_d,
+            str(i + 1),
+            size=28,
+            color=ACCENT,
+            bold=True,
+            align=PP_ALIGN.CENTER,
+            anchor=MSO_ANCHOR.MIDDLE,
+        )
+        # Label beneath, with a connecting hairline.
+        add_text(
+            s,
+            cx - Inches(0.5),
+            step_y + disc_d + Inches(0.25),
+            disc_d + Inches(1.0),
+            label_h,
+            label,
+            size=14,
+            color=INK_SOFT,
+            bold=True,
+            align=PP_ALIGN.CENTER,
+            spc=200,
+        )
+        centers.append(cx + disc_d / 2)
+
+    # Arrows between each pair of discs.
+    for i in range(n - 1):
+        ax = margin_x + i * (disc_d + gap) + disc_d
+        add_arrow(
+            s,
+            ax + Inches(0.05),
+            step_y + disc_d / 2,
+            gap - Inches(0.1),
+            Inches(0),
+            color=ACCENT,
+            weight=1.4,
+        )
+
+    # Speaker notes carry the original bullets so the presenter narrates them.
     add_speaker_notes(
         s,
-        "INDEX is a regulatory intelligence system. It ingests UK caseworker "
-        "guidance, breaks it into individual checkable rules, and runs client "
-        "profiles against them. An advisor sees where the case is strong, "
-        "where it is weak, what evidence is missing, and when a rule changes "
-        "which of their clients is affected.",
+        "INDEX reads the rules so advisors do not have to. Three steps. "
+        "It fetches every government guidance page. It turns long "
+        "paragraphs into clear, separate rules. It checks a client "
+        "against those rules. An advisor sees where the case is strong, "
+        "where it is weak, what evidence is missing, and when a rule "
+        "changes which of their clients is affected.",
     )
 
 
@@ -471,10 +546,10 @@ def slide_4_pipeline(prs):
 
     # Five module boxes in a row with plain-English captions beneath each.
     modules = [
-        ("CRAWLER", "fetches the rules", "from gov.uk"),
-        ("EXTRACTOR", "turns prose into", "structured rules"),
+        ("CRAWLER", "downloads the rules", "from gov.uk"),
+        ("EXTRACTOR", "turns long paragraphs", "into rules"),
         ("CHANGEFEED", "detects what", "changed between versions"),
-        ("SCORER", "scores a client", "against the rules"),
+        ("SCORER", "checks a client", "against the rules"),
         ("EVALUATOR", "keeps the system", "itself honest"),
     ]
     n = len(modules)
@@ -535,13 +610,13 @@ def slide_4_pipeline(prs):
 
     add_speaker_notes(
         s,
-        "The first three modules run on a schedule. CRAWLER fetches every "
-        "gov.uk caseworker guidance page. EXTRACTOR uses an AI model to "
-        "turn each rule paragraph into a structured record. CHANGEFEED "
-        "compares successive versions and surfaces meaningful changes to "
-        "the operations team. SCORER runs whenever an advisor wants to "
-        "check a client. EVALUATOR re-tests the system every night to "
-        "catch regressions before they hit production.",
+        "The first three steps run on a schedule. CRAWLER downloads every "
+        "guidance page from gov.uk. EXTRACTOR uses an AI model to turn "
+        "each long paragraph into a clear rule. CHANGEFEED compares the "
+        "new version against the last one and tells the operations team "
+        "what actually changed. SCORER runs whenever an advisor wants to "
+        "check a client. EVALUATOR retests the whole system every night "
+        "to catch any drop in quality before it reaches the team.",
     )
 
 
@@ -657,21 +732,22 @@ def slide_5_decision(prs):
 
     add_speaker_notes(
         s,
-        "I had three options. Use AI to read the rules and answer questions, "
-        "like a chatbot. Summarise the rules in plain prose. Or extract each "
-        "rule into structured data. The first two cannot reliably catch what "
-        "changes between versions, and a single word inserted into government "
-        "guidance can invalidate hundreds of applications. Only structured "
-        "data makes that catchable. So I chose structured. The schema "
-        "separates the kind of rule from how it is tested, which is what "
-        "lets the system know that \"must be 18 or over\" and \"must have a "
-        "viable business\" need different kinds of evidence even though both "
-        "end in a yes or no.",
+        "I had three options. Use AI to read the rules and answer questions "
+        "like a chatbot. Summarise the rules in plain prose. Or pull every "
+        "rule out into a clear, separate record. The first two cannot "
+        "reliably catch what changes between versions, and a single word "
+        "added or removed in government guidance can invalidate hundreds "
+        "of applications. Only the structured version catches that. So I "
+        "chose structured. Each rule is stored on its own with what kind "
+        "of test it is, who has to prove it, and what evidence counts. "
+        "That is what lets the system know that \"must be 18 or over\" "
+        "and \"must have a viable business\" need very different evidence "
+        "even though both end in a yes or no.",
     )
 
 
 def slide_6_scoring(prs):
-    """Slide 6. How scoring works (ivory). Bands as recommendations."""
+    """Slide 6. How scoring works (ivory). Three readiness axes + four bands."""
     s = prs.slides.add_slide(prs.slide_layouts[6])
     set_bg(s, IVORY)
     add_wordmark(s)
@@ -681,21 +757,94 @@ def slide_6_scoring(prs):
     add_text(
         s,
         Inches(0.6),
-        Inches(1.9),
+        Inches(1.85),
         Inches(12.13),
-        Inches(1.4),
-        "We do not show numbers. We show recommendations.",
-        size=34,
+        Inches(0.85),
+        "Three things we check. Four levels of confidence.",
+        size=32,
         color=NAVY,
         bold=True,
         line_spacing=1.15,
     )
 
-    # Four-band gradient with action labels beneath each band.
-    band_y = Inches(4.1)
-    band_h = Inches(0.85)
+    add_text(
+        s,
+        Inches(0.6),
+        Inches(2.7),
+        Inches(12.13),
+        Inches(0.45),
+        "We do not show numbers. We show recommendations.",
+        size=16,
+        color=INK_MUTED,
+        line_spacing=1.2,
+    )
+
+    # ---------- Top half: three readiness axis cards ----------
+    axis_y = Inches(3.25)
+    axis_h = Inches(1.45)
     margin_x = Inches(0.6)
-    band_w = (SLIDE_W - 2 * margin_x) / 4
+    gap = Inches(0.3)
+    card_w = (SLIDE_W - 2 * margin_x - 2 * gap) / 3
+
+    # Suitability accent: deeper amber, mirrors the verdict-hero column label.
+    SUITABILITY_FG = RGBColor(0x9A, 0x45, 0x15)
+    SUITABILITY_BG = RGBColor(0xFB, 0xEF, 0xE4)
+
+    axes = [
+        (
+            "FIT",
+            "Does the applicant fit the route?",
+            ACCENT,
+            RGBColor(0xEE, 0xF3, 0xFB),
+        ),
+        (
+            "PAPERWORK",
+            "Is the application complete?",
+            ACCENT,
+            RGBColor(0xEE, 0xF3, 0xFB),
+        ),
+        (
+            "SUITABILITY",
+            "Could the case be refused for another reason?",
+            SUITABILITY_FG,
+            SUITABILITY_BG,
+        ),
+    ]
+    for i, (label, blurb, fg, bg) in enumerate(axes):
+        cx = margin_x + i * (card_w + gap)
+        add_rect(
+            s, cx, axis_y, card_w, axis_h,
+            fill=bg, line=fg, line_weight=1.0, rounded=True,
+        )
+        add_text(
+            s,
+            cx + Inches(0.3),
+            axis_y + Inches(0.28),
+            card_w - Inches(0.6),
+            Inches(0.4),
+            label,
+            size=12,
+            color=fg,
+            bold=True,
+            spc=200,
+        )
+        add_text(
+            s,
+            cx + Inches(0.3),
+            axis_y + Inches(0.78),
+            card_w - Inches(0.6),
+            Inches(0.6),
+            blurb,
+            size=15,
+            color=INK_SOFT,
+            line_spacing=1.35,
+        )
+
+    # ---------- Bottom half: four-band gradient ----------
+    band_y = Inches(5.2)
+    band_h = Inches(0.7)
+    band_margin_x = Inches(0.6)
+    band_w = (SLIDE_W - 2 * band_margin_x) / 4
     bands = [
         ("BELOW THRESHOLD", "Do not submit", BAND_BELOW_BG, BAND_BELOW_FG),
         ("LOW", "Get more evidence", BAND_LOW_BG, BAND_LOW_FG),
@@ -703,16 +852,16 @@ def slide_6_scoring(prs):
         ("HIGH", "Recommend submission", BAND_HIGH_BG, BAND_HIGH_FG),
     ]
     for i, (label, action, bg, fg) in enumerate(bands):
-        bx = margin_x + i * band_w
+        bx = band_margin_x + i * band_w
         add_rect(s, bx, band_y, band_w, band_h, fill=bg, line=fg, line_weight=0.5)
         add_text(
             s,
             bx,
-            band_y + Inches(0.18),
+            band_y + Inches(0.13),
             band_w,
-            Inches(0.45),
+            Inches(0.4),
             label,
-            size=12,
+            size=11,
             color=fg,
             bold=True,
             align=PP_ALIGN.CENTER,
@@ -721,38 +870,27 @@ def slide_6_scoring(prs):
         add_text(
             s,
             bx,
-            band_y + band_h + Inches(0.18),
+            band_y + band_h + Inches(0.12),
             band_w,
             Inches(0.4),
             action,
-            size=14,
+            size=13,
             color=INK_SOFT,
             bold=True,
             align=PP_ALIGN.CENTER,
         )
 
-    # Subline framing why we suppress the number.
-    add_text(
-        s,
-        Inches(0.6),
-        Inches(6.05),
-        Inches(12.13),
-        Inches(0.6),
-        "A score of 0.7 means little to an advisor. \"Advisor review\" tells them exactly what to do next.",
-        size=15,
-        color=INK_MUTED,
-        align=PP_ALIGN.CENTER,
-    )
-
     add_speaker_notes(
         s,
-        "Out-of-the-box AI is dramatically overconfident. The engineering "
-        "layer produces a probability. The advisor-facing layer translates "
-        "that into one of four bands, each with a clear action. The bands "
-        "are calibrated against real Home Office decision rates, so \"high\" "
-        "actually correlates with cases that win at the Home Office. "
-        "Advisors never have to interpret a number. They see a band, they "
-        "know what to do.",
+        "INDEX checks a client on three things. Fit answers does the "
+        "applicant actually fit this visa route. Paperwork answers is the "
+        "application complete and properly evidenced. Suitability answers "
+        "could this case still be refused for another reason, things like "
+        "past immigration issues, a criminal record, false statements in a "
+        "previous application, or unpaid NHS debt. The result on each "
+        "check sits in one of four levels of confidence, and each level "
+        "comes with a clear action. Advisors see the level and the action, "
+        "not a raw number.",
     )
 
 
@@ -789,176 +927,203 @@ def slide_7_demo(prs):
         align=PP_ALIGN.CENTER,
     )
 
+    # Two-line subline. Line 1 names the framing; line 2 names the surfaces.
     add_text(
         s,
         Inches(0.6),
-        Inches(4.95),
+        Inches(4.85),
         Inches(12.13),
-        Inches(0.6),
-        "Click \"Run live pipeline\" on the home page.",
+        Inches(0.5),
+        "One system, two surfaces.",
         size=22,
-        color=ACCENT,
+        color=IVORY,
+        align=PP_ALIGN.CENTER,
+    )
+    add_text(
+        s,
+        Inches(0.6),
+        Inches(5.4),
+        Inches(12.13),
+        Inches(0.5),
+        "For advisors. For new prospects.",
+        size=16,
+        color=MUTED,
         align=PP_ALIGN.CENTER,
     )
 
+    # Footer: two side-by-side groupings, separated by ample whitespace.
+    # Left = ADVISOR · /clients (full pipeline). Right = PROSPECT · /signal
+    # (substantive-only SCORER). The whitespace between them carries the
+    # "two surfaces, one engine" framing visually.
+    footer_y = Inches(6.5)
+    margin_x = Inches(0.6)
+    gap = Inches(1.6)
+    col_w = (SLIDE_W - 2 * margin_x - gap) / 2
+
+    # Left: ADVISOR · /clients
+    left_x = margin_x
     add_text(
         s,
-        Inches(0.6),
-        Inches(6.6),
-        Inches(12.13),
-        Inches(0.4),
-        "CRAWLER  ·  CHANGEFEED  ·  EXTRACTOR  ·  SCORER",
-        size=12,
-        color=MUTED,
+        left_x,
+        footer_y,
+        col_w,
+        Inches(0.35),
+        "FOR ADVISORS  ·  /clients",
+        size=11,
+        color=ACCENT,
+        bold=True,
         align=PP_ALIGN.CENTER,
         spc=300,
+    )
+    add_text(
+        s,
+        left_x,
+        footer_y + Inches(0.4),
+        col_w,
+        Inches(0.35),
+        "CRAWLER  ·  EXTRACTOR  ·  CHANGEFEED  ·  SCORER  ·  EVALUATOR",
+        size=11,
+        color=MUTED,
+        align=PP_ALIGN.CENTER,
+        spc=200,
+    )
+
+    # Right: PROSPECT · /signal
+    right_x = margin_x + col_w + gap
+    add_text(
+        s,
+        right_x,
+        footer_y,
+        col_w,
+        Inches(0.35),
+        "FOR PROSPECTS  ·  /signal",
+        size=11,
+        color=ACCENT,
+        bold=True,
+        align=PP_ALIGN.CENTER,
+        spc=300,
+    )
+    add_text(
+        s,
+        right_x,
+        footer_y + Inches(0.4),
+        col_w,
+        Inches(0.35),
+        "SCORER (substantive only)",
+        size=11,
+        color=MUTED,
+        align=PP_ALIGN.CENTER,
+        spc=200,
     )
 
     add_speaker_notes(
         s,
-        "I'll switch to the browser now. Click the Run live pipeline button. "
-        "You'll see CRAWLER fetch gov.uk live, CHANGEFEED detect drift "
-        "against the last snapshot, EXTRACTOR pull a criterion through the "
-        "Claude API. Then I'll score a sample profile and we'll see "
-        "substantive vs procedural readiness in action. About 90 seconds.",
+        "I will switch to the browser. First I will click Run live "
+        "pipeline. CRAWLER downloads from gov.uk live, CHANGEFEED spots "
+        "what changed against the last version, EXTRACTOR pulls one rule "
+        "through the AI model. About fifteen seconds. Then I will click "
+        "into a saved client to show the three checks, including the new "
+        "suitability one. Then over to /signal, the version for new "
+        "prospects, a quick chat as a Brazilian fintech founder. The "
+        "conversation ends with a Strong fit verdict. Same system, two "
+        "surfaces. About ninety seconds total.",
     )
 
 
 def slide_8_surprise(prs):
-    """Slide 8. What surprised me (ivory). The cap-rule insight."""
+    """Slide 8. What I learned (ivory). The operator-consultation story."""
     s = prs.slides.add_slide(prs.slide_layouts[6])
     set_bg(s, IVORY)
     add_wordmark(s)
 
-    add_section_label(s, Inches(0.6), Inches(1.4), Inches(8), "06  ·  WHAT SURPRISED ME")
+    add_section_label(s, Inches(0.6), Inches(1.4), Inches(8), "06  ·  WHAT I LEARNED")
 
     add_text(
         s,
         Inches(0.6),
         Inches(1.9),
         Inches(12.13),
-        Inches(1.4),
-        "An obviously weak applicant scored \"mixed signals\", not \"do not submit\".",
-        size=28,
+        Inches(1.05),
+        "I asked the person who runs this work every day.",
+        size=30,
         color=NAVY,
         bold=True,
+        line_spacing=1.15,
+    )
+
+    # Single body line replaces the bullet list. Centred, large, the slide
+    # is now a visual anchor; the presenter speaks the rest.
+    add_text(
+        s,
+        Inches(0.6),
+        Inches(3.6),
+        Inches(12.13),
+        Inches(1.4),
+        "She said: add the third check.",
+        size=40,
+        color=NAVY,
+        bold=True,
+        align=PP_ALIGN.CENTER,
+        anchor=MSO_ANCHOR.MIDDLE,
         line_spacing=1.2,
     )
 
-    # Two-column comparison.
-    col_y = Inches(4.0)
-    col_h = Inches(2.25)
-    margin_x = Inches(0.6)
-    gap = Inches(0.4)
-    col_w = (SLIDE_W - 2 * margin_x - gap) / 2
+    # Three-pillar diagram below the body. Suitability uses the verdict-hero
+    # accent (deeper amber) to signal that it is the gate axis.
+    SUITABILITY_FG = RGBColor(0x9A, 0x45, 0x15)
+    SUITABILITY_BG = RGBColor(0xFB, 0xEF, 0xE4)
 
-    # Left: Before
-    left_x = margin_x
-    add_rect(
-        s, left_x, col_y, col_w, col_h, fill=IVORY, line=BAND_LOW_FG, line_weight=1.0, rounded=True
-    )
-    add_text(
-        s,
-        left_x + Inches(0.4),
-        col_y + Inches(0.25),
-        col_w - Inches(0.8),
-        Inches(0.35),
-        "BEFORE",
-        size=11,
-        color=BAND_LOW_FG,
-        bold=True,
-        spc=200,
-    )
-    add_text(
-        s,
-        left_x + Inches(0.4),
-        col_y + Inches(0.7),
-        col_w - Inches(0.8),
-        Inches(0.6),
-        "James, 40. Score: 70.",
-        size=22,
-        color=NAVY,
-        bold=True,
-    )
-    add_text(
-        s,
-        left_x + Inches(0.4),
-        col_y + Inches(1.35),
-        col_w - Inches(0.8),
-        Inches(0.85),
-        "No business. No endorsement. Reads as borderline.",
-        size=15,
-        color=INK_MUTED,
-        line_spacing=1.4,
-    )
-
-    # Right: After
-    right_x = margin_x + col_w + gap
-    add_rect(
-        s, right_x, col_y, col_w, col_h,
-        fill=RGBColor(0xEE, 0xF3, 0xFB),
-        line=ACCENT,
-        line_weight=1.0,
-        rounded=True,
-    )
-    add_text(
-        s,
-        right_x + Inches(0.4),
-        col_y + Inches(0.25),
-        col_w - Inches(0.8),
-        Inches(0.35),
-        "AFTER",
-        size=11,
-        color=ACCENT,
-        bold=True,
-        spc=200,
-    )
-    add_text(
-        s,
-        right_x + Inches(0.4),
-        col_y + Inches(0.7),
-        col_w - Inches(0.8),
-        Inches(0.6),
-        "Same applicant. Score: 50.",
-        size=22,
-        color=NAVY,
-        bold=True,
-    )
-    add_text(
-        s,
-        right_x + Inches(0.4),
-        col_y + Inches(1.35),
-        col_w - Inches(0.8),
-        Inches(0.85),
-        "Now reads as cannot submit.",
-        size=15,
-        color=INK_MUTED,
-        line_spacing=1.4,
-    )
-
-    # Caption beneath.
-    add_text(
-        s,
-        Inches(0.6),
-        Inches(6.55),
-        Inches(12.13),
-        Inches(0.55),
-        "Pass-for-everyone criteria like \"must be 18 or over\" were hiding the real failures. Added a cap rule. Now in the framework.",
-        size=14,
-        color=INK_MUTED,
-        align=PP_ALIGN.CENTER,
-    )
+    pillar_y = Inches(6.05)
+    pillar_h = Inches(0.7)
+    pillar_margin_x = Inches(2.0)
+    pillar_gap = Inches(0.4)
+    pillar_w = (SLIDE_W - 2 * pillar_margin_x - 2 * pillar_gap) / 3
+    pillars = [
+        ("FIT", ACCENT, RGBColor(0xEE, 0xF3, 0xFB)),
+        ("PAPERWORK", ACCENT, RGBColor(0xEE, 0xF3, 0xFB)),
+        ("SUITABILITY", SUITABILITY_FG, SUITABILITY_BG),
+    ]
+    for i, (label, fg, bg) in enumerate(pillars):
+        px = pillar_margin_x + i * (pillar_w + pillar_gap)
+        add_rect(
+            s, px, pillar_y, pillar_w, pillar_h,
+            fill=bg, line=fg, line_weight=1.0, rounded=True,
+        )
+        add_text(
+            s,
+            px,
+            pillar_y + Inches(0.16),
+            pillar_w,
+            Inches(0.45),
+            label,
+            size=15,
+            color=fg,
+            bold=True,
+            align=PP_ALIGN.CENTER,
+            spc=160,
+        )
 
     add_speaker_notes(
         s,
-        "I tested the system with fictional applicants. One had no business "
-        "and no endorsement. The system kept saying \"mixed signals.\" "
-        "Looking inside, I found that criteria like \"must be 18 or over\" "
-        "or \"must not be on immigration bail\" pass for almost everyone, "
-        "and they were inflating his score. I added a rule that pulls the "
-        "headline score down whenever a single critical criterion fails, "
-        "so dealbreakers cannot hide. That insight became a permanent part "
-        "of the schema and is documented in section six of the framework.",
+        "The most useful thing I did this week was not more testing. It "
+        "was sending my work to Nameera, the Director of Operations at "
+        "glomotec. She runs the team that actually files these "
+        "applications, so she sees every way a case can fall apart in "
+        "real life. She validated the first two checks, fit and "
+        "paperwork. Then she told me a case can still be refused even "
+        "when the person fits the route and the paperwork is complete. "
+        "For example, past immigration issues, a criminal record, false "
+        "statements in a previous application, or unpaid NHS debt. That "
+        "is a third kind of check, and I had been treating only the "
+        "first two. So I added it. Three checks now, not two, and the "
+        "document, the code, and the live demo all reflect that. Ray, "
+        "the CEO, also wrote back. He pointed out the same system could "
+        "help new people who are not yet clients, not just the ones we "
+        "already have. Same rules, different lens. So I built that "
+        "surface too, the prospect-facing version called /signal. You "
+        "will see it in the demo. The things that mattered most this "
+        "week came from talking to the people who actually do this "
+        "work.",
     )
 
 
