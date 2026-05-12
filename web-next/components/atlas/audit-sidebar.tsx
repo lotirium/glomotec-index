@@ -21,7 +21,7 @@ export function AuditSidebar() {
       : "page";
 
   return (
-    <aside className="sticky top-20 hidden lg:block">
+    <aside className="sticky top-20 hidden self-start lg:block">
       <div
         className={cn(
           "rounded-md border bg-surface p-5 transition-colors",

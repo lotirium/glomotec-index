@@ -310,7 +310,7 @@ export function SectorHeatmap({ cells, zoneSummaries }: Props) {
       {/* TAKEAWAY BANNER */}
       <div className="mt-6 overflow-hidden rounded-md bg-gradient-to-br from-accent to-accent-deep px-5 py-5 md:px-6">
         <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan">
-          Read
+          Takeaway
         </p>
         <p className="mt-2 text-sm font-medium leading-relaxed text-surface">
           {takeaway}
