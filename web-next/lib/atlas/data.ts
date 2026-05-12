@@ -6,10 +6,13 @@ import type {
   FreeZone,
   HeatmapCell,
   HeatmapMetric,
+  OriginCountry,
+  OriginMapResponse,
   PolicyInsight,
   RubricBand,
   SectorSummary,
 } from "@/lib/atlas/types";
+import { COUNTRY_TABLE, GCC_CODES } from "@/lib/atlas/country-centroids";
 
 export { RUBRIC_VERSION } from "@/lib/atlas/rubric";
 
@@ -229,6 +232,84 @@ export async function getSectorHeatmapData(
       return { zone, sector, bandACount, totalEntities, avgComposite };
     });
   });
+}
+
+// ----- Origin map (Visual 01) -----
+
+export async function getOriginMapData(): Promise<OriginMapResponse> {
+  const all = await getAllUaeCompanies();
+  const bandA = all.filter((c) => c.grading.band === "A");
+
+  const byCountry = new Map<string, AtlasCompany[]>();
+  let latestRefresh = "";
+  for (const c of all) {
+    const code = c.origin_country;
+    if (!code) continue;
+    if (c.dataSource.lastUpdated > latestRefresh) {
+      latestRefresh = c.dataSource.lastUpdated;
+    }
+    const list = byCountry.get(code) ?? [];
+    list.push(c);
+    byCountry.set(code, list);
+  }
+
+  const countries: OriginCountry[] = [];
+  for (const [code, list] of byCountry) {
+    const bandAList = list.filter((c) => c.grading.band === "A");
+    const meta = COUNTRY_TABLE[code];
+    const sector_breakdown: Record<string, number> = {};
+    for (const c of bandAList) {
+      sector_breakdown[c.sector] = (sector_breakdown[c.sector] ?? 0) + 1;
+    }
+    const avg = bandAList.length
+      ? Math.round(
+          bandAList.reduce((s, c) => s + compositeScore(c), 0) / bandAList.length,
+        )
+      : 0;
+    countries.push({
+      iso2: code,
+      iso3: meta?.iso3 ?? code,
+      country_name: meta?.name ?? code,
+      band_a_count: bandAList.length,
+      total_entities: list.length,
+      sector_breakdown,
+      avg_composite: avg,
+      centroid: meta?.centroid,
+    });
+  }
+  // Stable order: band_a_count desc, then name asc.
+  countries.sort(
+    (a, b) =>
+      b.band_a_count - a.band_a_count ||
+      a.country_name.localeCompare(b.country_name),
+  );
+
+  const total_band_a = bandA.length;
+  const gccBandA = bandA.filter((c) =>
+    c.origin_country ? GCC_CODES.has(c.origin_country) : false,
+  ).length;
+  const non_gcc_pct = total_band_a
+    ? Math.round(((total_band_a - gccBandA) / total_band_a) * 100)
+    : 0;
+
+  return {
+    generated_at: new Date().toISOString().slice(0, 16).replace("T", " "),
+    total_band_a,
+    total_origin_countries: countries.filter((c) => c.band_a_count > 0).length,
+    non_gcc_pct,
+    last_refresh: latestRefresh,
+    countries,
+  };
+}
+
+async function getAllUaeCompanies(): Promise<AtlasCompany[]> {
+  const sets = await Promise.all([
+    getCompaniesByZone("DMCC"),
+    getCompaniesByZone("DIFC"),
+    getCompaniesByZone("ADGM"),
+    getCompaniesByZone("JAFZA"),
+  ]);
+  return sets.flat();
 }
 
 export async function getTopBandA(zone: FreeZone, limit = 10): Promise<AtlasCompany[]> {

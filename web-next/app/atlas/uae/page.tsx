@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/shared/page-header";
+import { AtlasUaeTabs } from "@/components/atlas/atlas-uae-tabs";
 import {
   UaeOverview,
   type ZoneDetailBundle,
@@ -72,6 +73,7 @@ export default async function AtlasUaePage() {
         title="Every company you've licensed, continuously graded."
         description="Free Zone authorities publish sector totals. ATLAS adds the rubric layer that turns totals into pipeline intelligence : graded, evidence anchored, audit-trail native."
       />
+      <AtlasUaeTabs current="overview" />
 
       <div className="container py-16 md:py-20">
         <UaeOverview

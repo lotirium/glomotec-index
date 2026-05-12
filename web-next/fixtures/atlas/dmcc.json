@@ -28,7 +28,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-26"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "dmcc-002",
@@ -59,7 +60,8 @@
       "authority": "DMCC Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-13"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "dmcc-003",
@@ -100,7 +102,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-06"
-    }
+    },
+    "origin_country": "RU"
   },
   {
     "id": "dmcc-004",
@@ -141,7 +144,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-15"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "dmcc-005",
@@ -177,7 +181,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-27"
-    }
+    },
+    "origin_country": "JO"
   },
   {
     "id": "dmcc-006",
@@ -218,7 +223,8 @@
       "authority": "DMCC Authority",
       "confidence": "low",
       "lastUpdated": "2026-03-09"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-007",
@@ -249,7 +255,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-23"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "dmcc-008",
@@ -290,7 +297,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-06"
-    }
+    },
+    "origin_country": "SG"
   },
   {
     "id": "dmcc-009",
@@ -326,7 +334,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-19"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-010",
@@ -357,7 +366,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-22"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "dmcc-011",
@@ -393,7 +403,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-09"
-    }
+    },
+    "origin_country": "CA"
   },
   {
     "id": "dmcc-012",
@@ -424,7 +435,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-01"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-013",
@@ -455,7 +467,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-17"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-014",
@@ -486,7 +499,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-05"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-015",
@@ -522,7 +536,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-27"
-    }
+    },
+    "origin_country": "EG"
   },
   {
     "id": "dmcc-016",
@@ -553,7 +568,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-26"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-017",
@@ -589,7 +605,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-16"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-018",
@@ -620,7 +637,8 @@
       "authority": "DMCC Authority",
       "confidence": "low",
       "lastUpdated": "2026-01-17"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-019",
@@ -656,7 +674,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-14"
-    }
+    },
+    "origin_country": "JO"
   },
   {
     "id": "dmcc-020",
@@ -687,7 +706,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-01"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-021",
@@ -718,7 +738,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-02"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "dmcc-022",
@@ -749,7 +770,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-07"
-    }
+    },
+    "origin_country": "EG"
   },
   {
     "id": "dmcc-023",
@@ -780,7 +802,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-18"
-    }
+    },
+    "origin_country": "ZA"
   },
   {
     "id": "dmcc-024",
@@ -816,7 +839,8 @@
       "authority": "DMCC Authority",
       "confidence": "low",
       "lastUpdated": "2026-02-18"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "dmcc-025",
@@ -852,7 +876,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-27"
-    }
+    },
+    "origin_country": "JO"
   },
   {
     "id": "dmcc-026",
@@ -883,7 +908,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-28"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-027",
@@ -919,7 +945,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-15"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "dmcc-028",
@@ -955,7 +982,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-08"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "dmcc-029",
@@ -986,7 +1014,8 @@
       "authority": "DMCC Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-07"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-030",
@@ -1027,7 +1056,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-15"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-031",
@@ -1063,7 +1093,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-21"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-032",
@@ -1099,7 +1130,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-11"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "dmcc-033",
@@ -1130,7 +1162,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-14"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-034",
@@ -1161,7 +1194,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-12"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-035",
@@ -1192,7 +1226,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-10"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "dmcc-036",
@@ -1233,7 +1268,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-04"
-    }
+    },
+    "origin_country": "JO"
   },
   {
     "id": "dmcc-037",
@@ -1264,7 +1300,8 @@
       "authority": "DMCC Authority",
       "confidence": "low",
       "lastUpdated": "2026-01-23"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-038",
@@ -1295,7 +1332,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-03"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-039",
@@ -1336,7 +1374,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-18"
-    }
+    },
+    "origin_country": "LB"
   },
   {
     "id": "dmcc-040",
@@ -1367,7 +1406,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-02"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "dmcc-041",
@@ -1398,7 +1438,8 @@
       "authority": "DMCC Authority",
       "confidence": "low",
       "lastUpdated": "2026-01-28"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-042",
@@ -1429,7 +1470,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-17"
-    }
+    },
+    "origin_country": "RU"
   },
   {
     "id": "dmcc-043",
@@ -1465,7 +1507,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-09"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-044",
@@ -1501,7 +1544,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-28"
-    }
+    },
+    "origin_country": "EG"
   },
   {
     "id": "dmcc-045",
@@ -1537,7 +1581,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-04"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "dmcc-046",
@@ -1573,7 +1618,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-13"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "dmcc-047",
@@ -1614,7 +1660,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-05"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "dmcc-048",
@@ -1645,7 +1692,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-18"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-049",
@@ -1681,7 +1729,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-13"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-050",
@@ -1722,7 +1771,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-25"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-051",
@@ -1753,7 +1803,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-14"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-052",
@@ -1789,7 +1840,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-19"
-    }
+    },
+    "origin_country": "SA"
   },
   {
     "id": "dmcc-053",
@@ -1825,7 +1877,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-09"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-054",
@@ -1861,7 +1914,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-16"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-055",
@@ -1897,7 +1951,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-11"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-056",
@@ -1928,7 +1983,8 @@
       "authority": "DMCC Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-17"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-057",
@@ -1959,7 +2015,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-18"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-058",
@@ -1995,7 +2052,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-25"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-059",
@@ -2036,7 +2094,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-08"
-    }
+    },
+    "origin_country": "SG"
   },
   {
     "id": "dmcc-060",
@@ -2067,7 +2126,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-02"
-    }
+    },
+    "origin_country": "LB"
   },
   {
     "id": "dmcc-061",
@@ -2103,7 +2163,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-07"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-062",
@@ -2139,7 +2200,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-08"
-    }
+    },
+    "origin_country": "TR"
   },
   {
     "id": "dmcc-063",
@@ -2170,7 +2232,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-22"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "dmcc-064",
@@ -2206,7 +2269,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-16"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-065",
@@ -2242,7 +2306,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-16"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-066",
@@ -2273,7 +2338,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-05"
-    }
+    },
+    "origin_country": "JO"
   },
   {
     "id": "dmcc-067",
@@ -2314,7 +2380,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-13"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-068",
@@ -2345,7 +2412,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-20"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-069",
@@ -2381,7 +2449,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-09"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "dmcc-070",
@@ -2417,7 +2486,8 @@
       "authority": "DMCC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-08"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-071",
@@ -2448,7 +2518,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-22"
-    }
+    },
+    "origin_country": "EG"
   },
   {
     "id": "dmcc-072",
@@ -2479,7 +2550,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-15"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-073",
@@ -2510,7 +2582,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-24"
-    }
+    },
+    "origin_country": "LB"
   },
   {
     "id": "dmcc-074",
@@ -2546,7 +2619,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-06"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "dmcc-075",
@@ -2587,7 +2661,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-17"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "dmcc-076",
@@ -2628,7 +2703,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-17"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "dmcc-077",
@@ -2659,7 +2735,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-21"
-    }
+    },
+    "origin_country": "EG"
   },
   {
     "id": "dmcc-078",
@@ -2695,7 +2772,8 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-22"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "dmcc-079",
@@ -2726,7 +2804,8 @@
       "authority": "DMCC Authority",
       "confidence": "low",
       "lastUpdated": "2026-03-04"
-    }
+    },
+    "origin_country": "LB"
   },
   {
     "id": "dmcc-080",
@@ -2757,6 +2836,7 @@
       "authority": "DMCC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-13"
-    }
+    },
+    "origin_country": "PK"
   }
 ]

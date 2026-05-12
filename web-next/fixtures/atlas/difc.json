@@ -38,7 +38,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-06"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "difc-002",
@@ -69,7 +70,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-06"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "difc-003",
@@ -100,7 +102,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-05"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-004",
@@ -141,7 +144,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-11"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "difc-005",
@@ -177,7 +181,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-15"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "difc-006",
@@ -213,7 +218,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-08"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "difc-007",
@@ -244,7 +250,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-06"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-008",
@@ -275,7 +282,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-28"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "difc-009",
@@ -316,7 +324,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-02-13"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-010",
@@ -352,7 +361,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-04"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-011",
@@ -383,7 +393,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-14"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-012",
@@ -414,7 +425,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-13"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-013",
@@ -455,7 +467,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-17"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-014",
@@ -501,7 +514,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-12"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-015",
@@ -532,7 +546,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-22"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "difc-016",
@@ -568,7 +583,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-12"
-    }
+    },
+    "origin_country": "SG"
   },
   {
     "id": "difc-017",
@@ -604,7 +620,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-01-10"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "difc-018",
@@ -635,7 +652,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-23"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-019",
@@ -676,7 +694,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-24"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "difc-020",
@@ -712,7 +731,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-27"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-021",
@@ -753,7 +773,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-02-28"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-022",
@@ -784,7 +805,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-17"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "difc-023",
@@ -820,7 +842,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-19"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-024",
@@ -861,7 +884,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-13"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "difc-025",
@@ -902,7 +926,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-28"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "difc-026",
@@ -938,7 +963,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-22"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "difc-027",
@@ -979,7 +1005,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-13"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-028",
@@ -1010,7 +1037,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-03-03"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-029",
@@ -1046,7 +1074,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-01"
-    }
+    },
+    "origin_country": "LB"
   },
   {
     "id": "difc-030",
@@ -1087,7 +1116,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-28"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-031",
@@ -1133,7 +1163,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-06"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-032",
@@ -1164,7 +1195,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-15"
-    }
+    },
+    "origin_country": "RU"
   },
   {
     "id": "difc-033",
@@ -1205,7 +1237,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-25"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "difc-034",
@@ -1241,7 +1274,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-06"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-035",
@@ -1272,7 +1306,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-06"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "difc-036",
@@ -1303,7 +1338,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-01-23"
-    }
+    },
+    "origin_country": "JO"
   },
   {
     "id": "difc-037",
@@ -1334,7 +1370,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-23"
-    }
+    },
+    "origin_country": "LB"
   },
   {
     "id": "difc-038",
@@ -1375,7 +1412,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-21"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-039",
@@ -1416,7 +1454,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-11"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "difc-040",
@@ -1447,7 +1486,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-26"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "difc-041",
@@ -1478,7 +1518,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-22"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-042",
@@ -1509,7 +1550,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-01-08"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-043",
@@ -1545,7 +1587,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-02-22"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "difc-044",
@@ -1576,7 +1619,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-01"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-045",
@@ -1612,7 +1656,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-02-19"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "difc-046",
@@ -1648,7 +1693,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-21"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "difc-047",
@@ -1689,7 +1735,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-02"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "difc-048",
@@ -1720,7 +1767,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-23"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-049",
@@ -1756,7 +1804,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-21"
-    }
+    },
+    "origin_country": "ZA"
   },
   {
     "id": "difc-050",
@@ -1792,7 +1841,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-07"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "difc-051",
@@ -1833,7 +1883,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-03"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "difc-052",
@@ -1864,7 +1915,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-24"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "difc-053",
@@ -1900,7 +1952,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-23"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "difc-054",
@@ -1936,7 +1989,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-17"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "difc-055",
@@ -1972,7 +2026,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-27"
-    }
+    },
+    "origin_country": "AU"
   },
   {
     "id": "difc-056",
@@ -2003,7 +2058,8 @@
       "authority": "DIFC Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-11"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "difc-057",
@@ -2049,7 +2105,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-09"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-058",
@@ -2080,7 +2137,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-16"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-059",
@@ -2121,7 +2179,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-28"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-060",
@@ -2152,7 +2211,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-21"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-061",
@@ -2183,7 +2243,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-01"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "difc-062",
@@ -2229,7 +2290,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-17"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-063",
@@ -2260,7 +2322,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-02"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "difc-064",
@@ -2296,7 +2359,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-05"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-065",
@@ -2337,7 +2401,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-10"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-066",
@@ -2373,7 +2438,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-03"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-067",
@@ -2404,7 +2470,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-02"
-    }
+    },
+    "origin_country": "AU"
   },
   {
     "id": "difc-068",
@@ -2450,7 +2517,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-07"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-069",
@@ -2481,7 +2549,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-21"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-070",
@@ -2512,7 +2581,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-15"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-071",
@@ -2543,7 +2613,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-17"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-072",
@@ -2579,7 +2650,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-19"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "difc-073",
@@ -2610,7 +2682,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-10"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "difc-074",
@@ -2641,7 +2714,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-22"
-    }
+    },
+    "origin_country": "SA"
   },
   {
     "id": "difc-075",
@@ -2677,7 +2751,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-07"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-076",
@@ -2708,7 +2783,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-23"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-077",
@@ -2749,7 +2825,8 @@
       "authority": "DIFC Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-14"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-078",
@@ -2785,7 +2862,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-20"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "difc-079",
@@ -2816,7 +2894,8 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-22"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "difc-080",
@@ -2847,6 +2926,7 @@
       "authority": "DIFC Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-19"
-    }
+    },
+    "origin_country": "RU"
   }
 ]

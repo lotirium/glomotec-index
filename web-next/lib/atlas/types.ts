@@ -42,6 +42,9 @@ export interface AtlasCompany {
   size: CompanySize;
   headcount?: number;
   revenue?: number;
+  /** ISO-3166 alpha-2 of the founder or HQ origin country. Populated by
+   *  scripts/augment-origin-data.mjs; absent on records pre-augmentation. */
+  origin_country?: string;
   grading: AtlasGrading;
   dataSource: AtlasDataSource;
 }
@@ -55,6 +58,27 @@ export interface SectorSummary {
     C: number;
     D: number;
   };
+}
+
+export interface OriginCountry {
+  iso2: string;
+  iso3: string;
+  country_name: string;
+  band_a_count: number;
+  total_entities: number;
+  sector_breakdown: Record<string, number>;
+  avg_composite: number;
+  /** [lat, lng] tuple. Undefined if the country isn't in the centroid table. */
+  centroid?: [number, number];
+}
+
+export interface OriginMapResponse {
+  generated_at: string;
+  total_band_a: number;
+  total_origin_countries: number;
+  non_gcc_pct: number;
+  last_refresh: string;
+  countries: OriginCountry[];
 }
 
 export type HeatmapMetric = "bandADensity" | "avgComposite" | "totalEntities";

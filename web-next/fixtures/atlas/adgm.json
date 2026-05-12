@@ -33,7 +33,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-11"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "adgm-002",
@@ -64,7 +65,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-23"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "adgm-003",
@@ -100,7 +102,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-17"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-004",
@@ -131,7 +134,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-26"
-    }
+    },
+    "origin_country": "EG"
   },
   {
     "id": "adgm-005",
@@ -167,7 +171,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-06"
-    }
+    },
+    "origin_country": "CA"
   },
   {
     "id": "adgm-006",
@@ -213,7 +218,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-09"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "adgm-007",
@@ -249,7 +255,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-09"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "adgm-008",
@@ -285,7 +292,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-27"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "adgm-009",
@@ -326,7 +334,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-19"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-010",
@@ -357,7 +366,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-20"
-    }
+    },
+    "origin_country": "TR"
   },
   {
     "id": "adgm-011",
@@ -398,7 +408,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-16"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "adgm-012",
@@ -429,7 +440,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-24"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "adgm-013",
@@ -460,7 +472,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-19"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "adgm-014",
@@ -491,7 +504,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-24"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-015",
@@ -522,7 +536,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-16"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "adgm-016",
@@ -558,7 +573,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "low",
       "lastUpdated": "2026-03-25"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "adgm-017",
@@ -589,7 +605,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-24"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "adgm-018",
@@ -620,7 +637,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-07"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "adgm-019",
@@ -651,7 +669,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-01"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "adgm-020",
@@ -682,7 +701,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-02-05"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-021",
@@ -713,7 +733,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-21"
-    }
+    },
+    "origin_country": "JO"
   },
   {
     "id": "adgm-022",
@@ -744,7 +765,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-01"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "adgm-023",
@@ -780,7 +802,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-21"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-024",
@@ -816,7 +839,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-04-08"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "adgm-025",
@@ -847,7 +871,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-21"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "adgm-026",
@@ -888,7 +913,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-26"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "adgm-027",
@@ -924,7 +950,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-13"
-    }
+    },
+    "origin_country": "FR"
   },
   {
     "id": "adgm-028",
@@ -960,7 +987,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-09"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "adgm-029",
@@ -996,7 +1024,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-20"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "adgm-030",
@@ -1037,7 +1066,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-01-11"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "adgm-031",
@@ -1068,7 +1098,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-27"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "adgm-032",
@@ -1099,7 +1130,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-24"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "adgm-033",
@@ -1135,7 +1167,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-09"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-034",
@@ -1176,7 +1209,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-06"
-    }
+    },
+    "origin_country": "ZA"
   },
   {
     "id": "adgm-035",
@@ -1207,7 +1241,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-26"
-    }
+    },
+    "origin_country": "RU"
   },
   {
     "id": "adgm-036",
@@ -1238,7 +1273,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-12"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "adgm-037",
@@ -1269,7 +1305,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-13"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "adgm-038",
@@ -1305,7 +1342,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "low",
       "lastUpdated": "2026-02-09"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "adgm-039",
@@ -1346,7 +1384,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-24"
-    }
+    },
+    "origin_country": "EG"
   },
   {
     "id": "adgm-040",
@@ -1377,7 +1416,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-02"
-    }
+    },
+    "origin_country": "SG"
   },
   {
     "id": "adgm-041",
@@ -1413,7 +1453,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-15"
-    }
+    },
+    "origin_country": "PK"
   },
   {
     "id": "adgm-042",
@@ -1454,7 +1495,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-07"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-043",
@@ -1495,7 +1537,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-03-13"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-044",
@@ -1541,7 +1584,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-20"
-    }
+    },
+    "origin_country": "RU"
   },
   {
     "id": "adgm-045",
@@ -1582,7 +1626,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-13"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "adgm-046",
@@ -1613,7 +1658,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-26"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "adgm-047",
@@ -1649,7 +1695,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-07"
-    }
+    },
+    "origin_country": "DE"
   },
   {
     "id": "adgm-048",
@@ -1685,7 +1732,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-11"
-    }
+    },
+    "origin_country": "IN"
   },
   {
     "id": "adgm-049",
@@ -1726,7 +1774,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-28"
-    }
+    },
+    "origin_country": "CH"
   },
   {
     "id": "adgm-050",
@@ -1767,7 +1816,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "low",
       "lastUpdated": "2026-03-22"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-051",
@@ -1803,7 +1853,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-08"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "adgm-052",
@@ -1834,7 +1885,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "low",
       "lastUpdated": "2026-01-11"
-    }
+    },
+    "origin_country": "CN"
   },
   {
     "id": "adgm-053",
@@ -1875,7 +1927,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-04"
-    }
+    },
+    "origin_country": "JO"
   },
   {
     "id": "adgm-054",
@@ -1916,7 +1969,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-02-17"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-055",
@@ -1957,7 +2011,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-05"
-    }
+    },
+    "origin_country": "SG"
   },
   {
     "id": "adgm-056",
@@ -1993,7 +2048,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "high",
       "lastUpdated": "2026-03-12"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "adgm-057",
@@ -2029,7 +2085,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "low",
       "lastUpdated": "2026-04-26"
-    }
+    },
+    "origin_country": "GB"
   },
   {
     "id": "adgm-058",
@@ -2065,7 +2122,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-28"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "adgm-059",
@@ -2096,7 +2154,8 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-01-22"
-    }
+    },
+    "origin_country": "US"
   },
   {
     "id": "adgm-060",
@@ -2137,6 +2196,7 @@
       "authority": "ADGM Registration Authority",
       "confidence": "medium",
       "lastUpdated": "2026-04-06"
-    }
+    },
+    "origin_country": "IN"
   }
 ]
