@@ -411,6 +411,8 @@ interface SliderProps {
 
 function SliderGroup(props: SliderProps) {
   const { hover } = useAuditTrail();
+  const [isActive, setIsActive] = React.useState(false);
+
   const focus: AuditFocus = {
     id: `simulator/${props.name}`,
     proposition: `${props.audit.propositionLabel} — currently ${props.formatValue(
@@ -425,11 +427,28 @@ function SliderGroup(props: SliderProps) {
     },
   };
 
+  // Re-emit the focus to the audit context whenever the slider value changes
+  // while the user is still interacting — otherwise the sidebar text freezes
+  // on the value at the moment of hover.
+  React.useEffect(() => {
+    if (isActive) hover(focus);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.value, isActive]);
+
+  const activate = () => {
+    setIsActive(true);
+    hover(focus);
+  };
+  const deactivate = () => {
+    setIsActive(false);
+    hover(null);
+  };
+
   return (
     <div
       className="group rounded-sm focus-within:bg-cyan-tint/20"
-      onMouseEnter={() => hover(focus)}
-      onMouseLeave={() => hover(null)}
+      onMouseEnter={activate}
+      onMouseLeave={deactivate}
     >
       <div className="flex items-baseline justify-between">
         <label htmlFor={props.id} className="text-sm font-semibold text-ink">
@@ -449,8 +468,8 @@ function SliderGroup(props: SliderProps) {
         step={props.step}
         value={props.value}
         onChange={(e) => props.onChange(Number(e.target.value))}
-        onFocus={() => hover(focus)}
-        onBlur={() => hover(null)}
+        onFocus={activate}
+        onBlur={deactivate}
       />
       <div className="mt-2 flex justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">
         <span>{props.metaLeft}</span>
