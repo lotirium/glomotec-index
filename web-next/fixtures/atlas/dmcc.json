@@ -1661,7 +1661,95 @@
       "confidence": "high",
       "lastUpdated": "2026-02-05"
     },
-    "origin_country": "DE"
+    "origin_country": "DE",
+    "settlementForecast": {
+      "rubricScores": [
+        { "name": "Innovation", "score": 96 },
+        { "name": "Economic Substance", "score": 84 },
+        { "name": "Talent Localisation", "score": 32 },
+        { "name": "Strategic Sector", "score": 88 },
+        { "name": "Fiscal Contribution", "score": 78 },
+        { "name": "Sustainability", "score": 68 }
+      ],
+      "composite": 90,
+      "pathways": [
+        {
+          "jurisdiction": "UK",
+          "name": "UK Innovator Founder ILR · 36 months",
+          "probability": 78,
+          "probabilityClass": "high",
+          "meta": "Probability of meeting 2 of 7 business criteria by month 36",
+          "active": true,
+          "criteria": [
+            { "text": "On track: " },
+            { "text": "R&D with IP (WIPO patent on file)", "strong": true },
+            { "text": ", " },
+            { "text": "£1M revenue", "strong": true },
+            { "text": ", " },
+            { "text": "10+ jobs", "strong": true },
+            { "text": ". Three criteria already evidenced. ILR risk: continuity of innovation activity through year three." }
+          ]
+        },
+        {
+          "jurisdiction": "US",
+          "name": "US EB-1A · self-petition",
+          "probability": 71,
+          "probabilityClass": "high",
+          "meta": "Probability of meeting 3 of 10 extraordinary-ability criteria",
+          "criteria": [
+            { "text": "On track: " },
+            { "text": "original contributions", "strong": true },
+            { "text": " (WIPO patent), " },
+            { "text": "high salary", "strong": true },
+            { "text": ", " },
+            { "text": "commercial success", "strong": true },
+            { "text": ". RFE risk: independent expert letters and field-impact evidence." }
+          ]
+        },
+        {
+          "jurisdiction": "Singapore",
+          "name": "Singapore GIP · Option A renewal",
+          "probability": 54,
+          "probabilityClass": "mid",
+          "meta": "Probability of clearing S$10M plus 30 employees with 50% citizens/PRs by year 5",
+          "criteria": [
+            { "text": "Capital threshold cleared. Gap: " },
+            { "text": "Singapore citizen/PR headcount", "strong": true },
+            { "text": " currently 14% versus 50% required. 5-year horizon makes this viable with hiring shift." }
+          ]
+        },
+        {
+          "jurisdiction": "UAE",
+          "name": "UAE Golden Visa · Founder track renewal",
+          "probability": 86,
+          "probabilityClass": "high",
+          "meta": "Probability of renewal at 10-year horizon",
+          "criteria": [
+            { "text": "Strong substance evidence: " },
+            { "text": "capital deployed", "strong": true },
+            { "text": ", " },
+            { "text": "employment", "strong": true },
+            { "text": ", " },
+            { "text": "WIPO IP", "strong": true },
+            { "text": ". Free zone entity, Emiratisation rubric not currently in scope. Renewal risk: continued operational presence." }
+          ]
+        }
+      ],
+      "trajectory": {
+        "periods": ["Q1 2024", "Q3 2024", "Q1 2025", "Q3 2025", "Q1 2026", "Q3 2026", "Q1 2027", "Q3 2027", "Q1 2028", "Q3 2028", "Q1 2029"],
+        "historical": [62, 68, 75, 82, 86, 90],
+        "projected": [90, 91, 93, 95, 97, 98],
+        "confLow": [89, 88, 87, 86, 85, 84],
+        "confHigh": [91, 95, 99, 100, 100, 100],
+        "todayIndex": 5,
+        "ilrIndex": 8
+      },
+      "takeaway": [
+        { "text": "Halcyon Sensor Compute carries a credible " },
+        { "text": "three-jurisdiction settlement footprint", "strong": true },
+        { "text": ". UAE Golden Visa renewal at 86% is the strongest near-term pathway. UK Innovator Founder ILR at 78% is achievable on the basis of evidence already on file. The Singapore GIP gap is a hiring-mix issue, not a substance issue. EB-1A self-petition is realistic with structured evidence work." }
+      ]
+    }
   },
   {
     "id": "dmcc-048",

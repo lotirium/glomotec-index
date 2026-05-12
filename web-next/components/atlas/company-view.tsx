@@ -22,6 +22,9 @@ import {
 } from "@/components/atlas/audit-helpers";
 import { describeBand } from "@/lib/atlas/rubric";
 import type { AtlasCompany, AtlasEvidence } from "@/lib/atlas/types";
+import { SixRubricRadar } from "@/components/atlas/six-rubric-radar";
+import { SettlementPathways } from "@/components/atlas/settlement-pathways";
+import { CompositeTrajectory } from "@/components/atlas/composite-trajectory";
 
 const EVIDENCE_ICON: Record<AtlasEvidence["type"], LucideIcon> = {
   ip: Award,
@@ -285,6 +288,60 @@ export function CompanyView({ company, basePageAudit }: Props) {
               )}
             </AuditAnchor>
           </section>
+
+          {/* SETTLEMENT FORECAST (Halcyon only — gated on optional fixture data) */}
+          {company.settlementForecast && (
+            <section
+              aria-labelledby="settlement-heading"
+              className="space-y-5"
+            >
+              <header>
+                <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
+                  Settlement pathway forecast
+                </p>
+                <h2
+                  id="settlement-heading"
+                  className="mt-1 text-h2 font-bold tracking-tight text-ink"
+                >
+                  Six rubrics, four pathways, one trajectory.
+                </h2>
+              </header>
+
+              <div className="grid grid-cols-1 gap-6 xl:grid-cols-[440px_1fr]">
+                <SixRubricRadar
+                  company={company}
+                  rubricScores={company.settlementForecast.rubricScores}
+                  composite={company.settlementForecast.composite}
+                />
+                <SettlementPathways
+                  company={company}
+                  pathways={company.settlementForecast.pathways}
+                />
+              </div>
+
+              <CompositeTrajectory
+                company={company}
+                trajectory={company.settlementForecast.trajectory}
+              />
+
+              <div className="overflow-hidden rounded-md bg-gradient-to-br from-accent to-accent-deep px-6 py-6 md:px-7 md:py-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan">
+                  Takeaway
+                </p>
+                <p className="mt-2 text-[17px] font-medium leading-[1.55] text-surface">
+                  {company.settlementForecast.takeaway.map((seg, i) =>
+                    seg.strong ? (
+                      <strong key={i} className="font-bold">
+                        {seg.text}
+                      </strong>
+                    ) : (
+                      <React.Fragment key={i}>{seg.text}</React.Fragment>
+                    ),
+                  )}
+                </p>
+              </div>
+            </section>
+          )}
 
           {/* DATA SOURCE FOOTER */}
           <section aria-labelledby="data-source-heading" className="space-y-3">

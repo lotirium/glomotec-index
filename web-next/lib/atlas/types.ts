@@ -31,6 +31,41 @@ export interface AtlasDataSource {
   lastUpdated: string;
 }
 
+export type SettlementJurisdiction = "UK" | "US" | "Singapore" | "UAE";
+
+export interface RichSegment {
+  text: string;
+  strong?: boolean;
+}
+
+export interface SettlementPathway {
+  jurisdiction: SettlementJurisdiction;
+  name: string;
+  probability: number;
+  probabilityClass: "high" | "mid" | "low";
+  meta: string;
+  criteria: RichSegment[];
+  active?: boolean;
+}
+
+export interface SettlementTrajectory {
+  periods: string[];
+  historical: number[];
+  projected: number[];
+  confLow: number[];
+  confHigh: number[];
+  todayIndex: number;
+  ilrIndex: number;
+}
+
+export interface SettlementForecast {
+  rubricScores: Array<{ name: string; score: number }>;
+  composite: number;
+  pathways: SettlementPathway[];
+  trajectory: SettlementTrajectory;
+  takeaway: RichSegment[];
+}
+
 export interface AtlasCompany {
   id: string;
   name: string;
@@ -47,6 +82,9 @@ export interface AtlasCompany {
   origin_country?: string;
   grading: AtlasGrading;
   dataSource: AtlasDataSource;
+  /** Optional settlement forecast (six-rubric radar, pathway probabilities,
+   *  composite trajectory). Currently attached to Halcyon Sensor Compute only. */
+  settlementForecast?: SettlementForecast;
 }
 
 export interface SectorSummary {
