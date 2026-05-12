@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { RUBRIC_VERSION } from "@/lib/atlas/rubric";
 
 export const metadata: Metadata = {
   title: "ATLAS · Visual intelligence showcase",
@@ -82,7 +83,7 @@ export default function AtlasShowcasePage() {
       {/* HERO */}
       <section className="mb-12 max-w-[58rem] md:mb-16">
         <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
-          The glomotec Mobility Code · gMC v1.0
+          The glomotec Mobility Code · {RUBRIC_VERSION}
         </p>
         <h1 className="mt-4 text-[2.25rem] font-extrabold leading-[1.05] tracking-tight text-accent md:text-[3.5rem]">
           A common standard for global mobility,{" "}

@@ -1,6 +1,6 @@
 import type { RubricBand } from "@/lib/atlas/types";
 
-export const RUBRIC_VERSION = "v0.1 preview";
+export const RUBRIC_VERSION = "gMC v1.0";
 
 // Paraphrased band descriptions for the ATLAS preview. These are not
 // verbatim language from any source document; they restate the public

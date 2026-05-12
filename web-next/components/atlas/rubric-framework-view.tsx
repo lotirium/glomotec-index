@@ -11,6 +11,7 @@ import {
   type PageAudit,
 } from "@/components/atlas/audit-context";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
+import { RUBRIC_VERSION } from "@/lib/atlas/rubric";
 
 // ----- Static framework content -----
 
@@ -364,7 +365,7 @@ function RubricCard({ rubric }: { rubric: Rubric }) {
       ? anchors.codes.map((c) => REGION_EVIDENCE[c])
       : REGIONS.map((c) => REGION_EVIDENCE[c]);
   const grade: AuditGrade = {
-    rubricVersion: "gMC v1.0 published",
+    rubricVersion: RUBRIC_VERSION,
     rubricHref: "/atlas/rubric",
     method: `${rubric.dimensions.length}-dimension weighted composite. Hard cap: ${
       rubric.hardCap ? "yes" : "none"
