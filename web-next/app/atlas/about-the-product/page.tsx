@@ -44,7 +44,7 @@ export default function AtlasAboutPage() {
                   Innovator Founder precedent
                 </p>
                 <p className="mt-1 text-2xs text-ink-muted">
-                  Three-pillar framework reference set.
+                  gMC v1.0 framework reference set.
                 </p>
               </Link>
             </li>

@@ -93,7 +93,7 @@ export function CompanyView({ company, basePageAudit }: Props) {
             <header className="flex flex-wrap items-baseline justify-between gap-4">
               <div>
                 <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
-                  Three-pillar grading
+                  gMC rubric grading
                 </p>
                 <h2
                   id="grading-heading"

@@ -72,7 +72,7 @@ export default async function AtlasUkPage() {
                 Now applied to UAE free zones.
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-ink-muted leading-relaxed">
-                The UK precedent is one programme with one set of endorsing bodies. ATLAS extends the same three-pillar rubric across UAE free zones (DMCC, DIFC, ADGM, JAFZA) so policy teams can compare and act on the same scoring fabric.
+                The UK precedent is one programme with one set of endorsing bodies. ATLAS extends the gMC v1.0 framework across UAE free zones (DMCC, DIFC, ADGM, JAFZA) so policy teams can compare and act on the same scoring fabric.
               </p>
             </div>
             <Link

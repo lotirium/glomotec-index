@@ -20,7 +20,7 @@ import type { FreeZone } from "@/lib/atlas/types";
 export const metadata: Metadata = {
   title: "ATLAS · UAE Free Zone Intelligence",
   description:
-    "Every company licensed across DMCC, DIFC, ADGM and JAFZA, continuously graded against the three-pillar rubric.",
+    "Every company licensed across DMCC, DIFC, ADGM and JAFZA, continuously graded against the gMC v1.0 rubric framework.",
 };
 
 const ZONES: FreeZone[] = ["DMCC", "DIFC", "ADGM", "JAFZA"];
@@ -131,7 +131,7 @@ export default async function AtlasUaePage() {
                     Innovator Founder precedent
                   </p>
                   <p className="mt-1 text-2xs text-ink-muted">
-                    Three-pillar framework reference set.
+                    gMC v1.0 framework reference set.
                   </p>
                 </Link>
               </li>

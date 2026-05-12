@@ -126,9 +126,8 @@ export function TodayVsAtlas({ zones }: Props) {
           Same companies, continuously graded.
         </h3>
         <p className="mt-1 text-2xs text-ink-muted leading-relaxed">
-          Every registered entity scored against the three-pillar rubric
-          (innovation, viability, scalability). Evidence anchored, audit-trail
-          native.
+          Every registered entity scored against the gMC v1.0 rubric framework.
+          Evidence anchored, audit-trail native.
         </p>
 
         <ul className="mt-6 grid grid-cols-2 gap-3">

@@ -211,7 +211,7 @@ export function UkOverview({
                 id="framework-heading"
                 className="mt-1 text-h2 font-bold tracking-tight text-ink"
               >
-                Three pillars, four bands.
+                gMC framework, four bands.
               </h2>
               <p className="mt-2 max-w-2xl text-2xs text-ink-muted leading-relaxed">
                 The UK Innovator Founder programme grades applicants against three public pillars. ATLAS adopts the same pillars and the same four-band ladder (paraphrased), so the architecture transfers to other jurisdictions without inventing a new rubric.
