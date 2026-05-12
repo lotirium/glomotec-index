@@ -57,6 +57,16 @@ export interface SectorSummary {
   };
 }
 
+export type HeatmapMetric = "bandADensity" | "avgComposite" | "totalEntities";
+
+export interface HeatmapCell {
+  zone: FreeZone;
+  sector: string;
+  bandACount: number;
+  totalEntities: number;
+  avgComposite: number;
+}
+
 export interface PolicyInsight {
   title: string;
   body: string;

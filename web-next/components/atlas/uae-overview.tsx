@@ -6,10 +6,17 @@ import { AuditTrailProvider, type PageAudit } from "@/components/atlas/audit-con
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
 import { TodayVsAtlas } from "@/components/atlas/today-vs-atlas";
 import { SectorGrid } from "@/components/atlas/sector-grid";
+import { SectorHeatmap } from "@/components/atlas/sector-heatmap";
 import { TopBandA } from "@/components/atlas/top-band-a";
 import { InsightsPanel } from "@/components/atlas/insights-panel";
 import { StatStrip } from "@/components/atlas/stat-strip";
-import type { AtlasCompany, FreeZone, PolicyInsight, SectorSummary } from "@/lib/atlas/types";
+import type {
+  AtlasCompany,
+  FreeZone,
+  HeatmapCell,
+  PolicyInsight,
+  SectorSummary,
+} from "@/lib/atlas/types";
 import type { AtlasOverviewStats, ZoneSummary } from "@/lib/atlas/data";
 
 const ZONES: FreeZone[] = ["DMCC", "DIFC", "ADGM", "JAFZA"];
@@ -24,10 +31,11 @@ export interface ZoneDetailBundle {
 interface Props {
   bundles: Record<FreeZone, ZoneDetailBundle>;
   stats: AtlasOverviewStats;
+  heatmap: HeatmapCell[][];
   basePageAudit: Omit<PageAudit, "jurisdiction">;
 }
 
-export function UaeOverview({ bundles, stats, basePageAudit }: Props) {
+export function UaeOverview({ bundles, stats, heatmap, basePageAudit }: Props) {
   const [selected, setSelected] = React.useState<FreeZone>("DMCC");
   const zones = ZONES.map((z) => bundles[z].summary);
   const current = bundles[selected];
@@ -68,6 +76,26 @@ export function UaeOverview({ bundles, stats, basePageAudit }: Props) {
               </div>
             </header>
             <TodayVsAtlas zones={zones} />
+          </section>
+
+          {/* SECTOR CONCENTRATION HEAT MAP */}
+          <section aria-labelledby="heatmap-heading" className="space-y-5">
+            <header>
+              <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
+                Sector concentration
+              </p>
+              <h2
+                id="heatmap-heading"
+                className="mt-1 text-h2 font-bold tracking-tight text-ink"
+              >
+                Where Band A activity clusters.
+              </h2>
+              <p className="mt-2 max-w-2xl text-2xs text-ink-muted leading-relaxed">
+                Same engine, same rubric, plotted by zone × sector. The empty
+                cells matter as much as the full ones.
+              </p>
+            </header>
+            <SectorHeatmap cells={heatmap} zoneSummaries={zones} />
           </section>
 
           {/* ZONE SELECTOR */}

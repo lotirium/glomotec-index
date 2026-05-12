@@ -4,6 +4,8 @@ import path from "path";
 import type {
   AtlasCompany,
   FreeZone,
+  HeatmapCell,
+  HeatmapMetric,
   PolicyInsight,
   RubricBand,
   SectorSummary,
@@ -166,6 +168,67 @@ export async function getPolicyInsights(zone: FreeZone): Promise<PolicyInsight[]
   }
 
   return insights.slice(0, 4);
+}
+
+// ----- Sector heat map (cross-zone visual) -----
+
+export const HEATMAP_ZONES: FreeZone[] = ["DMCC", "DIFC", "ADGM", "JAFZA"];
+
+export const HEATMAP_SECTORS = [
+  "AI",
+  "Fintech",
+  "Financial Services",
+  "Family Office",
+  "Logistics",
+  "Manufacturing",
+  "Commodities",
+  "Healthcare",
+] as const;
+
+// Fixture sectors are richer than the heat map's canonical 8-sector lens.
+// This map folds compatible fixture sectors into a single heat map column.
+// Anything unmapped (Professional services, Technology, Other, etc.) sits
+// outside this visual.
+const FIXTURE_SECTOR_MAP: Record<string, (typeof HEATMAP_SECTORS)[number]> = {
+  AI: "AI",
+  Fintech: "Fintech",
+  "Regulated fintech": "Fintech",
+  "Asset management": "Financial Services",
+  "Family office": "Family Office",
+  Logistics: "Logistics",
+  Manufacturing: "Manufacturing",
+  Commodities: "Commodities",
+  Trade: "Commodities",
+};
+
+export async function getSectorHeatmapData(
+  metric: HeatmapMetric = "bandADensity",
+): Promise<HeatmapCell[][]> {
+  // The same cell payload drives all three views; the metric is a hint for
+  // downstream presentation and any future server-side caching key.
+  void metric;
+
+  const zoneCompanies = await Promise.all(
+    HEATMAP_ZONES.map((z) => getCompaniesByZone(z)),
+  );
+
+  return HEATMAP_ZONES.map((zone, zi) => {
+    const companies = zoneCompanies[zi];
+    return HEATMAP_SECTORS.map((sector) => {
+      const matching = companies.filter(
+        (c) => FIXTURE_SECTOR_MAP[c.sector] === sector,
+      );
+      const bandACount = matching.filter((c) => c.grading.band === "A").length;
+      const totalEntities = matching.length;
+      const avgComposite = matching.length
+        ? Math.round(
+            matching.reduce((s, c) => s + compositeScore(c), 0) /
+              matching.length,
+          )
+        : 0;
+      return { zone, sector, bandACount, totalEntities, avgComposite };
+    });
+  });
 }
 
 export async function getTopBandA(zone: FreeZone, limit = 10): Promise<AtlasCompany[]> {

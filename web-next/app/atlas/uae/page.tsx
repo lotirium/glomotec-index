@@ -10,6 +10,7 @@ import {
   getAllZonesSummary,
   getAtlasOverviewStats,
   getPolicyInsights,
+  getSectorHeatmapData,
   getSectorSummary,
   getTopBandA,
 } from "@/lib/atlas/data";
@@ -24,9 +25,10 @@ export const metadata: Metadata = {
 const ZONES: FreeZone[] = ["DMCC", "DIFC", "ADGM", "JAFZA"];
 
 export default async function AtlasUaePage() {
-  const [summaries, stats] = await Promise.all([
+  const [summaries, stats, heatmap] = await Promise.all([
     getAllZonesSummary(),
     getAtlasOverviewStats(),
+    getSectorHeatmapData(),
   ]);
   const summaryByZone = Object.fromEntries(summaries.map((s) => [s.zone, s])) as Record<
     FreeZone,
@@ -72,7 +74,12 @@ export default async function AtlasUaePage() {
       />
 
       <div className="container py-16 md:py-20">
-        <UaeOverview bundles={bundles} stats={stats} basePageAudit={basePageAudit} />
+        <UaeOverview
+          bundles={bundles}
+          stats={stats}
+          heatmap={heatmap}
+          basePageAudit={basePageAudit}
+        />
       </div>
 
       <section
