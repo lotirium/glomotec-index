@@ -1,0 +1,24 @@
+{
+  "sample_window_start": "2025-01-01",
+  "sample_window_end": "2025-12-31",
+  "sample_size": 400,
+  "pairs": [
+    { "from": "UK", "to": "UAE", "value": 68 },
+    { "from": "UK", "to": "EU", "value": 31 },
+    { "from": "UK", "to": "Singapore", "value": 18 },
+    { "from": "UK", "to": "US", "value": 12 },
+    { "from": "US", "to": "Singapore", "value": 42 },
+    { "from": "US", "to": "UAE", "value": 36 },
+    { "from": "US", "to": "UK", "value": 22 },
+    { "from": "US", "to": "EU", "value": 14 },
+    { "from": "EU", "to": "UAE", "value": 28 },
+    { "from": "EU", "to": "UK", "value": 24 },
+    { "from": "EU", "to": "Singapore", "value": 11 },
+    { "from": "UAE", "to": "UK", "value": 23 },
+    { "from": "UAE", "to": "Singapore", "value": 14 },
+    { "from": "UAE", "to": "US", "value": 9 },
+    { "from": "Singapore", "to": "UAE", "value": 19 },
+    { "from": "Singapore", "to": "UK", "value": 12 },
+    { "from": "Singapore", "to": "US", "value": 7 }
+  ]
+}

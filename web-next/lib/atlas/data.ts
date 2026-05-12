@@ -3,6 +3,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import type {
   AtlasCompany,
+  FlowSankeyData,
   FreeZone,
   HeatmapCell,
   HeatmapMetric,
@@ -300,6 +301,17 @@ export async function getOriginMapData(): Promise<OriginMapResponse> {
     last_refresh: latestRefresh,
     countries,
   };
+}
+
+// ----- Cross-jurisdictional flow (Visual 04) -----
+
+let _flowCache: FlowSankeyData | null = null;
+
+export async function getFlowSankeyData(): Promise<FlowSankeyData> {
+  if (_flowCache) return _flowCache;
+  const buf = await fs.readFile(path.join(root, "flow-pairs.json"), "utf8");
+  _flowCache = JSON.parse(buf) as FlowSankeyData;
+  return _flowCache;
 }
 
 async function getAllUaeCompanies(): Promise<AtlasCompany[]> {

@@ -13,6 +13,7 @@ const NAV: Array<{
   { href: "/", label: "Pipeline" },
   { href: "/signal", label: "SIGNAL", matchPrefix: "/signal" },
   { href: "/atlas", label: "ATLAS", matchPrefix: "/atlas" },
+  { href: "/atlas/flow", label: "FLOW", matchPrefix: "/atlas/flow" },
   { href: "/clients", label: "COMPASS", matchPrefix: "/clients" },
   { href: "/sponsor", label: "SPONSOR", matchPrefix: "/sponsor" },
   { href: "/changes", label: "Changes", matchPrefix: "/changes" },
@@ -20,20 +21,37 @@ const NAV: Array<{
   { href: "/about", label: "About", matchPrefix: "/about" },
 ];
 
+// Pick the single active nav entry as the longest matching prefix. This
+// keeps ATLAS / FLOW from both highlighting on /atlas/flow (FLOW wins, by
+// length).
+function pickActive(pathname: string): string | null {
+  let bestHref: string | null = null;
+  let bestLen = -1;
+  for (const item of NAV) {
+    let matches = false;
+    if (item.href === "/") matches = pathname === "/";
+    else if (item.matchPrefix) matches = pathname.startsWith(item.matchPrefix);
+    else matches = pathname === item.href;
+    if (!matches) continue;
+    const len = item.matchPrefix?.length ?? item.href.length;
+    if (len > bestLen) {
+      bestLen = len;
+      bestHref = item.href;
+    }
+  }
+  return bestHref;
+}
+
 export function Topbar() {
   const pathname = usePathname();
+  const activeHref = pickActive(pathname);
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-bg/85 backdrop-blur-md backdrop-saturate-150 supports-[backdrop-filter]:bg-bg/70">
       <div className="container flex h-14 items-center justify-between gap-6">
         <Wordmark />
         <nav className="hidden items-center gap-1 md:flex">
           {NAV.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : item.matchPrefix
-                ? pathname.startsWith(item.matchPrefix)
-                : pathname === item.href;
+            const active = activeHref === item.href;
             return (
               <Link
                 key={item.href}
@@ -61,12 +79,7 @@ export function Topbar() {
       <nav className="md:hidden border-t border-line/60">
         <div className="container flex gap-1 overflow-x-auto py-1.5">
           {NAV.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : item.matchPrefix
-                ? pathname.startsWith(item.matchPrefix)
-                : pathname === item.href;
+            const active = activeHref === item.href;
             return (
               <Link
                 key={item.href}

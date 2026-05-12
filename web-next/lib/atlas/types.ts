@@ -60,6 +60,21 @@ export interface SectorSummary {
   };
 }
 
+export type FlowJurisdiction = "UK" | "US" | "EU" | "UAE" | "Singapore";
+
+export interface FlowPair {
+  from: FlowJurisdiction;
+  to: FlowJurisdiction;
+  value: number;
+}
+
+export interface FlowSankeyData {
+  sample_window_start: string;
+  sample_window_end: string;
+  sample_size: number;
+  pairs: FlowPair[];
+}
+
 export interface OriginCountry {
   iso2: string;
   iso3: string;
