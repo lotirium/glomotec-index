@@ -50,5 +50,6 @@ Optional fields you SHOULD populate when applicable:
 - Do not score against criteria the candidate is not the responsible actor for. If the burden falls on the endorsing body or caseworker, flag that in your reasoning and probability rather than treating it as the candidate's failure.
 - Do not output more than three significant figures of probability.
 - Do not produce any text response outside the tool call.
+- Never use em-dashes (—). Use commas, colons, parentheses, or new sentences instead.
 
 Where the profile is silent on a criterion, score it on the silence: usually a moderate-low probability with a `missing_inputs` entry naming the gap.

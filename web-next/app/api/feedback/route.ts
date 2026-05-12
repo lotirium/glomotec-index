@@ -34,7 +34,7 @@ export async function POST(req: Request) {
   const reaction = body.reaction ?? null;
   if (!text && !reaction) {
     return NextResponse.json(
-      { ok: false, message: "Empty feedback — add a reaction or a comment." },
+      { ok: false, message: "Empty feedback. Add a reaction or a comment." },
       { status: 400 },
     );
   }
@@ -51,11 +51,11 @@ export async function POST(req: Request) {
     : `Reaction: ${reactionLabel}`;
 
   const slackPayload = {
-    text: `INDEX advisor preview · ${headline}`,
+    text: `INDEX operator preview · ${headline}`,
     blocks: [
       {
         type: "header",
-        text: { type: "plain_text", text: "INDEX advisor preview · feedback", emoji: true },
+        text: { type: "plain_text", text: "INDEX operator preview · feedback", emoji: true },
       },
       {
         type: "section",

@@ -1,4 +1,5 @@
 import type { ScoringResult } from "@/lib/types";
+import type { StructuredOperatorProfile } from "@/lib/signal/operator-profile";
 
 export type ChatRole = "user" | "assistant";
 
@@ -74,6 +75,13 @@ export interface SignalSession {
   createdAt: string;
   updatedAt: string;
   messages: ChatMessage[];
+  /**
+   * The five-field structured profile collected at /signal/start before the
+   * chat begins. Sent with each chat turn as system context so the model asks
+   * targeted follow-ups instead of starting from zero. Null for legacy
+   * sessions created before profile-first onboarding shipped.
+   */
+  structuredProfile: StructuredOperatorProfile | null;
   /** Profile emitted by the chat once it has enough to qualify. */
   profile: ProspectProfile | null;
   /** Result of the qualify step. Null until the chat completes intake. */

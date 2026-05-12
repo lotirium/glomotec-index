@@ -1,5 +1,17 @@
-// Domain types for INDEX advisor preview.
+// Domain types for INDEX operator preview.
 // These mirror the canonical schema used by the SCORER + EXTRACTOR.
+
+/**
+ * Source-evidence tier per brand v1.0 §11. Drives the tier badge colour
+ * shown in the citation chain.
+ *
+ * - T1: gov.uk / Home Office caseworker guidance (verbatim, primary source)
+ * - T2: published gov.uk policy / explanatory memorandum
+ * - T3: tribunal decisions / case law summaries
+ * - T4: regulated-operator-only inferences (hedged language)
+ * - T5: regulated-operator-only statistical inference
+ */
+export type SourceTier = "T1" | "T2" | "T3" | "T4" | "T5";
 
 export type Stage = "eligibility" | "validity" | "suitability" | "decision" | "post_decision";
 export type Modality = "mandatory" | "discretionary";
@@ -11,15 +23,29 @@ export type Mechanism =
 export type Band = "high" | "medium" | "low" | "below_threshold";
 
 // ---------- Routes ----------
+export type Jurisdiction = "UK" | "UAE";
+
 export interface Route {
   id: string;
   name: string;
+  /** ISO-style jurisdiction code. Defaults to "UK" when absent on legacy fixtures. */
+  jurisdiction?: Jurisdiction;
   document_url: string;
   document_version: string;
   enabled: boolean;
   criteria_count: number;
   polling_cadence_days: number;
-  last_refreshed: string; // ISO
+  last_refreshed: string; // ISO; "—" or empty string for not-yet-ingested entries
+  /**
+   * Optional source category. "route" is the default (a guidance document
+   * driving a visa route). "authority" identifies an upstream authority or
+   * regulatory body whose publications are watched but not yet routed.
+   */
+  kind?: "route" | "authority";
+  /** Optional override for the "Tracked / Indexed" badge label. */
+  status_label?: string;
+  /** Free-form polling cadence label when days alone is insufficient. */
+  polling_label?: string;
 }
 
 // ---------- Criteria ----------
@@ -36,8 +62,10 @@ export interface Criterion {
   burden_allocation?: Record<string, string[]>;
   source: {
     document_url: string;
+    document_name?: string;
     document_version: string;
     section_heading?: string;
+    paragraph?: string;
     anchor?: { section_heading?: string; verbatim_text?: string };
   };
   inputs?: string[];
@@ -46,6 +74,12 @@ export interface Criterion {
     last_modified_in_version?: string;
     last_change_class?: string;
   };
+  /**
+   * Source-evidence tier. Defaults to T1 for criteria extracted from gov.uk
+   * caseworker guidance. Hand-tagged for now; the extractor will derive this
+   * once the source-tier model lands.
+   */
+  tier?: SourceTier;
 }
 
 // ---------- Client profile ----------
@@ -116,6 +150,7 @@ export interface ScoringResult {
     | "source"
     | "burden_allocation"
     | "category"
+    | "tier"
   > & { predicate_statement?: string; section_heading?: string; verbatim_text?: string };
   error?: string;
 }
@@ -174,6 +209,14 @@ export interface ChangefeedEntry {
   source_url: string;
   diff_excerpt?: { before?: string; after?: string };
   /**
+   * Source-evidence tier per brand v1.0 §11. Defaults to T1 for caseworker
+   * guidance. T4 entries are operator-only (regulated-operator-only field
+   * notes, hedged language); T5 entries are statistical inference.
+   */
+  tier?: SourceTier;
+  /** Jurisdiction that produced the change. Defaults to "UK". */
+  jurisdiction?: Jurisdiction;
+  /**
    * What the team should do with this change. operational_disruption =
    * immediate action required by operations; could materially change how
    * teams process or structure cases. advisory = helpful but non-urgent;
@@ -181,6 +224,65 @@ export interface ChangefeedEntry {
    * minimal immediate consequence.
    */
   advisor_impact: "operational_disruption" | "advisory" | "informational";
+}
+
+// ---------- MONITOR (post-grant subscription) ----------
+export type MonitorStatus = "active" | "offer";
+
+export type MilestoneStatus = "complete" | "due" | "upcoming" | "pending";
+
+export interface MonitoringMilestone {
+  id: "m12" | "m24" | "m36" | "m60";
+  label: string;
+  due_date: string | null;
+  status: MilestoneStatus;
+  completed_at?: string;
+}
+
+export interface MonitoringRuleChange {
+  change_id: string;
+  criterion_id: string;
+  match_before: number;
+  match_after: number;
+  note?: string;
+}
+
+export interface Monitoring {
+  slug: string;
+  monitor_status: MonitorStatus;
+  enrolled_at: string | null;
+  grant_date: string | null;
+  months_active: number;
+  alerts_since_enrolment: number;
+  next_review_label: string | null;
+  next_review_at: string | null;
+  next_review_in_days: number | null;
+  milestones: MonitoringMilestone[];
+  rule_changes: MonitoringRuleChange[];
+}
+
+// ---------- SPONSOR (corporate portfolio) ----------
+export type SponsorFounderStatus =
+  | "stable"
+  | "guidance_shifted"
+  | "score_dropped";
+
+export interface SponsorFounder {
+  name: string;
+  route_id: string;
+  score: number;
+  status: SponsorFounderStatus;
+  last_reviewed_days?: number;
+  alert_change_id?: string;
+  alert_summary?: string;
+  alert_observed_at?: string;
+}
+
+export interface Sponsor {
+  slug: string;
+  sponsor_name: string;
+  route_count: number;
+  founders: SponsorFounder[];
 }
 
 // ---------- Pipeline status ----------

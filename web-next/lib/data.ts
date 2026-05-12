@@ -7,8 +7,10 @@ import type {
   ClientProfile,
   Criterion,
   ModuleStatus,
+  Monitoring,
   Route,
   ScoringResult,
+  Sponsor,
 } from "@/lib/types";
 import { buildAssessmentRun } from "@/lib/scoring";
 
@@ -111,6 +113,22 @@ export async function getChangefeed(): Promise<ChangefeedEntry[]> {
   return _changefeed;
 }
 
+export async function getSponsor(slug: string): Promise<Sponsor | null> {
+  try {
+    return await readJson<Sponsor>(path.join("sponsors", `${slug}.json`));
+  } catch {
+    return null;
+  }
+}
+
+export async function getMonitoring(slug: string): Promise<Monitoring | null> {
+  try {
+    return await readJson<Monitoring>(path.join("monitoring", `${slug}.json`));
+  } catch {
+    return null;
+  }
+}
+
 export async function getRecentChanges(limit = 5): Promise<ChangefeedEntry[]> {
   const all = await getChangefeed();
   return [...all]
@@ -124,38 +142,38 @@ export function getModuleStatus(): ModuleStatus[] {
   return [
     {
       id: "crawler",
-      name: "Crawler",
+      name: "CRAWLER",
       status: "live",
       last_run: minus(7),
       detail: "Polling 4 caseworker guidance pages on a 7-day cadence.",
     },
     {
       id: "extractor",
-      name: "Extractor",
+      name: "EXTRACTOR",
       status: "live",
       last_run: minus(38),
       detail: "Parsing predicates, sources and burden allocations from new revisions.",
     },
     {
       id: "scorer",
-      name: "Scorer",
+      name: "SCORER",
       status: "live",
       last_run: minus(2),
-      detail: "Cached assessments for 3 active clients · last cold run 2m ago.",
+      detail: "Cached assessments for 3 active operators · last cold run 2m ago.",
     },
     {
       id: "changefeed",
-      name: "Change feed",
+      name: "CHANGEFEED",
       status: "live",
       last_run: minus(14),
       detail: "Diffing v10.0 (27 Feb 2026) against v9.4 (15 Nov 2025).",
     },
     {
       id: "evaluator",
-      name: "Evaluator",
+      name: "EVALUATOR",
       status: "idle",
       last_run: minus(1440),
-      detail: "Quarterly LLM-vs-advisor concordance run scheduled for 7 May.",
+      detail: "Quarterly LLM-vs-operator concordance run scheduled for 7 May.",
     },
   ];
 }

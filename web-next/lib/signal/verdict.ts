@@ -36,7 +36,7 @@ export function verdictFromSubstantivePct(
 
 export function nextStepForVerdict(headline: SignalVerdict): string {
   if (headline === "Strong fit" || headline === "Likely fit") {
-    return "Speak to a glomotec advisor.";
+    return "Speak to glomotec.";
   }
   if (headline === "Refusal risk identified") {
     return "Resolve the suitability concern with a regulated advisor before applying.";

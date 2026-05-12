@@ -1,0 +1,60 @@
+{
+  "slug": "alex-mendez",
+  "monitor_status": "active",
+  "enrolled_at": "2025-09-07",
+  "grant_date": "2025-06-23",
+  "months_active": 8,
+  "alerts_since_enrolment": 3,
+  "next_review_label": "Month 12 contact-point review",
+  "next_review_at": "2026-06-23",
+  "next_review_in_days": 47,
+  "milestones": [
+    {
+      "id": "m12",
+      "label": "Month 12 contact-point review",
+      "due_date": "2026-06-23",
+      "status": "due"
+    },
+    {
+      "id": "m24",
+      "label": "Month 24 contact-point review",
+      "due_date": "2027-06-23",
+      "status": "upcoming"
+    },
+    {
+      "id": "m36",
+      "label": "Month 36 contact-point review",
+      "due_date": "2028-06-23",
+      "status": "upcoming"
+    },
+    {
+      "id": "m60",
+      "label": "Month 60 ILR application",
+      "due_date": "2030-06-23",
+      "status": "upcoming"
+    }
+  ],
+  "rule_changes": [
+    {
+      "change_id": "chg-2026-04-22-01",
+      "criterion_id": "INNF.validity.endorsement_letter.001",
+      "match_before": 78,
+      "match_after": 91,
+      "note": "Letter issued 2026-04-01, well within the 3-month window."
+    },
+    {
+      "change_id": "chg-2026-04-22-02",
+      "criterion_id": "INNF.eligibility.endorsement_required.001",
+      "match_before": 88,
+      "match_after": 95,
+      "note": "Letter explicitly states the three tests; re-confirmation lifted score."
+    },
+    {
+      "change_id": "chg-2026-03-04-01",
+      "criterion_id": "INNF.validity.translation_certification_in_uk.001",
+      "match_before": 35,
+      "match_after": 15,
+      "note": "Translator's UK business address now required and not on file."
+    }
+  ]
+}

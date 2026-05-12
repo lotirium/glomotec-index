@@ -1,0 +1,2142 @@
+[
+  {
+    "id": "adgm-001",
+    "name": "Veridian Hedge Wealth",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "venture capital",
+    "yearRegistered": 2015,
+    "size": "medium",
+    "headcount": 164,
+    "revenue": 22308920,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 70,
+      "scalability": 66,
+      "reasoning": "Improved venture capital offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-08-27"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-08-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-11"
+    }
+  },
+  {
+    "id": "adgm-002",
+    "name": "Stratos Holdings Ventures",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2023,
+    "size": "small",
+    "headcount": 45,
+    "revenue": 13434390,
+    "grading": {
+      "band": "D",
+      "innovation": 22,
+      "viability": 38,
+      "scalability": 41,
+      "reasoning": "Conventional other services positioning within other; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-01-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-23"
+    }
+  },
+  {
+    "id": "adgm-003",
+    "name": "Cascade Settle Treasury",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "securities settlement",
+    "yearRegistered": 2018,
+    "size": "small",
+    "headcount": 35,
+    "revenue": 11093180,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 89,
+      "scalability": 73,
+      "reasoning": "Improved securities settlement offering within regulated fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2021-11-01"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-06-26"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-17"
+    }
+  },
+  {
+    "id": "adgm-004",
+    "name": "Northwind Group International",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2015,
+    "size": "large",
+    "headcount": 766,
+    "revenue": 102071032,
+    "grading": {
+      "band": "C",
+      "innovation": 50,
+      "viability": 76,
+      "scalability": 65,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-08-21"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-26"
+    }
+  },
+  {
+    "id": "adgm-005",
+    "name": "Citadel Income Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2024,
+    "size": "medium",
+    "headcount": 54,
+    "revenue": 12745998,
+    "grading": {
+      "band": "B",
+      "innovation": 79,
+      "viability": 84,
+      "scalability": 62,
+      "reasoning": "Improved private credit offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-01-09"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-11-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-06"
+    }
+  },
+  {
+    "id": "adgm-006",
+    "name": "Marrow Yield Partners",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 599324,
+    "grading": {
+      "band": "A",
+      "innovation": 93,
+      "viability": 85,
+      "scalability": 89,
+      "reasoning": "Differentiated multi-asset approach within asset management; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2022-03-12"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-08-18"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-07-04"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2018-01-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-09"
+    }
+  },
+  {
+    "id": "adgm-007",
+    "name": "Quartz Hedge Partners",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2015,
+    "size": "small",
+    "headcount": 45,
+    "revenue": 15551595,
+    "grading": {
+      "band": "C",
+      "innovation": 60,
+      "viability": 58,
+      "scalability": 64,
+      "reasoning": "Adapts existing asset management approaches to a private credit use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-08-01"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2015-03-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-09"
+    }
+  },
+  {
+    "id": "adgm-008",
+    "name": "Quartz Reg Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "prime brokerage",
+    "yearRegistered": 2018,
+    "size": "small",
+    "headcount": 27,
+    "revenue": 9503433,
+    "grading": {
+      "band": "C",
+      "innovation": 62,
+      "viability": 50,
+      "scalability": 41,
+      "reasoning": "Adapts existing regulated fintech approaches to a prime brokerage use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-10-20"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2018-07-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-27"
+    }
+  },
+  {
+    "id": "adgm-009",
+    "name": "Marrow Patrimony Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Family office",
+    "subSector": "single family office",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 1949600,
+    "grading": {
+      "band": "B",
+      "innovation": 76,
+      "viability": 78,
+      "scalability": 84,
+      "reasoning": "Improved single family office offering within family office; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-10-09"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-06-10"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-10-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-19"
+    }
+  },
+  {
+    "id": "adgm-010",
+    "name": "Trident Yield Markets",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 31,
+    "revenue": 7636416,
+    "grading": {
+      "band": "C",
+      "innovation": 39,
+      "viability": 53,
+      "scalability": 51,
+      "reasoning": "Adapts existing asset management approaches to a multi-asset use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-08-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-20"
+    }
+  },
+  {
+    "id": "adgm-011",
+    "name": "Concord Yield Partners",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2014,
+    "size": "medium",
+    "headcount": 101,
+    "revenue": 13896994,
+    "grading": {
+      "band": "B",
+      "innovation": 76,
+      "viability": 83,
+      "scalability": 82,
+      "reasoning": "Improved private credit offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2015-08-12"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2014-01-22"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-04-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-16"
+    }
+  },
+  {
+    "id": "adgm-012",
+    "name": "Bramble Settle Wealth",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "prime brokerage",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 12,
+    "revenue": 3576408,
+    "grading": {
+      "band": "C",
+      "innovation": 54,
+      "viability": 42,
+      "scalability": 59,
+      "reasoning": "Adapts existing regulated fintech approaches to a prime brokerage use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-05-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-24"
+    }
+  },
+  {
+    "id": "adgm-013",
+    "name": "Hawthorne Group Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 2103376,
+    "grading": {
+      "band": "D",
+      "innovation": 34,
+      "viability": 30,
+      "scalability": 49,
+      "reasoning": "Conventional other services positioning within other; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-12-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-19"
+    }
+  },
+  {
+    "id": "adgm-014",
+    "name": "Briar Alpha Partners",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 710616,
+    "grading": {
+      "band": "D",
+      "innovation": 33,
+      "viability": 30,
+      "scalability": 36,
+      "reasoning": "Conventional private equity positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-04-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-24"
+    }
+  },
+  {
+    "id": "adgm-015",
+    "name": "Granite Alpha Capital",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2017,
+    "size": "medium",
+    "headcount": 242,
+    "revenue": 71471312,
+    "grading": {
+      "band": "D",
+      "innovation": 48,
+      "viability": 38,
+      "scalability": 36,
+      "reasoning": "Conventional multi-asset positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-11-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-16"
+    }
+  },
+  {
+    "id": "adgm-016",
+    "name": "Pinnacle Settle Treasury",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "prime brokerage",
+    "yearRegistered": 2015,
+    "size": "small",
+    "headcount": 30,
+    "revenue": 10262790,
+    "grading": {
+      "band": "B",
+      "innovation": 69,
+      "viability": 76,
+      "scalability": 61,
+      "reasoning": "Improved prime brokerage offering within regulated fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2017-06-13"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-03-25"
+    }
+  },
+  {
+    "id": "adgm-017",
+    "name": "Wexford Patrimony Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Family office",
+    "subSector": "single family office",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 34,
+    "revenue": 9226070,
+    "grading": {
+      "band": "D",
+      "innovation": 37,
+      "viability": 52,
+      "scalability": 40,
+      "reasoning": "Conventional single family office positioning within family office; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-04-26"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-24"
+    }
+  },
+  {
+    "id": "adgm-018",
+    "name": "Thornton Holdings Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 48,
+    "revenue": 10784256,
+    "grading": {
+      "band": "C",
+      "innovation": 53,
+      "viability": 46,
+      "scalability": 47,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-12-21"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-07"
+    }
+  },
+  {
+    "id": "adgm-019",
+    "name": "Aurum Capital Treasury",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2015,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 2407272,
+    "grading": {
+      "band": "C",
+      "innovation": 51,
+      "viability": 50,
+      "scalability": 41,
+      "reasoning": "Adapts existing asset management approaches to a multi-asset use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-10-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-01"
+    }
+  },
+  {
+    "id": "adgm-020",
+    "name": "Aster Trust Trust",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Family office",
+    "subSector": "multi-family office",
+    "yearRegistered": 2025,
+    "size": "medium",
+    "headcount": 129,
+    "revenue": 45191022,
+    "grading": {
+      "band": "C",
+      "innovation": 53,
+      "viability": 50,
+      "scalability": 41,
+      "reasoning": "Adapts existing family office approaches to a multi-family office use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-11-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-05"
+    }
+  },
+  {
+    "id": "adgm-021",
+    "name": "Argent Patrimony Family Office",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Family office",
+    "subSector": "multi-family office",
+    "yearRegistered": 2016,
+    "size": "medium",
+    "headcount": 111,
+    "revenue": 24963789,
+    "grading": {
+      "band": "D",
+      "innovation": 43,
+      "viability": 43,
+      "scalability": 40,
+      "reasoning": "Conventional multi-family office positioning within family office; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-10-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-21"
+    }
+  },
+  {
+    "id": "adgm-022",
+    "name": "Falcon Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 5,
+    "revenue": 457555,
+    "grading": {
+      "band": "C",
+      "innovation": 57,
+      "viability": 62,
+      "scalability": 66,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-10-26"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-01"
+    }
+  },
+  {
+    "id": "adgm-023",
+    "name": "Hawthorne Alpha Wealth",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2024,
+    "size": "medium",
+    "headcount": 133,
+    "revenue": 18871636,
+    "grading": {
+      "band": "B",
+      "innovation": 76,
+      "viability": 67,
+      "scalability": 70,
+      "reasoning": "Improved private credit offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-12-01"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-04-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-21"
+    }
+  },
+  {
+    "id": "adgm-024",
+    "name": "Crescent Capital Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "venture capital",
+    "yearRegistered": 2014,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 817196,
+    "grading": {
+      "band": "C",
+      "innovation": 60,
+      "viability": 41,
+      "scalability": 50,
+      "reasoning": "Adapts existing asset management approaches to a venture capital use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2014-11-28"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2016-03-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-08"
+    }
+  },
+  {
+    "id": "adgm-025",
+    "name": "Northwind Capital Partners",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2014,
+    "size": "medium",
+    "headcount": 234,
+    "revenue": 30015414,
+    "grading": {
+      "band": "C",
+      "innovation": 51,
+      "viability": 53,
+      "scalability": 45,
+      "reasoning": "Adapts existing asset management approaches to a multi-asset use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2014-02-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-21"
+    }
+  },
+  {
+    "id": "adgm-026",
+    "name": "Arrow Income Capital",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 724496,
+    "grading": {
+      "band": "A",
+      "innovation": 83,
+      "viability": 75,
+      "scalability": 85,
+      "reasoning": "Differentiated multi-asset approach within asset management; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2024-09-27"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-03-18"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-06-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-26"
+    }
+  },
+  {
+    "id": "adgm-027",
+    "name": "Tundra Custody Treasury",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "prime brokerage",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 39,
+    "revenue": 5453604,
+    "grading": {
+      "band": "C",
+      "innovation": 67,
+      "viability": 50,
+      "scalability": 59,
+      "reasoning": "Adapts existing regulated fintech approaches to a prime brokerage use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-05-15"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2015-12-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-13"
+    }
+  },
+  {
+    "id": "adgm-028",
+    "name": "Argent Patrimony Family Office",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Family office",
+    "subSector": "multi-family office",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 433200,
+    "grading": {
+      "band": "C",
+      "innovation": 38,
+      "viability": 61,
+      "scalability": 55,
+      "reasoning": "Adapts existing family office approaches to a multi-family office use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-04-10"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2019-12-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-09"
+    }
+  },
+  {
+    "id": "adgm-029",
+    "name": "Meridian Alpha Wealth",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2019,
+    "size": "micro",
+    "headcount": 5,
+    "revenue": 743220,
+    "grading": {
+      "band": "C",
+      "innovation": 50,
+      "viability": 36,
+      "scalability": 59,
+      "reasoning": "Adapts existing asset management approaches to a private equity use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-11-07"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2021-09-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-20"
+    }
+  },
+  {
+    "id": "adgm-030",
+    "name": "Indigo Group International",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2020,
+    "size": "large",
+    "headcount": 770,
+    "revenue": 206507840,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 74,
+      "scalability": 63,
+      "reasoning": "Improved other services offering within other; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-05-07"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-01-01"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-04-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-11"
+    }
+  },
+  {
+    "id": "adgm-031",
+    "name": "Vector Holdings Ventures",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2017,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 1302119,
+    "grading": {
+      "band": "D",
+      "innovation": 34,
+      "viability": 39,
+      "scalability": 44,
+      "reasoning": "Conventional other services positioning within other; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-03-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-27"
+    }
+  },
+  {
+    "id": "adgm-032",
+    "name": "Falcon Heritage Family Office",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Family office",
+    "subSector": "multi-family office",
+    "yearRegistered": 2015,
+    "size": "medium",
+    "headcount": 90,
+    "revenue": 12233430,
+    "grading": {
+      "band": "C",
+      "innovation": 54,
+      "viability": 39,
+      "scalability": 53,
+      "reasoning": "Adapts existing family office approaches to a multi-family office use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-07-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-24"
+    }
+  },
+  {
+    "id": "adgm-033",
+    "name": "Quartermast Holdings International",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 25,
+    "revenue": 5899300,
+    "grading": {
+      "band": "B",
+      "innovation": 76,
+      "viability": 81,
+      "scalability": 73,
+      "reasoning": "Improved other services offering within other; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-11-23"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-01-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-09"
+    }
+  },
+  {
+    "id": "adgm-034",
+    "name": "Helix Group Co",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2021,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 1702456,
+    "grading": {
+      "band": "A",
+      "innovation": 91,
+      "viability": 75,
+      "scalability": 82,
+      "reasoning": "Differentiated other services approach within other; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2024-10-18"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-08-02"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-10-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-06"
+    }
+  },
+  {
+    "id": "adgm-035",
+    "name": "Lattice Alpha Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 15,
+    "revenue": 3887655,
+    "grading": {
+      "band": "D",
+      "innovation": 25,
+      "viability": 30,
+      "scalability": 28,
+      "reasoning": "Conventional private equity positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-01-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-26"
+    }
+  },
+  {
+    "id": "adgm-036",
+    "name": "Aurum Income Capital",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2016,
+    "size": "micro",
+    "headcount": 6,
+    "revenue": 810774,
+    "grading": {
+      "band": "D",
+      "innovation": 33,
+      "viability": 42,
+      "scalability": 56,
+      "reasoning": "Conventional private equity positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-01-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-12"
+    }
+  },
+  {
+    "id": "adgm-037",
+    "name": "Mosaic Capital Treasury",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 5,
+    "revenue": 1450635,
+    "grading": {
+      "band": "C",
+      "innovation": 51,
+      "viability": 57,
+      "scalability": 54,
+      "reasoning": "Adapts existing asset management approaches to a multi-asset use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-02-26"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-13"
+    }
+  },
+  {
+    "id": "adgm-038",
+    "name": "Tundra Reg Markets",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "regulated custody",
+    "yearRegistered": 2019,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 807810,
+    "grading": {
+      "band": "C",
+      "innovation": 49,
+      "viability": 62,
+      "scalability": 57,
+      "reasoning": "Adapts existing regulated fintech approaches to a regulated custody use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-02-07"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2023-10-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-02-09"
+    }
+  },
+  {
+    "id": "adgm-039",
+    "name": "Sable Alpha Wealth",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2014,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 1753209,
+    "grading": {
+      "band": "B",
+      "innovation": 89,
+      "viability": 64,
+      "scalability": 66,
+      "reasoning": "Improved private credit offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2015-09-26"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2018-12-02"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-08-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-24"
+    }
+  },
+  {
+    "id": "adgm-040",
+    "name": "Falcon Ventures",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2017,
+    "size": "small",
+    "headcount": 17,
+    "revenue": 4349909,
+    "grading": {
+      "band": "C",
+      "innovation": 42,
+      "viability": 48,
+      "scalability": 55,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-09-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-02"
+    }
+  },
+  {
+    "id": "adgm-041",
+    "name": "Beacon Hedge Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "venture capital",
+    "yearRegistered": 2018,
+    "size": "medium",
+    "headcount": 100,
+    "revenue": 20805500,
+    "grading": {
+      "band": "B",
+      "innovation": 71,
+      "viability": 83,
+      "scalability": 75,
+      "reasoning": "Improved venture capital offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-01-05"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-03-26"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-15"
+    }
+  },
+  {
+    "id": "adgm-042",
+    "name": "Briar Trust Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Family office",
+    "subSector": "estate advisory",
+    "yearRegistered": 2018,
+    "size": "large",
+    "headcount": 814,
+    "revenue": 104755288,
+    "grading": {
+      "band": "A",
+      "innovation": 92,
+      "viability": 72,
+      "scalability": 81,
+      "reasoning": "Differentiated estate advisory approach within family office; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2018-08-16"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-11-10"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-05-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-07"
+    }
+  },
+  {
+    "id": "adgm-043",
+    "name": "Selene Income Partners",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2024,
+    "size": "medium",
+    "headcount": 181,
+    "revenue": 49129554,
+    "grading": {
+      "band": "B",
+      "innovation": 76,
+      "viability": 84,
+      "scalability": 82,
+      "reasoning": "Improved private equity offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-06-27"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-06-04"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-03-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-13"
+    }
+  },
+  {
+    "id": "adgm-044",
+    "name": "Echo Income Partners",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 6,
+    "revenue": 1278174,
+    "grading": {
+      "band": "A",
+      "innovation": 80,
+      "viability": 77,
+      "scalability": 80,
+      "reasoning": "Differentiated multi-asset approach within asset management; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2024-11-28"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-03-27"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-09-21"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2024-04-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-20"
+    }
+  },
+  {
+    "id": "adgm-045",
+    "name": "Ridgeline Settle Capital",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "securities settlement",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 24,
+    "revenue": 7000032,
+    "grading": {
+      "band": "B",
+      "innovation": 65,
+      "viability": 64,
+      "scalability": 62,
+      "reasoning": "Improved securities settlement offering within regulated fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-04-13"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-03-19"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-02-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-13"
+    }
+  },
+  {
+    "id": "adgm-046",
+    "name": "Arrow Alpha Markets",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "venture capital",
+    "yearRegistered": 2016,
+    "size": "micro",
+    "headcount": 5,
+    "revenue": 1318595,
+    "grading": {
+      "band": "C",
+      "innovation": 45,
+      "viability": 52,
+      "scalability": 57,
+      "reasoning": "Adapts existing asset management approaches to a venture capital use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-07-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-26"
+    }
+  },
+  {
+    "id": "adgm-047",
+    "name": "Marrow Clearing Treasury",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "prime brokerage",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 26,
+    "revenue": 6834516,
+    "grading": {
+      "band": "C",
+      "innovation": 56,
+      "viability": 54,
+      "scalability": 47,
+      "reasoning": "Adapts existing regulated fintech approaches to a prime brokerage use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-10-27"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2023-03-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-07"
+    }
+  },
+  {
+    "id": "adgm-048",
+    "name": "Aster Custody Markets",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "prime brokerage",
+    "yearRegistered": 2017,
+    "size": "large",
+    "headcount": 927,
+    "revenue": 85930119,
+    "grading": {
+      "band": "C",
+      "innovation": 44,
+      "viability": 49,
+      "scalability": 57,
+      "reasoning": "Adapts existing regulated fintech approaches to a prime brokerage use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-07-11"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2019-09-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-11"
+    }
+  },
+  {
+    "id": "adgm-049",
+    "name": "Veridian Income Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2023,
+    "size": "small",
+    "headcount": 23,
+    "revenue": 7149435,
+    "grading": {
+      "band": "A",
+      "innovation": 93,
+      "viability": 85,
+      "scalability": 75,
+      "reasoning": "Differentiated multi-asset approach within asset management; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2023-03-25"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-04-08"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-12-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-28"
+    }
+  },
+  {
+    "id": "adgm-050",
+    "name": "Vector Group & Re",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2014,
+    "size": "medium",
+    "headcount": 239,
+    "revenue": 75243414,
+    "grading": {
+      "band": "B",
+      "innovation": 65,
+      "viability": 64,
+      "scalability": 63,
+      "reasoning": "Improved other services offering within other; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2018-03-07"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2015-01-13"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-05-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-03-22"
+    }
+  },
+  {
+    "id": "adgm-051",
+    "name": "Cascade Capital Capital",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 35,
+    "revenue": 8254190,
+    "grading": {
+      "band": "B",
+      "innovation": 71,
+      "viability": 69,
+      "scalability": 51,
+      "reasoning": "Improved multi-asset offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-10-16"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-03-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-08"
+    }
+  },
+  {
+    "id": "adgm-052",
+    "name": "Selene Yield Wealth",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 1674696,
+    "grading": {
+      "band": "D",
+      "innovation": 41,
+      "viability": 32,
+      "scalability": 35,
+      "reasoning": "Conventional private equity positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-05-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-01-11"
+    }
+  },
+  {
+    "id": "adgm-053",
+    "name": "Tundra Group International",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2024,
+    "size": "medium",
+    "headcount": 134,
+    "revenue": 32427464,
+    "grading": {
+      "band": "A",
+      "innovation": 83,
+      "viability": 70,
+      "scalability": 78,
+      "reasoning": "Differentiated other services approach within other; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2026-04-08"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-03-15"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-05-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-04"
+    }
+  },
+  {
+    "id": "adgm-054",
+    "name": "Brevet Legacy Trust",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Family office",
+    "subSector": "multi-family office",
+    "yearRegistered": 2021,
+    "size": "medium",
+    "headcount": 103,
+    "revenue": 19329701,
+    "grading": {
+      "band": "B",
+      "innovation": 70,
+      "viability": 70,
+      "scalability": 68,
+      "reasoning": "Improved multi-family office offering within family office; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-07-16"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-03-14"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-10-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-17"
+    }
+  },
+  {
+    "id": "adgm-055",
+    "name": "Solstice Patrimony Holdings",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Family office",
+    "subSector": "multi-family office",
+    "yearRegistered": 2021,
+    "size": "large",
+    "headcount": 967,
+    "revenue": 89695052,
+    "grading": {
+      "band": "B",
+      "innovation": 80,
+      "viability": 60,
+      "scalability": 78,
+      "reasoning": "Improved multi-family office offering within family office; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2021-07-20"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-11-21"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-07-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-05"
+    }
+  },
+  {
+    "id": "adgm-056",
+    "name": "Echo Hedge Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2019,
+    "size": "small",
+    "headcount": 44,
+    "revenue": 13281180,
+    "grading": {
+      "band": "C",
+      "innovation": 64,
+      "viability": 54,
+      "scalability": 64,
+      "reasoning": "Adapts existing asset management approaches to a multi-asset use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-10-20"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2020-04-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-12"
+    }
+  },
+  {
+    "id": "adgm-057",
+    "name": "Onyx Holdings International",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2019,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 652947,
+    "grading": {
+      "band": "C",
+      "innovation": 54,
+      "viability": 65,
+      "scalability": 56,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-03-26"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2021-01-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-26"
+    }
+  },
+  {
+    "id": "adgm-058",
+    "name": "Vector Reg Capital",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Regulated fintech",
+    "subSector": "prime brokerage",
+    "yearRegistered": 2019,
+    "size": "small",
+    "headcount": 16,
+    "revenue": 2809872,
+    "grading": {
+      "band": "C",
+      "innovation": 62,
+      "viability": 54,
+      "scalability": 66,
+      "reasoning": "Adapts existing regulated fintech approaches to a prime brokerage use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-01-16"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2020-05-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-28"
+    }
+  },
+  {
+    "id": "adgm-059",
+    "name": "Quartermast Income Treasury",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 29,
+    "revenue": 10289432,
+    "grading": {
+      "band": "C",
+      "innovation": 49,
+      "viability": 54,
+      "scalability": 37,
+      "reasoning": "Adapts existing asset management approaches to a private credit use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-09-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-22"
+    }
+  },
+  {
+    "id": "adgm-060",
+    "name": "Onyx Holdings Ventures",
+    "jurisdiction": "UAE",
+    "zone": "ADGM",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 6,
+    "revenue": 991356,
+    "grading": {
+      "band": "B",
+      "innovation": 70,
+      "viability": 72,
+      "scalability": 82,
+      "reasoning": "Improved other services offering within other; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-03-15"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-09-05"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-11-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "ADGM Registration Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-06"
+    }
+  }
+]

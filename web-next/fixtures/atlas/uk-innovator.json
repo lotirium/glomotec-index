@@ -1,0 +1,2097 @@
+[
+  {
+    "id": "uk-inn-001",
+    "name": "Citadel Ledger Asset Management",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 3,
+    "grading": {
+      "band": "B",
+      "innovation": 79,
+      "viability": 61,
+      "scalability": 76,
+      "reasoning": "Improved payments offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2021-10-19"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-08-20"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-11-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "high",
+      "lastUpdated": "2026-03-16"
+    }
+  },
+  {
+    "id": "uk-inn-002",
+    "name": "Meridian Pay Markets",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 4,
+    "grading": {
+      "band": "A",
+      "innovation": 82,
+      "viability": 90,
+      "scalability": 77,
+      "reasoning": "Differentiated payments approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2026-03-26"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-11-19"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-11-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "low",
+      "lastUpdated": "2026-04-23"
+    }
+  },
+  {
+    "id": "uk-inn-003",
+    "name": "Beacon Settle Asset Management",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "A",
+      "innovation": 96,
+      "viability": 95,
+      "scalability": 87,
+      "reasoning": "Differentiated payments approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2026-11-15"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-12-15"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-07-26"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2026-04-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-27"
+    }
+  },
+  {
+    "id": "uk-inn-004",
+    "name": "Halcyon Counsel Strategy",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 6,
+    "grading": {
+      "band": "B",
+      "innovation": 61,
+      "viability": 72,
+      "scalability": 66,
+      "reasoning": "Improved risk advisory offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-01-08"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-07-24"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-01-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "high",
+      "lastUpdated": "2026-03-21"
+    }
+  },
+  {
+    "id": "uk-inn-005",
+    "name": "Lyric Cyber Labs",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 13,
+    "grading": {
+      "band": "C",
+      "innovation": 48,
+      "viability": 48,
+      "scalability": 58,
+      "reasoning": "Adapts existing technology approaches to a data infrastructure use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-11-19"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2023-02-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "high",
+      "lastUpdated": "2026-03-19"
+    }
+  },
+  {
+    "id": "uk-inn-006",
+    "name": "Quartz Audit Consulting",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Professional services",
+    "subSector": "audit",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 3,
+    "grading": {
+      "band": "D",
+      "innovation": 27,
+      "viability": 44,
+      "scalability": 32,
+      "reasoning": "Conventional audit positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-08-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "high",
+      "lastUpdated": "2026-01-15"
+    }
+  },
+  {
+    "id": "uk-inn-007",
+    "name": "Quartz Quantum Labs",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "cybersecurity",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "A",
+      "innovation": 83,
+      "viability": 84,
+      "scalability": 89,
+      "reasoning": "Differentiated cybersecurity approach within technology; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2025-06-06"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-03-08"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-07-20"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2026-12-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "low",
+      "lastUpdated": "2026-01-12"
+    }
+  },
+  {
+    "id": "uk-inn-008",
+    "name": "Selene Audit Services",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Professional services",
+    "subSector": "audit",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 10,
+    "grading": {
+      "band": "B",
+      "innovation": 75,
+      "viability": 83,
+      "scalability": 81,
+      "reasoning": "Improved audit offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2021-03-11"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-07-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "high",
+      "lastUpdated": "2026-02-06"
+    }
+  },
+  {
+    "id": "uk-inn-009",
+    "name": "Linden Pay Asset Management",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 6,
+    "grading": {
+      "band": "C",
+      "innovation": 63,
+      "viability": 48,
+      "scalability": 60,
+      "reasoning": "Adapts existing fintech approaches to a payments use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-07-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "high",
+      "lastUpdated": "2026-04-17"
+    }
+  },
+  {
+    "id": "uk-inn-010",
+    "name": "Polaris Neural Compute",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "applied ML",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 18,
+    "grading": {
+      "band": "A",
+      "innovation": 85,
+      "viability": 84,
+      "scalability": 71,
+      "reasoning": "Differentiated applied ML approach within ai; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2022-08-04"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-12-10"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-04-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "high",
+      "lastUpdated": "2026-04-07"
+    }
+  },
+  {
+    "id": "uk-inn-011",
+    "name": "Wexford Neural Compute",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 18,
+    "grading": {
+      "band": "B",
+      "innovation": 77,
+      "viability": 90,
+      "scalability": 81,
+      "reasoning": "Improved foundation models offering within ai; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-08-17"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-05-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-02"
+    }
+  },
+  {
+    "id": "uk-inn-012",
+    "name": "Selene Composite Foundry",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Manufacturing",
+    "subSector": "industrial materials",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "C",
+      "innovation": 60,
+      "viability": 55,
+      "scalability": 47,
+      "reasoning": "Adapts existing manufacturing approaches to a industrial materials use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-08-04"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2025-09-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "high",
+      "lastUpdated": "2026-01-22"
+    }
+  },
+  {
+    "id": "uk-inn-013",
+    "name": "Veridian Tensor Protocols",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 3,
+    "grading": {
+      "band": "A",
+      "innovation": 86,
+      "viability": 94,
+      "scalability": 84,
+      "reasoning": "Differentiated foundation models approach within ai; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2024-01-24"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-03-24"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-03-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "high",
+      "lastUpdated": "2026-02-05"
+    }
+  },
+  {
+    "id": "uk-inn-014",
+    "name": "Quartermast Ceramic Manufacturing",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Manufacturing",
+    "subSector": "specialty chemicals",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 7,
+    "grading": {
+      "band": "C",
+      "innovation": 51,
+      "viability": 48,
+      "scalability": 56,
+      "reasoning": "Adapts existing manufacturing approaches to a specialty chemicals use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-08-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "low",
+      "lastUpdated": "2026-03-16"
+    }
+  },
+  {
+    "id": "uk-inn-015",
+    "name": "Briar Cognition Cloud",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "applied ML",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 16,
+    "grading": {
+      "band": "A",
+      "innovation": 82,
+      "viability": 89,
+      "scalability": 93,
+      "reasoning": "Differentiated applied ML approach within ai; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2023-12-14"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-10-11"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-08-07"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2024-06-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-23"
+    }
+  },
+  {
+    "id": "uk-inn-016",
+    "name": "Thornton Counsel Services",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Professional services",
+    "subSector": "legal advisory",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 4,
+    "grading": {
+      "band": "B",
+      "innovation": 79,
+      "viability": 84,
+      "scalability": 59,
+      "reasoning": "Improved legal advisory offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-01-12"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-11-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "low",
+      "lastUpdated": "2026-01-03"
+    }
+  },
+  {
+    "id": "uk-inn-017",
+    "name": "Apex Holdings International",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 19,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 67,
+      "scalability": 68,
+      "reasoning": "Improved other services offering within other; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-09-22"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-11-28"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-10"
+    }
+  },
+  {
+    "id": "uk-inn-018",
+    "name": "Citadel Sensor Compute",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "enterprise SaaS",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 3,
+    "grading": {
+      "band": "C",
+      "innovation": 43,
+      "viability": 49,
+      "scalability": 59,
+      "reasoning": "Adapts existing technology approaches to a enterprise SaaS use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-02-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "high",
+      "lastUpdated": "2026-03-05"
+    }
+  },
+  {
+    "id": "uk-inn-019",
+    "name": "Concord Data Stack",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "cybersecurity",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 3,
+    "grading": {
+      "band": "C",
+      "innovation": 57,
+      "viability": 47,
+      "scalability": 58,
+      "reasoning": "Adapts existing technology approaches to a cybersecurity use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-02-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "high",
+      "lastUpdated": "2026-01-12"
+    }
+  },
+  {
+    "id": "uk-inn-020",
+    "name": "Selene Sensor Labs",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "enterprise SaaS",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 14,
+    "grading": {
+      "band": "D",
+      "innovation": 37,
+      "viability": 33,
+      "scalability": 46,
+      "reasoning": "Conventional enterprise SaaS positioning within technology; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-05-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "high",
+      "lastUpdated": "2026-04-06"
+    }
+  },
+  {
+    "id": "uk-inn-021",
+    "name": "Polaris Polymer Materials",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Manufacturing",
+    "subSector": "specialty chemicals",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 4,
+    "grading": {
+      "band": "D",
+      "innovation": 25,
+      "viability": 24,
+      "scalability": 34,
+      "reasoning": "Conventional specialty chemicals positioning within manufacturing; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-09-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "high",
+      "lastUpdated": "2026-02-17"
+    }
+  },
+  {
+    "id": "uk-inn-022",
+    "name": "Vector Rail Wealth",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 4,
+    "grading": {
+      "band": "A",
+      "innovation": 81,
+      "viability": 77,
+      "scalability": 78,
+      "reasoning": "Differentiated embedded finance approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2025-06-17"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-12-21"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-08-21"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "high",
+      "lastUpdated": "2026-02-27"
+    }
+  },
+  {
+    "id": "uk-inn-023",
+    "name": "Wexford Treasury Partners",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2021,
+    "size": "micro",
+    "headcount": 4,
+    "grading": {
+      "band": "A",
+      "innovation": 88,
+      "viability": 78,
+      "scalability": 93,
+      "reasoning": "Differentiated payments approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2022-09-04"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2021-07-15"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-11-13"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2021-03-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "high",
+      "lastUpdated": "2026-01-08"
+    }
+  },
+  {
+    "id": "uk-inn-024",
+    "name": "Lighthouse Treasury Markets",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2020,
+    "size": "medium",
+    "headcount": 60,
+    "grading": {
+      "band": "B",
+      "innovation": 73,
+      "viability": 81,
+      "scalability": 59,
+      "reasoning": "Improved payments offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-03-13"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-03-04"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-06-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-16"
+    }
+  },
+  {
+    "id": "uk-inn-025",
+    "name": "Granite Audit Strategy",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2021,
+    "size": "micro",
+    "headcount": 5,
+    "grading": {
+      "band": "D",
+      "innovation": 22,
+      "viability": 37,
+      "scalability": 40,
+      "reasoning": "Conventional ESG consulting positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-06-28"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "high",
+      "lastUpdated": "2026-01-19"
+    }
+  },
+  {
+    "id": "uk-inn-026",
+    "name": "Crescent Data Systems",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 19,
+    "grading": {
+      "band": "C",
+      "innovation": 61,
+      "viability": 50,
+      "scalability": 42,
+      "reasoning": "Adapts existing technology approaches to a data infrastructure use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-11-05"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2023-10-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "high",
+      "lastUpdated": "2026-03-19"
+    }
+  },
+  {
+    "id": "uk-inn-027",
+    "name": "Argent Sensor Labs",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "A",
+      "innovation": 84,
+      "viability": 77,
+      "scalability": 85,
+      "reasoning": "Differentiated IoT approach within technology; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2025-08-14"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-05-19"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-02-03"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2022-02-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "high",
+      "lastUpdated": "2026-04-01"
+    }
+  },
+  {
+    "id": "uk-inn-028",
+    "name": "Quartz Cyber Systems",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 3,
+    "grading": {
+      "band": "C",
+      "innovation": 40,
+      "viability": 53,
+      "scalability": 62,
+      "reasoning": "Adapts existing technology approaches to a IoT use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-12-14"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2024-04-28"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-11"
+    }
+  },
+  {
+    "id": "uk-inn-029",
+    "name": "Quartz Ledger Partners",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 2,
+    "grading": {
+      "band": "B",
+      "innovation": 59,
+      "viability": 63,
+      "scalability": 71,
+      "reasoning": "Improved cross-border remittance offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-08-22"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-05-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-05"
+    }
+  },
+  {
+    "id": "uk-inn-030",
+    "name": "Beacon Data Cloud",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "enterprise SaaS",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 11,
+    "grading": {
+      "band": "C",
+      "innovation": 44,
+      "viability": 43,
+      "scalability": 57,
+      "reasoning": "Adapts existing technology approaches to a enterprise SaaS use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-01-26"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-06"
+    }
+  },
+  {
+    "id": "uk-inn-031",
+    "name": "Apex Inference Cloud",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 14,
+    "grading": {
+      "band": "B",
+      "innovation": 61,
+      "viability": 66,
+      "scalability": 64,
+      "reasoning": "Improved foundation models offering within ai; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-04-17"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-05-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-17"
+    }
+  },
+  {
+    "id": "uk-inn-032",
+    "name": "Vector Rail Capital",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 5,
+    "grading": {
+      "band": "C",
+      "innovation": 51,
+      "viability": 48,
+      "scalability": 46,
+      "reasoning": "Adapts existing fintech approaches to a cross-border remittance use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-07-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "low",
+      "lastUpdated": "2026-04-08"
+    }
+  },
+  {
+    "id": "uk-inn-033",
+    "name": "Thornton Pay Wealth",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "D",
+      "innovation": 47,
+      "viability": 43,
+      "scalability": 39,
+      "reasoning": "Conventional embedded finance positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-01-26"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-01"
+    }
+  },
+  {
+    "id": "uk-inn-034",
+    "name": "Briar Precision Works",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Manufacturing",
+    "subSector": "specialty chemicals",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 15,
+    "grading": {
+      "band": "B",
+      "innovation": 62,
+      "viability": 74,
+      "scalability": 73,
+      "reasoning": "Improved specialty chemicals offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-02-21"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-10-24"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-07-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-13"
+    }
+  },
+  {
+    "id": "uk-inn-035",
+    "name": "Brevet Polymer Industries",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Manufacturing",
+    "subSector": "polymers",
+    "yearRegistered": 2025,
+    "size": "medium",
+    "headcount": 25,
+    "grading": {
+      "band": "B",
+      "innovation": 77,
+      "viability": 65,
+      "scalability": 64,
+      "reasoning": "Improved polymers offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-05-14"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-10-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "high",
+      "lastUpdated": "2026-01-25"
+    }
+  },
+  {
+    "id": "uk-inn-036",
+    "name": "Halcyon Holdings International",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 10,
+    "grading": {
+      "band": "C",
+      "innovation": 67,
+      "viability": 42,
+      "scalability": 67,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-08-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "low",
+      "lastUpdated": "2026-04-28"
+    }
+  },
+  {
+    "id": "uk-inn-037",
+    "name": "Helix Pay Holdings",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 3,
+    "grading": {
+      "band": "D",
+      "innovation": 33,
+      "viability": 41,
+      "scalability": 38,
+      "reasoning": "Conventional B2B treasury positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-08-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "high",
+      "lastUpdated": "2026-01-10"
+    }
+  },
+  {
+    "id": "uk-inn-038",
+    "name": "Aurum Settle Treasury",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 5,
+    "grading": {
+      "band": "B",
+      "innovation": 72,
+      "viability": 75,
+      "scalability": 89,
+      "reasoning": "Improved embedded finance offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-05-13"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-06-12"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-06-19"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-23"
+    }
+  },
+  {
+    "id": "uk-inn-039",
+    "name": "Helix Neural Protocols",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 2,
+    "grading": {
+      "band": "B",
+      "innovation": 84,
+      "viability": 66,
+      "scalability": 76,
+      "reasoning": "Improved foundation models offering within ai; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-03-12"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-01-21"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-07-26"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-22"
+    }
+  },
+  {
+    "id": "uk-inn-040",
+    "name": "Sable Quantum Stack",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 5,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 82,
+      "scalability": 97,
+      "reasoning": "Improved IoT offering within technology; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-09-09"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-06-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-01"
+    }
+  },
+  {
+    "id": "uk-inn-041",
+    "name": "Quartermast Synapse Networks",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "AI tooling",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 5,
+    "grading": {
+      "band": "D",
+      "innovation": 38,
+      "viability": 29,
+      "scalability": 32,
+      "reasoning": "Conventional AI tooling positioning within ai; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-04-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "high",
+      "lastUpdated": "2026-03-04"
+    }
+  },
+  {
+    "id": "uk-inn-042",
+    "name": "Marrow Group Holdings",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2023,
+    "size": "medium",
+    "headcount": 24,
+    "grading": {
+      "band": "C",
+      "innovation": 47,
+      "viability": 44,
+      "scalability": 44,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-03-16"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2026-01-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-09"
+    }
+  },
+  {
+    "id": "uk-inn-043",
+    "name": "Citadel Group & Re",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "B",
+      "innovation": 56,
+      "viability": 76,
+      "scalability": 64,
+      "reasoning": "Improved other services offering within other; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-02-27"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-04-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "low",
+      "lastUpdated": "2026-02-26"
+    }
+  },
+  {
+    "id": "uk-inn-044",
+    "name": "Bramble Ledger Treasury",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "C",
+      "innovation": 52,
+      "viability": 46,
+      "scalability": 46,
+      "reasoning": "Adapts existing fintech approaches to a embedded finance use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-10-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "low",
+      "lastUpdated": "2026-03-13"
+    }
+  },
+  {
+    "id": "uk-inn-045",
+    "name": "Indigo Quantum Stack",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 18,
+    "grading": {
+      "band": "D",
+      "innovation": 45,
+      "viability": 37,
+      "scalability": 40,
+      "reasoning": "Conventional IoT positioning within technology; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-05-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "low",
+      "lastUpdated": "2026-01-07"
+    }
+  },
+  {
+    "id": "uk-inn-046",
+    "name": "Sable Tensor Systems",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "voice/vision",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 18,
+    "grading": {
+      "band": "C",
+      "innovation": 52,
+      "viability": 64,
+      "scalability": 72,
+      "reasoning": "Adapts existing ai approaches to a voice/vision use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-05-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "high",
+      "lastUpdated": "2026-02-08"
+    }
+  },
+  {
+    "id": "uk-inn-047",
+    "name": "Wexford Holdings Ventures",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2021,
+    "size": "medium",
+    "headcount": 31,
+    "grading": {
+      "band": "C",
+      "innovation": 53,
+      "viability": 40,
+      "scalability": 57,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-11-27"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2025-02-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "high",
+      "lastUpdated": "2026-01-23"
+    }
+  },
+  {
+    "id": "uk-inn-048",
+    "name": "Stratos Cognition Protocols",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "voice/vision",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 3,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 58,
+      "scalability": 72,
+      "reasoning": "Improved voice/vision offering within ai; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-07-25"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-07-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "low",
+      "lastUpdated": "2026-04-25"
+    }
+  },
+  {
+    "id": "uk-inn-049",
+    "name": "Crescent Treasury Capital",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "C",
+      "innovation": 46,
+      "viability": 46,
+      "scalability": 49,
+      "reasoning": "Adapts existing fintech approaches to a B2B treasury use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-01-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-02"
+    }
+  },
+  {
+    "id": "uk-inn-050",
+    "name": "Tundra Edge Stack",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 3,
+    "grading": {
+      "band": "B",
+      "innovation": 75,
+      "viability": 76,
+      "scalability": 69,
+      "reasoning": "Improved IoT offering within technology; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-12-17"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-05-11"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-10-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Sirius Group",
+      "confidence": "high",
+      "lastUpdated": "2026-03-12"
+    }
+  },
+  {
+    "id": "uk-inn-051",
+    "name": "Cascade Treasury Holdings",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 5,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 64,
+      "scalability": 68,
+      "reasoning": "Improved embedded finance offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-10-04"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-09-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "high",
+      "lastUpdated": "2026-04-06"
+    }
+  },
+  {
+    "id": "uk-inn-052",
+    "name": "Beacon Precision Manufacturing",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Manufacturing",
+    "subSector": "polymers",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 4,
+    "grading": {
+      "band": "D",
+      "innovation": 38,
+      "viability": 29,
+      "scalability": 26,
+      "reasoning": "Conventional polymers positioning within manufacturing; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-12-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Envestors Limited",
+      "confidence": "high",
+      "lastUpdated": "2026-03-10"
+    }
+  },
+  {
+    "id": "uk-inn-053",
+    "name": "Lyric Holdings Holdings",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 20,
+    "grading": {
+      "band": "D",
+      "innovation": 41,
+      "viability": 43,
+      "scalability": 48,
+      "reasoning": "Conventional other services positioning within other; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-11-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "high",
+      "lastUpdated": "2026-03-09"
+    }
+  },
+  {
+    "id": "uk-inn-054",
+    "name": "Apex Synapse Stack",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 4,
+    "grading": {
+      "band": "D",
+      "innovation": 50,
+      "viability": 33,
+      "scalability": 33,
+      "reasoning": "Conventional foundation models positioning within ai; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-02-13"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-05"
+    }
+  },
+  {
+    "id": "uk-inn-055",
+    "name": "Argent Cyber Protocols",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2021,
+    "size": "micro",
+    "headcount": 4,
+    "grading": {
+      "band": "D",
+      "innovation": 36,
+      "viability": 31,
+      "scalability": 40,
+      "reasoning": "Conventional data infrastructure positioning within technology; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-07-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "high",
+      "lastUpdated": "2026-03-05"
+    }
+  },
+  {
+    "id": "uk-inn-056",
+    "name": "Brevet Inference AI",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "B",
+      "innovation": 68,
+      "viability": 88,
+      "scalability": 85,
+      "reasoning": "Improved foundation models offering within ai; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-04-17"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-06-02"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-04-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "low",
+      "lastUpdated": "2026-02-15"
+    }
+  },
+  {
+    "id": "uk-inn-057",
+    "name": "Tundra Tensor Labs",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "C",
+      "innovation": 56,
+      "viability": 56,
+      "scalability": 49,
+      "reasoning": "Adapts existing ai approaches to a foundation models use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-03-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "high",
+      "lastUpdated": "2026-01-06"
+    }
+  },
+  {
+    "id": "uk-inn-058",
+    "name": "Mosaic Rail Capital",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 1,
+    "grading": {
+      "band": "C",
+      "innovation": 58,
+      "viability": 56,
+      "scalability": 44,
+      "reasoning": "Adapts existing fintech approaches to a embedded finance use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-01-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "UK Endorsing Bodies Ltd",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-06"
+    }
+  },
+  {
+    "id": "uk-inn-059",
+    "name": "Trident Rail Partners",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 7,
+    "grading": {
+      "band": "D",
+      "innovation": 40,
+      "viability": 40,
+      "scalability": 41,
+      "reasoning": "Conventional payments positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-12-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-17"
+    }
+  },
+  {
+    "id": "uk-inn-060",
+    "name": "Lighthouse Tensor Compute",
+    "jurisdiction": "UK",
+    "zone": null,
+    "sector": "AI",
+    "subSector": "AI tooling",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 2,
+    "grading": {
+      "band": "A",
+      "innovation": 82,
+      "viability": 80,
+      "scalability": 71,
+      "reasoning": "Differentiated AI tooling approach within ai; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2024-10-20"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-10-13"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-10-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Innovator International",
+      "confidence": "high",
+      "lastUpdated": "2026-04-17"
+    }
+  }
+]

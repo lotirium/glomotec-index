@@ -122,7 +122,7 @@
     "document_version_after": "v9.3 02 September 2025",
     "kind": "criterion_amended",
     "headline": "Endorsing body contact-point review now described as a 'live' check, not annual",
-    "summary": "Contact-point reviews by the endorsing body — at 12 and 24 months — are framed in v9.3 as live checks: the endorsing body may withdraw at any contact point if requirements are no longer met, not only at the scheduled review date.",
+    "summary": "Contact-point reviews by the endorsing body (at 12 and 24 months) are framed in v9.3 as live checks: the endorsing body may withdraw at any contact point if requirements are no longer met, not only at the scheduled review date.",
     "affected_criterion_ids": ["INNF.validity.endorsement_letter.001"],
     "source_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
     "advisor_impact": "advisory"
@@ -134,10 +134,53 @@
     "document_version_before": "v9.1 04 February 2025",
     "document_version_after": "v9.2 12 May 2025",
     "kind": "threshold_changed",
-    "headline": "Immigration Health Surcharge increased — fee table updated",
+    "headline": "Immigration Health Surcharge increased: fee table updated",
     "summary": "The Immigration Health Surcharge applicable to Innovator Founder applicants and dependants increased on 6 February 2025. v9.2 publishes the revised fee table; older worked examples have been retired.",
     "affected_criterion_ids": ["INNF.validity.fee_and_ihc.001"],
     "source_url": "https://www.gov.uk/healthcare-immigration-application",
     "advisor_impact": "informational"
+  },
+  {
+    "id": "chg-2026-04-30-uae-01",
+    "observed_at": "2026-04-30T07:30:00Z",
+    "route_id": "uae_fta",
+    "jurisdiction": "UAE",
+    "tier": "T2",
+    "document_version_before": "CTGFZP1 v1",
+    "document_version_after": "CTGFZP1 v2",
+    "kind": "guidance_clarified",
+    "headline": "FTA Free Zone Persons guide CTGFZP1 v2 published: corporate tax qualifying activities clarified",
+    "summary": "The Federal Tax Authority has published v2 of the Free Zone Persons corporate tax guide. Qualifying-income activities are restated with worked examples; ancillary activities now require an explicit substance test. Free Zone Persons relying on the 0% rate should re-confirm their activity classification.",
+    "affected_criterion_ids": [],
+    "source_url": "https://tax.gov.ae",
+    "advisor_impact": "advisory"
+  },
+  {
+    "id": "chg-2026-04-18-uae-01",
+    "observed_at": "2026-04-18T11:05:00Z",
+    "route_id": "uae_icp",
+    "jurisdiction": "UAE",
+    "tier": "T3",
+    "document_version_after": "Q3 2026 schedule",
+    "kind": "form_updated",
+    "headline": "ICP entry-permit fee schedule updated for Q3 2026",
+    "summary": "ICP has refreshed the published fee table for entry permits and change-of-status applications applicable from 1 July 2026. Service-tier fees (urgent vs standard) revised; family-package discount discontinued.",
+    "affected_criterion_ids": [],
+    "source_url": "https://icp.gov.ae",
+    "advisor_impact": "informational"
+  },
+  {
+    "id": "chg-2026-05-04-uae-01",
+    "observed_at": "2026-05-04T16:42:00Z",
+    "route_id": "uae_icp",
+    "jurisdiction": "UAE",
+    "tier": "T4",
+    "document_version_after": "Field note · 2026-05-04",
+    "kind": "guidance_clarified",
+    "headline": "ICP Al Barsha centre appears to require additional document for Pakistani nationals on tourist-visa change-of-status",
+    "summary": "Practitioners report that ICP Al Barsha now requests an additional document from Pakistani nationals applying to change status from a tourist visa. Pattern observed across N=14 cases over six weeks. The profile is not officially restricted; this is a centre-level practice and may not generalise to other ICP centres.",
+    "affected_criterion_ids": [],
+    "source_url": "https://icp.gov.ae",
+    "advisor_impact": "advisory"
   }
 ]

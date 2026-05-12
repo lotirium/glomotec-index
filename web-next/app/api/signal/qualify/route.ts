@@ -21,6 +21,14 @@ import {
   QUALIFY_FALLBACK,
   type QuotaFallback,
 } from "@/lib/anthropic-fallback";
+import {
+  deterministicKey,
+  deterministicSampling,
+  getCached,
+  isDeterministicMode,
+  setCached,
+} from "@/lib/scoring-cache";
+import { stripEmDash, stripEmDashArray } from "@/lib/text-sanitize";
 import type {
   ProspectProfile,
   SignalQualification,
@@ -111,6 +119,8 @@ function buildResultFromItem(
   raw: Partial<BatchScoringToolItem>,
 ): ScoringResult {
   const p = Math.max(0, Math.min(1, Number(raw.probability_meets) || 0));
+  // Persistence boundary: every Claude-generated string is sanitised on
+  // write (em-dashes → ", "). Cache replays inherit clean text.
   return {
     criterion_id: criterion.id,
     probability_meets: p,
@@ -118,13 +128,15 @@ function buildResultFromItem(
     supporting_evidence: Array.isArray(raw.supporting_evidence)
       ? raw.supporting_evidence.slice(0, 3).map((e) => ({
           field: "profile",
-          matches: typeof e?.matches === "string" ? e.matches : "",
+          matches:
+            typeof e?.matches === "string" ? stripEmDash(e.matches) : "",
         }))
       : [],
     missing_inputs: Array.isArray(raw.missing_inputs)
-      ? raw.missing_inputs.slice(0, 3).map((m) => String(m))
+      ? stripEmDashArray(raw.missing_inputs.slice(0, 3).map((m) => String(m)))
       : [],
-    reasoning: typeof raw.reasoning === "string" ? raw.reasoning : "",
+    reasoning:
+      typeof raw.reasoning === "string" ? stripEmDash(raw.reasoning) : "",
     scored_at: new Date().toISOString(),
     model_version: SCORE_MODEL,
     criterion: enrichedCriterion(criterion),
@@ -147,6 +159,11 @@ async function scoreBatch({
     const response = await anthropic.messages.create({
       model: SCORE_MODEL,
       max_tokens: MAX_TOKENS_PER_BATCH,
+      // Determinism: temperature + top_p both pinned to 0 (greedy decoding).
+      // The qualification envelope is also cached at the route level so the
+      // re-qualify path returns byte-identical output for an unchanged
+      // profile.
+      ...deterministicSampling(),
       system,
       tools: [BATCH_SCORING_TOOL] as unknown as Anthropic.Tool[],
       tool_choice: { type: "tool", name: BATCH_SCORING_TOOL.name },
@@ -241,6 +258,9 @@ async function synthesiseVerdict({
     const response = await anthropic.messages.create({
       model: VERDICT_MODEL,
       max_tokens: 700,
+      // Determinism: prospect-facing verdict text shouldn't drift on a fixed
+      // scoring vector. temperature + top_p both pinned to 0.
+      ...deterministicSampling(),
       system: VERDICT_SYNTH_SYSTEM_PROMPT,
       tools: [RECORD_PROSPECT_VERDICT_TOOL] as unknown as Anthropic.Tool[],
       tool_choice: { type: "tool", name: RECORD_PROSPECT_VERDICT_TOOL.name },
@@ -251,18 +271,29 @@ async function synthesiseVerdict({
     );
     if (!toolBlock) return fallback;
     const input = toolBlock.input as Partial<ProspectVerdictBody>;
+    // Persistence boundary for the prospect-facing verdict body. Each
+    // model-generated string is sanitised on write so the cached
+    // qualification (and any rendered MATCH narrative) never carries an
+    // em-dash, even if the model ignored its system prompt.
     const explanation =
       typeof input.explanation === "string" && input.explanation.trim().length > 0
-        ? input.explanation.trim()
+        ? stripEmDash(input.explanation)
         : fallback.explanation;
     const gaps = Array.isArray(input.gaps)
-      ? input.gaps.slice(0, 3).map(String).filter((s) => s.trim().length > 0)
+      ? stripEmDashArray(
+          input.gaps
+            .slice(0, 3)
+            .map(String)
+            .filter((s) => s.trim().length > 0),
+        )
       : [];
     const suitability_flags = Array.isArray(input.suitability_flags)
-      ? input.suitability_flags
-          .slice(0, 3)
-          .map(String)
-          .filter((s) => s.trim().length > 0)
+      ? stripEmDashArray(
+          input.suitability_flags
+            .slice(0, 3)
+            .map(String)
+            .filter((s) => s.trim().length > 0),
+        )
       : [];
     return { explanation, gaps, suitability_flags };
   } catch (err) {
@@ -311,6 +342,27 @@ export async function POST(req: Request) {
   );
   if (scored.length === 0) {
     return jsonError(500, "No scoreable criteria available for this route.");
+  }
+
+  // Cache key for deterministic re-qualification: route + profile text +
+  // ordered criterion ids. Same profile against the same criteria returns
+  // the same qualification envelope verbatim.
+  const cacheKey = deterministicKey([
+    "qualify:v1",
+    ROUTE_ID,
+    profileText,
+    scored.map((c) => c.id).join(","),
+  ]);
+  const cached = await getCached<SignalQualification>("qualify", cacheKey);
+  if (cached) {
+    return new Response(JSON.stringify({ ok: true, qualification: cached }), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-store",
+        "X-Qualify-Cache": "hit",
+      },
+    });
   }
 
   const anthropic = new Anthropic({ apiKey, maxRetries: 3 });
@@ -385,6 +437,7 @@ export async function POST(req: Request) {
   }
 
   const wall_ms = Math.round(performance.now() - t0);
+  const scored_at = new Date().toISOString();
   const qualification: SignalQualification = {
     substantive_pct,
     procedural_pct: null,
@@ -396,15 +449,25 @@ export async function POST(req: Request) {
     suitability_flags: synth.suitability_flags,
     next_step,
     results,
-    scored_at: new Date().toISOString(),
+    scored_at,
     wall_ms,
   };
+
+  // Cache the assembled qualification so re-qualify on the same profile
+  // returns byte-identical output. Skip when any criterion errored.
+  // Fire-and-forget the KV write — the in-memory layer is populated
+  // synchronously inside setCached.
+  const allClean = results.every((r) => !r.error);
+  if (allClean) {
+    void setCached("qualify", cacheKey, qualification);
+  }
 
   return new Response(JSON.stringify({ ok: true, qualification }), {
     status: 200,
     headers: {
       "Content-Type": "application/json",
       "Cache-Control": "no-store",
+      "X-Qualify-Cache": isDeterministicMode() ? "miss" : "bypass",
     },
   });
 }

@@ -28,14 +28,24 @@ const config: Config = {
           muted: "hsl(var(--ink-muted) / <alpha-value>)",
           faint: "hsl(var(--ink-faint) / <alpha-value>)",
         },
-        // Brand accent
+        // Brand accent (Deep Navy primary, Bright Cyan chromatic)
         accent: {
           DEFAULT: "hsl(var(--accent) / <alpha-value>)",
           soft: "hsl(var(--accent-soft) / <alpha-value>)",
           deep: "hsl(var(--accent-deep) / <alpha-value>)",
           tint: "hsl(var(--accent-tint) / <alpha-value>)",
         },
-        // Band semantic colours
+        cyan: {
+          DEFAULT: "hsl(var(--cyan) / <alpha-value>)",
+          tint: "hsl(var(--cyan-tint) / <alpha-value>)",
+        },
+        // Brand neutrals
+        glacier: "hsl(var(--glacier) / <alpha-value>)",
+        frost: "hsl(var(--frost) / <alpha-value>)",
+        slate: "hsl(var(--slate) / <alpha-value>)",
+        charcoal: "hsl(var(--charcoal) / <alpha-value>)",
+        silver: "hsl(var(--silver) / <alpha-value>)",
+        // Band semantic colours (cool palette only)
         band: {
           "high-bg": "hsl(var(--band-high-bg) / <alpha-value>)",
           "high-fg": "hsl(var(--band-high-fg) / <alpha-value>)",
@@ -53,20 +63,33 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
+        // Inter only, per brand v1.0
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        mono: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       fontSize: {
+        // Eight brand roles (page 15 of brand doc v1.0)
+        display: ["2.5rem", { lineHeight: "3.75rem", fontWeight: "700" }],
+        h1: ["2rem", { lineHeight: "2.25rem", fontWeight: "700" }],
+        h2: ["1.375rem", { lineHeight: "1.625rem", fontWeight: "700" }],
+        h3: ["0.875rem", { lineHeight: "1.25rem", fontWeight: "700" }],
+        lead: ["0.75rem", { lineHeight: "1.125rem", fontWeight: "400" }],
+        body: ["0.625rem", { lineHeight: "1rem", fontWeight: "400" }],
+        bodysm: ["0.5625rem", { lineHeight: "0.875rem", fontWeight: "400" }],
+        kicker: ["0.5rem", { lineHeight: "0.6875rem", fontWeight: "700", letterSpacing: "0.18em" }],
+        // Legacy size retained for backwards compatibility with existing components
         "2xs": ["0.6875rem", { lineHeight: "1rem" }],
       },
       letterSpacing: {
         tightest: "-0.04em",
         tighter: "-0.025em",
+        kicker: "0.18em",
       },
+      // No card shadows — hairline borders only per brand v1.0
       boxShadow: {
-        soft: "0 1px 2px hsl(var(--ink) / 0.03), 0 1px 3px hsl(var(--ink) / 0.04)",
-        card: "0 1px 2px hsl(var(--ink) / 0.04), 0 6px 18px hsl(var(--ink) / 0.04), 0 24px 48px -12px hsl(var(--ink) / 0.06)",
-        hero: "0 1px 2px hsl(var(--ink) / 0.04), 0 12px 32px hsl(var(--ink) / 0.05), 0 32px 80px -16px hsl(var(--accent) / 0.08)",
+        soft: "none",
+        card: "none",
+        hero: "none",
       },
       keyframes: {
         "fade-up": {

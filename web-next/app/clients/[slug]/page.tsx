@@ -1,15 +1,26 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { getClient, getClients, getAssessment, getRoute, getCriteria } from "@/lib/data";
+import {
+  getClient,
+  getClients,
+  getAssessment,
+  getRoute,
+  getCriteria,
+  getMonitoring,
+  getChangefeed,
+} from "@/lib/data";
 import { PageHeader } from "@/components/shared/page-header";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { VerdictHero } from "@/components/scoring/verdict-hero";
 import { CriteriaList } from "@/components/scoring/criteria-list";
+import { CacheDot } from "@/components/scoring/cache-dot";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { formatDate, formatRelative } from "@/lib/utils";
 import { DraftClientView } from "@/components/draft/draft-client-view";
+import { OperatorTabs } from "@/components/monitor/operator-tabs";
+import { MonitorPanel, MonitorOffer } from "@/components/monitor/monitor-panel";
 
 export const dynamicParams = true;
 
@@ -26,7 +37,7 @@ export async function generateMetadata({
   const { slug } = await params;
   if (slug.startsWith("draft-")) return { title: "Test profile · scoring" };
   const c = await getClient(slug);
-  return { title: c ? `${c.full_name} · scoring` : "Client" };
+  return { title: c ? `${c.full_name} · scoring` : "Operator" };
 }
 
 export default async function ClientPage({
@@ -43,9 +54,12 @@ export default async function ClientPage({
   }
   const client = await getClient(slug);
   if (!client) notFound();
-  const [assessment, route] = await Promise.all([
+  const [assessment, route, monitoring, criteria, changefeed] = await Promise.all([
     getAssessment(slug),
     getRoute(client.intended_route),
+    getMonitoring(slug),
+    getCriteria(client.intended_route),
+    getChangefeed(),
   ]);
   if (!assessment) notFound();
 
@@ -79,7 +93,7 @@ export default async function ClientPage({
       label: "Personal funds",
       value:
         client.finance.personal_funds_gbp != null
-          ? `£${client.finance.personal_funds_gbp.toLocaleString("en-GB")} ${
+          ? `GBP ${client.finance.personal_funds_gbp.toLocaleString("en-GB")} ${
               client.finance.held_for_at_least_28_days ? "· 28-day held" : "· not 28-day held"
             }`
           : "—",
@@ -108,12 +122,15 @@ export default async function ClientPage({
   return (
     <>
       <PageHeader
-        eyebrow={`Client · ${client.candidate_id}`}
+        eyebrow={`Operator · ${client.candidate_id}`}
         title={client.full_name}
-        description={`${client.business.applicant_role ?? "Founder"} · ${client.business.stage ?? "—"}-stage business · scored against ${assessment.total} criteria`}
+        description={`${client.business.applicant_role ?? "Founder"} · ${client.business.stage ? `${client.business.stage}-stage business` : "stage unspecified"} · scored against ${assessment.total} criteria`}
         meta={
           <>
-            <span>Scored {formatRelative(assessment.scored_at)}</span>
+            <span className="inline-flex items-center gap-1.5">
+              Scored {formatRelative(assessment.scored_at)}
+              <CacheDot state="hit" />
+            </span>
             <span aria-hidden>·</span>
             <span>{route?.document_version}</span>
             <span aria-hidden>·</span>
@@ -122,23 +139,41 @@ export default async function ClientPage({
               className="inline-flex items-center gap-1 text-ink-muted hover:text-ink-soft transition-colors"
             >
               <ArrowLeft className="h-3 w-3" />
-              All clients
+              All operators
             </Link>
           </>
         }
       />
 
-      <div className="container space-y-10 py-10">
+      <div className="container py-20 md:py-24 space-y-20 md:space-y-24">
         <VerdictHero run={assessment} />
 
         <section className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
-          <div className="space-y-6">
-            <SectionHeading
-              eyebrow="Criteria"
-              title="Where the score comes from"
-              description="Each criterion was scored against the live profile. Open the reasoning to read the trace."
+          <div className="min-w-0">
+            <OperatorTabs
+              monitorStatus={monitoring?.monitor_status ?? "offer"}
+              criteria={
+                <div className="space-y-6">
+                  <SectionHeading
+                    eyebrow="Criteria"
+                    title="Where the score comes from"
+                    description="Each criterion was scored against the live profile. Open the reasoning to read the trace."
+                  />
+                  <CriteriaList results={assessment.results} />
+                </div>
+              }
+              monitor={
+                monitoring && monitoring.monitor_status === "active" ? (
+                  <MonitorPanel
+                    monitoring={monitoring}
+                    criteria={criteria}
+                    changefeed={changefeed}
+                  />
+                ) : (
+                  <MonitorOffer />
+                )
+              }
             />
-            <CriteriaList results={assessment.results} />
           </div>
 
           <aside className="space-y-6 lg:sticky lg:top-20 lg:self-start">

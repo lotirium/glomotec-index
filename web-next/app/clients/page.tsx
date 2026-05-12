@@ -9,7 +9,7 @@ import { DraftsList } from "@/components/draft/drafts-list";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { formatDate } from "@/lib/utils";
 
-export const metadata = { title: "Clients" };
+export const metadata = { title: "COMPASS" };
 
 const stageLabel: Record<string, string> = {
   endorsement_sought: "Endorsement sought",
@@ -37,22 +37,22 @@ export default async function ClientsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Clients"
-        title="Active client roster"
-        description="Three profiles, scored against the Innovator Founder caseworker guidance. Click through for the full readiness report."
+        eyebrow="COMPASS"
+        title="Operator profiles."
+        description="Three profiles, scored against the Innovator Founder caseworker guidance. Open any profile for the full readiness report."
         trailing={
-          <Button asChild variant="primary" size="sm">
+          <Button asChild variant="engage" size="pill">
             <Link href="/clients/new">
               <Plus className="h-3.5 w-3.5" />
-              Score a profile
+              SCORE A PROFILE
             </Link>
           </Button>
         }
       />
-      <div className="container space-y-12 py-10">
-        <section className="space-y-4">
+      <div className="container py-20 md:py-24 space-y-24 md:space-y-28">
+        <section className="mx-auto w-full md:max-w-[78%] space-y-8">
           <SectionHeading
-            eyebrow="Seeded clients"
+            eyebrow="Seeded operators"
             title="Pre-scored profiles"
             description="Loaded with the preview build. Open any profile for the full readiness report."
           />
@@ -63,7 +63,7 @@ export default async function ClientsPage() {
                 href={`/clients/${client.slug}`}
                 className="group block h-full"
               >
-                <Card className="h-full p-5 transition-all hover:-translate-y-0.5 hover:shadow-card">
+                <Card className="h-full p-6">
                   <div className="flex items-center justify-between gap-2">
                     <Badge tone="neutral">{stageLabel[client.stage] ?? client.stage}</Badge>
                     <ArrowUpRight className="h-4 w-4 text-ink-faint transition-colors group-hover:text-ink" />
@@ -94,7 +94,7 @@ export default async function ClientsPage() {
                     </div>
                   )}
 
-                  <dl className="mt-4 grid grid-cols-3 gap-3 border-t border-line/70 pt-4 text-2xs">
+                  <dl className="mt-4 grid grid-cols-4 gap-3 border-t border-line/70 pt-4 text-2xs">
                     <div>
                       <dt className="font-mono uppercase tracking-[0.18em] text-ink-faint">High</dt>
                       <dd className="mt-0.5 text-sm font-semibold text-band-high-fg tabular">
@@ -102,7 +102,7 @@ export default async function ClientsPage() {
                       </dd>
                     </div>
                     <div>
-                      <dt className="font-mono uppercase tracking-[0.18em] text-ink-faint">Mid</dt>
+                      <dt className="font-mono uppercase tracking-[0.18em] text-ink-faint">Medium</dt>
                       <dd className="mt-0.5 text-sm font-semibold text-band-medium-fg tabular">
                         {assessment?.summary.medium ?? "—"}
                       </dd>
@@ -110,16 +110,24 @@ export default async function ClientsPage() {
                     <div>
                       <dt className="font-mono uppercase tracking-[0.18em] text-ink-faint">Low</dt>
                       <dd className="mt-0.5 text-sm font-semibold text-band-low-fg tabular">
-                        {(assessment?.summary.low ?? 0) +
-                          (assessment?.summary.below_threshold ?? 0) || "—"}
+                        {assessment?.summary.low ?? "—"}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-mono uppercase tracking-[0.18em] text-ink-faint">Below</dt>
+                      <dd className="mt-0.5 text-sm font-semibold text-band-below-fg tabular">
+                        {assessment?.summary.below_threshold ?? "—"}
                       </dd>
                     </div>
                   </dl>
 
                   <p className="mt-4 text-2xs text-ink-faint tabular">
+                    {assessment
+                      ? `${assessment.total} criteria · `
+                      : ""}
                     {client.filed_on
-                      ? `Filed ${formatDate(client.filed_on)}`
-                      : "Not yet filed"}
+                      ? `filed ${formatDate(client.filed_on)}`
+                      : "not yet filed"}
                   </p>
                 </Card>
               </Link>

@@ -7,7 +7,15 @@ import {
 } from "@/lib/score-prompt";
 import { bandFromProbability, buildAssessmentRun } from "@/lib/scoring";
 import { detectQuotaError, SCORE_FALLBACK } from "@/lib/anthropic-fallback";
-import type { Criterion, ScoringResult } from "@/lib/types";
+import {
+  deterministicKey,
+  deterministicSampling,
+  getCached,
+  isDeterministicMode,
+  setCached,
+} from "@/lib/scoring-cache";
+import { stripEmDash, stripEmDashArray } from "@/lib/text-sanitize";
+import type { AssessmentRun, Criterion, ScoringResult } from "@/lib/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -80,6 +88,10 @@ function buildResultFromItem(
   raw: Partial<BatchScoringToolItem>,
 ): ScoringResult {
   const p = Math.max(0, Math.min(1, Number(raw.probability_meets) || 0));
+  // Persistence boundary for SCORER output. Every model-generated string
+  // (reasoning / supporting evidence / missing inputs) gets piped through
+  // stripEmDash before it lands in the result envelope, so cache replays
+  // and FACTS / MATCH narratives never carry em-dashes.
   return {
     criterion_id: criterion.id,
     probability_meets: p,
@@ -87,13 +99,15 @@ function buildResultFromItem(
     supporting_evidence: Array.isArray(raw.supporting_evidence)
       ? raw.supporting_evidence.slice(0, 3).map((e) => ({
           field: "profile",
-          matches: typeof e?.matches === "string" ? e.matches : "",
+          matches:
+            typeof e?.matches === "string" ? stripEmDash(e.matches) : "",
         }))
       : [],
     missing_inputs: Array.isArray(raw.missing_inputs)
-      ? raw.missing_inputs.slice(0, 3).map((m) => String(m))
+      ? stripEmDashArray(raw.missing_inputs.slice(0, 3).map((m) => String(m)))
       : [],
-    reasoning: typeof raw.reasoning === "string" ? raw.reasoning : "",
+    reasoning:
+      typeof raw.reasoning === "string" ? stripEmDash(raw.reasoning) : "",
     scored_at: new Date().toISOString(),
     model_version: MODEL,
     criterion: enrichedCriterion(criterion),
@@ -116,6 +130,12 @@ async function scoreBatch({
     const response = await anthropic.messages.create({
       model: MODEL,
       max_tokens: MAX_TOKENS_PER_BATCH,
+      // Determinism: identical profiles must score identically run-over-run.
+      // Operators share these scores with operators; drift erodes trust.
+      // temperature + top_p both pinned to 0 (greedy decoding); the result
+      // is then cached at the route level so subsequent re-scores return
+      // the same envelope byte-identically.
+      ...deterministicSampling(),
       system,
       tools: [BATCH_SCORING_TOOL] as unknown as Anthropic.Tool[],
       tool_choice: { type: "tool", name: BATCH_SCORING_TOOL.name },
@@ -230,12 +250,74 @@ export async function POST(req: Request) {
     return jsonError(400, "No criteria available for this route.");
   }
 
+  // Cache key: route + profile text + ordered criterion ids. Slug is NOT in
+  // the key — same profile against the same criteria scored identically,
+  // regardless of which draft slug the operator used. The cached results
+  // are stamped with their original scored_at; the per-request slug is
+  // applied to the envelope on replay.
+  const cacheKey = deterministicKey([
+    "score:v1",
+    routeId,
+    body.profile ?? "",
+    criteria.map((c) => c.id).join(","),
+  ]);
+
   // maxRetries: 5 lets the SDK transparently retry transient 429s on the
   // parallel block — cheap because retries hit the cached system prompt.
   const anthropic = new Anthropic({ apiKey, maxRetries: 5 });
   const clientSlug = body.clientSlug ?? "draft";
   const startedAt = new Date().toISOString();
   const t0 = performance.now();
+
+  // ----- Cache hit -----
+  // Replay the cached envelope verbatim. scored_at and per-result timestamps
+  // come straight from the cache, so re-scoring the same profile produces
+  // byte-identical assessment JSON across runs. Cache lives in Vercel KV
+  // (30-day TTL refreshed on read) so cold-start instances replay too.
+  const cached = await getCached<{
+    startedAt: string;
+    results: ScoringResult[];
+    wallMs: number;
+  }>("score", cacheKey);
+  if (cached) {
+    const replayStream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        const enc = new TextEncoder();
+        const write = (obj: unknown) => {
+          controller.enqueue(enc.encode(JSON.stringify(obj) + "\n"));
+        };
+        write({
+          type: "started",
+          total: criteria.length,
+          scored_at: cached.startedAt,
+          route_id: routeId,
+          client_slug: clientSlug,
+          criteria: criteria.map(enrichedCriterion),
+        });
+        for (const r of cached.results) {
+          write({ type: "criterion", result: r, error: null });
+        }
+        const assessment: AssessmentRun = buildAssessmentRun({
+          client_slug: clientSlug,
+          route_id: routeId,
+          results: cached.results,
+          scored_at: cached.startedAt,
+        });
+        write({ type: "complete", assessment, wall_ms: cached.wallMs });
+        controller.close();
+      },
+    });
+    return new Response(replayStream, {
+      headers: {
+        "Content-Type": "application/x-ndjson; charset=utf-8",
+        "Cache-Control": "no-cache, no-transform",
+        "X-Accel-Buffering": "no",
+        "Connection": "keep-alive",
+        "Content-Encoding": "identity",
+        "X-Score-Cache": "hit",
+      },
+    });
+  }
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
@@ -334,6 +416,24 @@ export async function POST(req: Request) {
       });
 
       const wallMs = Math.round(performance.now() - t0);
+      // Cache the assembled run so subsequent re-scores of this exact
+      // profile against this exact route + criteria set return the same
+      // envelope byte-identically. Skip when any criterion returned an
+      // error (transient failure shouldn't pin a bad score) or when
+      // R_NONDETERMINISTIC=1.
+      const allClean =
+        results.length > 0 && results.every((r) => !r.error);
+      if (allClean) {
+        // Fire-and-forget the KV write so we don't delay the complete
+        // event. The in-memory layer is populated synchronously inside
+        // setCached, so an immediate replay on the same instance still
+        // hits even if KV is slow.
+        void setCached("score", cacheKey, {
+          startedAt,
+          results,
+          wallMs,
+        });
+      }
       write({ type: "complete", assessment, wall_ms: wallMs });
       controller.close();
     },
@@ -342,6 +442,7 @@ export async function POST(req: Request) {
   return new Response(stream, {
     headers: {
       "Content-Type": "application/x-ndjson; charset=utf-8",
+      "X-Score-Cache": isDeterministicMode() ? "miss" : "bypass",
       // no-transform forbids any proxy compression/recoding that would force
       // buffering; X-Accel-Buffering: no is the Nginx/Vercel-edge opt-out.
       "Cache-Control": "no-cache, no-transform",

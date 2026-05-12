@@ -1,0 +1,46 @@
+{
+  "slug": "tomas-almeida",
+  "monitor_status": "active",
+  "enrolled_at": "2026-04-12",
+  "grant_date": null,
+  "months_active": 0,
+  "alerts_since_enrolment": 1,
+  "next_review_label": null,
+  "next_review_at": null,
+  "next_review_in_days": null,
+  "milestones": [
+    {
+      "id": "m12",
+      "label": "Month 12 contact-point review",
+      "due_date": null,
+      "status": "pending"
+    },
+    {
+      "id": "m24",
+      "label": "Month 24 contact-point review",
+      "due_date": null,
+      "status": "pending"
+    },
+    {
+      "id": "m36",
+      "label": "Month 36 contact-point review",
+      "due_date": null,
+      "status": "pending"
+    },
+    {
+      "id": "m60",
+      "label": "Month 60 ILR application",
+      "due_date": null,
+      "status": "pending"
+    }
+  ],
+  "rule_changes": [
+    {
+      "change_id": "chg-2026-04-22-01",
+      "criterion_id": "INNF.validity.endorsement_letter.001",
+      "match_before": 70,
+      "match_after": 95,
+      "note": "Endorsement letter dated 2026-04-08 — comfortably inside the new 3-month window."
+    }
+  ]
+}

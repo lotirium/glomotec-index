@@ -3,12 +3,12 @@
 import * as React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowUpRight, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge, type BadgeProps } from "@/components/ui/badge";
-import { ChatInput } from "@/components/signal/chat-input";
 import { SignalDisclaimer } from "@/components/signal/signal-disclaimer";
 import { listSessions, newSession, saveSession } from "@/lib/signal/sessions";
+import { loadOperatorProfile } from "@/lib/signal/operator-profile";
 import type { ChatMessage, SignalSession } from "@/lib/signal/types";
 import { formatRelative } from "@/lib/utils";
 
@@ -17,6 +17,9 @@ const VERDICT_TONE: Record<string, BadgeProps["tone"]> = {
   medium: "medium",
   low: "low",
 };
+
+const WELCOME_MESSAGE =
+  "Welcome. Based on your profile, let me ask a few more questions.";
 
 function freshMessageId(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
@@ -28,80 +31,106 @@ function freshMessageId(): string {
 export function SignalLanding() {
   const router = useRouter();
   const [sessions, setSessions] = React.useState<SignalSession[] | null>(null);
+  const [profileChecked, setProfileChecked] = React.useState(false);
+  const handledRef = React.useRef(false);
 
   React.useEffect(() => {
-    setSessions(listSessions());
-    const onStorage = () => setSessions(listSessions());
-    window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
-  }, []);
+    if (handledRef.current) return;
+    const profile = loadOperatorProfile();
+    if (!profile) {
+      handledRef.current = true;
+      router.replace("/signal/start");
+      return;
+    }
+    const past = listSessions();
+    if (past.length === 0) {
+      handledRef.current = true;
+      const session = newSession();
+      const welcomeMsg: ChatMessage = {
+        id: freshMessageId(),
+        role: "assistant",
+        content: WELCOME_MESSAGE,
+        createdAt: new Date().toISOString(),
+      };
+      const seeded: SignalSession = {
+        ...session,
+        structuredProfile: profile,
+        messages: [welcomeMsg],
+        updatedAt: new Date().toISOString(),
+      };
+      saveSession(seeded);
+      router.replace(`/signal/${seeded.id}`);
+      return;
+    }
+    setSessions(past);
+    setProfileChecked(true);
+  }, [router]);
 
-  const startConversation = (text: string) => {
+  const beginNew = () => {
+    const profile = loadOperatorProfile();
+    if (!profile) {
+      router.replace("/signal/start");
+      return;
+    }
     const session = newSession();
-    const userMsg: ChatMessage = {
+    const welcomeMsg: ChatMessage = {
       id: freshMessageId(),
-      role: "user",
-      content: text,
+      role: "assistant",
+      content: WELCOME_MESSAGE,
       createdAt: new Date().toISOString(),
     };
     const seeded: SignalSession = {
       ...session,
-      messages: [userMsg],
+      structuredProfile: profile,
+      messages: [welcomeMsg],
       updatedAt: new Date().toISOString(),
     };
     saveSession(seeded);
     router.push(`/signal/${seeded.id}`);
   };
 
+  if (!profileChecked) {
+    return (
+      <div className="container max-w-md py-24 text-center">
+        <p className="text-kicker uppercase text-ink-faint">SIGNAL</p>
+        <p className="mt-3 text-sm text-ink-muted">Preparing qualification…</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="container max-w-3xl py-12 md:py-16">
-      <div className="text-center space-y-3">
-        <div className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 shadow-soft">
-          <Sparkles className="h-3.5 w-3.5 text-accent" />
-          <span className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-soft">
-            glomotec SIGNAL · prospect preview
-          </span>
-        </div>
-        <h1 className="text-3xl font-semibold tracking-tight text-ink leading-[1.1] md:text-4xl">
-          Hi, I'm SIGNAL.
+    <div className="container py-24 md:py-32 mx-auto md:max-w-[78%]">
+      <div className="space-y-6">
+        <p className="text-kicker uppercase text-ink-faint">SIGNAL</p>
+        <hr className="max-w-[3rem] border-t border-line" aria-hidden />
+        <h1 className="font-bold tracking-tight text-ink leading-[1.1] text-[2.5rem] md:text-[3rem] lg:text-[3.5rem]">
+          Qualification.
         </h1>
-        <p className="mx-auto max-w-xl text-base text-ink-muted leading-relaxed md:text-lg">
-          Tell me about yourself — what kind of move are you considering?
+        <p className="text-lead text-ink-muted leading-relaxed max-w-md pt-2">
+          SIGNAL covers UK Innovator Founder pre-qualification only. Each
+          conversation stays in this browser.
         </p>
       </div>
 
-      <Card className="mt-8 p-5 md:p-6">
-        <ChatInput
-          onSubmit={startConversation}
-          placeholder="I'm a software engineer in São Paulo and I want to start a fintech in the UK…"
-        />
-        <p className="mt-3 text-2xs text-ink-faint leading-relaxed">
-          SIGNAL covers UK Innovator Founder pre-qualification only. Your
-          conversation stays in this browser.
-        </p>
-      </Card>
-
-      <div className="mt-12">
-        <SignalDisclaimer />
+      <div className="mt-16">
+        <button type="button" onClick={beginNew} className="pill-engage">
+          BEGIN NEW CONVERSATION
+        </button>
       </div>
 
       {sessions && sessions.length > 0 && (
-        <section className="mt-14 space-y-4">
-          <div className="flex items-end justify-between gap-4">
-            <div className="space-y-1">
-              <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
-                Past conversations
-              </p>
-              <h2 className="text-lg font-semibold tracking-tight text-ink">
-                Stored in this browser.
-              </h2>
-            </div>
+        <section className="mt-24 md:mt-28 space-y-6">
+          <div className="space-y-2 border-b border-line pb-4">
+            <p className="text-kicker uppercase text-ink-faint">
+              Past conversations
+            </p>
+            <h2 className="text-h2 text-ink">Stored in this browser.</h2>
           </div>
           <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {sessions.map((s) => (
               <li key={s.id}>
                 <Link href={`/signal/${s.id}`} className="group block h-full">
-                  <Card className="h-full p-5 transition-all hover:-translate-y-0.5 hover:shadow-card">
+                  <Card className="h-full p-6">
                     <div className="flex items-center justify-between gap-2">
                       <Badge tone="accent">
                         <MessageCircle className="h-3 w-3" />
@@ -113,7 +142,7 @@ export function SignalLanding() {
                       {firstUserPreview(s)}
                     </p>
                     <div className="mt-5 flex items-center justify-between gap-3">
-                      <p className="font-mono text-2xs text-ink-faint tabular">
+                      <p className="text-2xs text-ink-faint tabular">
                         {formatRelative(s.updatedAt)}
                       </p>
                       {s.qualification ? (
@@ -140,12 +169,17 @@ export function SignalLanding() {
           </ul>
         </section>
       )}
+
+      <div className="mt-24 md:mt-28">
+        <SignalDisclaimer />
+      </div>
     </div>
   );
 }
 
 function firstUserPreview(s: SignalSession): string {
   const firstUser = s.messages.find((m) => m.role === "user");
-  if (!firstUser) return "(no message yet)";
-  return firstUser.content;
+  if (firstUser) return firstUser.content;
+  const firstAny = s.messages[0];
+  return firstAny ? firstAny.content : "(no message yet)";
 }

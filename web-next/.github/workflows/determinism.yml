@@ -1,0 +1,35 @@
+name: determinism
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "BASE_URL to score against (defaults to production)"
+        required: false
+        default: "https://index-advisor.vercel.app"
+
+# Asserts that two consecutive POSTs to /api/score with an identical profile
+# return byte-identical AssessmentRun envelopes (JSON.stringify equality).
+# This guards against:
+#   1. New Anthropic call sites that omit temperature/top_p.
+#   2. Non-deterministic timestamps or wall_ms leaking into the cached payload.
+#   3. R_NONDETERMINISTIC accidentally set on production.
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run determinism check against deployed URL
+        env:
+          BASE_URL: ${{ github.event.inputs.base_url || 'https://index-advisor.vercel.app' }}
+        working-directory: web-next
+        run: node ./scripts/check-determinism.mjs

@@ -1,0 +1,54 @@
+{
+  "slug": "priya-iyer",
+  "monitor_status": "active",
+  "enrolled_at": "2025-03-07",
+  "grant_date": "2025-03-07",
+  "months_active": 14,
+  "alerts_since_enrolment": 2,
+  "next_review_label": "Month 24 contact-point review",
+  "next_review_at": "2027-03-07",
+  "next_review_in_days": 304,
+  "milestones": [
+    {
+      "id": "m12",
+      "label": "Month 12 contact-point review",
+      "due_date": "2026-03-07",
+      "status": "complete",
+      "completed_at": "2026-03-07"
+    },
+    {
+      "id": "m24",
+      "label": "Month 24 contact-point review",
+      "due_date": "2027-03-07",
+      "status": "upcoming"
+    },
+    {
+      "id": "m36",
+      "label": "Month 36 contact-point review",
+      "due_date": "2028-03-07",
+      "status": "upcoming"
+    },
+    {
+      "id": "m60",
+      "label": "Month 60 ILR application",
+      "due_date": "2030-03-07",
+      "status": "upcoming"
+    }
+  ],
+  "rule_changes": [
+    {
+      "change_id": "chg-2026-02-27-02",
+      "criterion_id": "INNF.eligibility.key_role_in_business.001",
+      "match_before": 75,
+      "match_after": 90,
+      "note": "Multi-business role pattern is now explicitly permitted."
+    },
+    {
+      "change_id": "chg-2026-01-19-01",
+      "criterion_id": "INNF.validity.application_validity.001",
+      "match_before": 65,
+      "match_after": 80,
+      "note": "Endorsement reference number recorded on file from filing."
+    }
+  ]
+}

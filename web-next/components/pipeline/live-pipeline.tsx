@@ -265,7 +265,7 @@ export function LivePipelineDemo({
     // for the live scoring flow they've already seen.
     update("scorer", {
       state: "complete",
-      result: "ready to score profiles · 19 criteria loaded for innovator_founder",
+      result: "ready to score profiles · 19 criteria loaded for Innovator Founder",
     });
 
     setTotalWallMs(Math.round(performance.now() - t0));
@@ -289,7 +289,8 @@ export function LivePipelineDemo({
           <Button
             onClick={runDemo}
             disabled={running || !apiKeyConfigured}
-            size="sm"
+            variant="engage"
+            size="pill"
             className="gap-2"
             aria-label="Run live pipeline against gov.uk"
           >
@@ -299,17 +300,17 @@ export function LivePipelineDemo({
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
                 </span>
-                Running…
+                RUNNING…
               </>
             ) : hasRun ? (
               <>
                 <Play className="h-3.5 w-3.5" />
-                Run again
+                RUN AGAIN
               </>
             ) : (
               <>
                 <Play className="h-3.5 w-3.5" />
-                Run live pipeline
+                RUN LIVE PIPELINE
               </>
             )}
           </Button>
@@ -434,9 +435,9 @@ function ModuleCard({
         {m.id === "scorer" && (
           <Link
             href="/clients/new"
-            className="inline-flex items-center gap-1 text-2xs font-medium text-accent-deep hover:underline"
+            className="inline-flex items-center gap-1 text-kicker uppercase text-accent-deep hover:underline"
           >
-            Score a profile
+            SCORE A PROFILE
             <ArrowUpRight className="h-3 w-3" />
           </Link>
         )}

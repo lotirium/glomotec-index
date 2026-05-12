@@ -7,7 +7,49 @@ import {
   detectQuotaError,
   SIGNAL_CHAT_FALLBACK_MESSAGE,
 } from "@/lib/anthropic-fallback";
+import { stripEmDash } from "@/lib/text-sanitize";
 import type { ChatMessage, ProspectProfile } from "@/lib/signal/types";
+
+/**
+ * Render the five-field structured profile collected at /signal/start as a
+ * system-prompt-friendly bullet block. Server-side mirror of
+ * lib/signal/operator-profile.renderProfileForPrompt — duplicated here
+ * because that file is "use client".
+ */
+interface StructuredProfileShape {
+  nationality: string;
+  background: string;
+  currently_based_in: string;
+  purpose: string;
+  target_jurisdiction: string;
+}
+
+function isStructuredProfile(v: unknown): v is StructuredProfileShape {
+  return (
+    !!v &&
+    typeof v === "object" &&
+    typeof (v as Record<string, unknown>).nationality === "string" &&
+    typeof (v as Record<string, unknown>).background === "string" &&
+    typeof (v as Record<string, unknown>).currently_based_in === "string" &&
+    typeof (v as Record<string, unknown>).purpose === "string" &&
+    typeof (v as Record<string, unknown>).target_jurisdiction === "string"
+  );
+}
+
+function profileBlock(p: StructuredProfileShape): string {
+  return [
+    "",
+    "## Operator profile (collected at /signal/start, prior to this chat)",
+    "",
+    `- Nationality: ${p.nationality}`,
+    `- Background: ${p.background}`,
+    `- Currently based in: ${p.currently_based_in}`,
+    `- Purpose of move: ${p.purpose}`,
+    `- Target jurisdiction: ${p.target_jurisdiction}`,
+    "",
+    "Use this profile as your starting point. Do NOT re-ask for any of these five fields. Ask targeted follow-up questions on the remaining substantive and suitability ground (current visa status, education, business stage, funding, endorsement, English proficiency, immigration history) instead of starting from zero.",
+  ].join("\n");
+}
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -20,6 +62,8 @@ const MAX_TOKENS = 1024;
 interface RequestBody {
   /** Full chat transcript so far, oldest-first. The newest entry must be a user turn. */
   messages?: ChatMessage[];
+  /** Five-field structured profile from /signal/start, if any. */
+  structuredProfile?: StructuredProfileShape | null;
 }
 
 function jsonError(status: number, message: string) {
@@ -66,6 +110,9 @@ export async function POST(req: Request) {
 
   const anthropic = new Anthropic({ apiKey, maxRetries: 3 });
   const apiMessages = toAnthropicMessages(messages);
+  const systemPrompt = isStructuredProfile(body.structuredProfile)
+    ? `${SIGNAL_SYSTEM_PROMPT}\n${profileBlock(body.structuredProfile)}`
+    : SIGNAL_SYSTEM_PROMPT;
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
@@ -78,7 +125,7 @@ export async function POST(req: Request) {
         const response = await anthropic.messages.create({
           model: MODEL,
           max_tokens: MAX_TOKENS,
-          system: SIGNAL_SYSTEM_PROMPT,
+          system: systemPrompt,
           tools: [RECORD_PROSPECT_PROFILE_TOOL] as unknown as Anthropic.Tool[],
           messages: apiMessages,
         });
@@ -95,17 +142,19 @@ export async function POST(req: Request) {
           ) {
             const input = block.input as Partial<ProspectProfile>;
             if (typeof input.narrative_summary === "string") {
+              const clean = (v?: string) =>
+                typeof v === "string" ? stripEmDash(v) : v;
               profile = {
-                nationality: input.nationality,
-                age: input.age,
-                current_visa_status: input.current_visa_status,
-                education: input.education,
-                business_stage: input.business_stage,
-                funding: input.funding,
-                endorsement_status: input.endorsement_status,
-                english_proficiency: input.english_proficiency,
-                prior_immigration_history: input.prior_immigration_history,
-                narrative_summary: input.narrative_summary,
+                nationality: clean(input.nationality),
+                age: clean(input.age),
+                current_visa_status: clean(input.current_visa_status),
+                education: clean(input.education),
+                business_stage: clean(input.business_stage),
+                funding: clean(input.funding),
+                endorsement_status: clean(input.endorsement_status),
+                english_proficiency: clean(input.english_proficiency),
+                prior_immigration_history: clean(input.prior_immigration_history),
+                narrative_summary: stripEmDash(input.narrative_summary),
               };
             }
           }
@@ -113,7 +162,10 @@ export async function POST(req: Request) {
 
         write({
           type: "assistant_turn",
-          text: assistantText.trim(),
+          // Persistence boundary for SIGNAL chat. The assistant turn lands
+          // in localStorage and is rendered verbatim into the chat thread,
+          // so em-dashes get scrubbed on write.
+          text: stripEmDash(assistantText),
           profile,
           stop_reason: response.stop_reason ?? null,
           usage: response.usage,

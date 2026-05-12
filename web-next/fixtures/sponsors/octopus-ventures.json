@@ -1,0 +1,110 @@
+{
+  "slug": "octopus-ventures",
+  "sponsor_name": "Octopus Ventures",
+  "route_count": 3,
+  "founders": [
+    {
+      "name": "Maya Krishnan",
+      "route_id": "innovator_founder",
+      "score": 88,
+      "status": "stable",
+      "last_reviewed_days": 2
+    },
+    {
+      "name": "Kenji Watanabe",
+      "route_id": "innovator_founder",
+      "score": 76,
+      "status": "stable",
+      "last_reviewed_days": 4
+    },
+    {
+      "name": "Léa Bernard",
+      "route_id": "innovator_founder",
+      "score": 82,
+      "status": "stable",
+      "last_reviewed_days": 1
+    },
+    {
+      "name": "Tomasz Kowalski",
+      "route_id": "innovator_founder",
+      "score": 71,
+      "status": "guidance_shifted",
+      "alert_change_id": "chg-2026-04-22-01",
+      "alert_summary": "Endorsement letter validity narrowed to 3 months",
+      "alert_observed_at": "2026-04-22"
+    },
+    {
+      "name": "Adaeze Okonkwo",
+      "route_id": "innovator_founder",
+      "score": 91,
+      "status": "stable",
+      "last_reviewed_days": 1
+    },
+    {
+      "name": "Henrik Lindqvist",
+      "route_id": "innovator_founder",
+      "score": 79,
+      "status": "stable",
+      "last_reviewed_days": 6
+    },
+    {
+      "name": "Yusuf Demirci",
+      "route_id": "innovator_founder",
+      "score": 64,
+      "status": "stable",
+      "last_reviewed_days": 3
+    },
+    {
+      "name": "Mei Lin",
+      "route_id": "innovator_founder",
+      "score": 58,
+      "status": "score_dropped",
+      "alert_summary": "Score fell 71 → 58 after profile update flagged a new gap",
+      "alert_observed_at": "2026-05-02"
+    },
+    {
+      "name": "David Park",
+      "route_id": "global_talent",
+      "score": 95,
+      "status": "stable",
+      "last_reviewed_days": 5
+    },
+    {
+      "name": "Sofia Reyes",
+      "route_id": "global_talent",
+      "score": 87,
+      "status": "stable",
+      "last_reviewed_days": 2
+    },
+    {
+      "name": "Pieter van Dijk",
+      "route_id": "global_talent",
+      "score": 73,
+      "status": "guidance_shifted",
+      "alert_change_id": "chg-2026-02-27-02",
+      "alert_summary": "Endorsing-body assessment criteria revised for tech founders",
+      "alert_observed_at": "2026-02-27"
+    },
+    {
+      "name": "Anjali Mehta",
+      "route_id": "global_talent",
+      "score": 90,
+      "status": "stable",
+      "last_reviewed_days": 7
+    },
+    {
+      "name": "Omar Al-Faisal",
+      "route_id": "uae_golden_visa_founder",
+      "score": 84,
+      "status": "stable",
+      "last_reviewed_days": 4
+    },
+    {
+      "name": "Carla Mendes",
+      "route_id": "uae_golden_visa_founder",
+      "score": 78,
+      "status": "stable",
+      "last_reviewed_days": 9
+    }
+  ]
+}

@@ -1,0 +1,2117 @@
+[
+  {
+    "id": "jafza-001",
+    "name": "Stratos Freight Shipping",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "freight forwarding",
+    "yearRegistered": 2018,
+    "size": "small",
+    "headcount": 48,
+    "revenue": 7208448,
+    "grading": {
+      "band": "C",
+      "innovation": 61,
+      "viability": 69,
+      "scalability": 56,
+      "reasoning": "Adapts existing logistics approaches to a freight forwarding use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-11-24"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2019-05-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-08"
+    }
+  },
+  {
+    "id": "jafza-002",
+    "name": "Concord Composite Manufacturing",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "industrial materials",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 20,
+    "revenue": 3349720,
+    "grading": {
+      "band": "D",
+      "innovation": 48,
+      "viability": 39,
+      "scalability": 35,
+      "reasoning": "Conventional industrial materials positioning within manufacturing; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2014-11-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-04"
+    }
+  },
+  {
+    "id": "jafza-003",
+    "name": "Trident Trading Logistics",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "import/export",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 20,
+    "revenue": 3913420,
+    "grading": {
+      "band": "B",
+      "innovation": 72,
+      "viability": 60,
+      "scalability": 57,
+      "reasoning": "Improved import/export offering within trade; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-05-04"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-09-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-23"
+    }
+  },
+  {
+    "id": "jafza-004",
+    "name": "Echo Polymer Manufacturing",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "industrial materials",
+    "yearRegistered": 2019,
+    "size": "micro",
+    "headcount": 6,
+    "revenue": 2031522,
+    "grading": {
+      "band": "B",
+      "innovation": 77,
+      "viability": 80,
+      "scalability": 73,
+      "reasoning": "Improved industrial materials offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-06-08"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-05-27"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-05-28"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-04"
+    }
+  },
+  {
+    "id": "jafza-005",
+    "name": "Pinnacle Manifest Cargo",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "freight forwarding",
+    "yearRegistered": 2015,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 1053404,
+    "grading": {
+      "band": "D",
+      "innovation": 27,
+      "viability": 37,
+      "scalability": 22,
+      "reasoning": "Conventional freight forwarding positioning within logistics; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-09-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-16"
+    }
+  },
+  {
+    "id": "jafza-006",
+    "name": "Stratos Manifest Logistics",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "port logistics",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 27,
+    "revenue": 6578955,
+    "grading": {
+      "band": "C",
+      "innovation": 62,
+      "viability": 53,
+      "scalability": 54,
+      "reasoning": "Adapts existing logistics approaches to a port logistics use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-07-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-27"
+    }
+  },
+  {
+    "id": "jafza-007",
+    "name": "Veridian Polymer Manufacturing",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "precision parts",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 6,
+    "revenue": 1927332,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 69,
+      "scalability": 62,
+      "reasoning": "Improved precision parts offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-08-07"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-07-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-13"
+    }
+  },
+  {
+    "id": "jafza-008",
+    "name": "Arrow Composite Works",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "polymers",
+    "yearRegistered": 2019,
+    "size": "small",
+    "headcount": 23,
+    "revenue": 2350347,
+    "grading": {
+      "band": "B",
+      "innovation": 66,
+      "viability": 68,
+      "scalability": 68,
+      "reasoning": "Improved polymers offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-02-15"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-01-04"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-09-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-09"
+    }
+  },
+  {
+    "id": "jafza-009",
+    "name": "Aurum Trading Shipping",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "import/export",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 14,
+    "revenue": 3312064,
+    "grading": {
+      "band": "D",
+      "innovation": 22,
+      "viability": 30,
+      "scalability": 16,
+      "reasoning": "Conventional import/export positioning within trade; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-04-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-18"
+    }
+  },
+  {
+    "id": "jafza-010",
+    "name": "Ridgeline Trading Shipping",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "specialty trade",
+    "yearRegistered": 2019,
+    "size": "micro",
+    "headcount": 6,
+    "revenue": 989154,
+    "grading": {
+      "band": "B",
+      "innovation": 79,
+      "viability": 83,
+      "scalability": 84,
+      "reasoning": "Improved specialty trade offering within trade; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-12-03"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-01-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-03-11"
+    }
+  },
+  {
+    "id": "jafza-011",
+    "name": "Echo Routing Trading",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2025,
+    "size": "medium",
+    "headcount": 63,
+    "revenue": 9199638,
+    "grading": {
+      "band": "A",
+      "innovation": 80,
+      "viability": 83,
+      "scalability": 86,
+      "reasoning": "Differentiated bonded warehousing approach within logistics; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2026-10-03"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-10-09"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-09-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-14"
+    }
+  },
+  {
+    "id": "jafza-012",
+    "name": "Echo Alloy Manufacturing",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "polymers",
+    "yearRegistered": 2014,
+    "size": "large",
+    "headcount": 1148,
+    "revenue": 268350740,
+    "grading": {
+      "band": "D",
+      "innovation": 20,
+      "viability": 27,
+      "scalability": 39,
+      "reasoning": "Conventional polymers positioning within manufacturing; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-01-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-28"
+    }
+  },
+  {
+    "id": "jafza-013",
+    "name": "Aster Trading Trading",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "supply chain",
+    "yearRegistered": 2016,
+    "size": "small",
+    "headcount": 16,
+    "revenue": 1391120,
+    "grading": {
+      "band": "B",
+      "innovation": 61,
+      "viability": 65,
+      "scalability": 70,
+      "reasoning": "Improved supply chain offering within trade; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-10-16"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2016-07-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-23"
+    }
+  },
+  {
+    "id": "jafza-014",
+    "name": "Lighthouse Brokerage Trading",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "brokerage",
+    "yearRegistered": 2020,
+    "size": "medium",
+    "headcount": 133,
+    "revenue": 19410020,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 78,
+      "scalability": 79,
+      "reasoning": "Improved brokerage offering within trade; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-01-05"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-09-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-27"
+    }
+  },
+  {
+    "id": "jafza-015",
+    "name": "Aster Group Holdings",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 40,
+    "revenue": 7075240,
+    "grading": {
+      "band": "B",
+      "innovation": 64,
+      "viability": 81,
+      "scalability": 80,
+      "reasoning": "Improved other services offering within other; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-06-04"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-06-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-15"
+    }
+  },
+  {
+    "id": "jafza-016",
+    "name": "Solstice Import Shipping",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "specialty trade",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 917361,
+    "grading": {
+      "band": "A",
+      "innovation": 85,
+      "viability": 91,
+      "scalability": 84,
+      "reasoning": "Differentiated specialty trade approach within trade; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2024-07-02"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-03-05"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-10-02"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2024-04-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-02-14"
+    }
+  },
+  {
+    "id": "jafza-017",
+    "name": "Stratos Manifest Logistics",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2018,
+    "size": "medium",
+    "headcount": 216,
+    "revenue": 25415856,
+    "grading": {
+      "band": "A",
+      "innovation": 87,
+      "viability": 66,
+      "scalability": 77,
+      "reasoning": "Differentiated bonded warehousing approach within logistics; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2019-06-27"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-04-22"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-02-07"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2019-12-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-19"
+    }
+  },
+  {
+    "id": "jafza-018",
+    "name": "Tundra Alloy Materials",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "industrial materials",
+    "yearRegistered": 2015,
+    "size": "small",
+    "headcount": 32,
+    "revenue": 5803488,
+    "grading": {
+      "band": "B",
+      "innovation": 70,
+      "viability": 69,
+      "scalability": 83,
+      "reasoning": "Improved industrial materials offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2018-03-16"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-06-23"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-06-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-27"
+    }
+  },
+  {
+    "id": "jafza-019",
+    "name": "Veridian Manifest Freight",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2016,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 1672576,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 54,
+      "scalability": 66,
+      "reasoning": "Improved bonded warehousing offering within logistics; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2018-05-06"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2018-06-28"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-01-05"
+    }
+  },
+  {
+    "id": "jafza-020",
+    "name": "Helix Precision Foundry",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "industrial materials",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 743099,
+    "grading": {
+      "band": "B",
+      "innovation": 69,
+      "viability": 60,
+      "scalability": 56,
+      "reasoning": "Improved industrial materials offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-06-04"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-01-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-27"
+    }
+  },
+  {
+    "id": "jafza-021",
+    "name": "Halcyon Ceramic Materials",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "industrial materials",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 1305184,
+    "grading": {
+      "band": "D",
+      "innovation": 44,
+      "viability": 36,
+      "scalability": 35,
+      "reasoning": "Conventional industrial materials positioning within manufacturing; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-11-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-14"
+    }
+  },
+  {
+    "id": "jafza-022",
+    "name": "Linden Container Shipping",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 49,
+    "revenue": 18198404,
+    "grading": {
+      "band": "C",
+      "innovation": 37,
+      "viability": 51,
+      "scalability": 55,
+      "reasoning": "Adapts existing logistics approaches to a bonded warehousing use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-03-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-11"
+    }
+  },
+  {
+    "id": "jafza-023",
+    "name": "Stratos Brokerage Logistics",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "import/export",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 46,
+    "revenue": 15487694,
+    "grading": {
+      "band": "B",
+      "innovation": 72,
+      "viability": 60,
+      "scalability": 74,
+      "reasoning": "Improved import/export offering within trade; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2015-10-07"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2017-08-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-03-26"
+    }
+  },
+  {
+    "id": "jafza-024",
+    "name": "Mosaic Ceramic Manufacturing",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "specialty chemicals",
+    "yearRegistered": 2017,
+    "size": "medium",
+    "headcount": 221,
+    "revenue": 68280602,
+    "grading": {
+      "band": "C",
+      "innovation": 62,
+      "viability": 58,
+      "scalability": 51,
+      "reasoning": "Adapts existing manufacturing approaches to a specialty chemicals use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-01-12"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2020-01-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-11"
+    }
+  },
+  {
+    "id": "jafza-025",
+    "name": "Northwind Import Commodities",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "import/export",
+    "yearRegistered": 2022,
+    "size": "medium",
+    "headcount": 209,
+    "revenue": 64717268,
+    "grading": {
+      "band": "B",
+      "innovation": 80,
+      "viability": 64,
+      "scalability": 80,
+      "reasoning": "Improved import/export offering within trade; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-06-08"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-08-01"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-07-21"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-01"
+    }
+  },
+  {
+    "id": "jafza-026",
+    "name": "Arrow Routing Logistics",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "port logistics",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 1060000,
+    "grading": {
+      "band": "B",
+      "innovation": 84,
+      "viability": 67,
+      "scalability": 65,
+      "reasoning": "Improved port logistics offering within logistics; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-11-19"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-08-21"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-06-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-05"
+    }
+  },
+  {
+    "id": "jafza-027",
+    "name": "Aurum Routing Bullion",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2021,
+    "size": "large",
+    "headcount": 467,
+    "revenue": 47957164,
+    "grading": {
+      "band": "D",
+      "innovation": 41,
+      "viability": 27,
+      "scalability": 35,
+      "reasoning": "Conventional bonded warehousing positioning within logistics; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-05-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-11"
+    }
+  },
+  {
+    "id": "jafza-028",
+    "name": "Stratos Routing Commodities",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "port logistics",
+    "yearRegistered": 2019,
+    "size": "small",
+    "headcount": 32,
+    "revenue": 7361952,
+    "grading": {
+      "band": "D",
+      "innovation": 21,
+      "viability": 18,
+      "scalability": 38,
+      "reasoning": "Conventional port logistics positioning within logistics; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-05-13"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-21"
+    }
+  },
+  {
+    "id": "jafza-029",
+    "name": "Selene Manifest Freight",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2018,
+    "size": "large",
+    "headcount": 439,
+    "revenue": 81766823,
+    "grading": {
+      "band": "D",
+      "innovation": 41,
+      "viability": 31,
+      "scalability": 22,
+      "reasoning": "Conventional bonded warehousing positioning within logistics; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-07-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-01"
+    }
+  },
+  {
+    "id": "jafza-030",
+    "name": "Veridian Manifest Bullion",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2025,
+    "size": "medium",
+    "headcount": 155,
+    "revenue": 52347840,
+    "grading": {
+      "band": "D",
+      "innovation": 44,
+      "viability": 32,
+      "scalability": 48,
+      "reasoning": "Conventional bonded warehousing positioning within logistics; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-11-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-22"
+    }
+  },
+  {
+    "id": "jafza-031",
+    "name": "Cobalt Manifest Bullion",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "freight forwarding",
+    "yearRegistered": 2017,
+    "size": "large",
+    "headcount": 694,
+    "revenue": 88929160,
+    "grading": {
+      "band": "C",
+      "innovation": 54,
+      "viability": 62,
+      "scalability": 62,
+      "reasoning": "Adapts existing logistics approaches to a freight forwarding use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-01-08"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2019-01-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-27"
+    }
+  },
+  {
+    "id": "jafza-032",
+    "name": "Trident Precision Materials",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "precision parts",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 43,
+    "revenue": 8107478,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 58,
+      "scalability": 68,
+      "reasoning": "Improved precision parts offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-07-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-24"
+    }
+  },
+  {
+    "id": "jafza-033",
+    "name": "Indigo Freight Commodities",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "freight forwarding",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 29,
+    "revenue": 7256844,
+    "grading": {
+      "band": "A",
+      "innovation": 88,
+      "viability": 86,
+      "scalability": 85,
+      "reasoning": "Differentiated freight forwarding approach within logistics; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2026-10-01"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-04-27"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-02-15"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2025-05-19"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-11"
+    }
+  },
+  {
+    "id": "jafza-034",
+    "name": "Aster Composite Materials",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "polymers",
+    "yearRegistered": 2015,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 855147,
+    "grading": {
+      "band": "D",
+      "innovation": 40,
+      "viability": 41,
+      "scalability": 48,
+      "reasoning": "Conventional polymers positioning within manufacturing; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-05-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-08"
+    }
+  },
+  {
+    "id": "jafza-035",
+    "name": "Granite Polymer Manufacturing",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "specialty chemicals",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 888672,
+    "grading": {
+      "band": "C",
+      "innovation": 43,
+      "viability": 44,
+      "scalability": 51,
+      "reasoning": "Adapts existing manufacturing approaches to a specialty chemicals use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-01-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-21"
+    }
+  },
+  {
+    "id": "jafza-036",
+    "name": "Arrow Composite Works",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "polymers",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 42,
+    "revenue": 11342520,
+    "grading": {
+      "band": "B",
+      "innovation": 61,
+      "viability": 73,
+      "scalability": 63,
+      "reasoning": "Improved polymers offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2021-10-03"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-01-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-20"
+    }
+  },
+  {
+    "id": "jafza-037",
+    "name": "Cascade Composite Manufacturing",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "polymers",
+    "yearRegistered": 2014,
+    "size": "large",
+    "headcount": 914,
+    "revenue": 316518200,
+    "grading": {
+      "band": "D",
+      "innovation": 33,
+      "viability": 40,
+      "scalability": 22,
+      "reasoning": "Conventional polymers positioning within manufacturing; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-07-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-03-06"
+    }
+  },
+  {
+    "id": "jafza-038",
+    "name": "Selene Container Freight",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "freight forwarding",
+    "yearRegistered": 2015,
+    "size": "large",
+    "headcount": 645,
+    "revenue": 61269195,
+    "grading": {
+      "band": "B",
+      "innovation": 75,
+      "viability": 87,
+      "scalability": 76,
+      "reasoning": "Improved freight forwarding offering within logistics; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2017-07-20"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-11-14"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-01-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-13"
+    }
+  },
+  {
+    "id": "jafza-039",
+    "name": "Stratos Routing Logistics",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 31,
+    "revenue": 5042615,
+    "grading": {
+      "band": "B",
+      "innovation": 66,
+      "viability": 63,
+      "scalability": 77,
+      "reasoning": "Improved bonded warehousing offering within logistics; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-03-06"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-05-19"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-05"
+    }
+  },
+  {
+    "id": "jafza-040",
+    "name": "Stratos Manifest Freight",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "freight forwarding",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 18,
+    "revenue": 3329856,
+    "grading": {
+      "band": "C",
+      "innovation": 51,
+      "viability": 35,
+      "scalability": 45,
+      "reasoning": "Adapts existing logistics approaches to a freight forwarding use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-04-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-25"
+    }
+  },
+  {
+    "id": "jafza-041",
+    "name": "Briar & Re",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 3021903,
+    "grading": {
+      "band": "D",
+      "innovation": 31,
+      "viability": 52,
+      "scalability": 43,
+      "reasoning": "Conventional other services positioning within other; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-09-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-24"
+    }
+  },
+  {
+    "id": "jafza-042",
+    "name": "Apex Container Commodities",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2016,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 2093224,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 67,
+      "scalability": 67,
+      "reasoning": "Improved bonded warehousing offering within logistics; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2016-03-28"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-02-21"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-06-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-13"
+    }
+  },
+  {
+    "id": "jafza-043",
+    "name": "Quartermast Bonded Trading",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "brokerage",
+    "yearRegistered": 2025,
+    "size": "medium",
+    "headcount": 115,
+    "revenue": 36526990,
+    "grading": {
+      "band": "C",
+      "innovation": 46,
+      "viability": 51,
+      "scalability": 47,
+      "reasoning": "Adapts existing trade approaches to a brokerage use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-07-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-04"
+    }
+  },
+  {
+    "id": "jafza-044",
+    "name": "Tundra Container Logistics",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "port logistics",
+    "yearRegistered": 2016,
+    "size": "small",
+    "headcount": 30,
+    "revenue": 6065160,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 78,
+      "scalability": 60,
+      "reasoning": "Improved port logistics offering within logistics; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-11-11"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-06-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-01-14"
+    }
+  },
+  {
+    "id": "jafza-045",
+    "name": "Trident Container Trading",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "freight forwarding",
+    "yearRegistered": 2021,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 736834,
+    "grading": {
+      "band": "B",
+      "innovation": 69,
+      "viability": 91,
+      "scalability": 73,
+      "reasoning": "Improved freight forwarding offering within logistics; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-07-17"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-10-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-13"
+    }
+  },
+  {
+    "id": "jafza-046",
+    "name": "Falcon Polymer Materials",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "industrial materials",
+    "yearRegistered": 2022,
+    "size": "large",
+    "headcount": 546,
+    "revenue": 165612174,
+    "grading": {
+      "band": "C",
+      "innovation": 46,
+      "viability": 46,
+      "scalability": 52,
+      "reasoning": "Adapts existing manufacturing approaches to a industrial materials use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-01-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-19"
+    }
+  },
+  {
+    "id": "jafza-047",
+    "name": "Lighthouse Ceramic Industries",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "specialty chemicals",
+    "yearRegistered": 2017,
+    "size": "small",
+    "headcount": 11,
+    "revenue": 1712073,
+    "grading": {
+      "band": "C",
+      "innovation": 52,
+      "viability": 53,
+      "scalability": 62,
+      "reasoning": "Adapts existing manufacturing approaches to a specialty chemicals use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-12-05"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2020-03-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-18"
+    }
+  },
+  {
+    "id": "jafza-048",
+    "name": "Indigo Container Commodities",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "bonded warehousing",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 22,
+    "revenue": 3633608,
+    "grading": {
+      "band": "C",
+      "innovation": 52,
+      "viability": 42,
+      "scalability": 49,
+      "reasoning": "Adapts existing logistics approaches to a bonded warehousing use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-06-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-03"
+    }
+  },
+  {
+    "id": "jafza-049",
+    "name": "Sable Bonded Trading",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "last-mile",
+    "yearRegistered": 2018,
+    "size": "medium",
+    "headcount": 96,
+    "revenue": 19528992,
+    "grading": {
+      "band": "D",
+      "innovation": 41,
+      "viability": 37,
+      "scalability": 39,
+      "reasoning": "Conventional last-mile positioning within logistics; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-04-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-09"
+    }
+  },
+  {
+    "id": "jafza-050",
+    "name": "Linden Alloy Industries",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "specialty chemicals",
+    "yearRegistered": 2020,
+    "size": "medium",
+    "headcount": 134,
+    "revenue": 43649562,
+    "grading": {
+      "band": "B",
+      "innovation": 60,
+      "viability": 59,
+      "scalability": 69,
+      "reasoning": "Improved specialty chemicals offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-09-26"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-07-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-23"
+    }
+  },
+  {
+    "id": "jafza-051",
+    "name": "Lighthouse Composite Manufacturing",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "industrial materials",
+    "yearRegistered": 2016,
+    "size": "medium",
+    "headcount": 67,
+    "revenue": 7622724,
+    "grading": {
+      "band": "B",
+      "innovation": 72,
+      "viability": 87,
+      "scalability": 80,
+      "reasoning": "Improved industrial materials offering within manufacturing; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2018-01-06"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-07-15"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-11-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-05"
+    }
+  },
+  {
+    "id": "jafza-052",
+    "name": "Stratos Export Logistics",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "specialty trade",
+    "yearRegistered": 2014,
+    "size": "medium",
+    "headcount": 198,
+    "revenue": 62420094,
+    "grading": {
+      "band": "D",
+      "innovation": 43,
+      "viability": 38,
+      "scalability": 33,
+      "reasoning": "Conventional specialty trade positioning within trade; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-10-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-19"
+    }
+  },
+  {
+    "id": "jafza-053",
+    "name": "Arrow Container Trading",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "freight forwarding",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 14,
+    "revenue": 2745988,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 67,
+      "scalability": 63,
+      "reasoning": "Improved freight forwarding offering within logistics; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-09-23"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-05-13"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-04"
+    }
+  },
+  {
+    "id": "jafza-054",
+    "name": "Onyx Brokerage Shipping",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "import/export",
+    "yearRegistered": 2024,
+    "size": "medium",
+    "headcount": 104,
+    "revenue": 22882184,
+    "grading": {
+      "band": "D",
+      "innovation": 27,
+      "viability": 42,
+      "scalability": 27,
+      "reasoning": "Conventional import/export positioning within trade; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-09-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-16"
+    }
+  },
+  {
+    "id": "jafza-055",
+    "name": "Argent Routing Trading",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "port logistics",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 47,
+    "revenue": 9938479,
+    "grading": {
+      "band": "D",
+      "innovation": 40,
+      "viability": 35,
+      "scalability": 36,
+      "reasoning": "Conventional port logistics positioning within logistics; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-01-19"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-07"
+    }
+  },
+  {
+    "id": "jafza-056",
+    "name": "Granite Freight Cargo",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "freight forwarding",
+    "yearRegistered": 2020,
+    "size": "medium",
+    "headcount": 174,
+    "revenue": 34481580,
+    "grading": {
+      "band": "B",
+      "innovation": 72,
+      "viability": 51,
+      "scalability": 65,
+      "reasoning": "Improved freight forwarding offering within logistics; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-12-20"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-11-21"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-02-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-06"
+    }
+  },
+  {
+    "id": "jafza-057",
+    "name": "Sable Brokerage Commodities",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Trade",
+    "subSector": "specialty trade",
+    "yearRegistered": 2017,
+    "size": "small",
+    "headcount": 26,
+    "revenue": 4742868,
+    "grading": {
+      "band": "B",
+      "innovation": 62,
+      "viability": 74,
+      "scalability": 80,
+      "reasoning": "Improved specialty trade offering within trade; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-03-03"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2018-11-18"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-10-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-03-15"
+    }
+  },
+  {
+    "id": "jafza-058",
+    "name": "Northwind Holdings Ventures",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 647472,
+    "grading": {
+      "band": "C",
+      "innovation": 59,
+      "viability": 74,
+      "scalability": 53,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-07-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-05"
+    }
+  },
+  {
+    "id": "jafza-059",
+    "name": "Cascade Precision Materials",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Manufacturing",
+    "subSector": "polymers",
+    "yearRegistered": 2019,
+    "size": "medium",
+    "headcount": 135,
+    "revenue": 36318375,
+    "grading": {
+      "band": "D",
+      "innovation": 43,
+      "viability": 47,
+      "scalability": 33,
+      "reasoning": "Conventional polymers positioning within manufacturing; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-01-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-18"
+    }
+  },
+  {
+    "id": "jafza-060",
+    "name": "Concord Freight Freight",
+    "jurisdiction": "UAE",
+    "zone": "JAFZA",
+    "sector": "Logistics",
+    "subSector": "last-mile",
+    "yearRegistered": 2015,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 892236,
+    "grading": {
+      "band": "D",
+      "innovation": 38,
+      "viability": 57,
+      "scalability": 34,
+      "reasoning": "Conventional last-mile positioning within logistics; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-04-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "Jebel Ali Free Zone Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-16"
+    }
+  }
+]

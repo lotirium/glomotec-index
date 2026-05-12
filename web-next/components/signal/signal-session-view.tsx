@@ -10,6 +10,7 @@ import { ChatThread } from "@/components/signal/chat-thread";
 import { ChatInput } from "@/components/signal/chat-input";
 import { QualificationCard } from "@/components/signal/qualification-card";
 import { SignalDisclaimer } from "@/components/signal/signal-disclaimer";
+import { CriterionRow } from "@/components/scoring/criterion-row";
 import {
   deleteSession,
   loadSession,
@@ -22,6 +23,7 @@ import type {
   SignalQuotaFallback,
   SignalSession,
 } from "@/lib/signal/types";
+import type { StructuredOperatorProfile } from "@/lib/signal/operator-profile";
 import { formatRelative } from "@/lib/utils";
 
 interface Props {
@@ -49,6 +51,7 @@ interface ChatTurnResult {
 
 async function fetchChatTurn(
   messages: ChatMessage[],
+  structuredProfile: StructuredOperatorProfile | null,
   signal: AbortSignal,
 ): Promise<ChatTurnResult> {
   const out: ChatTurnResult = {
@@ -60,7 +63,7 @@ async function fetchChatTurn(
   const res = await fetch("/api/signal/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages }),
+    body: JSON.stringify({ messages, structuredProfile }),
     signal,
   });
   if (!res.ok || !res.body) {
@@ -223,7 +226,11 @@ export function SignalSessionView({ sessionId }: Props) {
 
       let result: ChatTurnResult;
       try {
-        result = await fetchChatTurn(current.messages, controller.signal);
+        result = await fetchChatTurn(
+          current.messages,
+          current.structuredProfile ?? null,
+          controller.signal,
+        );
       } catch (e) {
         if ((e as { name?: string })?.name === "AbortError") {
           inflightRef.current = null;
@@ -395,6 +402,24 @@ export function SignalSessionView({ sessionId }: Props) {
       {session.qualification && !qualifying && (
         <div className="mt-6 space-y-4">
           <QualificationCard qualification={session.qualification} />
+          {session.qualification.results &&
+            session.qualification.results.length > 0 && (
+              <section className="space-y-3 pt-4">
+                <div className="space-y-1">
+                  <p className="text-kicker uppercase text-ink-faint">
+                    Reasoning chain
+                  </p>
+                  <h2 className="text-h2 text-ink">
+                    Where the verdict comes from.
+                  </h2>
+                </div>
+                <ol className="divide-y divide-line rounded-lg border border-line bg-surface">
+                  {session.qualification.results.map((r, i) => (
+                    <CriterionRow key={r.criterion_id} result={r} index={i} />
+                  ))}
+                </ol>
+              </section>
+            )}
           {session.profile && (
             <div className="flex justify-end">
               <Button

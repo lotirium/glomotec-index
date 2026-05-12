@@ -1,0 +1,2852 @@
+[
+  {
+    "id": "difc-001",
+    "name": "Linden Inference Cloud",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "voice/vision",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 31,
+    "revenue": 4646559,
+    "grading": {
+      "band": "A",
+      "innovation": 89,
+      "viability": 84,
+      "scalability": 83,
+      "reasoning": "Differentiated voice/vision approach within ai; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2024-02-18"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-09-21"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-02-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-06"
+    }
+  },
+  {
+    "id": "difc-002",
+    "name": "Aurum Alpha Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 11,
+    "revenue": 3262281,
+    "grading": {
+      "band": "D",
+      "innovation": 43,
+      "viability": 48,
+      "scalability": 33,
+      "reasoning": "Conventional private equity positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-05-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-06"
+    }
+  },
+  {
+    "id": "difc-003",
+    "name": "Lighthouse Settle Partners",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2017,
+    "size": "small",
+    "headcount": 44,
+    "revenue": 9394880,
+    "grading": {
+      "band": "C",
+      "innovation": 57,
+      "viability": 62,
+      "scalability": 56,
+      "reasoning": "Adapts existing fintech approaches to a embedded finance use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-01-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-05"
+    }
+  },
+  {
+    "id": "difc-004",
+    "name": "Granite Treasury Markets",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2016,
+    "size": "small",
+    "headcount": 29,
+    "revenue": 8583275,
+    "grading": {
+      "band": "B",
+      "innovation": 69,
+      "viability": 65,
+      "scalability": 70,
+      "reasoning": "Improved B2B treasury offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2018-11-25"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-03-19"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-12-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-11"
+    }
+  },
+  {
+    "id": "difc-005",
+    "name": "Linden Pay Wealth",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2016,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 2868921,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 78,
+      "scalability": 89,
+      "reasoning": "Improved cross-border remittance offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2017-01-22"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2016-08-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-15"
+    }
+  },
+  {
+    "id": "difc-006",
+    "name": "Onyx Counsel Strategy",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 28,
+    "revenue": 7132888,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 91,
+      "scalability": 88,
+      "reasoning": "Improved ESG consulting offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-08-08"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-02-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-08"
+    }
+  },
+  {
+    "id": "difc-007",
+    "name": "Granite Rail Treasury",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 527276,
+    "grading": {
+      "band": "C",
+      "innovation": 71,
+      "viability": 54,
+      "scalability": 48,
+      "reasoning": "Adapts existing fintech approaches to a B2B treasury use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-02-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-06"
+    }
+  },
+  {
+    "id": "difc-008",
+    "name": "Vector Rail Markets",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2023,
+    "size": "small",
+    "headcount": 39,
+    "revenue": 5553015,
+    "grading": {
+      "band": "D",
+      "innovation": 26,
+      "viability": 34,
+      "scalability": 24,
+      "reasoning": "Conventional B2B treasury positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-11-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-28"
+    }
+  },
+  {
+    "id": "difc-009",
+    "name": "Quartz Ledger Holdings",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 32,
+    "revenue": 10451840,
+    "grading": {
+      "band": "A",
+      "innovation": 81,
+      "viability": 79,
+      "scalability": 79,
+      "reasoning": "Differentiated cross-border remittance approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2025-04-18"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-10-04"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-04-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-02-13"
+    }
+  },
+  {
+    "id": "difc-010",
+    "name": "Pinnacle Rail Partners",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 47,
+    "revenue": 15454305,
+    "grading": {
+      "band": "B",
+      "innovation": 63,
+      "viability": 62,
+      "scalability": 70,
+      "reasoning": "Improved cross-border remittance offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-10-28"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-01-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-04"
+    }
+  },
+  {
+    "id": "difc-011",
+    "name": "Lighthouse Audit Solutions",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "audit",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 19,
+    "revenue": 4859668,
+    "grading": {
+      "band": "C",
+      "innovation": 51,
+      "viability": 41,
+      "scalability": 50,
+      "reasoning": "Adapts existing professional services approaches to a audit use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-02-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-14"
+    }
+  },
+  {
+    "id": "difc-012",
+    "name": "Aurum Synapse Labs",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "AI tooling",
+    "yearRegistered": 2015,
+    "size": "medium",
+    "headcount": 134,
+    "revenue": 18109028,
+    "grading": {
+      "band": "C",
+      "innovation": 48,
+      "viability": 55,
+      "scalability": 53,
+      "reasoning": "Adapts existing ai approaches to a AI tooling use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-04-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-13"
+    }
+  },
+  {
+    "id": "difc-013",
+    "name": "Lyric Inference Labs",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 30,
+    "revenue": 9439170,
+    "grading": {
+      "band": "A",
+      "innovation": 89,
+      "viability": 68,
+      "scalability": 75,
+      "reasoning": "Differentiated foundation models approach within ai; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2026-12-18"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-03-02"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-04-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-17"
+    }
+  },
+  {
+    "id": "difc-014",
+    "name": "Vector Cognition AI",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "applied ML",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 21,
+    "revenue": 4881240,
+    "grading": {
+      "band": "A",
+      "innovation": 99,
+      "viability": 91,
+      "scalability": 80,
+      "reasoning": "Differentiated applied ML approach within ai; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2025-06-02"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-07-21"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-01-08"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2022-03-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-12"
+    }
+  },
+  {
+    "id": "difc-015",
+    "name": "Crescent Hedge Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2022,
+    "size": "medium",
+    "headcount": 174,
+    "revenue": 44932194,
+    "grading": {
+      "band": "D",
+      "innovation": 34,
+      "viability": 31,
+      "scalability": 42,
+      "reasoning": "Conventional private equity positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-09-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-22"
+    }
+  },
+  {
+    "id": "difc-016",
+    "name": "Northwind Tensor AI",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "AI tooling",
+    "yearRegistered": 2015,
+    "size": "small",
+    "headcount": 35,
+    "revenue": 12433505,
+    "grading": {
+      "band": "B",
+      "innovation": 73,
+      "viability": 89,
+      "scalability": 72,
+      "reasoning": "Improved AI tooling offering within ai; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2016-09-16"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2015-05-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-12"
+    }
+  },
+  {
+    "id": "difc-017",
+    "name": "Northwind Rail Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2018,
+    "size": "small",
+    "headcount": 35,
+    "revenue": 9361520,
+    "grading": {
+      "band": "C",
+      "innovation": 62,
+      "viability": 53,
+      "scalability": 48,
+      "reasoning": "Adapts existing fintech approaches to a cross-border remittance use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-05-11"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2019-01-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-01-10"
+    }
+  },
+  {
+    "id": "difc-018",
+    "name": "Briar Ledger Holdings",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2021,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 544132,
+    "grading": {
+      "band": "D",
+      "innovation": 29,
+      "viability": 42,
+      "scalability": 29,
+      "reasoning": "Conventional B2B treasury positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-10-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-23"
+    }
+  },
+  {
+    "id": "difc-019",
+    "name": "Granite Ledger Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2018,
+    "size": "small",
+    "headcount": 21,
+    "revenue": 7656978,
+    "grading": {
+      "band": "A",
+      "innovation": 83,
+      "viability": 80,
+      "scalability": 74,
+      "reasoning": "Differentiated B2B treasury approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2020-07-25"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-12-22"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-05-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-24"
+    }
+  },
+  {
+    "id": "difc-020",
+    "name": "Granite Risk Services",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "legal advisory",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 1309308,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 57,
+      "scalability": 71,
+      "reasoning": "Improved legal advisory offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-04-08"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-02-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-27"
+    }
+  },
+  {
+    "id": "difc-021",
+    "name": "Solstice Hedge Treasury",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2014,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 1154184,
+    "grading": {
+      "band": "B",
+      "innovation": 68,
+      "viability": 69,
+      "scalability": 50,
+      "reasoning": "Improved multi-asset offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2014-04-19"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2018-10-25"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-09-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-02-28"
+    }
+  },
+  {
+    "id": "difc-022",
+    "name": "Polaris Income Holdings",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "venture capital",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 1607013,
+    "grading": {
+      "band": "C",
+      "innovation": 54,
+      "viability": 54,
+      "scalability": 50,
+      "reasoning": "Adapts existing asset management approaches to a venture capital use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-06-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-17"
+    }
+  },
+  {
+    "id": "difc-023",
+    "name": "Northwind Ledger Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 41,
+    "revenue": 10936914,
+    "grading": {
+      "band": "C",
+      "innovation": 50,
+      "viability": 63,
+      "scalability": 67,
+      "reasoning": "Adapts existing fintech approaches to a B2B treasury use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-03-21"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2026-11-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-19"
+    }
+  },
+  {
+    "id": "difc-024",
+    "name": "Trident Rail Treasury",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2020,
+    "size": "medium",
+    "headcount": 176,
+    "revenue": 60848304,
+    "grading": {
+      "band": "A",
+      "innovation": 87,
+      "viability": 74,
+      "scalability": 91,
+      "reasoning": "Differentiated payments approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2020-09-14"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2021-01-21"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-05-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-13"
+    }
+  },
+  {
+    "id": "difc-025",
+    "name": "Aurum Alpha Wealth",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "venture capital",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 5,
+    "revenue": 1163955,
+    "grading": {
+      "band": "B",
+      "innovation": 70,
+      "viability": 62,
+      "scalability": 60,
+      "reasoning": "Improved venture capital offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-02-17"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-09-21"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-03-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-28"
+    }
+  },
+  {
+    "id": "difc-026",
+    "name": "Concord Audit Strategy",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 2629980,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 86,
+      "scalability": 76,
+      "reasoning": "Improved ESG consulting offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-04-12"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-04-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-22"
+    }
+  },
+  {
+    "id": "difc-027",
+    "name": "Stratos Yield Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 21,
+    "revenue": 6789720,
+    "grading": {
+      "band": "A",
+      "innovation": 88,
+      "viability": 76,
+      "scalability": 81,
+      "reasoning": "Differentiated multi-asset approach within asset management; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2016-04-26"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2016-10-25"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2015-01-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-13"
+    }
+  },
+  {
+    "id": "difc-028",
+    "name": "Argent Counsel Consulting",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 25,
+    "revenue": 6644150,
+    "grading": {
+      "band": "C",
+      "innovation": 43,
+      "viability": 54,
+      "scalability": 64,
+      "reasoning": "Adapts existing professional services approaches to a risk advisory use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-12-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-03-03"
+    }
+  },
+  {
+    "id": "difc-029",
+    "name": "Cascade Tensor Networks",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2023,
+    "size": "medium",
+    "headcount": 164,
+    "revenue": 18783248,
+    "grading": {
+      "band": "B",
+      "innovation": 79,
+      "viability": 60,
+      "scalability": 62,
+      "reasoning": "Improved foundation models offering within ai; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-06-11"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-08-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-01"
+    }
+  },
+  {
+    "id": "difc-030",
+    "name": "Lighthouse Cognition Networks",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2018,
+    "size": "small",
+    "headcount": 10,
+    "revenue": 1763090,
+    "grading": {
+      "band": "B",
+      "innovation": 72,
+      "viability": 86,
+      "scalability": 80,
+      "reasoning": "Improved foundation models offering within ai; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2018-05-17"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-06-03"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-01-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-28"
+    }
+  },
+  {
+    "id": "difc-031",
+    "name": "Lighthouse Capital Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "venture capital",
+    "yearRegistered": 2015,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 672548,
+    "grading": {
+      "band": "A",
+      "innovation": 86,
+      "viability": 78,
+      "scalability": 66,
+      "reasoning": "Differentiated venture capital approach within asset management; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2019-03-12"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-03-19"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-10-13"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2015-04-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-06"
+    }
+  },
+  {
+    "id": "difc-032",
+    "name": "Lattice Counsel Solutions",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2021,
+    "size": "micro",
+    "headcount": 5,
+    "revenue": 1439825,
+    "grading": {
+      "band": "D",
+      "innovation": 39,
+      "viability": 23,
+      "scalability": 22,
+      "reasoning": "Conventional risk advisory positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-03-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-15"
+    }
+  },
+  {
+    "id": "difc-033",
+    "name": "Quartz Pay Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2023,
+    "size": "medium",
+    "headcount": 117,
+    "revenue": 33163182,
+    "grading": {
+      "band": "B",
+      "innovation": 73,
+      "viability": 75,
+      "scalability": 90,
+      "reasoning": "Improved payments offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-06-16"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-02-10"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-02-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-25"
+    }
+  },
+  {
+    "id": "difc-034",
+    "name": "Selene Tensor Compute",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "applied ML",
+    "yearRegistered": 2024,
+    "size": "medium",
+    "headcount": 226,
+    "revenue": 70996544,
+    "grading": {
+      "band": "C",
+      "innovation": 46,
+      "viability": 53,
+      "scalability": 63,
+      "reasoning": "Adapts existing ai approaches to a applied ML use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-09-18"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2026-02-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-06"
+    }
+  },
+  {
+    "id": "difc-035",
+    "name": "Quartermast Pay Partners",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2017,
+    "size": "large",
+    "headcount": 566,
+    "revenue": 209058892,
+    "grading": {
+      "band": "D",
+      "innovation": 43,
+      "viability": 43,
+      "scalability": 47,
+      "reasoning": "Conventional cross-border remittance positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-02-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-06"
+    }
+  },
+  {
+    "id": "difc-036",
+    "name": "Halcyon Alpha Wealth",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2022,
+    "size": "medium",
+    "headcount": 55,
+    "revenue": 11620675,
+    "grading": {
+      "band": "C",
+      "innovation": 59,
+      "viability": 57,
+      "scalability": 55,
+      "reasoning": "Adapts existing asset management approaches to a multi-asset use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-02-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-01-23"
+    }
+  },
+  {
+    "id": "difc-037",
+    "name": "Apex Settle Partners",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 2668185,
+    "grading": {
+      "band": "D",
+      "innovation": 41,
+      "viability": 54,
+      "scalability": 40,
+      "reasoning": "Conventional payments positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-05-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-23"
+    }
+  },
+  {
+    "id": "difc-038",
+    "name": "Trident Risk Consulting",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "legal advisory",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 18,
+    "revenue": 6030810,
+    "grading": {
+      "band": "B",
+      "innovation": 77,
+      "viability": 93,
+      "scalability": 78,
+      "reasoning": "Improved legal advisory offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-06-10"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-06-08"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-07-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-21"
+    }
+  },
+  {
+    "id": "difc-039",
+    "name": "Briar Rail Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 25,
+    "revenue": 9495075,
+    "grading": {
+      "band": "B",
+      "innovation": 71,
+      "viability": 54,
+      "scalability": 59,
+      "reasoning": "Improved B2B treasury offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-07-27"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2025-10-16"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-08-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-11"
+    }
+  },
+  {
+    "id": "difc-040",
+    "name": "Bramble Alpha Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "venture capital",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 6,
+    "revenue": 649116,
+    "grading": {
+      "band": "C",
+      "innovation": 46,
+      "viability": 52,
+      "scalability": 42,
+      "reasoning": "Adapts existing asset management approaches to a venture capital use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-09-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-26"
+    }
+  },
+  {
+    "id": "difc-041",
+    "name": "Sable Neural Cloud",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2015,
+    "size": "small",
+    "headcount": 18,
+    "revenue": 5009814,
+    "grading": {
+      "band": "C",
+      "innovation": 66,
+      "viability": 46,
+      "scalability": 52,
+      "reasoning": "Adapts existing ai approaches to a foundation models use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-12-21"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-22"
+    }
+  },
+  {
+    "id": "difc-042",
+    "name": "Pinnacle Risk Consulting",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "legal advisory",
+    "yearRegistered": 2019,
+    "size": "medium",
+    "headcount": 190,
+    "revenue": 30467260,
+    "grading": {
+      "band": "D",
+      "innovation": 29,
+      "viability": 22,
+      "scalability": 31,
+      "reasoning": "Conventional legal advisory positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-01-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-01-08"
+    }
+  },
+  {
+    "id": "difc-043",
+    "name": "Briar Rail Holdings",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2016,
+    "size": "small",
+    "headcount": 44,
+    "revenue": 8068192,
+    "grading": {
+      "band": "B",
+      "innovation": 81,
+      "viability": 72,
+      "scalability": 73,
+      "reasoning": "Improved B2B treasury offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2016-06-16"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2016-08-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-02-22"
+    }
+  },
+  {
+    "id": "difc-044",
+    "name": "Ridgeline Compliance Advisory",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "audit",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 15,
+    "revenue": 3384975,
+    "grading": {
+      "band": "C",
+      "innovation": 50,
+      "viability": 46,
+      "scalability": 52,
+      "reasoning": "Adapts existing professional services approaches to a audit use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-11-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-01"
+    }
+  },
+  {
+    "id": "difc-045",
+    "name": "Argent Ledger Partners",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2014,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 715988,
+    "grading": {
+      "band": "B",
+      "innovation": 69,
+      "viability": 67,
+      "scalability": 47,
+      "reasoning": "Improved B2B treasury offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2014-06-23"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2016-03-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-02-19"
+    }
+  },
+  {
+    "id": "difc-046",
+    "name": "Linden Alpha Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 828444,
+    "grading": {
+      "band": "B",
+      "innovation": 58,
+      "viability": 66,
+      "scalability": 76,
+      "reasoning": "Improved private equity offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-02-06"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-04-13"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-21"
+    }
+  },
+  {
+    "id": "difc-047",
+    "name": "Halcyon Ledger Markets",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 670896,
+    "grading": {
+      "band": "A",
+      "innovation": 84,
+      "viability": 74,
+      "scalability": 80,
+      "reasoning": "Differentiated cross-border remittance approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2025-07-12"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-08-25"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-07-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-02"
+    }
+  },
+  {
+    "id": "difc-048",
+    "name": "Lyric Pay Partners",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2021,
+    "size": "large",
+    "headcount": 929,
+    "revenue": 94509957,
+    "grading": {
+      "band": "D",
+      "innovation": 40,
+      "viability": 25,
+      "scalability": 38,
+      "reasoning": "Conventional B2B treasury positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-11-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-23"
+    }
+  },
+  {
+    "id": "difc-049",
+    "name": "Stratos Hedge Partners",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2019,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 997794,
+    "grading": {
+      "band": "B",
+      "innovation": 64,
+      "viability": 77,
+      "scalability": 55,
+      "reasoning": "Improved private credit offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-09-08"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-06-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-21"
+    }
+  },
+  {
+    "id": "difc-050",
+    "name": "Meridian Pay Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 30,
+    "revenue": 11135550,
+    "grading": {
+      "band": "B",
+      "innovation": 83,
+      "viability": 65,
+      "scalability": 70,
+      "reasoning": "Improved cross-border remittance offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-09-09"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-04-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-01-07"
+    }
+  },
+  {
+    "id": "difc-051",
+    "name": "Onyx Advisory Services",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2017,
+    "size": "small",
+    "headcount": 10,
+    "revenue": 3376490,
+    "grading": {
+      "band": "B",
+      "innovation": 76,
+      "viability": 68,
+      "scalability": 72,
+      "reasoning": "Improved risk advisory offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-09-15"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-02-16"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-02-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-03"
+    }
+  },
+  {
+    "id": "difc-052",
+    "name": "Northwind Alpha Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 983885,
+    "grading": {
+      "band": "D",
+      "innovation": 45,
+      "viability": 39,
+      "scalability": 46,
+      "reasoning": "Conventional private credit positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-12-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-24"
+    }
+  },
+  {
+    "id": "difc-053",
+    "name": "Quartz Pay Treasury",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2023,
+    "size": "small",
+    "headcount": 33,
+    "revenue": 6510075,
+    "grading": {
+      "band": "C",
+      "innovation": 51,
+      "viability": 50,
+      "scalability": 68,
+      "reasoning": "Adapts existing fintech approaches to a payments use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-09-06"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2024-10-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-23"
+    }
+  },
+  {
+    "id": "difc-054",
+    "name": "Linden Alpha Partners",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 33,
+    "revenue": 11695002,
+    "grading": {
+      "band": "B",
+      "innovation": 75,
+      "viability": 66,
+      "scalability": 69,
+      "reasoning": "Improved private equity offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-05-05"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-11-28"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-17"
+    }
+  },
+  {
+    "id": "difc-055",
+    "name": "Echo Compliance Group",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "audit",
+    "yearRegistered": 2019,
+    "size": "medium",
+    "headcount": 70,
+    "revenue": 16716910,
+    "grading": {
+      "band": "C",
+      "innovation": 54,
+      "viability": 56,
+      "scalability": 69,
+      "reasoning": "Adapts existing professional services approaches to a audit use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-12-27"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2019-05-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-27"
+    }
+  },
+  {
+    "id": "difc-056",
+    "name": "Tundra Settle Holdings",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "B2B treasury",
+    "yearRegistered": 2015,
+    "size": "small",
+    "headcount": 36,
+    "revenue": 10937556,
+    "grading": {
+      "band": "C",
+      "innovation": 61,
+      "viability": 56,
+      "scalability": 69,
+      "reasoning": "Adapts existing fintech approaches to a B2B treasury use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-11-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-11"
+    }
+  },
+  {
+    "id": "difc-057",
+    "name": "Mosaic Synapse Stack",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "applied ML",
+    "yearRegistered": 2020,
+    "size": "medium",
+    "headcount": 192,
+    "revenue": 65316288,
+    "grading": {
+      "band": "A",
+      "innovation": 80,
+      "viability": 92,
+      "scalability": 80,
+      "reasoning": "Differentiated applied ML approach within ai; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2022-03-19"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2021-06-17"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-02-25"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2023-05-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-09"
+    }
+  },
+  {
+    "id": "difc-058",
+    "name": "Meridian Tensor Cloud",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "foundation models",
+    "yearRegistered": 2016,
+    "size": "small",
+    "headcount": 26,
+    "revenue": 4579328,
+    "grading": {
+      "band": "D",
+      "innovation": 33,
+      "viability": 47,
+      "scalability": 55,
+      "reasoning": "Conventional foundation models positioning within ai; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-01-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-16"
+    }
+  },
+  {
+    "id": "difc-059",
+    "name": "Lighthouse Treasury Markets",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2021,
+    "size": "large",
+    "headcount": 689,
+    "revenue": 98506330,
+    "grading": {
+      "band": "A",
+      "innovation": 86,
+      "viability": 76,
+      "scalability": 81,
+      "reasoning": "Differentiated embedded finance approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2021-08-20"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-08-04"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-10-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-28"
+    }
+  },
+  {
+    "id": "difc-060",
+    "name": "Linden Ledger Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2025,
+    "size": "medium",
+    "headcount": 209,
+    "revenue": 49251477,
+    "grading": {
+      "band": "C",
+      "innovation": 56,
+      "viability": 55,
+      "scalability": 57,
+      "reasoning": "Adapts existing fintech approaches to a embedded finance use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-07-21"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-21"
+    }
+  },
+  {
+    "id": "difc-061",
+    "name": "Veridian Yield Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2016,
+    "size": "small",
+    "headcount": 11,
+    "revenue": 3075919,
+    "grading": {
+      "band": "D",
+      "innovation": 34,
+      "viability": 20,
+      "scalability": 42,
+      "reasoning": "Conventional multi-asset positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-03-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-01"
+    }
+  },
+  {
+    "id": "difc-062",
+    "name": "Bramble Risk Advisory",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2020,
+    "size": "medium",
+    "headcount": 176,
+    "revenue": 20256368,
+    "grading": {
+      "band": "A",
+      "innovation": 91,
+      "viability": 89,
+      "scalability": 68,
+      "reasoning": "Differentiated ESG consulting approach within professional services; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2024-05-13"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-10-11"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-11-04"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2022-12-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-17"
+    }
+  },
+  {
+    "id": "difc-063",
+    "name": "Tundra Ledger Wealth",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 1131420,
+    "grading": {
+      "band": "D",
+      "innovation": 48,
+      "viability": 37,
+      "scalability": 42,
+      "reasoning": "Conventional payments positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-10-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-02"
+    }
+  },
+  {
+    "id": "difc-064",
+    "name": "Arrow Compliance Services",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2017,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 375032,
+    "grading": {
+      "band": "C",
+      "innovation": 53,
+      "viability": 50,
+      "scalability": 42,
+      "reasoning": "Adapts existing professional services approaches to a ESG consulting use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-05-23"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2018-05-19"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-05"
+    }
+  },
+  {
+    "id": "difc-065",
+    "name": "Aster Ledger Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2017,
+    "size": "medium",
+    "headcount": 51,
+    "revenue": 15194940,
+    "grading": {
+      "band": "B",
+      "innovation": 76,
+      "viability": 79,
+      "scalability": 66,
+      "reasoning": "Improved cross-border remittance offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-10-07"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-11-04"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-07-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-10"
+    }
+  },
+  {
+    "id": "difc-066",
+    "name": "Mosaic Counsel Group",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "legal advisory",
+    "yearRegistered": 2015,
+    "size": "small",
+    "headcount": 13,
+    "revenue": 2460718,
+    "grading": {
+      "band": "C",
+      "innovation": 42,
+      "viability": 48,
+      "scalability": 52,
+      "reasoning": "Adapts existing professional services approaches to a legal advisory use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-04-07"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2018-08-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-03"
+    }
+  },
+  {
+    "id": "difc-067",
+    "name": "Stratos Pay Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "cross-border remittance",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 29,
+    "revenue": 5814065,
+    "grading": {
+      "band": "D",
+      "innovation": 45,
+      "viability": 44,
+      "scalability": 39,
+      "reasoning": "Conventional cross-border remittance positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-03-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-02"
+    }
+  },
+  {
+    "id": "difc-068",
+    "name": "Cardinal Pay Treasury",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 45,
+    "revenue": 6442785,
+    "grading": {
+      "band": "A",
+      "innovation": 99,
+      "viability": 89,
+      "scalability": 95,
+      "reasoning": "Differentiated embedded finance approach within fintech; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2024-11-22"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2024-04-13"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-10-11"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2023-11-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-07"
+    }
+  },
+  {
+    "id": "difc-069",
+    "name": "Helix Yield Markets",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "multi-asset",
+    "yearRegistered": 2017,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 900396,
+    "grading": {
+      "band": "D",
+      "innovation": 44,
+      "viability": 52,
+      "scalability": 33,
+      "reasoning": "Conventional multi-asset positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-06-19"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-21"
+    }
+  },
+  {
+    "id": "difc-070",
+    "name": "Beacon Rail Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 3187512,
+    "grading": {
+      "band": "D",
+      "innovation": 40,
+      "viability": 49,
+      "scalability": 40,
+      "reasoning": "Conventional payments positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-05-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-15"
+    }
+  },
+  {
+    "id": "difc-071",
+    "name": "Trident Compliance Services",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "audit",
+    "yearRegistered": 2018,
+    "size": "medium",
+    "headcount": 52,
+    "revenue": 15019004,
+    "grading": {
+      "band": "D",
+      "innovation": 40,
+      "viability": 42,
+      "scalability": 20,
+      "reasoning": "Conventional audit positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-08-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-17"
+    }
+  },
+  {
+    "id": "difc-072",
+    "name": "Bramble Capital Markets",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 25,
+    "revenue": 2526325,
+    "grading": {
+      "band": "B",
+      "innovation": 81,
+      "viability": 74,
+      "scalability": 75,
+      "reasoning": "Improved private credit offering within asset management; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2014-02-19"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2017-04-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-19"
+    }
+  },
+  {
+    "id": "difc-073",
+    "name": "Concord Ledger Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "payments",
+    "yearRegistered": 2017,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 1171584,
+    "grading": {
+      "band": "D",
+      "innovation": 41,
+      "viability": 40,
+      "scalability": 49,
+      "reasoning": "Conventional payments positioning within fintech; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-10-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-10"
+    }
+  },
+  {
+    "id": "difc-074",
+    "name": "Echo Risk Advisory",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "audit",
+    "yearRegistered": 2015,
+    "size": "medium",
+    "headcount": 239,
+    "revenue": 22331443,
+    "grading": {
+      "band": "C",
+      "innovation": 48,
+      "viability": 60,
+      "scalability": 49,
+      "reasoning": "Adapts existing professional services approaches to a audit use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-06-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-22"
+    }
+  },
+  {
+    "id": "difc-075",
+    "name": "Concord Pay Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 530013,
+    "grading": {
+      "band": "B",
+      "innovation": 77,
+      "viability": 71,
+      "scalability": 82,
+      "reasoning": "Improved embedded finance offering within fintech; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-10-01"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2018-07-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-07"
+    }
+  },
+  {
+    "id": "difc-076",
+    "name": "Echo Alpha Holdings",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "private credit",
+    "yearRegistered": 2018,
+    "size": "small",
+    "headcount": 26,
+    "revenue": 2665208,
+    "grading": {
+      "band": "D",
+      "innovation": 24,
+      "viability": 19,
+      "scalability": 22,
+      "reasoning": "Conventional private credit positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-12-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-23"
+    }
+  },
+  {
+    "id": "difc-077",
+    "name": "Aurum Advisory Advisory",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2017,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 929688,
+    "grading": {
+      "band": "B",
+      "innovation": 68,
+      "viability": 64,
+      "scalability": 49,
+      "reasoning": "Improved risk advisory offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2017-12-09"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-06-28"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-10-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-14"
+    }
+  },
+  {
+    "id": "difc-078",
+    "name": "Polaris Rail Capital",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Fintech",
+    "subSector": "embedded finance",
+    "yearRegistered": 2017,
+    "size": "small",
+    "headcount": 27,
+    "revenue": 6177006,
+    "grading": {
+      "band": "C",
+      "innovation": 59,
+      "viability": 60,
+      "scalability": 46,
+      "reasoning": "Adapts existing fintech approaches to a embedded finance use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-02-13"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2017-04-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-20"
+    }
+  },
+  {
+    "id": "difc-079",
+    "name": "Aurum Tensor Networks",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "AI",
+    "subSector": "AI tooling",
+    "yearRegistered": 2015,
+    "size": "small",
+    "headcount": 26,
+    "revenue": 2213536,
+    "grading": {
+      "band": "C",
+      "innovation": 53,
+      "viability": 45,
+      "scalability": 48,
+      "reasoning": "Adapts existing ai approaches to a AI tooling use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-04-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-22"
+    }
+  },
+  {
+    "id": "difc-080",
+    "name": "Vector Income Asset Management",
+    "jurisdiction": "UAE",
+    "zone": "DIFC",
+    "sector": "Asset management",
+    "subSector": "private equity",
+    "yearRegistered": 2019,
+    "size": "small",
+    "headcount": 20,
+    "revenue": 7458980,
+    "grading": {
+      "band": "D",
+      "innovation": 37,
+      "viability": 22,
+      "scalability": 43,
+      "reasoning": "Conventional private equity positioning within asset management; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-12-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DIFC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-19"
+    }
+  }
+]

@@ -73,6 +73,7 @@ export function newSession(): SignalSession {
     createdAt: now,
     updatedAt: now,
     messages: [],
+    structuredProfile: null,
     profile: null,
     qualification: null,
     qualifyFallback: null,

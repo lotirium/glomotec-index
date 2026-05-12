@@ -28,7 +28,7 @@ const EMPTY_BY_FILTER: Record<FilterKey, { title: string; body: string }> = {
   },
   medium: {
     title: "No criteria in the Medium band.",
-    body: "Nothing on this file currently sits at the advisor-review threshold.",
+    body: "Nothing on this file currently sits at the operator-review threshold.",
   },
   low: {
     title: "No criteria in the Low band.",
@@ -45,7 +45,7 @@ interface Props {
   /**
    * When provided, the list renders one row per criterion in this order;
    * unscored criteria render as skeleton rows. This is used during streamed
-   * scoring so the advisor sees what's coming, not just an empty list.
+   * scoring so the operator sees what's coming, not just an empty list.
    */
   criteriaOrder?: Criterion[];
   /** When true, the header band-counts include un-scored criteria as blank. */

@@ -9,25 +9,21 @@ const NAV: Array<{
   href: string;
   label: string;
   matchPrefix?: string;
-  subtitle?: string;
 }> = [
   { href: "/", label: "Pipeline" },
-  { href: "/clients", label: "Clients", matchPrefix: "/clients" },
+  { href: "/signal", label: "SIGNAL", matchPrefix: "/signal" },
+  { href: "/atlas", label: "ATLAS", matchPrefix: "/atlas" },
+  { href: "/clients", label: "COMPASS", matchPrefix: "/clients" },
+  { href: "/sponsor", label: "SPONSOR", matchPrefix: "/sponsor" },
   { href: "/changes", label: "Changes", matchPrefix: "/changes" },
   { href: "/sources", label: "Sources", matchPrefix: "/sources" },
   { href: "/about", label: "About", matchPrefix: "/about" },
-  {
-    href: "/signal",
-    label: "Signal",
-    matchPrefix: "/signal",
-    subtitle: "prospect preview",
-  },
 ];
 
 export function Topbar() {
   const pathname = usePathname();
   return (
-    <header className="sticky top-0 z-30 border-b border-line/80 bg-bg/85 backdrop-blur-md backdrop-saturate-150 supports-[backdrop-filter]:bg-bg/70">
+    <header className="sticky top-0 z-30 border-b border-line bg-bg/85 backdrop-blur-md backdrop-saturate-150 supports-[backdrop-filter]:bg-bg/70">
       <div className="container flex h-14 items-center justify-between gap-6">
         <Wordmark />
         <nav className="hidden items-center gap-1 md:flex">
@@ -51,11 +47,6 @@ export function Topbar() {
                 )}
               >
                 <span>{item.label}</span>
-                {item.subtitle && (
-                  <span className="hidden lg:inline text-[11px] font-normal tracking-tight text-ink-faint">
-                    {item.subtitle}
-                  </span>
-                )}
                 {active && (
                   <span
                     aria-hidden
@@ -82,7 +73,7 @@ export function Topbar() {
                 href={item.href}
                 className={cn(
                   "shrink-0 rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
-                  active ? "bg-surface text-ink shadow-soft" : "text-ink-muted",
+                  active ? "bg-surface text-ink" : "text-ink-muted",
                 )}
               >
                 {item.label}

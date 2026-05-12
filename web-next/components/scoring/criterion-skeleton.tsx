@@ -26,7 +26,7 @@ export function CriterionSkeleton({
       id={criterion.id}
       className="group relative scroll-mt-20 overflow-hidden px-5 py-5"
     >
-      <div className="grid grid-cols-[auto_1fr_auto] items-start gap-x-5 gap-y-2 opacity-70">
+      <div className="grid grid-cols-[auto_1fr] sm:grid-cols-[auto_1fr_auto] items-start gap-x-5 gap-y-2 opacity-70">
         <span className="font-mono text-2xs text-ink-faint tabular pt-1">
           {String(index + 1).padStart(2, "0")}
         </span>
@@ -55,7 +55,7 @@ export function CriterionSkeleton({
           </p>
         </div>
 
-        <div className="min-w-[8.5rem]" aria-hidden />
+        <div className="hidden sm:block sm:min-w-[8.5rem]" aria-hidden />
       </div>
 
       <div

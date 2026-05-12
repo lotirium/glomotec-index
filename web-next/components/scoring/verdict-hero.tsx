@@ -31,6 +31,8 @@ export function VerdictHero({
   scoredCount,
   scoring = false,
   expectedTotal,
+  headlineSlot,
+  descriptionSlot,
 }: {
   run: AssessmentRun;
   /** Number of criteria scored so far (defaults to run.total when not streaming). */
@@ -39,6 +41,10 @@ export function VerdictHero({
   scoring?: boolean;
   /** Total expected criteria — known up front during streaming, when run.total still grows from 0. */
   expectedTotal?: number;
+  /** Replaces the verdict pill when scoring has completed. Used by the draft routing strip. */
+  headlineSlot?: React.ReactNode;
+  /** Replaces the "Across N criteria…" description copy when scoring has completed. */
+  descriptionSlot?: React.ReactNode;
 }) {
   const t = headlineTone[run.verdict_class];
   const total = expectedTotal ?? run.total;
@@ -60,6 +66,8 @@ export function VerdictHero({
         <div className="flex flex-col justify-center gap-5 min-w-0">
           {scoring ? (
             <ScoringPill scored={scored} total={total} />
+          ) : headlineSlot ? (
+            headlineSlot
           ) : (
             <span
               className={cn(
@@ -104,16 +112,17 @@ export function VerdictHero({
             </div>
           )}
 
-          {!scoring && (
-            <p className="max-w-xl text-sm text-ink-muted leading-relaxed">
-              Across {run.total} criteria from the Innovator Founder caseworker
-              guidance. Each criterion carries a probability, a reasoning trace
-              and a link to its source.
-            </p>
-          )}
+          {!scoring &&
+            (descriptionSlot ?? (
+              <p className="max-w-xl text-sm text-ink-muted leading-relaxed">
+                Across {run.total} criteria from the Innovator Founder
+                caseworker guidance. Each criterion carries a probability, a
+                reasoning trace and a link to its source.
+              </p>
+            ))}
         </div>
 
-        <div className="flex flex-row gap-3 md:flex-col md:justify-center">
+        <div className="grid grid-cols-3 gap-2 md:flex md:flex-col md:gap-3 md:justify-center">
           <SummaryStat
             label="High"
             value={run.summary.high}
@@ -241,7 +250,7 @@ function ScoreColumn({
           : "Below threshold";
   const labelClass =
     variant === "suitability"
-      ? "text-[#9A4515]"
+      ? "text-accent-deep"
       : "text-ink-faint";
   return (
     <div title={tooltip}>
@@ -289,7 +298,7 @@ function SummaryStat({
   // convention for "no data yet".
   const isPending = scoring && value === 0;
   return (
-    <div className="flex items-center gap-3 rounded-md border border-line/70 bg-surface-soft/60 px-4 py-2.5 md:flex-col md:items-start md:gap-0">
+    <div className="flex flex-col items-start gap-0 rounded-md border border-line/70 bg-surface-soft/60 px-3 py-2 md:flex-col md:items-start md:gap-0 md:px-4 md:py-2.5">
       <span
         className={cn(
           "text-2xl font-semibold tabular leading-none",

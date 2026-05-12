@@ -17,6 +17,14 @@ import { PageHeader } from "@/components/shared/page-header";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { VerdictHero } from "@/components/scoring/verdict-hero";
 import { CriteriaList } from "@/components/scoring/criteria-list";
+import { CacheDot } from "@/components/scoring/cache-dot";
+import { OperatorTabs } from "@/components/monitor/operator-tabs";
+import { MonitorOffer } from "@/components/monitor/monitor-panel";
+import {
+  RoutingHeadline,
+  RoutingSubline,
+  routingTier,
+} from "@/components/draft/routing-strip";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -40,6 +48,8 @@ const FIELD_LABELS: Record<string, string> = {
   other: "Other",
 };
 
+type CacheState = "hit" | "miss" | "unknown";
+
 interface ScoringState {
   criteria: Criterion[];
   results: ScoringResult[];
@@ -52,6 +62,11 @@ interface ScoringState {
    * render a calm fallback card instead of the verdict hero / criteria list.
    */
   fallbackQuota: { headline: string; body: string } | null;
+  /**
+   * Mirrors the X-Score-Cache header from /api/score. Drives the diagnostic
+   * cache-hit dot beside "Scored Xm ago".
+   */
+  cacheState: CacheState;
 }
 
 export function DraftClientView({
@@ -74,6 +89,7 @@ export function DraftClientView({
       wallMs: null,
       error: null,
       fallbackQuota: null,
+      cacheState: "unknown",
     }),
     [preloadedCriteria],
   );
@@ -110,6 +126,11 @@ export function DraftClientView({
           }),
           signal: controller.signal,
         });
+
+        const cacheHeader = res.headers.get("X-Score-Cache");
+        const cacheState: CacheState =
+          cacheHeader === "hit" ? "hit" : cacheHeader === "miss" ? "miss" : "unknown";
+        setScoring((s) => ({ ...s, cacheState }));
 
         if (!res.ok) {
           const json = await res.json().catch(() => ({}));
@@ -176,7 +197,8 @@ export function DraftClientView({
               };
               saveDraft(updated);
               setDraft(updated);
-              setScoring({
+              setScoring((s) => ({
+                ...s,
                 criteria: localCriteria,
                 results: assessment.results,
                 partial: assessment,
@@ -184,7 +206,7 @@ export function DraftClientView({
                 wallMs,
                 error: null,
                 fallbackQuota: null,
-              });
+              }));
             } else if (event.type === "fallback_quota") {
               const headline = String(
                 event.headline ?? "The rules engine has stepped out for tea.",
@@ -331,7 +353,10 @@ export function DraftClientView({
         meta={
           <>
             {liveAssessment && (
-              <span>Scored {formatRelative(liveAssessment.scored_at)}</span>
+              <span className="inline-flex items-center gap-1.5">
+                Scored {formatRelative(liveAssessment.scored_at)}
+                <CacheDot state={scoring.cacheState} />
+              </span>
             )}
             {liveAssessment && <span aria-hidden>·</span>}
             <span>{DOC_VERSION}</span>
@@ -382,19 +407,37 @@ export function DraftClientView({
           scoring={isScoringView}
           scoredCount={scoring.results.length}
           expectedTotal={expectedTotal}
+          headlineSlot={
+            isScoringView ? undefined : (
+              <RoutingHeadline tier={routingTier(liveAssessment.overall_pct)} />
+            )
+          }
+          descriptionSlot={
+            isScoringView ? undefined : (
+              <RoutingSubline tier={routingTier(liveAssessment.overall_pct)} />
+            )
+          }
         />
 
         <section className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
-          <div className="space-y-6">
-            <SectionHeading
-              eyebrow="Criteria"
-              title="Where the score comes from"
-              description="Each criterion was scored from your input. Open the reasoning to read the trace."
-            />
-            <CriteriaList
-              results={persisted ? liveAssessment.results : scoring.results}
-              criteriaOrder={persisted ? undefined : renderCriteria}
-              scoring={isScoringView}
+          <div className="min-w-0">
+            <OperatorTabs
+              monitorStatus="offer"
+              criteria={
+                <div className="space-y-6">
+                  <SectionHeading
+                    eyebrow="Criteria"
+                    title="Where the score comes from"
+                    description="Each criterion was scored from your input. Open the reasoning to read the trace."
+                  />
+                  <CriteriaList
+                    results={persisted ? liveAssessment.results : scoring.results}
+                    criteriaOrder={persisted ? undefined : renderCriteria}
+                    scoring={isScoringView}
+                  />
+                </div>
+              }
+              monitor={<MonitorOffer />}
             />
           </div>
 

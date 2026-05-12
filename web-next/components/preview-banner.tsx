@@ -33,7 +33,7 @@ export function PreviewBanner() {
         <p className="truncate tracking-tight">
           <span className="font-mono uppercase tracking-[0.18em]">INDEX</span>
           <span aria-hidden className="mx-1.5">·</span>
-          advisor preview
+          operator preview
           <span aria-hidden className="mx-1.5">·</span>
           Innovator Founder route
           <span aria-hidden className="mx-1.5">·</span>
@@ -43,7 +43,7 @@ export function PreviewBanner() {
           type="button"
           onClick={dismiss}
           aria-label="Dismiss preview banner"
-          className="shrink-0 rounded-sm p-1 text-ink-faint transition-colors hover:text-ink-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+          className="shrink-0 -my-1 flex h-8 w-8 items-center justify-center rounded-sm text-ink-faint transition-colors hover:text-ink-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
         >
           <X className="h-3 w-3" />
         </button>

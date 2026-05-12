@@ -21,7 +21,7 @@ const FIELDS: Array<{
   options?: Array<{ value: string; label: string }>;
   span?: 1 | 2;
 }> = [
-  { key: "name", label: "Name (display only — not used for scoring)", placeholder: "e.g. Profile A", span: 2 },
+  { key: "name", label: "Name (display only, not used for scoring)", placeholder: "e.g. Profile A", span: 2 },
   { key: "nationality", label: "Nationality", placeholder: "e.g. Brazil", span: 1 },
   { key: "age", label: "Age", placeholder: "e.g. 32", span: 1 },
   {
@@ -59,7 +59,7 @@ const FIELDS: Array<{
   {
     key: "fundingRaised",
     label: "Funding raised (GBP, optional)",
-    placeholder: "e.g. £450,000 from two angels and a SEIS round",
+    placeholder: "e.g. GBP 450,000 from two angels and a SEIS round",
     span: 1,
   },
   {
@@ -70,7 +70,7 @@ const FIELDS: Array<{
     span: 2,
     options: [
       { value: "", label: "Not specified" },
-      { value: "none", label: "None — not yet approached" },
+      { value: "none", label: "None: not yet approached" },
       { value: "approached", label: "Approached" },
       { value: "in_conversation", label: "In conversation" },
       { value: "endorsed", label: "Endorsed" },
@@ -125,11 +125,11 @@ const PASTE_PLACEHOLDER = `e.g.
 
 Founder & CEO of Northwind Climate, an early-stage climate-tech company building emissions-tracking software for SME exporters. Brazilian national, age 34, PhD in Earth Systems Science (Imperial College London, 2022).
 
-The business was founded in 2024 in London. We have £210k in pre-seed funding (SFC + 2 angels), 6 paying pilot customers, and 1 IP filing. The team has 2 full-time UK-resident hires plus me.
+The business was founded in 2024 in London. We have GBP 210k in pre-seed funding (SFC + 2 angels), 6 paying pilot customers, and 1 IP filing. The team has 2 full-time UK-resident hires plus me.
 
 We are in conversation with Innovator International about endorsement and have submitted a draft contact-point document. No endorsement letter issued yet. I hold a current Skilled Worker visa as a research scientist; I'm switching to take a key role in the business full-time.
 
-English: PhD taught in English. Documents in English. Funds: £18k personal, held continuously since November 2025.`;
+English: PhD taught in English. Documents in English. Funds: GBP 18k personal, held continuously since November 2025.`;
 
 export function NewProfileForm() {
   const router = useRouter();
@@ -245,11 +245,11 @@ export function NewProfileForm() {
           <div className="flex items-center gap-3">
             <Button
               type="submit"
-              variant="primary"
-              size="lg"
+              variant="engage"
+              size="pill"
               disabled={disabled}
             >
-              Score against Innovator Founder
+              SCORE AGAINST INNOVATOR FOUNDER
             </Button>
             {profileEmpty && !offline && !checking && (
               <p className="text-2xs text-ink-faint">
@@ -266,8 +266,9 @@ export function NewProfileForm() {
             What gets scored
           </p>
           <p className="mt-2 text-sm text-ink leading-relaxed">
-            All criteria from v10.0 (27 February 2026) of the Innovator Founder caseworker
-            guidance — substantive fit, submission readiness, and Part Suitability.
+            All criteria from v10.0 (27 February 2026) of the Innovator Founder
+            caseworker guidance: substantive fit, submission readiness, and
+            Part Suitability.
           </p>
           <p className="mt-3 text-2xs text-ink-muted leading-relaxed">
             Each criterion gets a probability, a 4-step reasoning trace and a band

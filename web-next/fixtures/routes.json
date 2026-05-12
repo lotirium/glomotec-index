@@ -2,41 +2,128 @@
   {
     "id": "innovator_founder",
     "name": "Innovator Founder",
+    "jurisdiction": "UK",
     "document_url": "https://www.gov.uk/government/publications/innovator-appendix-w-workers/innovator-founder-caseworker-guidance-accessible",
     "document_version": "v10.0 27 February 2026",
     "enabled": true,
     "criteria_count": 19,
     "polling_cadence_days": 7,
-    "last_refreshed": "2026-05-02T03:14:00Z"
+    "last_refreshed": "2026-05-02T03:14:00Z",
+    "kind": "route"
   },
   {
     "id": "global_business_mobility",
     "name": "Global Business Mobility",
+    "jurisdiction": "UK",
     "document_url": "https://www.gov.uk/government/publications/global-business-mobility-routes-caseworker-guidance/global-business-mobility-routes-caseworker-guidance-accessible",
     "document_version": "v23.1 18 March 2026",
     "enabled": false,
     "criteria_count": 0,
     "polling_cadence_days": 7,
-    "last_refreshed": "2026-04-29T08:00:00Z"
+    "last_refreshed": "2026-04-29T08:00:00Z",
+    "kind": "route"
   },
   {
     "id": "global_talent",
     "name": "Global Talent",
+    "jurisdiction": "UK",
     "document_url": "https://www.gov.uk/government/publications/global-talent-appendix-w-workers/global-talent-caseworker-guidance-accessible",
     "document_version": "v15.0 11 February 2026",
     "enabled": false,
     "criteria_count": 0,
     "polling_cadence_days": 7,
-    "last_refreshed": "2026-04-28T08:00:00Z"
+    "last_refreshed": "2026-04-28T08:00:00Z",
+    "kind": "route"
   },
   {
     "id": "high_potential_individual",
     "name": "High Potential Individual",
+    "jurisdiction": "UK",
     "document_url": "https://www.gov.uk/government/publications/high-potential-individual-caseworker-guidance",
     "document_version": "v8.2 09 January 2026",
     "enabled": false,
     "criteria_count": 0,
     "polling_cadence_days": 14,
-    "last_refreshed": "2026-04-21T08:00:00Z"
+    "last_refreshed": "2026-04-21T08:00:00Z",
+    "kind": "route"
+  },
+  {
+    "id": "uae_golden_visa_founder",
+    "name": "Golden Visa Founder track",
+    "jurisdiction": "UAE",
+    "document_url": "https://icp.gov.ae",
+    "document_version": "",
+    "enabled": false,
+    "criteria_count": 0,
+    "polling_cadence_days": 7,
+    "last_refreshed": "",
+    "kind": "route",
+    "status_label": "Queued"
+  },
+  {
+    "id": "uae_icp",
+    "name": "ICP (Federal Authority for Identity, Citizenship, Customs and Port Security)",
+    "jurisdiction": "UAE",
+    "document_url": "https://icp.gov.ae",
+    "document_version": "",
+    "enabled": false,
+    "criteria_count": 0,
+    "polling_cadence_days": 1,
+    "last_refreshed": "",
+    "kind": "authority",
+    "status_label": "Tracked · ingestion queued"
+  },
+  {
+    "id": "uae_fta",
+    "name": "FTA (Federal Tax Authority)",
+    "jurisdiction": "UAE",
+    "document_url": "https://tax.gov.ae",
+    "document_version": "",
+    "enabled": false,
+    "criteria_count": 0,
+    "polling_cadence_days": 7,
+    "last_refreshed": "",
+    "kind": "authority",
+    "status_label": "Tracked · ingestion queued"
+  },
+  {
+    "id": "uae_mof",
+    "name": "Ministry of Finance",
+    "jurisdiction": "UAE",
+    "document_url": "https://mof.gov.ae",
+    "document_version": "",
+    "enabled": false,
+    "criteria_count": 0,
+    "polling_cadence_days": 7,
+    "last_refreshed": "",
+    "kind": "authority",
+    "status_label": "Tracked · ingestion queued"
+  },
+  {
+    "id": "uae_cabinet",
+    "name": "Cabinet & Executive Council Resolutions",
+    "jurisdiction": "UAE",
+    "document_url": "https://uaecabinet.ae",
+    "document_version": "",
+    "enabled": false,
+    "criteria_count": 0,
+    "polling_cadence_days": 7,
+    "last_refreshed": "",
+    "kind": "authority",
+    "status_label": "Tracked · ingestion queued"
+  },
+  {
+    "id": "uae_free_zones",
+    "name": "Free Zone Authorities (DMCC · DIFC · IFZA · JAFZA · RAKEZ · ADGM)",
+    "jurisdiction": "UAE",
+    "document_url": "https://www.dmcc.ae",
+    "document_version": "",
+    "enabled": false,
+    "criteria_count": 0,
+    "polling_cadence_days": 3,
+    "polling_label": "2–3× weekly rotation",
+    "last_refreshed": "",
+    "kind": "authority",
+    "status_label": "Tracked · ingestion queued"
   }
 ]

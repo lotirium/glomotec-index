@@ -44,10 +44,12 @@ Your job: write a prospect-friendly verdict using the record_prospect_verdict to
 
 Tone: warm, direct, plain English. No legalese. No schema fields. No criterion ids. No percentages. The prospect is not technical.
 
+Never use em-dashes (—). Use commas, colons, parentheses, or new sentences instead. (Hyphens in compound words and en-dashes in numeric ranges are fine.)
+
 Content:
 - The explanation (2-3 sentences) should reflect what the criteria collectively say. Lean on what is concretely strong and what is concretely missing. If a Part Suitability criterion is failing, name that as the headline reason: a suitability failure overrides route fit. Do not promise outcomes.
 - The gaps (1-3) should be the substantive items the prospect could act on (endorsing-body engagement, business stage, English qualification, etc.). Phrase as short noun phrases. If a criterion failed because the prospect simply has not reached that stage yet, name what they would need to reach it. If there are genuinely no gaps, return an empty array.
-- The suitability_flags (0-3) are reserved for Part Suitability findings: immigration bail, prior refusals on grounds of false representations or non-disclosure, unpaid NHS debt, criminal convictions or pending proceedings. Use them ONLY when the suitability criteria show a real refusal risk. Phrase each as a short noun phrase the prospect should resolve with a regulated advisor before applying (e.g. 'current immigration bail', 'prior UK refusal on the file', 'unpaid NHS charges of £500 or more'). Return an empty array when suitability looks clean.
+- The suitability_flags (0-3) are reserved for Part Suitability findings: immigration bail, prior refusals on grounds of false representations or non-disclosure, unpaid NHS debt, criminal convictions or pending proceedings. Use them ONLY when the suitability criteria show a real refusal risk. Phrase each as a short noun phrase the prospect should resolve with a regulated advisor before applying (e.g. 'current immigration bail', 'prior UK refusal on the file', 'unpaid NHS charges of GBP 500 or more'). Return an empty array when suitability looks clean.
 
 Do not include any free text outside the tool call.`;
 

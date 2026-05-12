@@ -1,7 +1,7 @@
-import { ExternalLink } from "lucide-react";
 import type { ScoringResult } from "@/lib/types";
 import { cn, pct } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { CitationChain } from "@/components/scoring/citation-chain";
 
 const bandTone = {
   high: {
@@ -13,7 +13,7 @@ const bandTone = {
   medium: {
     dot: "bg-band-medium-fg",
     band: "Medium",
-    action: "Advisor review",
+    action: "Operator review",
     badge: "medium" as const,
   },
   low: {
@@ -52,17 +52,17 @@ export function CriterionRow({ result, index }: { result: ScoringResult; index: 
   return (
     <li
       id={result.criterion_id}
-      className="group relative scroll-mt-20 px-5 py-5 transition-colors hover:bg-surface-soft/60 animate-result-arrive"
+      className="group relative scroll-mt-20 px-5 py-6 transition-colors hover:bg-surface-soft/60 animate-result-arrive"
     >
-      <div className="grid grid-cols-[auto_1fr_auto] items-start gap-x-5 gap-y-2">
-        <span className="font-mono text-2xs text-ink-faint tabular pt-1">
+      <div className="grid grid-cols-[auto_1fr] sm:grid-cols-[auto_1fr_auto] items-start gap-x-5 gap-y-3 sm:gap-y-2">
+        <span className="text-2xs text-ink-faint tabular pt-1">
           {String(index + 1).padStart(2, "0")}
         </span>
 
-        <div className="min-w-0 space-y-2">
+        <div className="min-w-0 space-y-3">
           <div className="flex flex-wrap items-center gap-2">
             <span className={cn("h-1.5 w-1.5 rounded-full", tone.dot)} aria-hidden />
-            <span className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
+            <span className="text-kicker uppercase text-ink-faint">
               {c?.decision_stage ? stageLabel[c.decision_stage] ?? c.decision_stage : "—"}
             </span>
             <span aria-hidden className="text-ink-faint">·</span>
@@ -70,86 +70,51 @@ export function CriterionRow({ result, index }: { result: ScoringResult; index: 
               {c?.modality ?? "—"}
             </span>
           </div>
-          <p className="text-sm text-ink leading-relaxed">
+          <p className="text-sm text-ink leading-relaxed font-medium">
             {c?.predicate?.statement ?? result.criterion_id}
           </p>
 
-          {burdenActors.length > 0 && (
-            <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-              <span className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
-                Burden
-              </span>
-              {burdenActors.map((actor) => (
-                <span
-                  key={actor}
-                  className="inline-flex items-center rounded-full border border-line bg-surface-soft px-2 py-0.5 text-2xs text-ink-soft"
-                >
-                  {actorLabel[actor] ?? actor}
-                </span>
-              ))}
-            </div>
-          )}
+          <CitationChain result={result} />
 
-          {result.supporting_evidence?.length > 0 && (
-            <div className="mt-1.5 space-y-1.5">
-              {result.supporting_evidence.slice(0, 3).map((e, i) => (
-                <p
-                  key={i}
-                  className="text-2xs text-ink-muted leading-relaxed"
-                >
-                  <span className="font-mono text-ink-faint mr-1.5">→</span>
-                  {e.matches}
-                </p>
-              ))}
-            </div>
-          )}
-
-          {result.missing_inputs?.length > 0 && (
-            <div className="mt-2 space-y-1">
-              <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
-                Outstanding
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {result.missing_inputs.slice(0, 4).map((m, i) => (
-                  <span
-                    key={i}
-                    className="inline-flex items-center rounded-full border border-band-low-fg/15 bg-band-low-bg/60 px-2 py-0.5 text-2xs text-band-low-fg"
-                  >
-                    {m}
+          {(burdenActors.length > 0 || result.missing_inputs?.length > 0) && (
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1">
+              {burdenActors.length > 0 && (
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="text-kicker uppercase text-ink-faint">
+                    Burden
                   </span>
-                ))}
-              </div>
+                  {burdenActors.map((actor) => (
+                    <span
+                      key={actor}
+                      className="inline-flex items-center rounded-full border border-line bg-surface-soft px-2 py-0.5 text-2xs text-ink-soft"
+                    >
+                      {actorLabel[actor] ?? actor}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {result.missing_inputs?.length > 0 && (
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="text-kicker uppercase text-ink-faint">
+                    Outstanding
+                  </span>
+                  {result.missing_inputs.slice(0, 4).map((m, i) => (
+                    <span
+                      key={i}
+                      className="inline-flex items-center rounded-full border border-band-low-fg/15 bg-band-low-bg/60 px-2 py-0.5 text-2xs text-band-low-fg"
+                    >
+                      {m}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           )}
-
-          <details className="group/details mt-2">
-            <summary className="cursor-pointer list-none text-2xs text-ink-faint transition-colors hover:text-ink-muted [&::-webkit-details-marker]:hidden">
-              <span className="inline-flex items-center gap-1.5">
-                <span className="font-mono uppercase tracking-[0.18em]">Reasoning</span>
-                <span className="opacity-60 group-open/details:rotate-180 transition-transform" aria-hidden>
-                  ▾
-                </span>
-              </span>
-            </summary>
-            <p className="mt-2 text-2xs text-ink-muted leading-relaxed border-l border-line pl-3">
-              {result.reasoning}
-            </p>
-            {c?.verbatim_text && (
-              <a
-                href={c.source.document_url}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-flex items-center gap-1 text-2xs text-accent-deep hover:underline"
-              >
-                Source · {c.source.document_version}
-                <ExternalLink className="h-3 w-3" />
-              </a>
-            )}
-          </details>
         </div>
 
-        <div className="flex flex-col items-end gap-1.5 pt-0.5 min-w-[8.5rem]">
-          <span className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
+        <div className="col-start-2 sm:col-start-auto flex flex-row items-center gap-3 sm:flex-col sm:items-end sm:gap-1.5 sm:pt-0.5 sm:min-w-[8.5rem]">
+          <span className="text-kicker uppercase text-ink-faint">
             {tone.band}
           </span>
           <span className="text-xl font-semibold text-ink tabular leading-none">

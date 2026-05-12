@@ -1,0 +1,2762 @@
+[
+  {
+    "id": "dmcc-001",
+    "name": "Concord Compliance Group",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2015,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 893636,
+    "grading": {
+      "band": "C",
+      "innovation": 48,
+      "viability": 43,
+      "scalability": 44,
+      "reasoning": "Adapts existing professional services approaches to a risk advisory use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-09-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-26"
+    }
+  },
+  {
+    "id": "dmcc-002",
+    "name": "Arrow Bullion Bullion",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "industrial metals",
+    "yearRegistered": 2020,
+    "size": "medium",
+    "headcount": 223,
+    "revenue": 74748708,
+    "grading": {
+      "band": "D",
+      "innovation": 47,
+      "viability": 49,
+      "scalability": 22,
+      "reasoning": "Conventional industrial metals positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-02-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-13"
+    }
+  },
+  {
+    "id": "dmcc-003",
+    "name": "Halcyon Compliance Strategy",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2023,
+    "size": "medium",
+    "headcount": 112,
+    "revenue": 23260496,
+    "grading": {
+      "band": "B",
+      "innovation": 76,
+      "viability": 77,
+      "scalability": 71,
+      "reasoning": "Improved ESG consulting offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-04-16"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-12-22"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-06"
+    }
+  },
+  {
+    "id": "dmcc-004",
+    "name": "Briar Holdings Holdings",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2014,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 887726,
+    "grading": {
+      "band": "B",
+      "innovation": 75,
+      "viability": 66,
+      "scalability": 81,
+      "reasoning": "Improved other services offering within other; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2016-02-19"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2017-10-08"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-07-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-15"
+    }
+  },
+  {
+    "id": "dmcc-005",
+    "name": "Quartz Diamond Freight",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2023,
+    "size": "small",
+    "headcount": 44,
+    "revenue": 16538764,
+    "grading": {
+      "band": "B",
+      "innovation": 59,
+      "viability": 65,
+      "scalability": 78,
+      "reasoning": "Improved agricultural commodities offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-08-16"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-12-21"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-27"
+    }
+  },
+  {
+    "id": "dmcc-006",
+    "name": "Mosaic Energy Trading",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "industrial metals",
+    "yearRegistered": 2016,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 1483296,
+    "grading": {
+      "band": "A",
+      "innovation": 88,
+      "viability": 87,
+      "scalability": 68,
+      "reasoning": "Differentiated industrial metals approach within commodities; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2018-08-15"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-06-03"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-09-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-03-09"
+    }
+  },
+  {
+    "id": "dmcc-007",
+    "name": "Solstice Advisory Group",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 19,
+    "revenue": 1961465,
+    "grading": {
+      "band": "D",
+      "innovation": 42,
+      "viability": 43,
+      "scalability": 27,
+      "reasoning": "Conventional ESG consulting positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-04-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-23"
+    }
+  },
+  {
+    "id": "dmcc-008",
+    "name": "Thornton Data Cloud",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2017,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 2280320,
+    "grading": {
+      "band": "B",
+      "innovation": 64,
+      "viability": 59,
+      "scalability": 65,
+      "reasoning": "Improved data infrastructure offering within technology; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2021-04-24"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-07-10"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-02-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-06"
+    }
+  },
+  {
+    "id": "dmcc-009",
+    "name": "Tundra Cyber Protocols",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 872250,
+    "grading": {
+      "band": "C",
+      "innovation": 45,
+      "viability": 43,
+      "scalability": 56,
+      "reasoning": "Adapts existing technology approaches to a data infrastructure use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-08-14"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2023-03-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-19"
+    }
+  },
+  {
+    "id": "dmcc-010",
+    "name": "Hawthorne Holdings & Re",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2016,
+    "size": "medium",
+    "headcount": 166,
+    "revenue": 16967856,
+    "grading": {
+      "band": "C",
+      "innovation": 46,
+      "viability": 58,
+      "scalability": 52,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-11-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-22"
+    }
+  },
+  {
+    "id": "dmcc-011",
+    "name": "Tundra Advisory Solutions",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2019,
+    "size": "small",
+    "headcount": 42,
+    "revenue": 3593436,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 57,
+      "scalability": 68,
+      "reasoning": "Improved risk advisory offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-11-01"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-02-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-09"
+    }
+  },
+  {
+    "id": "dmcc-012",
+    "name": "Lighthouse Mythic Play",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Gaming & interactive",
+    "subSector": "studio publishing",
+    "yearRegistered": 2023,
+    "size": "medium",
+    "headcount": 108,
+    "revenue": 14625792,
+    "grading": {
+      "band": "C",
+      "innovation": 50,
+      "viability": 51,
+      "scalability": 48,
+      "reasoning": "Adapts existing gaming & interactive approaches to a studio publishing use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-04-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-01"
+    }
+  },
+  {
+    "id": "dmcc-013",
+    "name": "Citadel Advisory Consulting",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "audit",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 1214559,
+    "grading": {
+      "band": "D",
+      "innovation": 50,
+      "viability": 31,
+      "scalability": 35,
+      "reasoning": "Conventional audit positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-02-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-17"
+    }
+  },
+  {
+    "id": "dmcc-014",
+    "name": "Apex Realm Games",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Gaming & interactive",
+    "subSector": "AR/VR experiences",
+    "yearRegistered": 2019,
+    "size": "small",
+    "headcount": 36,
+    "revenue": 3118068,
+    "grading": {
+      "band": "D",
+      "innovation": 42,
+      "viability": 45,
+      "scalability": 48,
+      "reasoning": "Conventional AR/VR experiences positioning within gaming & interactive; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-09-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-05"
+    }
+  },
+  {
+    "id": "dmcc-015",
+    "name": "Sable Diamond Freight",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 38,
+    "revenue": 7678356,
+    "grading": {
+      "band": "B",
+      "innovation": 70,
+      "viability": 58,
+      "scalability": 62,
+      "reasoning": "Improved agricultural commodities offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2018-10-08"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2016-01-28"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-27"
+    }
+  },
+  {
+    "id": "dmcc-016",
+    "name": "Onyx Energy Trading",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "industrial metals",
+    "yearRegistered": 2023,
+    "size": "small",
+    "headcount": 40,
+    "revenue": 6922120,
+    "grading": {
+      "band": "D",
+      "innovation": 33,
+      "viability": 43,
+      "scalability": 42,
+      "reasoning": "Conventional industrial metals positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-03-04"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-26"
+    }
+  },
+  {
+    "id": "dmcc-017",
+    "name": "Lighthouse Realm Games",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Gaming & interactive",
+    "subSector": "studio publishing",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 45,
+    "revenue": 10401255,
+    "grading": {
+      "band": "B",
+      "innovation": 54,
+      "viability": 73,
+      "scalability": 70,
+      "reasoning": "Improved studio publishing offering within gaming & interactive; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-12-03"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-05-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-16"
+    }
+  },
+  {
+    "id": "dmcc-018",
+    "name": "Citadel Data Stack",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "cybersecurity",
+    "yearRegistered": 2017,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 2756000,
+    "grading": {
+      "band": "C",
+      "innovation": 53,
+      "viability": 49,
+      "scalability": 40,
+      "reasoning": "Adapts existing technology approaches to a cybersecurity use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-11-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-01-17"
+    }
+  },
+  {
+    "id": "dmcc-019",
+    "name": "Bramble Holdings & Re",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 2861648,
+    "grading": {
+      "band": "C",
+      "innovation": 56,
+      "viability": 35,
+      "scalability": 47,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-12-15"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2025-12-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-14"
+    }
+  },
+  {
+    "id": "dmcc-020",
+    "name": "Brevet Energy Logistics",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 44,
+    "revenue": 16669444,
+    "grading": {
+      "band": "D",
+      "innovation": 37,
+      "viability": 42,
+      "scalability": 28,
+      "reasoning": "Conventional agricultural commodities positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-10-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-01"
+    }
+  },
+  {
+    "id": "dmcc-021",
+    "name": "Onyx Node Chain",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Crypto & digital assets",
+    "subSector": "DeFi infrastructure",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 2168068,
+    "grading": {
+      "band": "D",
+      "innovation": 33,
+      "viability": 31,
+      "scalability": 29,
+      "reasoning": "Conventional DeFi infrastructure positioning within crypto & digital assets; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-01-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-02"
+    }
+  },
+  {
+    "id": "dmcc-022",
+    "name": "Veridian Diamond Logistics",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "precious metals",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 703320,
+    "grading": {
+      "band": "D",
+      "innovation": 42,
+      "viability": 42,
+      "scalability": 31,
+      "reasoning": "Conventional precious metals positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-11-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-07"
+    }
+  },
+  {
+    "id": "dmcc-023",
+    "name": "Indigo Audit Strategy",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 447564,
+    "grading": {
+      "band": "C",
+      "innovation": 57,
+      "viability": 59,
+      "scalability": 64,
+      "reasoning": "Adapts existing professional services approaches to a ESG consulting use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-04-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-18"
+    }
+  },
+  {
+    "id": "dmcc-024",
+    "name": "Briar Group Ventures",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2021,
+    "size": "medium",
+    "headcount": 143,
+    "revenue": 18233358,
+    "grading": {
+      "band": "C",
+      "innovation": 70,
+      "viability": 49,
+      "scalability": 58,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-01-27"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2023-08-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-02-18"
+    }
+  },
+  {
+    "id": "dmcc-025",
+    "name": "Trident Energy Freight",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "industrial metals",
+    "yearRegistered": 2022,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 1334120,
+    "grading": {
+      "band": "B",
+      "innovation": 56,
+      "viability": 68,
+      "scalability": 72,
+      "reasoning": "Improved industrial metals offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-07-23"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-07-13"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-27"
+    }
+  },
+  {
+    "id": "dmcc-026",
+    "name": "Beacon Edge Compute",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "enterprise SaaS",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 1067352,
+    "grading": {
+      "band": "C",
+      "innovation": 66,
+      "viability": 49,
+      "scalability": 45,
+      "reasoning": "Adapts existing technology approaches to a enterprise SaaS use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-01-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-28"
+    }
+  },
+  {
+    "id": "dmcc-027",
+    "name": "Marrow Cyber Stack",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "enterprise SaaS",
+    "yearRegistered": 2014,
+    "size": "medium",
+    "headcount": 89,
+    "revenue": 29927852,
+    "grading": {
+      "band": "C",
+      "innovation": 47,
+      "viability": 55,
+      "scalability": 50,
+      "reasoning": "Adapts existing technology approaches to a enterprise SaaS use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2014-09-20"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2017-04-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-15"
+    }
+  },
+  {
+    "id": "dmcc-028",
+    "name": "Lighthouse Energy Commodities",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "energy",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 20,
+    "revenue": 2294260,
+    "grading": {
+      "band": "C",
+      "innovation": 57,
+      "viability": 42,
+      "scalability": 39,
+      "reasoning": "Adapts existing commodities approaches to a energy use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2014-03-26"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2016-07-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-08"
+    }
+  },
+  {
+    "id": "dmcc-029",
+    "name": "Thornton Diamond Commodities",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "precious metals",
+    "yearRegistered": 2014,
+    "size": "medium",
+    "headcount": 73,
+    "revenue": 27429239,
+    "grading": {
+      "band": "C",
+      "innovation": 59,
+      "viability": 64,
+      "scalability": 64,
+      "reasoning": "Adapts existing commodities approaches to a precious metals use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-05-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-07"
+    }
+  },
+  {
+    "id": "dmcc-030",
+    "name": "Lighthouse Compliance Advisory",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 1967724,
+    "grading": {
+      "band": "B",
+      "innovation": 69,
+      "viability": 77,
+      "scalability": 77,
+      "reasoning": "Improved risk advisory offering within professional services; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-02-04"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-03-10"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-05-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-15"
+    }
+  },
+  {
+    "id": "dmcc-031",
+    "name": "Quartermast Diamond Trading",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "precious metals",
+    "yearRegistered": 2021,
+    "size": "micro",
+    "headcount": 6,
+    "revenue": 1274442,
+    "grading": {
+      "band": "C",
+      "innovation": 49,
+      "viability": 42,
+      "scalability": 53,
+      "reasoning": "Adapts existing commodities approaches to a precious metals use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-10-11"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2024-11-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-21"
+    }
+  },
+  {
+    "id": "dmcc-032",
+    "name": "Helix Realm Worlds",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Gaming & interactive",
+    "subSector": "studio publishing",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 10,
+    "revenue": 2785390,
+    "grading": {
+      "band": "C",
+      "innovation": 61,
+      "viability": 41,
+      "scalability": 54,
+      "reasoning": "Adapts existing gaming & interactive approaches to a studio publishing use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-10-06"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2015-03-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-11"
+    }
+  },
+  {
+    "id": "dmcc-033",
+    "name": "Northwind Metals Commodities",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "industrial metals",
+    "yearRegistered": 2021,
+    "size": "medium",
+    "headcount": 245,
+    "revenue": 43774395,
+    "grading": {
+      "band": "D",
+      "innovation": 40,
+      "viability": 32,
+      "scalability": 49,
+      "reasoning": "Conventional industrial metals positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-05-12"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-14"
+    }
+  },
+  {
+    "id": "dmcc-034",
+    "name": "Lyric Energy Bullion",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2023,
+    "size": "medium",
+    "headcount": 151,
+    "revenue": 48609920,
+    "grading": {
+      "band": "D",
+      "innovation": 37,
+      "viability": 46,
+      "scalability": 31,
+      "reasoning": "Conventional agricultural commodities positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-04-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-12"
+    }
+  },
+  {
+    "id": "dmcc-035",
+    "name": "Lyric Data Protocols",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "enterprise SaaS",
+    "yearRegistered": 2022,
+    "size": "small",
+    "headcount": 31,
+    "revenue": 4092248,
+    "grading": {
+      "band": "C",
+      "innovation": 60,
+      "viability": 56,
+      "scalability": 41,
+      "reasoning": "Adapts existing technology approaches to a enterprise SaaS use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-07-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-10"
+    }
+  },
+  {
+    "id": "dmcc-036",
+    "name": "Quartz Holdings Co",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2019,
+    "size": "medium",
+    "headcount": 210,
+    "revenue": 72796710,
+    "grading": {
+      "band": "B",
+      "innovation": 73,
+      "viability": 69,
+      "scalability": 78,
+      "reasoning": "Improved other services offering within other; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-03-06"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2022-02-04"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-09-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-04"
+    }
+  },
+  {
+    "id": "dmcc-037",
+    "name": "Quartz Audit Services",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2025,
+    "size": "large",
+    "headcount": 1047,
+    "revenue": 328519284,
+    "grading": {
+      "band": "D",
+      "innovation": 48,
+      "viability": 31,
+      "scalability": 52,
+      "reasoning": "Conventional risk advisory positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-10-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-01-23"
+    }
+  },
+  {
+    "id": "dmcc-038",
+    "name": "Citadel Metals Trading",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 36,
+    "revenue": 9416592,
+    "grading": {
+      "band": "D",
+      "innovation": 28,
+      "viability": 32,
+      "scalability": 33,
+      "reasoning": "Conventional agricultural commodities positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-07-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-03"
+    }
+  },
+  {
+    "id": "dmcc-039",
+    "name": "Linden Quantum Systems",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2016,
+    "size": "small",
+    "headcount": 24,
+    "revenue": 3086688,
+    "grading": {
+      "band": "B",
+      "innovation": 65,
+      "viability": 65,
+      "scalability": 65,
+      "reasoning": "Improved data infrastructure offering within technology; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2016-03-23"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2018-05-01"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-09-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-18"
+    }
+  },
+  {
+    "id": "dmcc-040",
+    "name": "Argent Edge Networks",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 775830,
+    "grading": {
+      "band": "C",
+      "innovation": 57,
+      "viability": 38,
+      "scalability": 31,
+      "reasoning": "Adapts existing technology approaches to a IoT use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-09-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-02"
+    }
+  },
+  {
+    "id": "dmcc-041",
+    "name": "Veridian Advisory Services",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 22,
+    "revenue": 8111774,
+    "grading": {
+      "band": "D",
+      "innovation": 49,
+      "viability": 42,
+      "scalability": 27,
+      "reasoning": "Conventional ESG consulting positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-04-22"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-01-28"
+    }
+  },
+  {
+    "id": "dmcc-042",
+    "name": "Falcon Cyber Cloud",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2025,
+    "size": "large",
+    "headcount": 808,
+    "revenue": 207975968,
+    "grading": {
+      "band": "D",
+      "innovation": 33,
+      "viability": 37,
+      "scalability": 29,
+      "reasoning": "Conventional data infrastructure positioning within technology; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-06-17"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-17"
+    }
+  },
+  {
+    "id": "dmcc-043",
+    "name": "Bramble Edge Labs",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2014,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 958350,
+    "grading": {
+      "band": "B",
+      "innovation": 76,
+      "viability": 75,
+      "scalability": 62,
+      "reasoning": "Improved IoT offering within technology; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2017-06-15"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2014-04-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-09"
+    }
+  },
+  {
+    "id": "dmcc-044",
+    "name": "Cascade Chain Chain",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Crypto & digital assets",
+    "subSector": "DeFi infrastructure",
+    "yearRegistered": 2023,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 1051797,
+    "grading": {
+      "band": "C",
+      "innovation": 59,
+      "viability": 48,
+      "scalability": 57,
+      "reasoning": "Adapts existing crypto & digital assets approaches to a DeFi infrastructure use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2023-04-10"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2025-10-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-28"
+    }
+  },
+  {
+    "id": "dmcc-045",
+    "name": "Falcon Sensor AI",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 5,
+    "revenue": 1786760,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 49,
+      "scalability": 66,
+      "reasoning": "Improved data infrastructure offering within technology; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2025-04-14"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-06-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-04"
+    }
+  },
+  {
+    "id": "dmcc-046",
+    "name": "Vector Chain Web3 Labs",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Crypto & digital assets",
+    "subSector": "validator services",
+    "yearRegistered": 2016,
+    "size": "small",
+    "headcount": 41,
+    "revenue": 5081212,
+    "grading": {
+      "band": "C",
+      "innovation": 56,
+      "viability": 42,
+      "scalability": 56,
+      "reasoning": "Adapts existing crypto & digital assets approaches to a validator services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-02-21"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2019-06-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-13"
+    }
+  },
+  {
+    "id": "dmcc-047",
+    "name": "Halcyon Sensor Compute",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "cybersecurity",
+    "yearRegistered": 2019,
+    "size": "large",
+    "headcount": 610,
+    "revenue": 78891910,
+    "grading": {
+      "band": "A",
+      "innovation": 96,
+      "viability": 86,
+      "scalability": 82,
+      "reasoning": "Differentiated cybersecurity approach within technology; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2023-10-04"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-03-12"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-05-02"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-05"
+    }
+  },
+  {
+    "id": "dmcc-048",
+    "name": "Sable Chain Digital Assets",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Crypto & digital assets",
+    "subSector": "DeFi infrastructure",
+    "yearRegistered": 2019,
+    "size": "small",
+    "headcount": 32,
+    "revenue": 5240256,
+    "grading": {
+      "band": "C",
+      "innovation": 37,
+      "viability": 46,
+      "scalability": 64,
+      "reasoning": "Adapts existing crypto & digital assets approaches to a DeFi infrastructure use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-05-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-18"
+    }
+  },
+  {
+    "id": "dmcc-049",
+    "name": "Vector Energy Commodities",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "industrial metals",
+    "yearRegistered": 2018,
+    "size": "large",
+    "headcount": 1012,
+    "revenue": 269478396,
+    "grading": {
+      "band": "B",
+      "innovation": 77,
+      "viability": 63,
+      "scalability": 80,
+      "reasoning": "Improved industrial metals offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-10-15"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2019-02-20"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-13"
+    }
+  },
+  {
+    "id": "dmcc-050",
+    "name": "Quartz Energy Trading",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "industrial metals",
+    "yearRegistered": 2015,
+    "size": "micro",
+    "headcount": 8,
+    "revenue": 2153952,
+    "grading": {
+      "band": "B",
+      "innovation": 75,
+      "viability": 61,
+      "scalability": 69,
+      "reasoning": "Improved industrial metals offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2017-10-25"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2017-10-20"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-01-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-25"
+    }
+  },
+  {
+    "id": "dmcc-051",
+    "name": "Tundra Cocoa Commodities",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "precious metals",
+    "yearRegistered": 2014,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 756210,
+    "grading": {
+      "band": "D",
+      "innovation": 49,
+      "viability": 44,
+      "scalability": 31,
+      "reasoning": "Conventional precious metals positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-02-13"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-14"
+    }
+  },
+  {
+    "id": "dmcc-052",
+    "name": "Echo Cocoa Shipping",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "energy",
+    "yearRegistered": 2018,
+    "size": "medium",
+    "headcount": 129,
+    "revenue": 33835668,
+    "grading": {
+      "band": "B",
+      "innovation": 68,
+      "viability": 72,
+      "scalability": 68,
+      "reasoning": "Improved energy offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-11-04"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2021-09-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-19"
+    }
+  },
+  {
+    "id": "dmcc-053",
+    "name": "Apex Bullion Cargo",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2016,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 276846,
+    "grading": {
+      "band": "B",
+      "innovation": 79,
+      "viability": 65,
+      "scalability": 71,
+      "reasoning": "Improved agricultural commodities offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2017-12-18"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2017-09-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-09"
+    }
+  },
+  {
+    "id": "dmcc-054",
+    "name": "Polaris Holdings Ventures",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2017,
+    "size": "small",
+    "headcount": 34,
+    "revenue": 9702784,
+    "grading": {
+      "band": "C",
+      "innovation": 53,
+      "viability": 47,
+      "scalability": 48,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-06-20"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2018-12-16"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-04-16"
+    }
+  },
+  {
+    "id": "dmcc-055",
+    "name": "Brevet Group Ventures",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 32,
+    "revenue": 4459200,
+    "grading": {
+      "band": "C",
+      "innovation": 47,
+      "viability": 66,
+      "scalability": 59,
+      "reasoning": "Adapts existing other approaches to a other services use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2020-10-19"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2020-02-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-11"
+    }
+  },
+  {
+    "id": "dmcc-056",
+    "name": "Cobalt Metals Logistics",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "precious metals",
+    "yearRegistered": 2024,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 2319858,
+    "grading": {
+      "band": "D",
+      "innovation": 34,
+      "viability": 32,
+      "scalability": 35,
+      "reasoning": "Conventional precious metals positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-04-13"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-04-17"
+    }
+  },
+  {
+    "id": "dmcc-057",
+    "name": "Helix Sensor Stack",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2022,
+    "size": "medium",
+    "headcount": 109,
+    "revenue": 30665515,
+    "grading": {
+      "band": "D",
+      "innovation": 37,
+      "viability": 42,
+      "scalability": 39,
+      "reasoning": "Conventional data infrastructure positioning within technology; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-11-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-03-18"
+    }
+  },
+  {
+    "id": "dmcc-058",
+    "name": "Polaris Frame Studios",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Gaming & interactive",
+    "subSector": "studio publishing",
+    "yearRegistered": 2015,
+    "size": "large",
+    "headcount": 490,
+    "revenue": 148055950,
+    "grading": {
+      "band": "C",
+      "innovation": 64,
+      "viability": 63,
+      "scalability": 50,
+      "reasoning": "Adapts existing gaming & interactive approaches to a studio publishing use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2016-06-24"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2017-08-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-25"
+    }
+  },
+  {
+    "id": "dmcc-059",
+    "name": "Aurum Bullion Bullion",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "precious metals",
+    "yearRegistered": 2020,
+    "size": "micro",
+    "headcount": 3,
+    "revenue": 980190,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 80,
+      "scalability": 62,
+      "reasoning": "Improved precious metals offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-07-05"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-09-26"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-07-05"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-08"
+    }
+  },
+  {
+    "id": "dmcc-060",
+    "name": "Stratos Diamond Bullion",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2017,
+    "size": "small",
+    "headcount": 48,
+    "revenue": 13140912,
+    "grading": {
+      "band": "D",
+      "innovation": 31,
+      "viability": 32,
+      "scalability": 29,
+      "reasoning": "Conventional agricultural commodities positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-11-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-02"
+    }
+  },
+  {
+    "id": "dmcc-061",
+    "name": "Briar Cyber Protocols",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2016,
+    "size": "small",
+    "headcount": 38,
+    "revenue": 11897534,
+    "grading": {
+      "band": "B",
+      "innovation": 67,
+      "viability": 56,
+      "scalability": 62,
+      "reasoning": "Improved IoT offering within technology; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-03-18"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2020-09-27"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-07"
+    }
+  },
+  {
+    "id": "dmcc-062",
+    "name": "Meridian Diamond Cargo",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 45,
+    "revenue": 12299400,
+    "grading": {
+      "band": "C",
+      "innovation": 63,
+      "viability": 56,
+      "scalability": 53,
+      "reasoning": "Adapts existing commodities approaches to a agricultural commodities use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-07-10"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2026-03-03"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-08"
+    }
+  },
+  {
+    "id": "dmcc-063",
+    "name": "Bramble Quantum Systems",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 30,
+    "revenue": 8397630,
+    "grading": {
+      "band": "D",
+      "innovation": 44,
+      "viability": 31,
+      "scalability": 43,
+      "reasoning": "Conventional IoT positioning within technology; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2015-07-10"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-22"
+    }
+  },
+  {
+    "id": "dmcc-064",
+    "name": "Falcon Metals Logistics",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2023,
+    "size": "small",
+    "headcount": 48,
+    "revenue": 12798912,
+    "grading": {
+      "band": "B",
+      "innovation": 62,
+      "viability": 56,
+      "scalability": 70,
+      "reasoning": "Improved agricultural commodities offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-01-24"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2026-10-14"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-16"
+    }
+  },
+  {
+    "id": "dmcc-065",
+    "name": "Tundra Sensor Stack",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "enterprise SaaS",
+    "yearRegistered": 2017,
+    "size": "medium",
+    "headcount": 240,
+    "revenue": 30662640,
+    "grading": {
+      "band": "B",
+      "innovation": 71,
+      "viability": 56,
+      "scalability": 66,
+      "reasoning": "Improved enterprise SaaS offering within technology; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2019-08-01"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2017-04-25"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-16"
+    }
+  },
+  {
+    "id": "dmcc-066",
+    "name": "Cascade Compliance Services",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2021,
+    "size": "medium",
+    "headcount": 140,
+    "revenue": 21760900,
+    "grading": {
+      "band": "D",
+      "innovation": 33,
+      "viability": 20,
+      "scalability": 26,
+      "reasoning": "Conventional ESG consulting positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2024-09-06"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-05"
+    }
+  },
+  {
+    "id": "dmcc-067",
+    "name": "Quartz Group International",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2022,
+    "size": "medium",
+    "headcount": 153,
+    "revenue": 38525400,
+    "grading": {
+      "band": "A",
+      "innovation": 89,
+      "viability": 89,
+      "scalability": 80,
+      "reasoning": "Differentiated other services approach within other; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2022-05-11"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2023-04-15"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-02-18"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-13"
+    }
+  },
+  {
+    "id": "dmcc-068",
+    "name": "Solstice Cyber Stack",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "enterprise SaaS",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 14,
+    "revenue": 2762844,
+    "grading": {
+      "band": "C",
+      "innovation": 49,
+      "viability": 49,
+      "scalability": 37,
+      "reasoning": "Adapts existing technology approaches to a enterprise SaaS use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-08-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-20"
+    }
+  },
+  {
+    "id": "dmcc-069",
+    "name": "Polaris Edge Systems",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "cybersecurity",
+    "yearRegistered": 2014,
+    "size": "small",
+    "headcount": 39,
+    "revenue": 8589867,
+    "grading": {
+      "band": "C",
+      "innovation": 45,
+      "viability": 42,
+      "scalability": 51,
+      "reasoning": "Adapts existing technology approaches to a cybersecurity use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-06-09"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2014-06-11"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-09"
+    }
+  },
+  {
+    "id": "dmcc-070",
+    "name": "Vector Quantum Compute",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 10,
+    "revenue": 3262820,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 69,
+      "scalability": 74,
+      "reasoning": "Improved IoT offering within technology; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2022-10-19"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-09-09"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "medium",
+      "lastUpdated": "2026-02-08"
+    }
+  },
+  {
+    "id": "dmcc-071",
+    "name": "Halcyon Sensor Networks",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "data infrastructure",
+    "yearRegistered": 2023,
+    "size": "small",
+    "headcount": 10,
+    "revenue": 3398660,
+    "grading": {
+      "band": "D",
+      "innovation": 27,
+      "viability": 31,
+      "scalability": 46,
+      "reasoning": "Conventional data infrastructure positioning within technology; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-06-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-04-22"
+    }
+  },
+  {
+    "id": "dmcc-072",
+    "name": "Quartermast Holdings International",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Other",
+    "subSector": "other services",
+    "yearRegistered": 2019,
+    "size": "micro",
+    "headcount": 4,
+    "revenue": 1093868,
+    "grading": {
+      "band": "D",
+      "innovation": 38,
+      "viability": 39,
+      "scalability": 27,
+      "reasoning": "Conventional other services positioning within other; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2022-02-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-15"
+    }
+  },
+  {
+    "id": "dmcc-073",
+    "name": "Marrow Cocoa Commodities",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "energy",
+    "yearRegistered": 2019,
+    "size": "small",
+    "headcount": 35,
+    "revenue": 5692435,
+    "grading": {
+      "band": "C",
+      "innovation": 58,
+      "viability": 58,
+      "scalability": 44,
+      "reasoning": "Adapts existing commodities approaches to a energy use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2019-07-24"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-24"
+    }
+  },
+  {
+    "id": "dmcc-074",
+    "name": "Halcyon Counsel Consulting",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "risk advisory",
+    "yearRegistered": 2025,
+    "size": "small",
+    "headcount": 21,
+    "revenue": 5108817,
+    "grading": {
+      "band": "C",
+      "innovation": 61,
+      "viability": 41,
+      "scalability": 54,
+      "reasoning": "Adapts existing professional services approaches to a risk advisory use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-12-08"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2026-03-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-06"
+    }
+  },
+  {
+    "id": "dmcc-075",
+    "name": "Lyric Compliance Solutions",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "ESG consulting",
+    "yearRegistered": 2020,
+    "size": "small",
+    "headcount": 11,
+    "revenue": 1225323,
+    "grading": {
+      "band": "A",
+      "innovation": 85,
+      "viability": 82,
+      "scalability": 72,
+      "reasoning": "Differentiated ESG consulting approach within professional services; evidence indicates a defensible technical or market position.",
+      "evidence": [
+        {
+          "type": "ip",
+          "source": "WIPO patent filing record",
+          "date": "2021-02-12"
+        },
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2020-05-14"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2023-04-01"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-17"
+    }
+  },
+  {
+    "id": "dmcc-076",
+    "name": "Marrow Metals Cargo",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "precious metals",
+    "yearRegistered": 2024,
+    "size": "small",
+    "headcount": 23,
+    "revenue": 8232068,
+    "grading": {
+      "band": "B",
+      "innovation": 74,
+      "viability": 90,
+      "scalability": 77,
+      "reasoning": "Improved precious metals offering within commodities; competing solutions exist but show clear gaps.",
+      "evidence": [
+        {
+          "type": "funding",
+          "source": "PitchBook funding round disclosure",
+          "date": "2026-10-03"
+        },
+        {
+          "type": "team",
+          "source": "LinkedIn senior-team headcount snapshot",
+          "date": "2024-02-08"
+        },
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2025-08-07"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-03-17"
+    }
+  },
+  {
+    "id": "dmcc-077",
+    "name": "Sable Data AI",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "IoT",
+    "yearRegistered": 2018,
+    "size": "micro",
+    "headcount": 7,
+    "revenue": 2203649,
+    "grading": {
+      "band": "D",
+      "innovation": 34,
+      "viability": 46,
+      "scalability": 46,
+      "reasoning": "Conventional IoT positioning within technology; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2018-05-08"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-21"
+    }
+  },
+  {
+    "id": "dmcc-078",
+    "name": "Crescent Sensor Cloud",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Technology",
+    "subSector": "enterprise SaaS",
+    "yearRegistered": 2021,
+    "size": "small",
+    "headcount": 49,
+    "revenue": 12282536,
+    "grading": {
+      "band": "C",
+      "innovation": 53,
+      "viability": 63,
+      "scalability": 62,
+      "reasoning": "Adapts existing technology approaches to a enterprise SaaS use case; warrants case-by-case review.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2021-02-13"
+        },
+        {
+          "type": "press",
+          "source": "trade press release",
+          "date": "2025-09-21"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-01-22"
+    }
+  },
+  {
+    "id": "dmcc-079",
+    "name": "Briar Energy Cargo",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Commodities",
+    "subSector": "agricultural commodities",
+    "yearRegistered": 2015,
+    "size": "small",
+    "headcount": 47,
+    "revenue": 8410180,
+    "grading": {
+      "band": "D",
+      "innovation": 35,
+      "viability": 40,
+      "scalability": 24,
+      "reasoning": "Conventional agricultural commodities positioning within commodities; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2017-01-23"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "low",
+      "lastUpdated": "2026-03-04"
+    }
+  },
+  {
+    "id": "dmcc-080",
+    "name": "Sable Risk Services",
+    "jurisdiction": "UAE",
+    "zone": "DMCC",
+    "sector": "Professional services",
+    "subSector": "audit",
+    "yearRegistered": 2025,
+    "size": "micro",
+    "headcount": 9,
+    "revenue": 3265182,
+    "grading": {
+      "band": "D",
+      "innovation": 53,
+      "viability": 30,
+      "scalability": 37,
+      "reasoning": "Conventional audit positioning within professional services; no defensible advantage surfaced in current evidence.",
+      "evidence": [
+        {
+          "type": "filing",
+          "source": "free-zone registration filing",
+          "date": "2026-09-15"
+        }
+      ]
+    },
+    "dataSource": {
+      "authority": "DMCC Authority",
+      "confidence": "high",
+      "lastUpdated": "2026-02-13"
+    }
+  }
+]

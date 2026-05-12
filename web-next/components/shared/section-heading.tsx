@@ -16,18 +16,25 @@ export function SectionHeading({
   trailing,
 }: Props) {
   return (
-    <div className={cn("flex items-end justify-between gap-6", className)}>
-      <div className="space-y-1">
+    <div
+      className={cn(
+        "flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-6",
+        className,
+      )}
+    >
+      <div className="space-y-2 max-w-2xl">
         {eyebrow && (
-          <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
-            {eyebrow}
-          </p>
+          <>
+            <p className="text-kicker uppercase text-ink-faint">{eyebrow}</p>
+            <hr
+              className="max-w-[3rem] border-t border-line"
+              aria-hidden
+            />
+          </>
         )}
-        <h2 className="text-xl font-semibold tracking-tight text-ink leading-tight">
-          {title}
-        </h2>
+        <h2 className="text-h2 text-ink leading-tight pt-1">{title}</h2>
         {description && (
-          <p className="max-w-xl text-sm text-ink-muted leading-relaxed">
+          <p className="text-sm text-ink-muted leading-relaxed pt-1">
             {description}
           </p>
         )}

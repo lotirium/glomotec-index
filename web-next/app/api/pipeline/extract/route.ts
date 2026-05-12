@@ -2,6 +2,7 @@ import "server-only";
 import fs from "fs";
 import path from "path";
 import Anthropic from "@anthropic-ai/sdk";
+import { deterministicSampling } from "@/lib/scoring-cache";
 import {
   detectQuotaError,
   EXTRACT_FALLBACK_MESSAGE,
@@ -136,6 +137,10 @@ export async function POST(req: Request) {
     response = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 1500,
+      // Determinism: pinning sampling on the EXTRACTOR makes the upstream
+      // criteria stable across pipeline re-runs, which the SCORER then
+      // depends on for byte-identical output.
+      ...deterministicSampling(),
       system: SYSTEM_PROMPT,
       tools: [TOOL] as unknown as Anthropic.Tool[],
       messages: [{ role: "user", content: userMessage }],

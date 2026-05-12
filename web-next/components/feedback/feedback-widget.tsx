@@ -22,6 +22,7 @@ export function FeedbackWidget() {
   const [text, setText] = React.useState("");
   const [phase, setPhase] = React.useState<Phase>("idle");
   const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+  const [showToast, setShowToast] = React.useState(false);
   const panelRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -43,6 +44,13 @@ export function FeedbackWidget() {
     }, 200);
     return () => clearTimeout(t);
   }, [open]);
+
+  // Toast auto-dismiss after 2s.
+  React.useEffect(() => {
+    if (!showToast) return;
+    const t = setTimeout(() => setShowToast(false), 2000);
+    return () => clearTimeout(t);
+  }, [showToast]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,7 +79,10 @@ export function FeedbackWidget() {
         throw new Error(detail?.message ?? `HTTP ${res.status}`);
       }
       setPhase("sent");
-      setTimeout(() => setOpen(false), 1400);
+      setTimeout(() => {
+        setOpen(false);
+        setShowToast(true);
+      }, 1400);
     } catch (err) {
       setPhase("error");
       setErrorMessage(
@@ -82,17 +93,29 @@ export function FeedbackWidget() {
 
   return (
     <>
-      {!open && (
+      {!open && !showToast && (
         <button
           type="button"
           onClick={() => setOpen(true)}
           data-feedback-portal
           aria-label="Open feedback"
-          className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2.5 text-sm font-medium text-ink-soft shadow-card transition-all hover:bg-surface-soft hover:text-ink hover:-translate-y-0.5 active:translate-y-0"
+          className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:border-ink-faint hover:text-ink"
         >
           <MessageSquare className="h-4 w-4" />
           Feedback
         </button>
+      )}
+
+      {showToast && (
+        <div
+          role="status"
+          aria-live="polite"
+          data-feedback-portal
+          className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full border border-band-high-fg/30 bg-band-high-bg px-4 py-2.5 text-sm font-medium text-band-high-fg animate-fade-up"
+        >
+          <Check className="h-4 w-4" />
+          Thanks &mdash; sent.
+        </div>
       )}
 
       {open && (
@@ -102,7 +125,7 @@ export function FeedbackWidget() {
           role="dialog"
           aria-modal="true"
           aria-label="Send feedback"
-          className="fixed bottom-5 right-5 z-40 w-[min(380px,calc(100vw-2.5rem))] animate-fade-up rounded-lg border border-line bg-surface shadow-card"
+          className="fixed bottom-5 right-5 z-40 w-[min(380px,calc(100vw-2.5rem))] animate-fade-up rounded-lg border border-line bg-surface"
         >
           <form onSubmit={handleSubmit}>
             <header className="flex items-center justify-between border-b border-line px-4 py-3">

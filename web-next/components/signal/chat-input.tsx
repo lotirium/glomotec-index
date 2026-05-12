@@ -67,7 +67,7 @@ export function ChatInput({
         onClick={handle}
         disabled={disabled || value.trim().length === 0}
         aria-label="Send"
-        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink text-surface transition-colors hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed"
+        className="inline-flex h-11 w-11 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-ink text-surface transition-colors hover:bg-ink-soft disabled:opacity-40 disabled:cursor-not-allowed"
       >
         <ArrowUp className="h-4 w-4" />
       </button>
