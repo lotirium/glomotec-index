@@ -13,12 +13,16 @@ export function Wordmark({ className }: { className?: string }) {
     >
       <Link
         href="/"
-        className="inline-flex items-baseline gap-2 group rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+        className="inline-flex items-center group rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
         aria-label="glomotec home"
       >
-        <span className="text-[13px] font-medium tracking-[0.18em] uppercase text-ink-soft transition-colors group-hover:text-ink whitespace-nowrap">
-          glomotec
-        </span>
+        <img
+          src="/brand/glomotec-icon-full-color.svg"
+          alt="glomotec"
+          width={22}
+          height={22}
+          className="block h-[22px] w-[22px] transition-opacity group-hover:opacity-80"
+        />
       </Link>
       <span aria-hidden className="text-ink-faint text-[13px] leading-none">
         ·
