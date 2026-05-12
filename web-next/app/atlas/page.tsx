@@ -185,8 +185,16 @@ export default function AtlasShowcasePage() {
       />
 
       {/* FOOTER */}
-      <section className="overflow-hidden rounded-md bg-gradient-to-br from-accent to-accent-deep px-6 py-10 text-surface md:px-14 md:py-12">
-        <h2 className="text-2xl font-extrabold leading-[1.15] tracking-tight md:text-[2rem]">
+      <section className="relative overflow-hidden rounded-md bg-gradient-to-br from-accent to-accent-deep px-6 py-10 text-surface md:px-14 md:py-12">
+        <img
+          src="/brand/atlas-primary-white.svg"
+          alt="ATLAS"
+          aria-hidden="true"
+          width={91}
+          height={40}
+          className="pointer-events-none absolute right-6 top-6 h-8 w-auto opacity-90 md:right-14 md:top-10 md:h-10"
+        />
+        <h2 className="max-w-[80%] text-2xl font-extrabold leading-[1.15] tracking-tight md:max-w-none md:text-[2rem]">
           The matrix is the <span className="text-cyan">standard</span>. The
           engine is the <span className="text-cyan">moat</span>.
         </h2>
