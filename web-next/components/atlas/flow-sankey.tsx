@@ -202,47 +202,30 @@ export function FlowSankey({ pairs, framing, evidence }: Props) {
         aria-label="Cross-jurisdictional flow Sankey diagram"
         className="block h-auto w-full"
       >
-        <defs>
-          {layout.ribbons.map((r) => {
-            const id = `grad-${r.pair.from}-${r.pair.to}`;
-            return (
-              <linearGradient
-                key={id}
-                id={id}
-                gradientUnits="userSpaceOnUse"
-                x1={LEFT_X + NODE_W}
-                x2={RIGHT_X}
-                y1={(r.y0 + r.y1) / 2}
-                y2={(r.y2 + r.y3) / 2}
-              >
-                <stop
-                  offset="0"
-                  stopColor={JURISDICTION_COLORS[r.pair.from]}
-                  stopOpacity={0.7}
-                />
-                <stop
-                  offset="1"
-                  stopColor={JURISDICTION_COLORS[r.pair.to]}
-                  stopOpacity={0.65}
-                />
-              </linearGradient>
-            );
-          })}
-        </defs>
-
-        {/* Ribbons. */}
+        {/* Ribbons.
+            Fill perspective flips with the framing toggle:
+              rejected = source colour (where they come from)
+              approved = destination colour (where they land)
+            Transition on `fill` makes the toggle feel deliberate. */}
         <g>
           {layout.ribbons.map((r) => {
             const key = `flow/${r.pair.from}-${r.pair.to}`;
             const isActive = activeKey === key;
             const dimmed = activeKey !== null && !isActive;
+            const ribbonColor =
+              framing === "rejected"
+                ? JURISDICTION_COLORS[r.pair.from]
+                : JURISDICTION_COLORS[r.pair.to];
             return (
               <path
                 key={key}
                 d={ribbonPath(r.y0, r.y1, r.y2, r.y3)}
-                fill={`url(#grad-${r.pair.from}-${r.pair.to})`}
                 opacity={isActive ? 1 : dimmed ? 0.12 : 0.7}
-                style={{ transition: "opacity 0.25s" }}
+                style={{
+                  fill: ribbonColor,
+                  transition:
+                    "fill 0.4s ease, stroke 0.4s ease, opacity 0.25s ease",
+                }}
                 tabIndex={0}
                 role="button"
                 aria-label={tooltip(r.pair)}
