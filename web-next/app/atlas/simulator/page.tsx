@@ -22,10 +22,12 @@ export default function AtlasSimulatorPage() {
       <PageHeader
         eyebrow="ATLAS · POLICY SIMULATOR"
         title="What happens if you change the rules?"
-        description="Move the sliders to test policy changes against the UAE free-zone sample. See the impact today, and the projected impact three years from now under the same conditions."
       />
       <div className="container py-12 md:py-16">
-        <PolicySimulatorView basePageAudit={basePageAudit} />
+        <PolicySimulatorView
+          basePageAudit={basePageAudit}
+          description="Move the sliders to test policy changes against the UAE free-zone sample. See the impact today, and the projected impact three years from now under the same conditions."
+        />
       </div>
     </>
   );

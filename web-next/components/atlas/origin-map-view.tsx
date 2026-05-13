@@ -9,11 +9,24 @@ import {
   type AuditFocus,
   type PageAudit,
 } from "@/components/atlas/audit-context";
+import { cn } from "@/lib/utils";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
+import { CollapsibleContext } from "@/components/atlas/collapsible-context";
 import { TopOriginsList } from "@/components/atlas/top-origins-list";
 import OriginMapStatic from "@/components/atlas/origin-map-static";
 import { rubricGrade, RUBRIC_METHOD_LINE } from "@/components/atlas/audit-helpers";
 import type { OriginMapResponse, OriginCountry } from "@/lib/atlas/types";
+import {
+  ORIGIN_HISTORY_FIXTURE_VERSION,
+  ORIGIN_YEARS,
+  TALENT_CATEGORY_COLOR,
+  TALENT_CATEGORY_LABEL,
+  TALENT_CATEGORY_ORDER,
+  YEAR_CONTEXT,
+  originResponseForYear,
+  type MapLayer,
+  type OriginYear,
+} from "@/lib/atlas/origin-history";
 
 // Leaflet must not run on the server (touches window on init).
 const OriginMapLeaflet = dynamic(
@@ -67,9 +80,10 @@ function buildCountryFocus(c: OriginCountry, evidence: AuditEvidence): AuditFocu
 interface Props {
   data: OriginMapResponse;
   basePageAudit: Omit<PageAudit, "jurisdiction">;
+  description: string;
 }
 
-export function OriginMapView({ data, basePageAudit }: Props) {
+export function OriginMapView({ data, basePageAudit, description }: Props) {
   const pageAudit: PageAudit = React.useMemo(
     () => ({
       ...basePageAudit,
@@ -80,26 +94,58 @@ export function OriginMapView({ data, basePageAudit }: Props) {
 
   return (
     <AuditTrailProvider pageAudit={pageAudit}>
-      <OriginMapBody data={data} />
+      <OriginMapBody data={data} description={description} />
     </AuditTrailProvider>
   );
 }
 
-function OriginMapBody({ data }: { data: OriginMapResponse }) {
+function OriginMapBody({
+  data: _data,
+  description,
+}: {
+  data: OriginMapResponse;
+  description: string;
+}) {
   const [focusedIso2, setFocusedIso2] = React.useState<string | null>(null);
+  const [year, setYear] = React.useState<OriginYear>(2025);
+  const [layer, setLayer] = React.useState<MapLayer>("entities");
   const isDesktop = useIsDesktop();
   const { hover } = useAuditTrail();
+
+  // Display data is year-keyed : the production fixture is only used as the
+  // page-audit anchor (it represents "what the live system holds"). The map,
+  // strip, top-origins list and takeaway all run off origin-history.ts so
+  // 2000 to 2025 can be scrubbed independently.
+  const displayData = React.useMemo(() => originResponseForYear(year), [year]);
 
   const evidence: AuditEvidence = React.useMemo(
     () => ({
       authority: "Aggregate of four UAE free zone registers (sample)",
-      dataset: "DMCC, DIFC, ADGM, JAFZA registers with augmented origin field",
-      lastUpdated: data.last_refresh,
+      dataset: `Band A origin distribution, ${year} snapshot (paraphrased)`,
+      lastUpdated: ORIGIN_HISTORY_FIXTURE_VERSION,
       confidence: "medium",
-      fixtureRef: "fixtures/atlas/{dmcc,difc,adgm,jafza}.json",
+      fixtureRef: "lib/atlas/origin-history.ts",
     }),
-    [data.last_refresh],
+    [year],
   );
+
+  const yearFocus: AuditFocus = React.useMemo(
+    () => ({
+      id: `origin-map/year-${year}`,
+      proposition: `UAE Band A origin distribution in ${year}. ${YEAR_CONTEXT[year]}`,
+      evidence: [evidence],
+      grade: rubricGrade(
+        "Historical snapshot at five-year interval. Per-country counts anchored to recorded free-zone register summaries.",
+      ),
+    }),
+    [year, evidence],
+  );
+
+  // Keep the audit sidebar showing the year focus until a country focus
+  // overrides it (mirrors the FlowView pattern).
+  React.useEffect(() => {
+    hover(yearFocus);
+  }, [yearFocus, hover]);
 
   const handleMapHover = React.useCallback(
     (c: OriginCountry | null) => {
@@ -117,7 +163,10 @@ function OriginMapBody({ data }: { data: OriginMapResponse }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_19rem] lg:gap-10">
       <div className="min-w-0 space-y-10">
-        <StatsStrip data={data} />
+        <CollapsibleContext label="Why this map">
+          <p>{description}</p>
+        </CollapsibleContext>
+        <StatsStrip data={displayData} />
 
         <section aria-labelledby="origin-map-heading" className="space-y-5">
           <header className="flex flex-wrap items-baseline justify-between gap-3">
@@ -131,16 +180,14 @@ function OriginMapBody({ data }: { data: OriginMapResponse }) {
               >
                 Where UAE Band A talent comes from.
               </h2>
-              <p className="mt-2 max-w-2xl text-2xs text-ink-muted leading-relaxed">
-                Founder and HQ origin for every Band A entity in the
-                UAE free zone sample. Flow lines trace where the talent is
-                coming from.
-              </p>
             </div>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint tabular">
-              Last refresh : {data.last_refresh || "—"}
+              Snapshot · {year}
             </p>
           </header>
+
+          <YearSelector year={year} setYear={setYear} yearFocus={yearFocus} />
+          <LayerSelector layer={layer} setLayer={setLayer} />
 
           <div className="grid grid-cols-1 gap-5 xl:grid-cols-[1fr_320px]">
             <div className="min-w-0">
@@ -150,30 +197,170 @@ function OriginMapBody({ data }: { data: OriginMapResponse }) {
                   className="h-[520px] w-full rounded-md bg-glacier/40"
                 />
               ) : isDesktop ? (
-                <OriginMapLeaflet
-                  countries={data.countries}
-                  focusedIso2={focusedIso2}
-                  onCountryHover={handleMapHover}
-                  onCountryClick={handleMapClick}
-                />
+                <div
+                  key={`map-${year}-${layer}`}
+                  className="origin-map-fade"
+                >
+                  <OriginMapLeaflet
+                    countries={displayData.countries}
+                    layer={layer}
+                    focusedIso2={focusedIso2}
+                    onCountryHover={handleMapHover}
+                    onCountryClick={handleMapClick}
+                  />
+                </div>
               ) : (
-                <OriginMapStatic countries={data.countries} />
+                <OriginMapStatic countries={displayData.countries} />
               )}
+              {layer === "talent" && <TalentLegend />}
             </div>
             <TopOriginsList
-              countries={data.countries}
+              countries={displayData.countries}
               evidence={evidence}
               focusedIso2={focusedIso2}
               onSelect={(iso2) => setFocusedIso2(iso2)}
+              layer={layer}
             />
           </div>
         </section>
 
-        <TakeawayBanner data={data} />
+        <TakeawayBanner data={displayData} />
       </div>
 
       <AuditSidebar />
+      <style>{`
+        .origin-map-fade { animation: origin-map-fade-in 240ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+        @keyframes origin-map-fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
     </div>
+  );
+}
+
+function LayerSelector({
+  layer,
+  setLayer,
+}: {
+  layer: MapLayer;
+  setLayer: (l: MapLayer) => void;
+}) {
+  return (
+    <div className="flex items-center gap-3">
+      <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
+        Layer
+      </p>
+      <div
+        role="tablist"
+        aria-label="Map layer"
+        className="inline-flex rounded-full border border-line bg-surface-soft p-1"
+      >
+        {(
+          [
+            { id: "entities", label: "Entities view" },
+            { id: "talent", label: "Talent view" },
+          ] as const
+        ).map((opt) => {
+          const active = layer === opt.id;
+          return (
+            <button
+              key={opt.id}
+              type="button"
+              role="tab"
+              aria-selected={active}
+              onClick={() => setLayer(opt.id)}
+              className={cn(
+                "rounded-full px-4 py-1.5 text-[11px] font-mono uppercase tracking-[0.18em] transition-colors",
+                active
+                  ? "bg-accent text-surface"
+                  : "text-ink-muted hover:text-ink",
+              )}
+            >
+              {opt.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function TalentLegend() {
+  return (
+    <div className="mt-3 rounded-md border border-line bg-surface-soft/40 px-4 py-3">
+      <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
+        Talent categories
+      </p>
+      <ul className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-2">
+        {TALENT_CATEGORY_ORDER.map((cat) => (
+          <li key={cat} className="flex items-center gap-2">
+            <span
+              aria-hidden
+              className="h-2.5 w-2.5 rounded-full"
+              style={{ background: TALENT_CATEGORY_COLOR[cat] }}
+            />
+            <span className="text-[11px] text-ink">
+              {TALENT_CATEGORY_LABEL[cat]}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function YearSelector({
+  year,
+  setYear,
+  yearFocus,
+}: {
+  year: OriginYear;
+  setYear: (y: OriginYear) => void;
+  yearFocus: AuditFocus;
+}) {
+  const { hover } = useAuditTrail();
+  return (
+    <section
+      aria-label="Year selector for the origin map"
+      className="rounded-md border border-line bg-surface px-4 py-3 md:px-5 md:py-4"
+    >
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
+          Year
+        </p>
+        <div
+          role="tablist"
+          aria-label="Snapshot year"
+          className="flex flex-wrap items-center gap-1.5"
+        >
+          {ORIGIN_YEARS.map((y) => {
+            const active = y === year;
+            return (
+              <button
+                key={y}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setYear(y)}
+                onMouseEnter={() => hover(yearFocus)}
+                className={cn(
+                  "rounded-full border px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] tabular transition-colors",
+                  active
+                    ? "border-accent bg-accent text-surface"
+                    : "border-line bg-surface-soft text-ink-muted hover:border-cyan/40 hover:text-ink",
+                )}
+              >
+                {y}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">
+        What drove the shift to {year} : {YEAR_CONTEXT[year]}
+      </p>
+    </section>
   );
 }
 

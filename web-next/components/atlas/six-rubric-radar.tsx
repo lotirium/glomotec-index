@@ -3,6 +3,10 @@
 import * as React from "react";
 import { AuditAnchor } from "@/components/atlas/audit-anchor";
 import { rubricGrade } from "@/components/atlas/audit-helpers";
+import {
+  RUBRIC_BAND_COLOR_HSL,
+  bandForRubricByName,
+} from "@/lib/atlas/rubric";
 import type { AtlasCompany } from "@/lib/atlas/types";
 
 interface Props {
@@ -124,6 +128,25 @@ export function SixRubricRadar({ company, rubricScores, composite }: Props) {
                 >
                   {rs.score}
                 </text>
+                {(() => {
+                  const lookup = bandForRubricByName(rs.name, rs.score);
+                  if (!lookup) return null;
+                  return (
+                    <text
+                      x={vx}
+                      y={vy + 13}
+                      textAnchor={textAnchor}
+                      dominantBaseline="middle"
+                      fontFamily="Inter"
+                      fontSize="9"
+                      fontWeight="700"
+                      letterSpacing="0.18em"
+                      fill={RUBRIC_BAND_COLOR_HSL[lookup.band.color]}
+                    >
+                      {lookup.band.code.toUpperCase()}
+                    </text>
+                  );
+                })()}
               </g>
             );
           })}
@@ -164,6 +187,41 @@ export function SixRubricRadar({ company, rubricScores, composite }: Props) {
           ))}
         </svg>
       </div>
+
+      <ul className="mt-4 grid grid-cols-1 gap-2 border-t border-glacier pt-4 sm:grid-cols-2 lg:grid-cols-3">
+        {rubricScores.map((rs) => {
+          const lookup = bandForRubricByName(rs.name, rs.score);
+          return (
+            <li
+              key={rs.name}
+              className="flex items-center gap-2.5 rounded-sm border border-line/60 bg-surface-soft/40 px-3 py-2"
+            >
+              <span
+                aria-hidden
+                className="h-2.5 w-2.5 shrink-0 rounded-sm"
+                style={{
+                  background: lookup
+                    ? RUBRIC_BAND_COLOR_HSL[lookup.band.color]
+                    : "hsl(var(--ink-faint))",
+                }}
+              />
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-[11px] font-semibold text-ink">
+                  {rs.name}
+                </p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                  {lookup
+                    ? `${lookup.band.code} · ${lookup.band.label}`
+                    : "—"}
+                </p>
+              </div>
+              <span className="font-mono text-base font-bold tabular text-accent">
+                {rs.score}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
     </AuditAnchor>
   );
 }

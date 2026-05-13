@@ -11,7 +11,12 @@ import {
   type PageAudit,
 } from "@/components/atlas/audit-context";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
-import { RUBRIC_VERSION } from "@/lib/atlas/rubric";
+import {
+  PER_RUBRIC_CATEGORIZATIONS,
+  RUBRIC_BAND_COLOR_HSL,
+  RUBRIC_VERSION,
+  rubricKeyFromName,
+} from "@/lib/atlas/rubric";
 
 // ----- Static framework content -----
 
@@ -431,7 +436,49 @@ function RubricCard({ rubric }: { rubric: Rubric }) {
           Hard cap : none
         </p>
       )}
+
+      <RubricBandLadder rubricName={rubric.name} />
     </button>
+  );
+}
+
+// ----- Per-rubric band ladder -----
+
+function RubricBandLadder({ rubricName }: { rubricName: string }) {
+  const key = rubricKeyFromName(rubricName);
+  if (!key) return null;
+  const cat = PER_RUBRIC_CATEGORIZATIONS[key];
+  return (
+    <div className="mt-4 rounded-sm border border-line/60 bg-surface-soft/40 p-3">
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-cyan">
+        Categorization
+      </p>
+      <p className="mt-1 text-[11px] leading-snug text-ink">{cat.label}</p>
+      <ul className="mt-2.5 space-y-1">
+        {cat.bands.map((b) => (
+          <li
+            key={b.code}
+            className="flex items-center gap-2 text-[11px] text-ink"
+          >
+            <span
+              aria-hidden
+              className="inline-block h-2.5 w-2.5 shrink-0 rounded-sm"
+              style={{ background: RUBRIC_BAND_COLOR_HSL[b.color] }}
+            />
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent w-20 shrink-0">
+              {b.code}
+            </span>
+            <span className="flex-1 truncate">{b.label}</span>
+            <span className="font-mono tabular text-ink-muted text-[10px]">
+              {b.composite[0]} to {b.composite[1]}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 border-t border-line/60 pt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint leading-relaxed">
+        Source : {cat.sourceAuthority}
+      </p>
+    </div>
   );
 }
 

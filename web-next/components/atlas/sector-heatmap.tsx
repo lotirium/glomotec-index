@@ -6,6 +6,12 @@ import { AuditAnchor } from "@/components/atlas/audit-anchor";
 import { rubricGrade, zoneEvidence } from "@/components/atlas/audit-helpers";
 import type { HeatmapCell, HeatmapMetric } from "@/lib/atlas/types";
 import type { ZoneSummary } from "@/lib/atlas/data";
+import {
+  HEATMAP_YEARS,
+  YEAR_NARRATIVE,
+  heatmapForYear,
+  type HeatmapYear,
+} from "@/lib/atlas/heatmap-history";
 
 const ZONES = ["DMCC", "DIFC", "ADGM", "JAFZA"] as const;
 const SECTORS = [
@@ -119,8 +125,13 @@ interface Props {
   zoneSummaries: ZoneSummary[];
 }
 
-export function SectorHeatmap({ cells, zoneSummaries }: Props) {
+export function SectorHeatmap({ cells: _cells, zoneSummaries }: Props) {
   const [metric, setMetric] = React.useState<HeatmapMetric>("bandADensity");
+  const [year, setYear] = React.useState<HeatmapYear>(2026);
+
+  // Year-keyed display data replaces the production prop. The prop is still
+  // accepted for backwards compatibility with the page-level data flow.
+  const cells = React.useMemo(() => heatmapForYear(year), [year]);
 
   const flat = cells.flat();
   const max = Math.max(1, ...flat.map((c) => valueForMetric(c, metric)));
@@ -136,6 +147,39 @@ export function SectorHeatmap({ cells, zoneSummaries }: Props) {
 
   return (
     <div className="rounded-md border border-line bg-surface p-5 md:p-8">
+      {/* YEAR SCRUBBER */}
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-line pb-4">
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan">
+          Year
+        </p>
+        <div
+          role="tablist"
+          aria-label="Heat map year"
+          className="flex flex-wrap items-center gap-1.5"
+        >
+          {HEATMAP_YEARS.map((y) => {
+            const active = y === year;
+            return (
+              <button
+                key={y}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setYear(y)}
+                className={cn(
+                  "rounded-full border px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] tabular transition-colors",
+                  active
+                    ? "border-accent bg-accent text-surface"
+                    : "border-line bg-surface-soft text-ink-muted hover:border-cyan/40 hover:text-ink",
+                )}
+              >
+                {y}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* TOGGLE */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
@@ -215,6 +259,8 @@ export function SectorHeatmap({ cells, zoneSummaries }: Props) {
                     style={{
                       background: colorAt(t),
                       color: t > 0.5 ? "white" : "hsl(var(--ink))",
+                      transition:
+                        "background 240ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 150ms",
                     }}
                   >
                     <p className="text-lg font-bold tabular leading-none">
@@ -264,6 +310,8 @@ export function SectorHeatmap({ cells, zoneSummaries }: Props) {
                       style={{
                         background: colorAt(t),
                         color: t > 0.5 ? "white" : "hsl(var(--ink))",
+                        transition:
+                          "background 240ms cubic-bezier(0.2, 0.8, 0.2, 1)",
                       }}
                     >
                       <p className="text-[10px] font-medium opacity-90 leading-tight">
@@ -307,6 +355,18 @@ export function SectorHeatmap({ cells, zoneSummaries }: Props) {
         </span>
       </div>
 
+      {/* NARRATIVE LINE — sets the story for the active year, sits between
+          the legend and the takeaway. */}
+      <p
+        key={`narrative-${year}`}
+        className="mt-5 rounded-sm border-l-2 border-cyan bg-cyan-tint/20 px-4 py-3 text-sm leading-relaxed text-ink heatmap-fade"
+      >
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan mr-2">
+          {year}
+        </span>
+        {YEAR_NARRATIVE[year]}
+      </p>
+
       {/* TAKEAWAY BANNER */}
       <div className="mt-6 overflow-hidden rounded-md bg-gradient-to-br from-accent to-accent-deep px-5 py-5 md:px-6">
         <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan">
@@ -316,6 +376,16 @@ export function SectorHeatmap({ cells, zoneSummaries }: Props) {
           {takeaway}
         </p>
       </div>
+
+      <style>{`
+        .heatmap-fade {
+          animation: heatmap-fade-in 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        @keyframes heatmap-fade-in {
+          from { opacity: 0; transform: translateY(2px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }

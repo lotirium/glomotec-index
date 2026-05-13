@@ -25,10 +25,13 @@ export default async function AtlasFlowPage() {
       <PageHeader
         eyebrow="ATLAS · CROSS-JURISDICTIONAL FLOWS"
         title="When one country says no, where do they go?"
-        description="Sample of 400 applicants who applied for high-value mobility programmes across five jurisdictions in 2025. Each ribbon shows the second-choice destination for applicants rejected or unrenewed in their first-choice jurisdiction."
       />
       <div className="container py-12 md:py-16">
-        <FlowView data={data} basePageAudit={basePageAudit} />
+        <FlowView
+          data={data}
+          basePageAudit={basePageAudit}
+          description="Sample of 400 applicants who applied for high-value mobility programmes across five jurisdictions in 2025. Each ribbon shows the second-choice destination for applicants rejected or unrenewed in their first-choice jurisdiction."
+        />
       </div>
     </>
   );

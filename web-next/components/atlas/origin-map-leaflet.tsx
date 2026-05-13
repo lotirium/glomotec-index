@@ -4,10 +4,17 @@ import * as React from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { UAE_CENTROID } from "@/lib/atlas/country-centroids";
+import {
+  TALENT_CATEGORY_COLOR,
+  TALENT_CATEGORY_LABEL,
+  TALENT_CATEGORY_ORDER,
+  type MapLayer,
+} from "@/lib/atlas/origin-history";
 import type { OriginCountry } from "@/lib/atlas/types";
 
 interface Props {
   countries: OriginCountry[];
+  layer?: MapLayer;
   focusedIso2: string | null;
   onCountryHover: (c: OriginCountry | null) => void;
   onCountryClick: (c: OriginCountry) => void;
@@ -27,15 +34,86 @@ function radiusForCount(count: number): number {
   return Math.max(6, Math.min(24, 6 + count * 3));
 }
 
+// SVG pie marker for talent view. Returns a Leaflet DivIcon with five wedges
+// proportional to the country's talent mix. Handles the single-non-zero
+// category edge case (where the wedge spans 360°) by rendering a solid disc
+// instead — SVG arc with start=end points is ambiguous.
+function pieIcon(country: OriginCountry, radius: number): L.DivIcon {
+  const mix = country.talent_mix;
+  const size = radius * 2 + 4;
+  const cx = size / 2;
+  const cy = size / 2;
+
+  if (!mix || country.band_a_count === 0) {
+    return L.divIcon({
+      className: "atlas-talent-marker",
+      html: `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${cx}" cy="${cy}" r="${radius}" fill="#94A3B8" stroke="white" stroke-width="1.5"/></svg>`,
+      iconSize: [size, size],
+      iconAnchor: [cx, cy],
+    });
+  }
+
+  const total = TALENT_CATEGORY_ORDER.reduce((s, c) => s + mix[c], 0);
+  const nonZero = TALENT_CATEGORY_ORDER.filter((c) => mix[c] > 0);
+  const paths: string[] = [];
+
+  if (nonZero.length === 1) {
+    const cat = nonZero[0];
+    paths.push(
+      `<circle cx="${cx}" cy="${cy}" r="${radius}" fill="${TALENT_CATEGORY_COLOR[cat]}" stroke="white" stroke-width="1.5"/>`,
+    );
+  } else {
+    let cumAngle = -Math.PI / 2; // start at 12 o'clock so the first wedge reads "top"
+    for (const cat of TALENT_CATEGORY_ORDER) {
+      const v = mix[cat];
+      if (v === 0) continue;
+      const slice = (v / total) * 2 * Math.PI;
+      const endAngle = cumAngle + slice;
+      const x0 = cx + radius * Math.cos(cumAngle);
+      const y0 = cy + radius * Math.sin(cumAngle);
+      const x1 = cx + radius * Math.cos(endAngle);
+      const y1 = cy + radius * Math.sin(endAngle);
+      const large = slice > Math.PI ? 1 : 0;
+      paths.push(
+        `<path d="M ${cx} ${cy} L ${x0.toFixed(2)} ${y0.toFixed(2)} A ${radius} ${radius} 0 ${large} 1 ${x1.toFixed(2)} ${y1.toFixed(2)} Z" fill="${TALENT_CATEGORY_COLOR[cat]}" stroke="white" stroke-width="1.25"/>`,
+      );
+      cumAngle = endAngle;
+    }
+  }
+
+  return L.divIcon({
+    className: "atlas-talent-marker",
+    html: `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="overflow:visible">${paths.join("")}<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="white" stroke-width="1.5"/></svg>`,
+    iconSize: [size, size],
+    iconAnchor: [cx, cy],
+  });
+}
+
+function talentPopupHTML(c: OriginCountry): string {
+  if (!c.talent_mix) return "";
+  const rows = TALENT_CATEGORY_ORDER.filter((cat) => c.talent_mix![cat] > 0)
+    .map((cat) => {
+      const label = TALENT_CATEGORY_LABEL[cat];
+      const color = TALENT_CATEGORY_COLOR[cat];
+      const value = c.talent_mix![cat];
+      return `<div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#334155;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${color};"></span>${label} : <strong>${value}</strong></div>`;
+    })
+    .join("");
+  return rows;
+}
+
 export default function OriginMapLeaflet({
   countries,
+  layer = "entities",
   focusedIso2,
   onCountryHover,
   onCountryClick,
 }: Props) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const mapRef = React.useRef<L.Map | null>(null);
-  const markerByIso = React.useRef<Map<string, L.CircleMarker>>(new Map());
+  const markerByIso = React.useRef<Map<string, L.CircleMarker | L.Marker>>(
+    new Map(),
+  );
   const flowByIso = React.useRef<Map<string, L.Polyline>>(new Map());
 
   React.useEffect(() => {
@@ -123,14 +201,23 @@ export default function OriginMapLeaflet({
         dashArray: "6, 8",
       }).addTo(map);
 
-      const marker = L.circleMarker(c.centroid, {
-        radius: radiusForCount(c.band_a_count),
-        fillColor: colorForCount(c.band_a_count),
-        color: "white",
-        weight: 2,
-        opacity: 1,
-        fillOpacity: 0.85,
-      }).addTo(map);
+      const radius = radiusForCount(c.band_a_count);
+      let marker: L.CircleMarker | L.Marker;
+      if (layer === "talent") {
+        marker = L.marker(c.centroid, {
+          icon: pieIcon(c, radius),
+          interactive: true,
+        }).addTo(map);
+      } else {
+        marker = L.circleMarker(c.centroid, {
+          radius,
+          fillColor: colorForCount(c.band_a_count),
+          color: "white",
+          weight: 2,
+          opacity: 1,
+          fillOpacity: 0.85,
+        }).addTo(map);
+      }
 
       const topSectors = Object.entries(c.sector_breakdown)
         .sort((a, b) => b[1] - a[1])
@@ -138,12 +225,15 @@ export default function OriginMapLeaflet({
         .map(([s, n]) => `${s} ${n}`)
         .join(", ");
 
+      const talentRows = layer === "talent" ? talentPopupHTML(c) : "";
+
       marker.bindPopup(
-        `<div style="font-family: var(--font-inter), Inter, sans-serif; min-width: 160px;">
+        `<div style="font-family: var(--font-inter), Inter, sans-serif; min-width: 180px;">
           <div style="font-size: 13px; font-weight: 700; color: #2B3E8F; margin-bottom: 4px;">${c.country_name}</div>
           <div style="font-size: 11px; color: #334155; margin-bottom: 2px;"><strong>${c.band_a_count}</strong> Band A ${c.band_a_count === 1 ? "entity" : "entities"}</div>
           <div style="font-size: 11px; color: #334155; margin-bottom: 2px;">Avg composite: <strong>${c.avg_composite}</strong></div>
-          ${topSectors ? `<div style="font-size: 11px; color: #64748B; margin-top: 4px;">${topSectors}</div>` : ""}
+          ${talentRows ? `<div style="margin-top:6px;padding-top:6px;border-top:1px solid #E2E8F0;display:flex;flex-direction:column;gap:3px;">${talentRows}</div>` : ""}
+          ${topSectors && layer !== "talent" ? `<div style="font-size: 11px; color: #64748B; margin-top: 4px;">${topSectors}</div>` : ""}
         </div>`,
       );
 
@@ -161,7 +251,7 @@ export default function OriginMapLeaflet({
       markerByIso.current.set(c.iso2, marker);
       flowByIso.current.set(c.iso2, flow);
     }
-  }, [countries, onCountryHover, onCountryClick]);
+  }, [countries, layer, onCountryHover, onCountryClick]);
 
   // Pan to focused country when sidebar selects one.
   React.useEffect(() => {

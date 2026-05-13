@@ -58,12 +58,22 @@ export interface SettlementTrajectory {
   ilrIndex: number;
 }
 
+export interface IndustryPeerTrajectory {
+  industryLabel: string;
+  peerCount: number;
+  description: string;
+  yearlyAverages: Array<{ year: number; avgComposite: number }>;
+}
+
 export interface SettlementForecast {
   rubricScores: Array<{ name: string; score: number }>;
   composite: number;
   pathways: SettlementPathway[];
   trajectory: SettlementTrajectory;
   takeaway: RichSegment[];
+  /** Optional industry-level historical context for the trajectory chart and
+   *  the peer comparison block. Currently only present on dmcc-047. */
+  industryPeerTrajectory?: IndustryPeerTrajectory;
 }
 
 export interface AtlasCompany {
@@ -104,6 +114,7 @@ export interface FlowPair {
   from: FlowJurisdiction;
   to: FlowJurisdiction;
   value: number;
+  label?: string;
 }
 
 export interface FlowSankeyData {
@@ -112,6 +123,16 @@ export interface FlowSankeyData {
   sample_size: number;
   pairs: FlowPair[];
 }
+
+export interface TalentMix {
+  investors: number;
+  founders: number;
+  seniorEmployees: number;
+  midLevelProfessionals: number;
+  students: number;
+}
+
+export type TalentCategory = keyof TalentMix;
 
 export interface OriginCountry {
   iso2: string;
@@ -123,6 +144,8 @@ export interface OriginCountry {
   avg_composite: number;
   /** [lat, lng] tuple. Undefined if the country isn't in the centroid table. */
   centroid?: [number, number];
+  /** Five-category demographic breakdown of the country's Band A footprint. */
+  talent_mix?: TalentMix;
 }
 
 export interface OriginMapResponse {

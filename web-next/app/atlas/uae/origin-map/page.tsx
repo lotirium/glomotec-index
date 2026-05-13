@@ -27,12 +27,15 @@ export default async function AtlasUaeOriginMapPage() {
       <PageHeader
         eyebrow="ATLAS · UAE ORIGIN MAP"
         title="Where UAE Band A talent comes from."
-        description="Founder and HQ origin country for every Band A entity in the UAE free zone sample. Flow lines trace where the talent is coming from."
       />
       <AtlasUaeTabs current="origin-map" />
 
       <div className="container py-12 md:py-16">
-        <OriginMapView data={data} basePageAudit={basePageAudit} />
+        <OriginMapView
+          data={data}
+          basePageAudit={basePageAudit}
+          description="Founder and HQ origin country for every Band A entity in the UAE free zone sample. Flow lines trace where the talent is coming from."
+        />
       </div>
     </>
   );

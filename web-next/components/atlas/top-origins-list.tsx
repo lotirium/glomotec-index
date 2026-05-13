@@ -9,6 +9,12 @@ import {
 } from "@/components/atlas/audit-context";
 import { rubricGrade, RUBRIC_METHOD_LINE } from "@/components/atlas/audit-helpers";
 import { flagEmoji } from "@/lib/atlas/country-centroids";
+import {
+  TALENT_CATEGORY_COLOR,
+  TALENT_CATEGORY_LABEL,
+  TALENT_CATEGORY_ORDER,
+  type MapLayer,
+} from "@/lib/atlas/origin-history";
 import type { OriginCountry } from "@/lib/atlas/types";
 
 interface Props {
@@ -16,9 +22,16 @@ interface Props {
   evidence: AuditEvidence;
   onSelect: (iso2: string) => void;
   focusedIso2: string | null;
+  layer?: MapLayer;
 }
 
-export function TopOriginsList({ countries, evidence, onSelect, focusedIso2 }: Props) {
+export function TopOriginsList({
+  countries,
+  evidence,
+  onSelect,
+  focusedIso2,
+  layer = "entities",
+}: Props) {
   const { hover, pin, pinned } = useAuditTrail();
   const top = countries.filter((c) => c.band_a_count > 0).slice(0, 8);
   const max = top.length ? top[0].band_a_count : 1;
@@ -107,6 +120,30 @@ export function TopOriginsList({ countries, evidence, onSelect, focusedIso2 }: P
                     style={{ width: `${(c.band_a_count / max) * 100}%` }}
                   />
                 </div>
+                {layer === "talent" && c.talent_mix && (
+                  <ul className="col-span-4 mt-2 space-y-0.5 pl-7">
+                    {TALENT_CATEGORY_ORDER.filter(
+                      (cat) => c.talent_mix![cat] > 0,
+                    ).map((cat) => (
+                      <li
+                        key={cat}
+                        className="flex items-center justify-between gap-3 text-[11px] text-ink-soft"
+                      >
+                        <span className="flex items-center gap-1.5">
+                          <span
+                            aria-hidden
+                            className="h-2 w-2 rounded-full"
+                            style={{ background: TALENT_CATEGORY_COLOR[cat] }}
+                          />
+                          {TALENT_CATEGORY_LABEL[cat]}
+                        </span>
+                        <span className="font-mono tabular text-ink-muted">
+                          {c.talent_mix![cat]}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </button>
             </li>
           );

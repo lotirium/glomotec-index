@@ -25,8 +25,21 @@ export const metadata: Metadata = {
     template: "%s · glomotec · INDEX",
   },
   description:
-    "INDEX is the regulatory and scoring layer of ENGINE. SIGNAL queries it for qualification. COMPASS consumes its outputs for execution.",
+    "ATLAS is the visualisation surface of ENGINE. INDEX scores. SIGNAL qualifies. COMPASS executes. One common standard, multiple jurisdictions.",
   robots: { index: false, follow: false },
+  openGraph: {
+    title: "glomotec · ATLAS preview",
+    description:
+      "A common standard for global mobility, visualised. Six rubrics, five regions, one engine.",
+    type: "website",
+    siteName: "glomotec",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "glomotec · ATLAS preview",
+    description:
+      "A common standard for global mobility, visualised. Six rubrics, five regions, one engine.",
+  },
 };
 
 export const viewport: Viewport = {

@@ -11,6 +11,19 @@ export const metadata: Metadata = {
 
 const TILES = [
   {
+    id: "00",
+    href: "/atlas/uk",
+    badge: "Historical lens",
+    time: "2-3 min",
+    label: "Visual 00 · The historical lens",
+    title: "Where the model proves itself.",
+    desc: "Twenty-five years of UK migration policy with every lever's effect on the curve made visible. Scrub through the timeline, hover an event, see what the model would have predicted.",
+    takeaway:
+      "2012 PSW closure : APPG measured 88% real reduction against government's 49% estimate",
+    decor: "historical" as const,
+    aspectClass: "aspect-[16/9]",
+  },
+  {
     id: "01",
     href: "/atlas/uae/origin-map",
     badge: "Geographic",
@@ -302,6 +315,84 @@ function FooterCol({ label, body }: { label: string; body: string }) {
 
 function TileDecor({ variant }: { variant: TileDecor }) {
   switch (variant) {
+    case "historical":
+      return (
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-deep via-accent to-cyan/60">
+          <svg
+            viewBox="0 0 320 180"
+            preserveAspectRatio="xMidYMid meet"
+            className="absolute inset-0 h-full w-full"
+            aria-hidden
+          >
+            {/* Faint y-axis gridlines */}
+            {[40, 80, 120].map((y) => (
+              <line
+                key={`g${y}`}
+                x1="20"
+                x2="300"
+                y1={y}
+                y2={y}
+                stroke="white"
+                strokeOpacity="0.18"
+                strokeWidth="1"
+              />
+            ))}
+            {/* Net migration line, scaled to look like the 2000-2025 record */}
+            <polyline
+              points="20,128 40,118 60,124 80,90 100,96 120,104 140,82 160,68 180,114 200,98 220,150 240,30 260,42 280,76 300,92"
+              fill="none"
+              stroke="white"
+              strokeWidth="2.5"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+            />
+            {/* Event markers */}
+            {[
+              { x: 80, c: "#00A2E9" }, // restriction
+              { x: 120, c: "#0F2C5C" }, // tightening
+              { x: 160, c: "#9CA3AF" }, // system
+              { x: 200, c: "#9CA3AF" }, // system
+              { x: 220, c: "#00A2E9" }, // restriction
+            ].map((m, i) => (
+              <g key={i}>
+                <line
+                  x1={m.x}
+                  x2={m.x}
+                  y1="20"
+                  y2="160"
+                  stroke={m.c}
+                  strokeOpacity="0.55"
+                  strokeWidth="1.25"
+                />
+                <circle cx={m.x} cy="20" r="3.5" fill={m.c} stroke="white" strokeWidth="1.5" />
+              </g>
+            ))}
+            {/* Scrub cursor at PSW closure (2012, x=80) */}
+            <line
+              x1="80"
+              x2="80"
+              y1="14"
+              y2="166"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeDasharray="4 3"
+            />
+            <circle cx="80" cy="90" r="6" fill="#00A2E9" stroke="white" strokeWidth="2.5" />
+            <rect x="62" y="165" width="36" height="10" rx="2" fill="white" fillOpacity="0.9" />
+            <text
+              x="80"
+              y="173"
+              textAnchor="middle"
+              fontFamily="Inter, sans-serif"
+              fontSize="8"
+              fontWeight="700"
+              fill="#0F2C5C"
+            >
+              2012
+            </text>
+          </svg>
+        </div>
+      );
     case "origin":
       return (
         <div className="absolute inset-0 bg-gradient-to-br from-accent via-accent to-cyan">

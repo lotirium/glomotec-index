@@ -3,11 +3,16 @@
 import * as React from "react";
 import { AuditAnchor } from "@/components/atlas/audit-anchor";
 import { rubricGrade } from "@/components/atlas/audit-helpers";
-import type { AtlasCompany, SettlementTrajectory } from "@/lib/atlas/types";
+import type {
+  AtlasCompany,
+  IndustryPeerTrajectory,
+  SettlementTrajectory,
+} from "@/lib/atlas/types";
 
 interface Props {
   company: AtlasCompany;
   trajectory: SettlementTrajectory;
+  industryPeers?: IndustryPeerTrajectory;
 }
 
 const HEIGHT = 360;
@@ -15,7 +20,21 @@ const PAD = { top: 24, right: 60, bottom: 50, left: 56 };
 const MIN_Y = 50;
 const MAX_Y = 100;
 
-export function CompositeTrajectory({ company, trajectory }: Props) {
+// Map a peer year to its x-coordinate inside the chart. Looks for the first
+// period that mentions the year (e.g. "Q1 2024"); returns null when the peer
+// year falls outside the chart's window.
+function peerIndexForYear(year: number, periods: string[]): number | null {
+  for (let i = 0; i < periods.length; i++) {
+    if (periods[i].includes(String(year))) return i;
+  }
+  return null;
+}
+
+export function CompositeTrajectory({
+  company,
+  trajectory,
+  industryPeers,
+}: Props) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [width, setWidth] = React.useState(900);
 
@@ -57,6 +76,23 @@ export function CompositeTrajectory({ company, trajectory }: Props) {
     .join(" ");
   const projPath = projected
     .map((v, i) => `${i === 0 ? "M" : "L"} ${xAt(todayIndex + i)} ${yAt(v)}`)
+    .join(" ");
+
+  // Peer line : map each yearly average to the first chart period that
+  // mentions the year. Skip peers that fall outside the chart window.
+  const peerPoints = industryPeers
+    ? industryPeers.yearlyAverages
+        .map((p) => {
+          const idx = peerIndexForYear(p.year, periods);
+          return idx === null ? null : { idx, value: p.avgComposite };
+        })
+        .filter((p): p is { idx: number; value: number } => p !== null)
+        .sort((a, b) => a.idx - b.idx)
+    : [];
+  const peerPath = peerPoints
+    .map(
+      (p, i) => `${i === 0 ? "M" : "L"} ${xAt(p.idx)} ${yAt(p.value)}`,
+    )
     .join(" ");
 
   const thresholdY = yAt(80);
@@ -215,6 +251,32 @@ export function CompositeTrajectory({ company, trajectory }: Props) {
 
           <path d={`${confTop}${confBot}Z`} fill="url(#trajGrad)" />
 
+          {peerPath && (
+            <>
+              <path
+                d={peerPath}
+                stroke="#64748B"
+                strokeWidth="2"
+                strokeDasharray="6 5"
+                fill="none"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                opacity="0.85"
+              />
+              {peerPoints.map((p) => (
+                <circle
+                  key={`peer-${p.idx}`}
+                  cx={xAt(p.idx)}
+                  cy={yAt(p.value)}
+                  r="3.25"
+                  fill="white"
+                  stroke="#64748B"
+                  strokeWidth="1.75"
+                />
+              ))}
+            </>
+          )}
+
           <path
             d={histPath}
             stroke="#2B3E8F"
@@ -307,6 +369,12 @@ export function CompositeTrajectory({ company, trajectory }: Props) {
       <div className="mt-4 flex flex-wrap gap-x-[22px] gap-y-2 border-t border-glacier pt-4">
         <LegendItem swatch={<DotSolid color="#2B3E8F" />} label="Composite score (historical)" />
         <LegendItem swatch={<DotSolid color="#00A2E9" />} label="Composite score (projected)" />
+        {industryPeers && (
+          <LegendItem
+            swatch={<DotDashed color="#64748B" />}
+            label={`Industry peer average · ${industryPeers.peerCount} peers`}
+          />
+        )}
         <LegendItem swatch={<DotDashed color="#64748B" />} label="UK ILR threshold (Band A composite 80)" />
         <LegendItem swatch={<DotSolid color="rgba(0,162,233,0.2)" />} label="Confidence band" />
       </div>

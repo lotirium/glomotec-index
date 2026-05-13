@@ -10,17 +10,29 @@ import {
   type PageAudit,
 } from "@/components/atlas/audit-context";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
+import { CollapsibleContext } from "@/components/atlas/collapsible-context";
 import { FlowSankey, type FramingMode } from "@/components/atlas/flow-sankey";
 import { FlowListMobile } from "@/components/atlas/flow-list-mobile";
 import { rubricGrade } from "@/components/atlas/audit-helpers";
+import {
+  FLOW_PAIRS_BY_YEAR,
+  FLOW_YEARS,
+  FLOW_HISTORY_FIXTURE_VERSION,
+  YEAR_CONTEXT,
+  YEAR_REGIME,
+  type FlowYear,
+} from "@/lib/atlas/flow-data";
 import type { FlowSankeyData } from "@/lib/atlas/types";
 
 interface Props {
   data: FlowSankeyData;
   basePageAudit: Omit<PageAudit, "jurisdiction">;
+  description: string;
 }
 
-export function FlowView({ data, basePageAudit }: Props) {
+const DEFAULT_YEAR: FlowYear = 2025;
+
+export function FlowView({ data, basePageAudit, description }: Props) {
   const pageAudit: PageAudit = React.useMemo(
     () => ({
       ...basePageAudit,
@@ -30,7 +42,7 @@ export function FlowView({ data, basePageAudit }: Props) {
   );
   return (
     <AuditTrailProvider pageAudit={pageAudit}>
-      <FlowBody data={data} />
+      <FlowBody data={data} description={description} />
     </AuditTrailProvider>
   );
 }
@@ -47,11 +59,21 @@ function useIsDesktop(query = "(min-width: 768px)"): boolean | null {
   return isMatch;
 }
 
-function FlowBody({ data }: { data: FlowSankeyData }) {
+function FlowBody({
+  data,
+  description,
+}: {
+  data: FlowSankeyData;
+  description: string;
+}) {
   const [framing, setFraming] = React.useState<FramingMode>("rejected");
+  const [year, setYear] = React.useState<FlowYear>(DEFAULT_YEAR);
   const isDesktop = useIsDesktop();
 
-  const evidence: AuditEvidence = React.useMemo(
+  // Stats strip stays anchored to the published 2025 JSON fixture : these are
+  // the four headline takeaways for the sample window and shouldn't move as
+  // the user scrubs through history.
+  const stripEvidence: AuditEvidence = React.useMemo(
     () => ({
       authority: "Anonymised caseworker decision logs + ORBIT partner network sample",
       dataset: "fixtures/atlas/flow-pairs.json",
@@ -62,7 +84,22 @@ function FlowBody({ data }: { data: FlowSankeyData }) {
     [data.sample_window_end],
   );
 
-  // Stats derived from the fixture per spec.
+  // Sankey + mobile list use the year-selected fixture. Evidence reflects
+  // the selected year so the audit sidebar is honest about the source.
+  const yearEvidence: AuditEvidence = React.useMemo(
+    () => ({
+      authority: "UK Home Office case file aggregates",
+      dataset: `Cross-jurisdictional flow snapshot, ${year} window (illustrative)`,
+      lastUpdated: FLOW_HISTORY_FIXTURE_VERSION,
+      confidence: "medium",
+      fixtureRef: "lib/atlas/flow-data.ts",
+    }),
+    [year],
+  );
+
+  const yearPairs = FLOW_PAIRS_BY_YEAR[year];
+
+  // Strip stats derived from the published 2025 JSON fixture per spec.
   const ukUae = data.pairs.find((p) => p.from === "UK" && p.to === "UAE")?.value ?? 0;
   const usSg = data.pairs.find((p) => p.from === "US" && p.to === "Singapore")?.value ?? 0;
   const uaeUk = data.pairs.find((p) => p.from === "UAE" && p.to === "UK")?.value ?? 0;
@@ -70,8 +107,11 @@ function FlowBody({ data }: { data: FlowSankeyData }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_19rem] lg:gap-10">
       <div className="min-w-0 space-y-10">
+        <CollapsibleContext label="What the ribbons trace">
+          <p>{description}</p>
+        </CollapsibleContext>
         <StatsStrip
-          evidence={evidence}
+          evidence={stripEvidence}
           cells={[
             {
               id: "stats/uk-to-uae",
@@ -95,10 +135,17 @@ function FlowBody({ data }: { data: FlowSankeyData }) {
               id: "stats/absorption-years",
               value: 5,
               label: "Years for the next destination to fully absorb the flow",
-              proposition: "Estimated time for the next destination to fully absorb a tightened-policy spillover : five years.",
+              proposition:
+                "Estimated time for the next destination to fully absorb a tightened-policy spillover : five years.",
               hardcoded: true,
             },
           ]}
+        />
+
+        <YearSelector
+          year={year}
+          setYear={setYear}
+          evidence={yearEvidence}
         />
 
         {/* TOGGLE */}
@@ -150,15 +197,15 @@ function FlowBody({ data }: { data: FlowSankeyData }) {
             />
           ) : isDesktop ? (
             <FlowSankey
-              pairs={data.pairs}
+              pairs={yearPairs}
               framing={framing}
-              evidence={evidence}
+              evidence={yearEvidence}
             />
           ) : (
             <FlowListMobile
-              pairs={data.pairs}
+              pairs={yearPairs}
               framing={framing}
-              evidence={evidence}
+              evidence={yearEvidence}
             />
           )}
         </section>
@@ -168,6 +215,84 @@ function FlowBody({ data }: { data: FlowSankeyData }) {
 
       <AuditSidebar />
     </div>
+  );
+}
+
+function YearSelector({
+  year,
+  setYear,
+  evidence,
+}: {
+  year: FlowYear;
+  setYear: (y: FlowYear) => void;
+  evidence: AuditEvidence;
+}) {
+  const { hover } = useAuditTrail();
+
+  const focusFor = React.useCallback(
+    (y: FlowYear): AuditFocus => ({
+      id: `flow/year-${y}`,
+      proposition: `Cross-jurisdictional flows for ${y}. Active policy regime : ${YEAR_REGIME[y]}.`,
+      evidence: [evidence],
+      grade: rubricGrade(
+        "Historical flow snapshot at five-year interval. Volumes anchored to recorded policy inflection points.",
+      ),
+    }),
+    [evidence],
+  );
+
+  // Keep the audit sidebar showing the year focus as long as the selector
+  // is active. Pinning the year would toggle off on re-click, which is
+  // surprising; using hover() keeps the proposition visible until a ribbon
+  // or stat takes over.
+  React.useEffect(() => {
+    hover(focusFor(year));
+  }, [year, hover, focusFor]);
+
+  return (
+    <section
+      aria-label="Year selector for cross-jurisdictional flows"
+      className="rounded-md border border-line bg-surface px-4 py-4 md:px-6 md:py-5"
+    >
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
+          Year
+        </p>
+        <div
+          role="tablist"
+          aria-label="Snapshot year"
+          className="flex flex-wrap items-center gap-1.5"
+        >
+          {FLOW_YEARS.map((y) => {
+            const active = y === year;
+            return (
+              <button
+                key={y}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setYear(y)}
+                onMouseEnter={() => hover(focusFor(y))}
+                onMouseLeave={() => hover(focusFor(year))}
+                onFocus={() => hover(focusFor(y))}
+                onBlur={() => hover(focusFor(year))}
+                className={cn(
+                  "rounded-full border px-3.5 py-1.5 text-[11px] font-mono uppercase tracking-[0.18em] tabular transition-colors",
+                  active
+                    ? "border-accent bg-accent text-surface"
+                    : "border-line bg-surface-soft text-ink-muted hover:border-cyan/40 hover:text-ink",
+                )}
+              >
+                {y}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+        {YEAR_CONTEXT[year]}
+      </p>
+    </section>
   );
 }
 

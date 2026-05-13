@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   AuditTrailProvider,
@@ -10,198 +11,1135 @@ import {
   type PageAudit,
 } from "@/components/atlas/audit-context";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
+import { CollapsibleContext } from "@/components/atlas/collapsible-context";
 import { RUBRIC_VERSION } from "@/lib/atlas/rubric";
+import {
+  BACKTEST_SCENARIOS,
+  DEFAULTS,
+  ENGLISH_ORDER,
+  FORECAST_BASE_YEAR,
+  FORECAST_HORIZON_YEARS,
+  INVESTOR_CLOSED,
+  INVESTOR_MIN,
+  INVESTOR_STEP,
+  SIMULATOR_ENTITIES,
+  SIMULATOR_FIXTURE_VERSION,
+  backtestUnitLabel,
+  categoriseEntities,
+  dominantSalaryFloorSectors,
+  findScenario,
+  formatBacktestValue,
+  projectEligibleTrajectory,
+  type BacktestScenario,
+  type CategoriseResult,
+  type EnglishLevel,
+  type ForecastTrajectory,
+  type LeverState,
+} from "@/lib/atlas/simulator-fixtures";
 
-// ----- Entity generation (deterministic, module-scope memoized) -----
+// Horizon options for the forecast chart. The numbers are years from
+// FORECAST_BASE_YEAR (2026); end-year labels are derived.
+const HORIZON_OPTIONS = [3, 10, FORECAST_HORIZON_YEARS] as const;
+type HorizonYears = (typeof HORIZON_OPTIONS)[number];
 
-interface Entity {
-  id: number;
-  innovation: number;
-  viability: number;
-  scalability: number;
-  localisation: number;
-  sector: string;
-  zone: string;
-}
-
-const SECTORS = [
-  "AI",
-  "Fintech",
-  "Logistics",
-  "Manufacturing",
-  "Family Office",
-  "Healthcare",
-  "Commodities",
-  "Professional Services",
-] as const;
-const ZONES = ["DMCC", "DIFC", "ADGM", "JAFZA"] as const;
-
-function generateEntities(): Entity[] {
-  const entities: Entity[] = [];
-  for (let i = 0; i < 280; i++) {
-    const rand = ((i * 9301 + 49297) % 233280) / 233280;
-    let target: number;
-    if (i < 28) target = 82 + rand * 14;
-    else if (i < 120) target = 62 + rand * 16;
-    else if (i < 225) target = 42 + rand * 16;
-    else target = 24 + rand * 14;
-    const innovation = Math.max(15, Math.min(100, target + Math.sin(i * 0.3) * 10));
-    const viability = Math.max(15, Math.min(100, target + Math.cos(i * 0.4) * 10));
-    const scalability = Math.max(15, Math.min(100, target + Math.sin(i * 0.5) * 10));
-    // Source uses 0.7, not 7 — spec contains a typo; with *7 every entity
-    // would clamp to 100 and the localisation lever would have no effect.
-    const localisation = Math.max(
-      0,
-      Math.min(100, 25 + ((i * 13) % 100) * 0.7),
-    );
-    entities.push({
-      id: i,
-      innovation,
-      viability,
-      scalability,
-      localisation,
-      sector: SECTORS[i % SECTORS.length],
-      zone: ZONES[i % ZONES.length],
-    });
-  }
-  return entities;
-}
-
-const ENTITIES: Entity[] = generateEntities();
-
-// ----- Scoring -----
-
-interface Bands {
-  A: number;
-  B: number;
-  C: number;
-  D: number;
-}
-
-function scoreEntities(
-  innovWeight: number,
-  threshold: number,
-  locFloor: number,
-): Bands {
-  const innovW = innovWeight / 100;
-  const remaining = (1 - innovW) / 2;
-  const bands: Bands = { A: 0, B: 0, C: 0, D: 0 };
-  for (const e of ENTITIES) {
-    let composite =
-      e.innovation * innovW + e.viability * remaining + e.scalability * remaining;
-    if (locFloor > 0 && e.localisation < locFloor) {
-      composite = Math.min(composite, 59);
-    }
-    if (composite >= threshold) bands.A++;
-    else if (composite >= 60) bands.B++;
-    else if (composite >= 40) bands.C++;
-    else bands.D++;
-  }
-  return bands;
-}
-
-function projectForecast(currentBands: Bands, simBands: Bands) {
-  const growthRate = 0.14;
-  const currentTraj = [currentBands.A];
-  const simTraj = [simBands.A];
-  for (let yr = 1; yr < 4; yr++) {
-    currentTraj.push(Math.round(currentTraj[yr - 1] * (1 + growthRate)));
-    simTraj.push(
-      Math.round(
-        simTraj[yr - 1] *
-          (1 + growthRate * (simBands.A / Math.max(currentBands.A, 1))),
-      ),
-    );
-  }
-  return { currentTraj, simTraj };
-}
-
-// Default settings (the "current policy" baseline).
-const DEFAULT_INNOV = 50;
-const DEFAULT_THRESH = 80;
-const DEFAULT_LOC = 0;
+const SKILLED_WORKER_TOTAL = SIMULATOR_ENTITIES.filter(
+  (e) => e.route === "Skilled Worker",
+).length;
 
 // ----- View root -----
 
 interface Props {
   basePageAudit: Omit<PageAudit, "jurisdiction">;
+  description: string;
 }
 
-export function PolicySimulatorView({ basePageAudit }: Props) {
+export function PolicySimulatorView({ basePageAudit, description }: Props) {
   const pageAudit: PageAudit = React.useMemo(
-    () => ({ ...basePageAudit, jurisdiction: "UAE" }),
+    () => ({ ...basePageAudit, jurisdiction: "United Kingdom" }),
     [basePageAudit],
   );
   return (
     <AuditTrailProvider pageAudit={pageAudit}>
-      <SimulatorBody />
+      <SimulatorBody description={description} />
     </AuditTrailProvider>
   );
 }
 
-// ----- Body with state + layout -----
+// ----- Body -----
 
-function SimulatorBody() {
-  const [innovWeight, setInnovWeight] = React.useState(DEFAULT_INNOV);
-  const [threshold, setThreshold] = React.useState(DEFAULT_THRESH);
-  const [locFloor, setLocFloor] = React.useState(DEFAULT_LOC);
+function SimulatorBody({ description }: { description: string }) {
+  const [liveLevers, setLiveLevers] = React.useState<LeverState>(DEFAULTS);
+  const [backtestActive, setBacktestActive] = React.useState(false);
+  const [scenarioId, setScenarioId] = React.useState<string>(
+    BACKTEST_SCENARIOS[0].id,
+  );
+  const [horizonYears, setHorizonYears] = React.useState<HorizonYears>(3);
 
-  const currentBands = React.useMemo(
-    () => scoreEntities(DEFAULT_INNOV, DEFAULT_THRESH, DEFAULT_LOC),
+  const scenario = React.useMemo(
+    () => findScenario(scenarioId) ?? BACKTEST_SCENARIOS[0],
+    [scenarioId],
+  );
+
+  // Levers shown to the user. In live mode they come from liveLevers (the
+  // user's editable state). In backtest mode they come from the selected
+  // scenario's leversBeforeEvent and are read-only.
+  const levers: LeverState = backtestActive
+    ? scenario.leversBeforeEvent
+    : liveLevers;
+
+  const baseline = React.useMemo(() => categoriseEntities(DEFAULTS), []);
+  const current = React.useMemo(() => categoriseEntities(levers), [levers]);
+  const forecast = React.useMemo(
+    () =>
+      projectEligibleTrajectory(
+        baseline.counts.eligible,
+        current.counts.eligible,
+      ),
+    [baseline.counts.eligible, current.counts.eligible],
+  );
+
+  const reset = React.useCallback(() => setLiveLevers(DEFAULTS), []);
+
+  const setLever = React.useCallback(
+    <K extends keyof LeverState>(key: K, value: LeverState[K]) =>
+      setLiveLevers((prev) => ({ ...prev, [key]: value })),
     [],
   );
-  const simBands = React.useMemo(
-    () => scoreEntities(innovWeight, threshold, locFloor),
-    [innovWeight, threshold, locFloor],
-  );
-  const forecast = React.useMemo(
-    () => projectForecast(currentBands, simBands),
-    [currentBands, simBands],
-  );
-
-  const reset = React.useCallback(() => {
-    setInnovWeight(DEFAULT_INNOV);
-    setThreshold(DEFAULT_THRESH);
-    setLocFloor(DEFAULT_LOC);
-  }, []);
 
   return (
     <>
       <SliderThumbStyles />
-      <div className="grid grid-cols-1 gap-7 simulator-shell:grid-cols-[360px_1fr_19rem] simulator-shell:gap-10">
+      <CollapsibleContext label="How the sliders work" className="mb-7">
+        <p>{description}</p>
+      </CollapsibleContext>
+      <div className="grid grid-cols-1 gap-7 simulator-shell:grid-cols-[400px_1fr_19rem] simulator-shell:gap-10">
         <SimulatorControls
-          innovWeight={innovWeight}
-          threshold={threshold}
-          locFloor={locFloor}
-          setInnovWeight={setInnovWeight}
-          setThreshold={setThreshold}
-          setLocFloor={setLocFloor}
+          levers={levers}
+          setLever={setLever}
           reset={reset}
+          backtestActive={backtestActive}
+          setBacktestActive={setBacktestActive}
+          scenarioId={scenarioId}
+          setScenarioId={setScenarioId}
         />
         <div className="min-w-0 space-y-6">
-          <ComparisonPanels
-            innovWeight={innovWeight}
-            threshold={threshold}
-            locFloor={locFloor}
-            currentBands={currentBands}
-            simBands={simBands}
-          />
+          <StateDistributionBar result={current} backtestActive={backtestActive} />
+          {backtestActive && <BacktestComparisonPanel scenario={scenario} />}
           <ForecastChart
-            currentTraj={forecast.currentTraj}
-            simTraj={forecast.simTraj}
+            forecast={forecast}
+            horizonYears={horizonYears}
+            setHorizonYears={setHorizonYears}
           />
           <InsightBanner
-            currentBands={currentBands}
-            simBands={simBands}
-            innovWeight={innovWeight}
-            threshold={threshold}
-            locFloor={locFloor}
+            levers={levers}
+            current={current}
+            baseline={baseline}
+            backtestActive={backtestActive}
+            scenario={scenario}
+            horizonYears={horizonYears}
           />
         </div>
         <AuditSidebar />
       </div>
     </>
   );
+}
+
+// ----- Controls -----
+
+interface ControlsProps {
+  levers: LeverState;
+  setLever: <K extends keyof LeverState>(key: K, value: LeverState[K]) => void;
+  reset: () => void;
+  backtestActive: boolean;
+  setBacktestActive: (active: boolean) => void;
+  scenarioId: string;
+  setScenarioId: (id: string) => void;
+}
+
+function SimulatorControls({
+  levers,
+  setLever,
+  reset,
+  backtestActive,
+  setBacktestActive,
+  scenarioId,
+  setScenarioId,
+}: ControlsProps) {
+  const readOnly = backtestActive;
+  const isDefault =
+    levers.isc === DEFAULTS.isc &&
+    levers.ihs === DEFAULTS.ihs &&
+    levers.cos === DEFAULTS.cos &&
+    levers.minSalary === DEFAULTS.minSalary &&
+    levers.englishLevel === DEFAULTS.englishLevel &&
+    levers.settlementYears === DEFAULTS.settlementYears &&
+    levers.ilrFee === DEFAULTS.ilrFee &&
+    levers.investorThreshold === DEFAULTS.investorThreshold;
+
+  return (
+    <aside className="simulator-controls-sticky h-fit space-y-3 lg:sticky lg:top-20 lg:self-start">
+      <header className="space-y-3 px-1">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
+              {backtestActive ? "Backtest mode" : "Home Office policy levers"}
+            </p>
+            <h2 className="mt-1 text-xl font-bold tracking-tight text-accent">
+              {backtestActive ? "Rules of the day." : "Eight levers."}
+            </h2>
+          </div>
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              type="button"
+              role="switch"
+              aria-checked={backtestActive}
+              onClick={() => setBacktestActive(!backtestActive)}
+              className={cn(
+                "inline-flex items-center gap-1 rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors",
+                backtestActive
+                  ? "border-slate bg-slate text-surface"
+                  : "border-line bg-surface-soft text-ink-muted hover:text-ink hover:border-accent/40",
+              )}
+            >
+              Backtest mode
+            </button>
+            <button
+              type="button"
+              onClick={reset}
+              disabled={isDefault || backtestActive}
+              className={cn(
+                "inline-flex shrink-0 items-center gap-1 rounded-full border border-line bg-surface-soft px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors",
+                isDefault || backtestActive
+                  ? "text-ink-faint"
+                  : "text-ink-muted hover:text-ink hover:border-accent/40",
+              )}
+            >
+              Reset to April 2026
+            </button>
+          </div>
+        </div>
+        {backtestActive && (
+          <div className="rounded-md border border-dashed border-slate/60 bg-surface-soft/40 px-3 py-2.5">
+            <label
+              htmlFor="backtest-scenario"
+              className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted"
+            >
+              Select a historical event
+            </label>
+            <select
+              id="backtest-scenario"
+              value={scenarioId}
+              onChange={(e) => setScenarioId(e.target.value)}
+              className="mt-1 block w-full rounded-sm border border-line bg-surface px-2 py-1.5 text-sm font-medium text-ink outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
+            >
+              {BACKTEST_SCENARIOS.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+      </header>
+
+      <LeverSection label="Cost levers" defaultOpen>
+        <SliderGroup
+          id="isc-slider"
+          name="immigration-skills-charge"
+          label="Immigration Skills Charge"
+          helper="Higher charge reduces sponsorships from cost-sensitive employers."
+          value={levers.isc}
+          onChange={(v) => setLever("isc", v)}
+          min={0}
+          max={2000}
+          step={40}
+          formatValue={(v) => `£${v.toLocaleString("en-GB")}/yr`}
+          metaLeft="Medium/large : £1,320"
+          metaCentre=""
+          metaRight="Small/charitable : £480"
+          note="Post 32% rise December 2025."
+          readOnly={readOnly}
+          audit={{
+            label: "Immigration Skills Charge",
+            defaultValue: `£${DEFAULTS.isc.toLocaleString("en-GB")}/yr`,
+            evidence: {
+              authority: "UK Home Office",
+              dataset: "Immigration Skills Charge published rates",
+              lastUpdated: SIMULATOR_FIXTURE_VERSION,
+              confidence: "high",
+            },
+          }}
+        />
+        <SliderGroup
+          id="ihs-slider"
+          name="immigration-health-surcharge"
+          label="Immigration Health Surcharge"
+          helper="Higher surcharge raises total cost of a Skilled Worker route for the applicant."
+          value={levers.ihs}
+          onChange={(v) => setLever("ihs", v)}
+          min={0}
+          max={2000}
+          step={25}
+          formatValue={(v) => `£${v.toLocaleString("en-GB")}/yr`}
+          metaLeft="£0"
+          metaCentre={`Default £${DEFAULTS.ihs.toLocaleString("en-GB")}`}
+          metaRight="£2,000"
+          readOnly={readOnly}
+          audit={{
+            label: "Immigration Health Surcharge",
+            defaultValue: `£${DEFAULTS.ihs.toLocaleString("en-GB")}/yr`,
+            evidence: {
+              authority: "UK Home Office",
+              dataset: "Immigration Health Surcharge schedule",
+              lastUpdated: SIMULATOR_FIXTURE_VERSION,
+              confidence: "high",
+            },
+          }}
+        />
+        <SliderGroup
+          id="cos-slider"
+          name="certificate-of-sponsorship"
+          label="Certificate of Sponsorship fee"
+          helper="Per-CoS fee charged to sponsoring employer at point of issue."
+          value={levers.cos}
+          onChange={(v) => setLever("cos", v)}
+          min={0}
+          max={1000}
+          step={25}
+          formatValue={(v) => `£${v.toLocaleString("en-GB")}`}
+          metaLeft="£0"
+          metaCentre={`Default £${DEFAULTS.cos.toLocaleString("en-GB")}`}
+          metaRight="£1,000"
+          readOnly={readOnly}
+          audit={{
+            label: "Certificate of Sponsorship fee",
+            defaultValue: `£${DEFAULTS.cos.toLocaleString("en-GB")}`,
+            evidence: {
+              authority: "UK Home Office",
+              dataset: "Certificate of Sponsorship fees",
+              lastUpdated: SIMULATOR_FIXTURE_VERSION,
+              confidence: "high",
+            },
+          }}
+        />
+      </LeverSection>
+
+      <LeverSection label="Threshold levers" defaultOpen>
+        <SliderGroup
+          id="min-salary-slider"
+          name="skilled-worker-minimum-salary"
+          label="Skilled Worker minimum salary"
+          helper="Higher minimum salary excludes lower-paid roles from the Skilled Worker route."
+          value={levers.minSalary}
+          onChange={(v) => setLever("minSalary", v)}
+          min={20_000}
+          max={60_000}
+          step={500}
+          formatValue={(v) => `£${v.toLocaleString("en-GB")}`}
+          metaLeft="£20K"
+          metaCentre={`Default £${DEFAULTS.minSalary.toLocaleString("en-GB")}`}
+          metaRight="£60K"
+          note="Up from £38,700 (April 2024)."
+          readOnly={readOnly}
+          audit={{
+            label: "Skilled Worker minimum salary",
+            defaultValue: `£${DEFAULTS.minSalary.toLocaleString("en-GB")}`,
+            evidence: {
+              authority: "UK Home Office",
+              dataset: "Skilled Worker minimum salary thresholds",
+              lastUpdated: SIMULATOR_FIXTURE_VERSION,
+              confidence: "high",
+            },
+          }}
+        />
+        <EnglishLevelSelector
+          value={levers.englishLevel}
+          onChange={(lvl) => setLever("englishLevel", lvl)}
+          readOnly={readOnly}
+        />
+        <SliderGroup
+          id="settlement-years-slider"
+          name="settlement-qualifying-period"
+          label="Settlement qualifying period"
+          helper="Years of continuous residence required before ILR eligibility."
+          value={levers.settlementYears}
+          onChange={(v) => setLever("settlementYears", v)}
+          min={5}
+          max={15}
+          step={1}
+          formatValue={(v) => `${v} years`}
+          metaLeft="5"
+          metaCentre={`Default ${DEFAULTS.settlementYears}`}
+          metaRight="15"
+          readOnly={readOnly}
+          audit={{
+            label: "Settlement qualifying period",
+            defaultValue: `${DEFAULTS.settlementYears} years`,
+            evidence: {
+              authority: "UK Home Office",
+              dataset: "ILR qualifying period rules",
+              lastUpdated: SIMULATOR_FIXTURE_VERSION,
+              confidence: "high",
+            },
+          }}
+        />
+      </LeverSection>
+
+      <LeverSection label="Settlement levers" defaultOpen>
+        <SliderGroup
+          id="ilr-fee-slider"
+          name="ilr-application-fee"
+          label="ILR fee"
+          helper="Indefinite Leave to Remain application fee."
+          value={levers.ilrFee}
+          onChange={(v) => setLever("ilrFee", v)}
+          min={0}
+          max={6000}
+          step={100}
+          formatValue={(v) => `£${v.toLocaleString("en-GB")}`}
+          metaLeft="£0"
+          metaCentre={`Default £${DEFAULTS.ilrFee.toLocaleString("en-GB")}`}
+          metaRight="£6,000"
+          note="From 8 April 2026."
+          readOnly={readOnly}
+          audit={{
+            label: "ILR application fee",
+            defaultValue: `£${DEFAULTS.ilrFee.toLocaleString("en-GB")}`,
+            evidence: {
+              authority: "UK Home Office",
+              dataset: "ILR application fee schedule",
+              lastUpdated: SIMULATOR_FIXTURE_VERSION,
+              confidence: "high",
+            },
+          }}
+        />
+        <SliderGroup
+          id="investor-slider"
+          name="investor-threshold"
+          label="Investor threshold"
+          helper="Minimum investment required for the Investor route. Currently closed since 2022."
+          value={levers.investorThreshold}
+          onChange={(v) => setLever("investorThreshold", v)}
+          min={INVESTOR_MIN}
+          max={INVESTOR_CLOSED}
+          step={INVESTOR_STEP}
+          formatValue={(v) =>
+            v >= INVESTOR_CLOSED
+              ? "Closed"
+              : v === 0
+                ? "£0"
+                : `£${(v / 1_000_000).toFixed(1)}M`
+          }
+          metaLeft="£0"
+          metaCentre={`Default £${(DEFAULTS.investorThreshold / 1_000_000).toFixed(0)}M`}
+          metaRight="Closed"
+          note="Currently closed (2022 closure)."
+          readOnly={readOnly}
+          audit={{
+            label: "Investor route threshold",
+            defaultValue: `£${(DEFAULTS.investorThreshold / 1_000_000).toFixed(0)}M`,
+            evidence: {
+              authority: "UK Home Office",
+              dataset: "Tier 1 Investor route history",
+              lastUpdated: SIMULATOR_FIXTURE_VERSION,
+              confidence: "high",
+            },
+          }}
+        />
+      </LeverSection>
+    </aside>
+  );
+}
+
+// ----- Lever section accordion -----
+
+function LeverSection({
+  label,
+  defaultOpen = true,
+  children,
+}: {
+  label: string;
+  defaultOpen?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <details
+      open={defaultOpen}
+      className="group rounded-md border border-glacier bg-surface"
+    >
+      <summary className="flex cursor-pointer list-none items-center gap-2 rounded-md px-5 py-3 outline-none transition-colors hover:bg-surface-soft/60 focus-visible:ring-2 focus-visible:ring-accent/40">
+        <ChevronRight
+          aria-hidden
+          className="h-3 w-3 shrink-0 text-cyan transition-transform duration-200 group-open:rotate-90"
+        />
+        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-cyan">
+          {label}
+        </span>
+      </summary>
+      <div className="space-y-6 border-t border-line/60 px-5 py-5">
+        {children}
+      </div>
+    </details>
+  );
+}
+
+// ----- Slider group -----
+
+interface SliderProps {
+  id: string;
+  name: string;
+  label: string;
+  helper: string;
+  value: number;
+  onChange: (v: number) => void;
+  min: number;
+  max: number;
+  step: number;
+  formatValue: (v: number) => string;
+  metaLeft: string;
+  metaCentre: string;
+  metaRight: string;
+  note?: string;
+  readOnly?: boolean;
+  audit: {
+    label: string;
+    defaultValue: string;
+    evidence: AuditEvidence;
+  };
+}
+
+function SliderGroup(props: SliderProps) {
+  const { hover } = useAuditTrail();
+  const [isActive, setIsActive] = React.useState(false);
+
+  const focus: AuditFocus = {
+    id: `simulator/${props.name}`,
+    proposition: `${props.audit.label} : ${props.formatValue(
+      props.value,
+    )}. Default policy ${props.audit.defaultValue}.`,
+    evidence: [props.audit.evidence],
+    grade: {
+      rubricVersion: RUBRIC_VERSION,
+      rubricHref: "/atlas/rubric",
+      method:
+        "Live re-score across the 280-entity sample. Filters and cost pressure applied in-browser.",
+    },
+  };
+
+  React.useEffect(() => {
+    if (isActive) hover(focus);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.value, isActive]);
+
+  const activate = () => {
+    setIsActive(true);
+    hover(focus);
+  };
+  const deactivate = () => {
+    setIsActive(false);
+    hover(null);
+  };
+
+  return (
+    <div
+      className="group rounded-sm focus-within:bg-cyan-tint/20"
+      onMouseEnter={activate}
+      onMouseLeave={deactivate}
+    >
+      <div className="flex items-baseline justify-between gap-3">
+        <label htmlFor={props.id} className="text-sm font-semibold text-ink">
+          {props.label}
+        </label>
+        <span className="font-mono text-sm font-bold tabular text-cyan">
+          {props.formatValue(props.value)}
+        </span>
+      </div>
+      <p className="mt-1 text-2xs text-ink-muted">{props.helper}</p>
+      <input
+        id={props.id}
+        type="range"
+        className={cn(
+          "atlas-slider mt-3",
+          props.readOnly && "atlas-slider-readonly",
+        )}
+        min={props.min}
+        max={props.max}
+        step={props.step}
+        value={props.value}
+        disabled={props.readOnly}
+        aria-readonly={props.readOnly}
+        onChange={(e) => props.onChange(Number(e.target.value))}
+        onFocus={activate}
+        onBlur={deactivate}
+      />
+      <div className="mt-2 flex justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">
+        <span>{props.metaLeft}</span>
+        <span className="text-center">{props.metaCentre}</span>
+        <span className="text-right">{props.metaRight}</span>
+      </div>
+      {props.note && (
+        <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">
+          {props.note}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ----- English level segmented control -----
+
+function EnglishLevelSelector({
+  value,
+  onChange,
+  readOnly = false,
+}: {
+  value: EnglishLevel;
+  onChange: (lvl: EnglishLevel) => void;
+  readOnly?: boolean;
+}) {
+  const { hover } = useAuditTrail();
+  const focus: AuditFocus = {
+    id: "simulator/english-level",
+    proposition: `English language requirement : ${value}. Default policy ${DEFAULTS.englishLevel}.`,
+    evidence: [
+      {
+        authority: "UK Home Office",
+        dataset: "English language requirements (CEFR)",
+        lastUpdated: SIMULATOR_FIXTURE_VERSION,
+        confidence: "high",
+      },
+    ],
+    grade: {
+      rubricVersion: RUBRIC_VERSION,
+      rubricHref: "/atlas/rubric",
+      method:
+        "Hard exclusion filter : entities below the required CEFR level fail the route.",
+    },
+  };
+  return (
+    <div
+      className="rounded-sm focus-within:bg-cyan-tint/20"
+      onMouseEnter={() => hover(focus)}
+      onMouseLeave={() => hover(null)}
+    >
+      <div className="flex items-baseline justify-between gap-3">
+        <span className="text-sm font-semibold text-ink">
+          English language requirement
+        </span>
+        <span className="font-mono text-sm font-bold tabular text-cyan">
+          CEFR {value}
+        </span>
+      </div>
+      <p className="mt-1 text-2xs text-ink-muted">
+        Higher CEFR level excludes applicants with lower English proficiency.
+      </p>
+      <div
+        role="radiogroup"
+        aria-label="English language requirement"
+        className="mt-3 inline-flex w-full rounded-full border border-line bg-surface-soft p-1"
+      >
+        {ENGLISH_ORDER.map((lvl) => {
+          const active = lvl === value;
+          return (
+            <button
+              key={lvl}
+              type="button"
+              role="radio"
+              aria-checked={active}
+              disabled={readOnly}
+              onClick={() => onChange(lvl)}
+              onFocus={() => hover(focus)}
+              onBlur={() => hover(null)}
+              className={cn(
+                "flex-1 rounded-full px-2 py-1 text-[11px] font-mono uppercase tracking-[0.18em] transition-colors disabled:cursor-not-allowed",
+                active
+                  ? "bg-accent text-surface"
+                  : readOnly
+                    ? "text-ink-faint"
+                    : "text-ink-muted hover:text-ink",
+              )}
+            >
+              {lvl}
+            </button>
+          );
+        })}
+      </div>
+      <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">
+        Raised from B1 in January 2026.
+      </p>
+    </div>
+  );
+}
+
+// ----- Four-state stacked bar -----
+
+function StateDistributionBar({
+  result,
+  backtestActive = false,
+}: {
+  result: CategoriseResult;
+  backtestActive?: boolean;
+}) {
+  const { counts } = result;
+  const total =
+    counts.eligible + counts.marginal + counts.excluded + counts.uncategorised;
+  const slices = [
+    {
+      key: "eligible" as const,
+      label: "Eligible",
+      value: counts.eligible,
+      cssColor: "bg-cyan",
+      swatch: "hsl(var(--cyan))",
+    },
+    {
+      key: "marginal" as const,
+      label: "Marginal",
+      value: counts.marginal,
+      cssColor: "bg-glacier",
+      swatch: "hsl(var(--glacier))",
+    },
+    {
+      key: "excluded" as const,
+      label: "Excluded",
+      value: counts.excluded,
+      cssColor: "bg-slate",
+      swatch: "hsl(var(--slate))",
+    },
+    {
+      key: "uncategorised" as const,
+      label: "Uncategorised",
+      value: counts.uncategorised,
+      cssColor: "bg-frost",
+      swatch: "hsl(var(--frost))",
+    },
+  ];
+
+  return (
+    <section
+      aria-labelledby="state-dist-heading"
+      className={cn(
+        "rounded-md border bg-surface p-5 md:p-7",
+        backtestActive
+          ? "border-dashed border-slate/70"
+          : "border-glacier",
+      )}
+    >
+      <header className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
+        <div>
+          <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
+            Sample distribution
+          </p>
+          <h3
+            id="state-dist-heading"
+            className="mt-1 text-[1.05rem] font-bold tracking-tight text-accent"
+          >
+            How the levers categorise the {total} entities.
+          </h3>
+        </div>
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
+          eligible + marginal pass · excluded fails · uncategorised out of scope
+        </p>
+      </header>
+      <div className="flex h-9 w-full overflow-hidden rounded-sm border border-line">
+        {slices.map((s) => {
+          const pct = total > 0 ? (s.value / total) * 100 : 0;
+          if (pct === 0) return null;
+          return (
+            <div
+              key={s.key}
+              role="img"
+              aria-label={`${s.label} : ${s.value}`}
+              title={`${s.label} : ${s.value}`}
+              style={{ width: `${pct}%`, background: s.swatch }}
+              className="h-full transition-[width] duration-200"
+            />
+          );
+        })}
+      </div>
+      <ul className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+        {slices.map((s) => (
+          <li key={s.key} className="flex items-center gap-2">
+            <span
+              aria-hidden
+              className="h-2.5 w-2.5 rounded-sm"
+              style={{ background: s.swatch }}
+            />
+            <div className="leading-tight">
+              <p className="text-xl font-extrabold tabular text-accent">
+                {s.value}
+              </p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                {s.label}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+// ----- Backtest comparison panel -----
+
+function BacktestComparisonPanel({ scenario }: { scenario: BacktestScenario }) {
+  const { metric } = scenario;
+  const unitLabel = backtestUnitLabel(metric.unit);
+  return (
+    <section
+      aria-label={`Backtest comparison : ${scenario.label}`}
+      className="rounded-md border border-dashed border-slate/70 bg-surface p-5 md:p-7"
+    >
+      <header className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
+        <div>
+          <p className="font-mono text-2xs uppercase tracking-[0.18em] text-slate">
+            Recorded backtest · {scenario.eventYear}
+          </p>
+          <h3 className="mt-1 text-[1.05rem] font-bold tracking-tight text-accent">
+            {metric.label}
+          </h3>
+        </div>
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
+          {unitLabel}
+        </p>
+      </header>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <BacktestCell
+          kicker="Predicted by authority"
+          value={formatBacktestValue(metric.authorityPrediction, metric.unit)}
+          source={metric.authoritySource}
+        />
+        <BacktestCell
+          kicker="Predicted by ATLAS"
+          value={formatBacktestValue(metric.atlasPrediction, metric.unit)}
+          source={metric.atlasSource}
+          highlighted
+        />
+        <BacktestCell
+          kicker="Actual recorded"
+          value={formatBacktestValue(metric.actualValue, metric.unit)}
+          source={metric.actualSource}
+        />
+      </div>
+    </section>
+  );
+}
+
+function BacktestCell({
+  kicker,
+  value,
+  source,
+  highlighted = false,
+}: {
+  kicker: string;
+  value: string;
+  source: string;
+  highlighted?: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "rounded-sm border bg-surface-soft/40 p-4",
+        highlighted ? "border-cyan/50 bg-cyan-tint/30" : "border-line",
+      )}
+    >
+      <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-slate">
+        {kicker}
+      </p>
+      <p className="mt-2 text-[28px] font-bold leading-none tabular tracking-tight text-accent">
+        {value}
+      </p>
+      <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-slate leading-snug">
+        {source}
+      </p>
+    </div>
+  );
+}
+
+// ----- Eligible-pool forecast -----
+
+function tickYearsFor(horizonYears: HorizonYears): number[] {
+  if (horizonYears <= 3) {
+    return [0, 1, 2, 3];
+  }
+  if (horizonYears <= 10) {
+    return [0, 4, 10];
+  }
+  return [0, 4, 9, 14, 19, 24];
+}
+
+function ForecastChart({
+  forecast,
+  horizonYears,
+  setHorizonYears,
+}: {
+  forecast: ForecastTrajectory;
+  horizonYears: HorizonYears;
+  setHorizonYears: (y: HorizonYears) => void;
+}) {
+  const endIdx = horizonYears;
+  const baseline = forecast.baseline.slice(0, endIdx + 1);
+  const sim = forecast.sim.slice(0, endIdx + 1);
+  const bandLow = forecast.bandLow.slice(0, endIdx + 1);
+  const bandHigh = forecast.bandHigh.slice(0, endIdx + 1);
+
+  const w = 100;
+  const h = 36;
+  const all = [...baseline, ...bandHigh, ...bandLow, 0];
+  const yMin = Math.min(...all, 0);
+  const yMax = Math.max(...all, 1);
+  const yRange = Math.max(1, yMax - yMin);
+  const xFor = (i: number) => (i / Math.max(endIdx, 1)) * w;
+  const yFor = (v: number) => h - ((v - yMin) / yRange) * h;
+
+  const baselinePts = baseline
+    .map((v, i) => `${xFor(i).toFixed(2)},${yFor(v).toFixed(2)}`)
+    .join(" ");
+  const simPts = sim
+    .map((v, i) => `${xFor(i).toFixed(2)},${yFor(v).toFixed(2)}`)
+    .join(" ");
+  // Closed polygon for the confidence band : upper edge forwards, lower edge
+  // reversed, so the fill renders a continuous ribbon around the sim line.
+  const bandPolygon =
+    bandHigh.map((v, i) => `${xFor(i).toFixed(2)},${yFor(v).toFixed(2)}`).join(" ") +
+    " " +
+    bandLow
+      .slice()
+      .reverse()
+      .map((v, idx) => {
+        const i = bandLow.length - 1 - idx;
+        return `${xFor(i).toFixed(2)},${yFor(v).toFixed(2)}`;
+      })
+      .join(" ");
+
+  const endYear = FORECAST_BASE_YEAR + endIdx;
+  const tickYears = tickYearsFor(horizonYears);
+
+  return (
+    <section
+      aria-labelledby="forecast-heading"
+      className="rounded-md border border-glacier bg-surface p-5 md:p-7"
+    >
+      <header className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
+        <div>
+          <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
+            Projection · 2026 to {endYear}
+          </p>
+          <h3
+            id="forecast-heading"
+            className="mt-1 text-[1.05rem] font-bold tracking-tight text-accent"
+          >
+            Eligible pool under current levers vs April 2026 baseline.
+          </h3>
+        </div>
+        <div
+          role="tablist"
+          aria-label="Forecast horizon"
+          className="inline-flex rounded-full border border-line bg-surface-soft p-1"
+        >
+          {HORIZON_OPTIONS.map((y) => {
+            const active = y === horizonYears;
+            const label = `${y === FORECAST_HORIZON_YEARS ? 25 : y} years`;
+            return (
+              <button
+                key={y}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setHorizonYears(y)}
+                className={cn(
+                  "rounded-full px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] transition-colors",
+                  active
+                    ? "bg-accent text-surface"
+                    : "text-ink-muted hover:text-ink",
+                )}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+      </header>
+      <svg
+        viewBox={`0 0 ${w} ${h}`}
+        preserveAspectRatio="none"
+        className="block h-32 w-full"
+        aria-hidden
+      >
+        <polygon
+          points={bandPolygon}
+          fill="hsl(var(--cyan))"
+          fillOpacity="0.18"
+        />
+        <polyline
+          points={baselinePts}
+          fill="none"
+          stroke="hsl(var(--accent))"
+          strokeOpacity="0.4"
+          strokeWidth="0.6"
+          strokeDasharray="2 2"
+        />
+        <polyline
+          points={simPts}
+          fill="none"
+          stroke="hsl(var(--cyan))"
+          strokeWidth="1.2"
+        />
+      </svg>
+      <div
+        className="mt-3 grid gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint"
+        style={{
+          gridTemplateColumns: `repeat(${tickYears.length}, minmax(0, 1fr))`,
+        }}
+      >
+        {tickYears.map((yr) => (
+          <div key={yr} className="text-center">
+            <p className="text-xs font-extrabold tabular text-accent">
+              {sim[yr] ?? "—"}
+            </p>
+            <p>{FORECAST_BASE_YEAR + yr}</p>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
+        Cyan band : ±{Math.round(bandPctAtYear(endIdx) * 100)}% confidence at {endYear} · widens with horizon.
+      </p>
+    </section>
+  );
+}
+
+function bandPctAtYear(n: number): number {
+  if (n <= 0) return 0;
+  if (n <= 3) return (n / 3) * 0.1;
+  return 0.1 + ((n - 3) / 22) * 0.25;
+}
+
+// ----- Insight banner -----
+
+function InsightBanner({
+  levers,
+  current,
+  baseline,
+  backtestActive,
+  scenario,
+  horizonYears,
+}: {
+  levers: LeverState;
+  current: CategoriseResult;
+  baseline: CategoriseResult;
+  backtestActive: boolean;
+  scenario: BacktestScenario;
+  horizonYears: HorizonYears;
+}) {
+  const endYear = FORECAST_BASE_YEAR + horizonYears;
+  let body: string;
+  if (backtestActive) {
+    body = scenario.punchline;
+  } else {
+    const sentences = buildInsight(levers, current, baseline);
+    const isDefault = sentences.length === 1 && sentences[0].startsWith("You are at the current April 2026 policy");
+    body = isDefault
+      ? sentences.join(" ")
+      : `By ${endYear}, ${sentences.join(" ")}`;
+  }
+  return (
+    <section
+      aria-label={backtestActive ? "Backtest punchline" : "Policy insight"}
+      className="rounded-md bg-gradient-to-br from-accent-deep to-accent px-6 py-6 text-surface md:px-8"
+    >
+      <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
+        {backtestActive
+          ? `Backtest · ${scenario.eventYear}`
+          : `Insight · horizon ${endYear}`}
+      </p>
+      <p className="mt-2 text-sm font-medium leading-relaxed text-surface md:text-[15px]">
+        {body}
+      </p>
+    </section>
+  );
+}
+
+function buildInsight(
+  levers: LeverState,
+  current: CategoriseResult,
+  baseline: CategoriseResult,
+): string[] {
+  const allDefault =
+    levers.isc === DEFAULTS.isc &&
+    levers.ihs === DEFAULTS.ihs &&
+    levers.cos === DEFAULTS.cos &&
+    levers.minSalary === DEFAULTS.minSalary &&
+    levers.englishLevel === DEFAULTS.englishLevel &&
+    levers.settlementYears === DEFAULTS.settlementYears &&
+    levers.ilrFee === DEFAULTS.ilrFee &&
+    levers.investorThreshold === DEFAULTS.investorThreshold;
+
+  if (allDefault) {
+    return ["You are at the current April 2026 policy. Move a lever to test."];
+  }
+
+  const sentences: string[] = [];
+  const investorClosed = levers.investorThreshold >= INVESTOR_CLOSED;
+  const salaryRaised = levers.minSalary > DEFAULTS.minSalary;
+  const iscRaised = levers.isc > DEFAULTS.isc;
+
+  // Investor closure dominates when active (the headline event).
+  if (investorClosed) {
+    const thresholdM = INVESTOR_CLOSED / 1_000_000;
+    sentences.push(
+      `Investor route closed at £${thresholdM}M threshold equivalent. FDI inflows on this category were £22.9B in 2022 and £1.3B the year after closure. The model carries that elasticity forward.`,
+    );
+  }
+
+  if (salaryRaised) {
+    const excluded = current.reasons.salaryFloor;
+    const topSectors = dominantSalaryFloorSectors(
+      current.salaryFloorSectorBreakdown,
+      2,
+    );
+    const sectorsText =
+      topSectors.length === 0
+        ? "below-threshold"
+        : topSectors.join(" and ").toLowerCase();
+    const sectorCount = topSectors.reduce(
+      (n, s) => n + (current.salaryFloorSectorBreakdown[s] ?? 0),
+      0,
+    );
+    sentences.push(
+      `Skilled Worker minimum salary at £${levers.minSalary.toLocaleString("en-GB")} excludes ${excluded} entities. ${sectorCount} of those are ${sectorsText} roles, where the floor most often binds.`,
+    );
+  }
+
+  if (iscRaised) {
+    const dropPct = Math.round(
+      (current.reasons.costPressure / Math.max(SKILLED_WORKER_TOTAL, 1)) * 100,
+    );
+    sentences.push(
+      `Higher Immigration Skills Charge reduces sponsored hiring by ${dropPct}%. Medium and large employers absorb the increase; small sponsors deprioritise.`,
+    );
+  }
+
+  // Catch-all summary if no template fired but a lever moved.
+  if (sentences.length === 0) {
+    const eligibleDelta =
+      current.counts.eligible - baseline.counts.eligible;
+    const excludedDelta =
+      current.counts.excluded - baseline.counts.excluded;
+    const direction = eligibleDelta < 0 ? "narrows" : "broadens";
+    sentences.push(
+      `Current levers ${direction} the eligible pool by ${Math.abs(eligibleDelta)} entities and shift ${Math.abs(excludedDelta)} into the excluded category.`,
+    );
+  }
+
+  // If two or more dominant levers fired, append a combined summary line.
+  if (sentences.length > 1) {
+    const eligibleDelta = current.counts.eligible - baseline.counts.eligible;
+    sentences.push(
+      `Combined effect : ${Math.abs(eligibleDelta)} fewer entities now reach the eligible state at the current lever positions.`,
+    );
+  }
+
+  return sentences;
 }
 
 // ----- Slider thumb styling (scoped via class) -----
@@ -245,11 +1183,26 @@ function SliderThumbStyles() {
         box-shadow: 0 0 0 3px hsl(var(--accent) / 0.3);
         border-radius: 3px;
       }
+      input.atlas-slider-readonly,
+      input.atlas-slider:disabled {
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+      input.atlas-slider-readonly::-webkit-slider-thumb,
+      input.atlas-slider:disabled::-webkit-slider-thumb {
+        background: hsl(var(--slate));
+        cursor: not-allowed;
+      }
+      input.atlas-slider-readonly::-moz-range-thumb,
+      input.atlas-slider:disabled::-moz-range-thumb {
+        background: hsl(var(--slate));
+        cursor: not-allowed;
+      }
       /* Custom breakpoint : the 3-col layout (controls + views + audit
          sidebar) only fits comfortably at >= 1280px. Below that, stack. */
       @media (min-width: 1280px) {
-        .simulator-shell\\:grid-cols-\\[360px_1fr_19rem\\] {
-          grid-template-columns: 360px 1fr 19rem;
+        .simulator-shell\\:grid-cols-\\[400px_1fr_19rem\\] {
+          grid-template-columns: 400px 1fr 19rem;
         }
         .simulator-shell\\:gap-10 { gap: 2.5rem; }
       }
@@ -260,750 +1213,5 @@ function SliderThumbStyles() {
         }
       }
     `}</style>
-  );
-}
-
-// ----- Controls -----
-
-interface ControlsProps {
-  innovWeight: number;
-  threshold: number;
-  locFloor: number;
-  setInnovWeight: (n: number) => void;
-  setThreshold: (n: number) => void;
-  setLocFloor: (n: number) => void;
-  reset: () => void;
-}
-
-function SimulatorControls({
-  innovWeight,
-  threshold,
-  locFloor,
-  setInnovWeight,
-  setThreshold,
-  setLocFloor,
-  reset,
-}: ControlsProps) {
-  return (
-    <aside className="simulator-controls-sticky h-fit rounded-md border border-glacier bg-surface p-6 md:p-7 lg:sticky lg:top-20 lg:self-start">
-      <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
-        Adjust the policy
-      </p>
-      <h2 className="mt-2 text-xl font-bold tracking-tight text-accent">
-        Three levers
-      </h2>
-
-      <div className="mt-6 space-y-6">
-        <SliderGroup
-          id="innov-slider"
-          name="innovation-weight"
-          label="How much should innovation matter?"
-          helper="Higher means innovation weighs more in the composite score."
-          value={innovWeight}
-          onChange={setInnovWeight}
-          min={20}
-          max={80}
-          step={5}
-          formatValue={(v) => `${v}%`}
-          metaLeft="Less"
-          metaCentre="Default 50%"
-          metaRight="More"
-          audit={{
-            propositionLabel: "Innovation weight",
-            defaultValue: `${DEFAULT_INNOV}%`,
-            evidence: {
-              authority: "gMC v1.0 Innovation rubric",
-              dataset:
-                "Differentiation / Viability / Scalability dimension weights",
-              lastUpdated: "rolling",
-              confidence: "high",
-              fixtureRef: "/atlas/rubric",
-            },
-          }}
-        />
-        <SliderGroup
-          id="thresh-slider"
-          name="band-a-threshold"
-          label="How strict is the Band A threshold?"
-          helper="Higher means fewer entities qualify as Band A."
-          value={threshold}
-          onChange={setThreshold}
-          min={70}
-          max={90}
-          step={2}
-          formatValue={(v) => `${v}`}
-          metaLeft="70"
-          metaCentre="Default 80"
-          metaRight="90"
-          audit={{
-            propositionLabel: "Band A threshold",
-            defaultValue: `${DEFAULT_THRESH}`,
-            evidence: {
-              authority: "gMC v1.0 band ladder",
-              dataset: "Band A composite ≥ 80",
-              lastUpdated: "rolling",
-              confidence: "high",
-              fixtureRef: "/atlas/rubric",
-            },
-          }}
-        />
-        <SliderGroup
-          id="loc-slider"
-          name="localisation-floor"
-          label="Talent localisation requirement"
-          helper="Add a localisation floor. Entities below it cap at Band C."
-          value={locFloor}
-          onChange={setLocFloor}
-          min={0}
-          max={40}
-          step={5}
-          formatValue={(v) => `${v}%`}
-          metaLeft="Off"
-          metaCentre="+20%"
-          metaRight="+40%"
-          audit={{
-            propositionLabel: "Talent localisation floor",
-            defaultValue: `${DEFAULT_LOC}%`,
-            evidence: {
-              authority: "gMC v1.0 Talent Localisation rubric",
-              dataset: "Hard-cap pattern : Band C cap on quota miss",
-              lastUpdated: "rolling",
-              confidence: "high",
-              fixtureRef: "/atlas/rubric",
-            },
-          }}
-        />
-      </div>
-
-      <button
-        type="button"
-        onClick={reset}
-        className="mt-6 w-full rounded-md border border-glacier bg-glacier/40 px-4 py-2.5 text-sm font-semibold text-accent transition-colors hover:bg-glacier focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
-      >
-        Reset to current policy
-      </button>
-    </aside>
-  );
-}
-
-// ----- Slider group -----
-
-interface SliderProps {
-  id: string;
-  name: string;
-  label: string;
-  helper: string;
-  value: number;
-  onChange: (n: number) => void;
-  min: number;
-  max: number;
-  step: number;
-  formatValue: (v: number) => string;
-  metaLeft: string;
-  metaCentre: string;
-  metaRight: string;
-  audit: {
-    propositionLabel: string;
-    defaultValue: string;
-    evidence: AuditEvidence;
-  };
-}
-
-function SliderGroup(props: SliderProps) {
-  const { hover } = useAuditTrail();
-  const [isActive, setIsActive] = React.useState(false);
-
-  const focus: AuditFocus = {
-    id: `simulator/${props.name}`,
-    proposition: `${props.audit.propositionLabel} — currently ${props.formatValue(
-      props.value,
-    )}. Default policy ${props.audit.defaultValue}.`,
-    evidence: [props.audit.evidence],
-    grade: {
-      rubricVersion: RUBRIC_VERSION,
-      rubricHref: "/atlas/rubric",
-      method:
-        "Live re-score across 280-entity sample, in-browser computation.",
-    },
-  };
-
-  // Re-emit the focus to the audit context whenever the slider value changes
-  // while the user is still interacting — otherwise the sidebar text freezes
-  // on the value at the moment of hover.
-  React.useEffect(() => {
-    if (isActive) hover(focus);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.value, isActive]);
-
-  const activate = () => {
-    setIsActive(true);
-    hover(focus);
-  };
-  const deactivate = () => {
-    setIsActive(false);
-    hover(null);
-  };
-
-  return (
-    <div
-      className="group rounded-sm focus-within:bg-cyan-tint/20"
-      onMouseEnter={activate}
-      onMouseLeave={deactivate}
-    >
-      <div className="flex items-baseline justify-between">
-        <label htmlFor={props.id} className="text-sm font-semibold text-ink">
-          {props.label}
-        </label>
-        <span className="font-mono text-sm font-bold tabular text-cyan">
-          {props.formatValue(props.value)}
-        </span>
-      </div>
-      <p className="mt-1 text-2xs text-ink-muted">{props.helper}</p>
-      <input
-        id={props.id}
-        type="range"
-        className="atlas-slider mt-3"
-        min={props.min}
-        max={props.max}
-        step={props.step}
-        value={props.value}
-        onChange={(e) => props.onChange(Number(e.target.value))}
-        onFocus={activate}
-        onBlur={deactivate}
-      />
-      <div className="mt-2 flex justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">
-        <span>{props.metaLeft}</span>
-        <span>{props.metaCentre}</span>
-        <span>{props.metaRight}</span>
-      </div>
-    </div>
-  );
-}
-
-// ----- Comparison panels -----
-
-interface ComparisonProps {
-  innovWeight: number;
-  threshold: number;
-  locFloor: number;
-  currentBands: Bands;
-  simBands: Bands;
-}
-
-function ComparisonPanels({
-  innovWeight,
-  threshold,
-  locFloor,
-  currentBands,
-  simBands,
-}: ComparisonProps) {
-  const { hover, pin, pinned } = useAuditTrail();
-  const sameAsCurrent =
-    innovWeight === DEFAULT_INNOV &&
-    threshold === DEFAULT_THRESH &&
-    locFloor === DEFAULT_LOC;
-
-  const newPolicyFocus: AuditFocus = {
-    id: "simulator/new-policy-distribution",
-    proposition: `Band distribution under your new policy : Band A ${simBands.A}, Band B ${simBands.B}, Band C ${simBands.C}, Band D ${simBands.D}.`,
-    evidence: [
-      {
-        authority: "gMC v1.0 framework",
-        dataset:
-          "280-entity UAE free-zone sample, in-browser re-score with current slider settings",
-        lastUpdated: "rolling",
-        confidence: "high",
-        fixtureRef: "/atlas/rubric",
-      },
-    ],
-    grade: {
-      rubricVersion: RUBRIC_VERSION,
-      rubricHref: "/atlas/rubric",
-      method:
-        "Live re-score across 280-entity sample, in-browser computation.",
-    },
-  };
-  const isPolicyPinned = pinned?.id === newPolicyFocus.id;
-
-  return (
-    <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-      <article className="rounded-md border border-glacier bg-surface p-6">
-        <header className="flex items-center justify-between">
-          <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
-            Today
-          </p>
-          <span className="rounded-sm bg-glacier px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.06em] text-accent">
-            Current policy
-          </span>
-        </header>
-        <h3 className="mt-2 text-[1.25rem] font-bold tracking-tight text-accent">
-          280 entities, current bands
-        </h3>
-        <p className="mt-1 text-[13px] text-ink-muted">
-          DMCC, DIFC, ADGM, JAFZA combined
-        </p>
-        <BandList bands={currentBands} />
-      </article>
-
-      <article
-        onMouseEnter={() => hover(newPolicyFocus)}
-        onMouseLeave={() => hover(null)}
-        onClick={() => pin(newPolicyFocus)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            pin(newPolicyFocus);
-          }
-        }}
-        role="button"
-        tabIndex={0}
-        className={cn(
-          "rounded-md border bg-surface p-6 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
-          isPolicyPinned
-            ? "border-cyan/50 ring-1 ring-cyan/40"
-            : "border-glacier hover:border-frost",
-        )}
-        aria-pressed={isPolicyPinned}
-      >
-        <header className="flex items-center justify-between">
-          <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
-            Under your new policy
-          </p>
-          <span className="rounded-sm bg-cyan/10 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.06em] text-cyan">
-            Live
-          </span>
-        </header>
-        <h3 className="mt-2 text-[1.25rem] font-bold tracking-tight text-accent">
-          280 entities, re-scored
-        </h3>
-        <p className="mt-1 text-[13px] text-ink-muted">
-          {sameAsCurrent
-            ? "No change from current policy"
-            : `Innovation ${innovWeight}% · Threshold ${threshold} · Localisation floor ${locFloor}%`}
-        </p>
-        <BandList bands={simBands} comparison={currentBands} />
-      </article>
-    </div>
-  );
-}
-
-const BAND_FILL_COLOR: Record<keyof Bands, string> = {
-  A: "hsl(var(--cyan))",
-  B: "hsl(var(--accent))",
-  C: "hsl(var(--slate))",
-  D: "hsl(var(--frost))",
-};
-
-function BandList({
-  bands,
-  comparison,
-}: {
-  bands: Bands;
-  comparison?: Bands;
-}) {
-  const max = Math.max(bands.A, bands.B, bands.C, bands.D);
-  return (
-    <ul className="mt-4 space-y-2.5">
-      {(["A", "B", "C", "D"] as const).map((b) => {
-        const count = bands[b];
-        const fillPct = max ? (count / max) * 100 : 0;
-        let delta: number | null = null;
-        if (comparison) delta = count - comparison[b];
-        return (
-          <li
-            key={b}
-            className="grid grid-cols-[48px_1fr_64px] items-center gap-3"
-          >
-            <span className="text-[13px] font-bold text-ink-soft">
-              Band {b}
-            </span>
-            <div className="relative h-7 overflow-hidden rounded-md bg-glacier/50">
-              <div
-                className="h-full rounded-md"
-                style={{
-                  width: `${fillPct}%`,
-                  background: BAND_FILL_COLOR[b],
-                  transition: "width 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                }}
-              />
-            </div>
-            <span className="flex items-baseline justify-end gap-1 text-base font-bold tabular text-ink">
-              {count}
-              {delta !== null && (
-                <DeltaChip delta={delta} />
-              )}
-            </span>
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
-function DeltaChip({ delta }: { delta: number }) {
-  if (delta === 0) {
-    return (
-      <span
-        aria-label="No change"
-        className="ml-1 inline-block rounded-sm px-1 font-mono text-[11px] font-bold text-frost"
-      >
-        ·
-      </span>
-    );
-  }
-  const up = delta > 0;
-  return (
-    <span
-      className={cn(
-        "ml-1 inline-block rounded-sm px-1.5 py-0.5 font-mono text-[11px] font-bold tabular",
-        up ? "bg-cyan/15 text-cyan" : "bg-slate/15 text-slate",
-      )}
-    >
-      {up ? `+${delta}` : delta}
-    </span>
-  );
-}
-
-// ----- Forecast chart -----
-
-const YEARS = ["2026", "2027", "2028", "2029"] as const;
-
-function ForecastChart({
-  currentTraj,
-  simTraj,
-}: {
-  currentTraj: number[];
-  simTraj: number[];
-}) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const [width, setWidth] = React.useState(720);
-
-  React.useEffect(() => {
-    if (!containerRef.current) return;
-    const measure = () => {
-      if (containerRef.current) {
-        setWidth(containerRef.current.clientWidth || 720);
-      }
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
-
-  const h = 280;
-  const pad = { top: 20, right: 30, bottom: 36, left: 50 };
-  const innerW = Math.max(50, width - pad.left - pad.right);
-  const innerH = h - pad.top - pad.bottom;
-  const allValues = [...currentTraj, ...simTraj];
-  const maxVal = Math.max(1, ...allValues) * 1.15;
-  const xAt = (i: number) =>
-    pad.left + (i / (YEARS.length - 1)) * innerW;
-  const yAt = (v: number) =>
-    pad.top + innerH - (v / maxVal) * innerH;
-
-  // Confidence band path : top edge left→right, bottom edge right→left, close.
-  let confTop = "";
-  let confBot = "";
-  simTraj.forEach((v, i) => {
-    const conf = v * 0.12 + 3;
-    confTop += `${i === 0 ? "M" : "L"} ${xAt(i)} ${yAt(v + conf)} `;
-    const rev = simTraj.length - 1 - i;
-    confBot += `L ${xAt(rev)} ${yAt(simTraj[rev] - simTraj[rev] * 0.12 - 3)} `;
-  });
-  const currentPath = currentTraj
-    .map((v, i) => `${i === 0 ? "M" : "L"} ${xAt(i)} ${yAt(v)}`)
-    .join(" ");
-  const simPath = simTraj
-    .map((v, i) => `${i === 0 ? "M" : "L"} ${xAt(i)} ${yAt(v)}`)
-    .join(" ");
-  const lastIdx = simTraj.length - 1;
-
-  return (
-    <article className="rounded-md border border-glacier bg-surface p-6">
-      <header className="flex items-center justify-between">
-        <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
-          3-year forecast
-        </p>
-        <span className="rounded-sm bg-cyan/10 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.06em] text-cyan">
-          Live
-        </span>
-      </header>
-      <h3 className="mt-2 text-[1.25rem] font-bold tracking-tight text-accent">
-        Band A trajectory through 2029
-      </h3>
-      <p className="mt-1 text-[13px] text-ink-muted">
-        Projection assumes current entity growth rate of 14% annually and your
-        policy held constant from today.
-      </p>
-
-      <div ref={containerRef} className="mt-4 h-[280px] w-full">
-        <svg
-          viewBox={`0 0 ${width} ${h}`}
-          width="100%"
-          height={h}
-          preserveAspectRatio="none"
-          role="img"
-          aria-label="Three-year Band A projection chart"
-        >
-          <defs>
-            <linearGradient id="simGrad" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="#00A2E9" stopOpacity={0.25} />
-              <stop offset="100%" stopColor="#00A2E9" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-
-          {/* Horizontal gridlines + count labels */}
-          {[0, 1, 2, 3, 4].map((i) => {
-            const gy = pad.top + (i / 4) * innerH;
-            const v = Math.round(maxVal - (i / 4) * maxVal);
-            return (
-              <g key={`grid-${i}`}>
-                <line
-                  x1={pad.left}
-                  x2={width - pad.right}
-                  y1={gy}
-                  y2={gy}
-                  stroke="hsl(var(--glacier))"
-                  strokeWidth={1}
-                />
-                <text
-                  x={pad.left - 8}
-                  y={gy + 4}
-                  fontFamily="Inter, sans-serif"
-                  fontSize={11}
-                  fill="hsl(var(--ink-muted))"
-                  textAnchor="end"
-                >
-                  {v}
-                </text>
-              </g>
-            );
-          })}
-
-          {/* X axis year labels */}
-          {YEARS.map((yr, i) => (
-            <text
-              key={yr}
-              x={xAt(i)}
-              y={h - pad.bottom + 22}
-              fontFamily="Inter, sans-serif"
-              fontSize={12}
-              fill="hsl(var(--ink-muted))"
-              textAnchor="middle"
-              fontWeight={500}
-            >
-              {yr}
-            </text>
-          ))}
-
-          {/* Y axis rotated label */}
-          <text
-            x={pad.left - 36}
-            y={pad.top + innerH / 2}
-            fontFamily="Inter, sans-serif"
-            fontSize={11}
-            fill="hsl(var(--ink-muted))"
-            textAnchor="middle"
-            fontWeight={500}
-            transform={`rotate(-90 ${pad.left - 36} ${pad.top + innerH / 2})`}
-          >
-            Band A entities
-          </text>
-
-          {/* Confidence band */}
-          <path d={`${confTop}${confBot}Z`} fill="url(#simGrad)" opacity={0.5} />
-
-          {/* Current policy dashed line */}
-          <path
-            d={currentPath}
-            stroke="#B8D4E3"
-            strokeWidth={2.5}
-            fill="none"
-            strokeDasharray="6 4"
-            strokeLinecap="round"
-          />
-
-          {/* Sim policy solid line */}
-          <path
-            d={simPath}
-            stroke="#00A2E9"
-            strokeWidth={3}
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-
-          {/* Current policy circle markers (hollow) */}
-          {currentTraj.map((v, i) => (
-            <circle
-              key={`curr-${i}`}
-              cx={xAt(i)}
-              cy={yAt(v)}
-              r={4}
-              fill="white"
-              stroke="#B8D4E3"
-              strokeWidth={2}
-            />
-          ))}
-
-          {/* Sim policy circle markers (filled cyan) */}
-          {simTraj.map((v, i) => (
-            <circle
-              key={`sim-${i}`}
-              cx={xAt(i)}
-              cy={yAt(v)}
-              r={5}
-              fill="#00A2E9"
-              stroke="white"
-              strokeWidth={2.5}
-            />
-          ))}
-
-          {/* End-of-line annotation */}
-          <text
-            x={xAt(lastIdx) + 10}
-            y={yAt(simTraj[lastIdx]) + 4}
-            fontFamily="Inter, sans-serif"
-            fontSize={13}
-            fontWeight={700}
-            fill="hsl(var(--accent))"
-          >
-            {Math.round(simTraj[lastIdx])} entities
-          </text>
-        </svg>
-      </div>
-
-      <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 border-t border-glacier pt-4 text-[13px] text-ink-soft">
-        <span className="inline-flex items-center gap-2">
-          <span
-            aria-hidden
-            className="block h-2.5 w-2.5 rounded-full"
-            style={{ background: "#B8D4E3" }}
-          />
-          Current policy
-        </span>
-        <span className="inline-flex items-center gap-2">
-          <span
-            aria-hidden
-            className="block h-2.5 w-2.5 rounded-full"
-            style={{ background: "#00A2E9" }}
-          />
-          Your new policy
-        </span>
-        <span className="inline-flex items-center gap-2">
-          <span
-            aria-hidden
-            className="block h-2.5 w-2.5 rounded-full"
-            style={{ background: "hsl(var(--accent) / 0.4)" }}
-          />
-          Confidence band
-        </span>
-      </div>
-    </article>
-  );
-}
-
-// ----- Insight banner -----
-
-interface InsightProps {
-  currentBands: Bands;
-  simBands: Bands;
-  innovWeight: number;
-  threshold: number;
-  locFloor: number;
-}
-
-function InsightBanner({
-  currentBands,
-  simBands,
-  innovWeight,
-  threshold,
-  locFloor,
-}: InsightProps) {
-  const deltaA = simBands.A - currentBands.A;
-  const isDefault =
-    innovWeight === DEFAULT_INNOV &&
-    threshold === DEFAULT_THRESH &&
-    locFloor === DEFAULT_LOC;
-
-  let body: React.ReactNode;
-  if (isDefault) {
-    body =
-      "You are at the current policy. Move a slider to see how a change would reshape the pipeline.";
-  } else {
-    const dir = deltaA >= 0 ? "increases" : "decreases";
-    const absChange = Math.abs(deltaA);
-    const pctChange = currentBands.A
-      ? Math.round((deltaA / currentBands.A) * 100)
-      : 0;
-    const forecastDelta = Math.round(
-      (simBands.A - currentBands.A) * Math.pow(1.14, 3),
-    );
-    const fragments: React.ReactNode[] = [];
-
-    fragments.push(
-      <React.Fragment key="lead">
-        Your policy{" "}
-        <strong className="font-bold text-surface">
-          {dir} Band A entities by {absChange}
-        </strong>{" "}
-        ({pctChange >= 0 ? "+" : ""}
-        {pctChange}%) today.{" "}
-      </React.Fragment>,
-    );
-    if (innovWeight > DEFAULT_INNOV) {
-      fragments.push(
-        <React.Fragment key="innov-up">
-          Innovation now weighs {innovWeight}% of the composite, favouring
-          tech-led entities.{" "}
-        </React.Fragment>,
-      );
-    } else if (innovWeight < DEFAULT_INNOV) {
-      fragments.push(
-        <React.Fragment key="innov-down">
-          Innovation weighs only {innovWeight}%, opening Band A to operational
-          substance entities.{" "}
-        </React.Fragment>,
-      );
-    }
-    if (threshold !== DEFAULT_THRESH) {
-      fragments.push(
-        <React.Fragment key="thresh">
-          Band A threshold is{" "}
-          {threshold > DEFAULT_THRESH ? "tighter" : "more permissive"} at{" "}
-          {threshold}.{" "}
-        </React.Fragment>,
-      );
-    }
-    if (locFloor > 0) {
-      fragments.push(
-        <React.Fragment key="loc">
-          Localisation floor at {locFloor}% caps non-compliant entities at Band
-          C.{" "}
-        </React.Fragment>,
-      );
-    }
-    fragments.push(
-      <React.Fragment key="forecast">
-        By 2029, projected{" "}
-        <strong className="font-bold text-surface">
-          {forecastDelta >= 0 ? "+" : ""}
-          {forecastDelta} Band A entities
-        </strong>{" "}
-        versus current policy.
-      </React.Fragment>,
-    );
-    body = <>{fragments}</>;
-  }
-
-  return (
-    <div className="overflow-hidden rounded-md bg-gradient-to-br from-accent to-accent-deep px-6 py-5 md:px-7">
-      <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan">
-        What just happened
-      </p>
-      <p className="mt-2 text-[17px] font-medium leading-relaxed text-surface">
-        {body}
-      </p>
-    </div>
   );
 }

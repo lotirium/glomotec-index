@@ -4,6 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { AuditTrailProvider, type PageAudit } from "@/components/atlas/audit-context";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
+import { CollapsibleContext } from "@/components/atlas/collapsible-context";
 import { TodayVsAtlas } from "@/components/atlas/today-vs-atlas";
 import { SectorGrid } from "@/components/atlas/sector-grid";
 import { SectorHeatmap } from "@/components/atlas/sector-heatmap";
@@ -90,12 +91,14 @@ export function UaeOverview({ bundles, stats, heatmap, basePageAudit }: Props) {
               >
                 Where Band A activity clusters.
               </h2>
-              <p className="mt-2 max-w-2xl text-2xs text-ink-muted leading-relaxed">
+            </header>
+            <SectorHeatmap cells={heatmap} zoneSummaries={zones} />
+            <CollapsibleContext label="Reading the grid">
+              <p>
                 Same engine, same rubric, plotted by zone × sector. The empty
                 cells matter as much as the full ones.
               </p>
-            </header>
-            <SectorHeatmap cells={heatmap} zoneSummaries={zones} />
+            </CollapsibleContext>
           </section>
 
           {/* ZONE SELECTOR */}

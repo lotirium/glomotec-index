@@ -1748,7 +1748,25 @@
         { "text": "Halcyon Sensor Compute carries a credible " },
         { "text": "three-jurisdiction settlement footprint", "strong": true },
         { "text": ". UAE Golden Visa renewal at 86% is the strongest near-term pathway. UK Innovator Founder ILR at 78% is achievable on the basis of evidence already on file. The Singapore GIP gap is a hiring-mix issue, not a substance issue. EB-1A self-petition is realistic with structured evidence work." }
-      ]
+      ],
+      "industryPeerTrajectory": {
+        "industryLabel": "UAE Technology / cybersecurity, DMCC-anchored",
+        "peerCount": 12,
+        "description": "Twelve comparable entities in DMCC cybersecurity over the past decade. Their composite trajectories average to the band shown below, with confidence widening at longer horizons.",
+        "yearlyAverages": [
+          { "year": 2016, "avgComposite": 54 },
+          { "year": 2017, "avgComposite": 58 },
+          { "year": 2018, "avgComposite": 63 },
+          { "year": 2019, "avgComposite": 68 },
+          { "year": 2020, "avgComposite": 72 },
+          { "year": 2021, "avgComposite": 76 },
+          { "year": 2022, "avgComposite": 79 },
+          { "year": 2023, "avgComposite": 82 },
+          { "year": 2024, "avgComposite": 85 },
+          { "year": 2025, "avgComposite": 87 },
+          { "year": 2026, "avgComposite": 88 }
+        ]
+      }
     }
   },
   {

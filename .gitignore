@@ -28,3 +28,4 @@ node_modules/
 
 # Build artefacts (uncomment if you want to keep output JSONs out)
 # output/
+.vercel
