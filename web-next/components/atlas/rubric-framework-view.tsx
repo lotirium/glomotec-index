@@ -262,6 +262,7 @@ function FrameworkBody() {
         <BandLadder />
         <CompositeFormula />
         <RubricsGrid />
+        <RouteAnchoringMatrix />
         <RegionalMatrix />
         <AuthoritySources />
         <VersionControl />
@@ -710,6 +711,213 @@ function VersionTier({
       <p className="mt-3 text-2xs leading-relaxed text-ink-soft">{body}</p>
     </li>
   );
+}
+
+// ----- Route-specific anchoring matrix -----
+//
+// Per-route weighting of the six rubrics. Each cell carries one of five
+// anchor levels; the chip styling encodes the level (cyan filled for Anchor,
+// cyan outline for Strong, slate filled for Contributing, slate outline for
+// Informational, frost dashed for Not applicable).
+
+type AnchorLevel =
+  | "Anchor"
+  | "Strong"
+  | "Contributing"
+  | "Informational"
+  | "Not applicable";
+
+const ROUTE_RUBRIC_MATRIX: Array<{
+  route: string;
+  cells: Record<string, AnchorLevel>;
+}> = [
+  {
+    route: "Innovator Founder",
+    cells: {
+      Innovation: "Anchor",
+      "Economic Substance": "Contributing",
+      "Talent Localisation": "Informational",
+      "Strategic Sector Alignment": "Contributing",
+      "Fiscal Contribution": "Informational",
+      "Sustainability and Net Zero": "Informational",
+    },
+  },
+  {
+    route: "Skilled Worker",
+    cells: {
+      Innovation: "Contributing",
+      "Economic Substance": "Anchor",
+      "Talent Localisation": "Anchor",
+      "Strategic Sector Alignment": "Contributing",
+      "Fiscal Contribution": "Contributing",
+      "Sustainability and Net Zero": "Informational",
+    },
+  },
+  {
+    route: "Global Talent",
+    cells: {
+      Innovation: "Anchor",
+      "Economic Substance": "Contributing",
+      "Talent Localisation": "Contributing",
+      "Strategic Sector Alignment": "Strong",
+      "Fiscal Contribution": "Informational",
+      "Sustainability and Net Zero": "Informational",
+    },
+  },
+  {
+    route: "Family routes",
+    cells: {
+      Innovation: "Not applicable",
+      "Economic Substance": "Contributing",
+      "Talent Localisation": "Anchor",
+      "Strategic Sector Alignment": "Not applicable",
+      "Fiscal Contribution": "Contributing",
+      "Sustainability and Net Zero": "Not applicable",
+    },
+  },
+];
+
+const RUBRIC_COLUMNS = [
+  "Innovation",
+  "Economic Substance",
+  "Talent Localisation",
+  "Strategic Sector Alignment",
+  "Fiscal Contribution",
+  "Sustainability and Net Zero",
+];
+
+function RouteAnchoringMatrix() {
+  return (
+    <section className="space-y-5">
+      <header>
+        <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
+          Route-specific anchoring
+        </p>
+        <h2 className="mt-1 text-h2 font-bold tracking-tight text-ink">
+          Different routes anchor on different rubrics.
+        </h2>
+        <p className="mt-2 max-w-3xl text-2xs text-ink-muted leading-relaxed">
+          The framework is agile across routes. What changes per route is the
+          weighting and which rubrics anchor the assessment.
+        </p>
+      </header>
+
+      <div className="overflow-x-auto rounded-md border border-line bg-surface">
+        <table className="w-full text-left text-2xs">
+          <thead>
+            <tr className="border-b border-line">
+              <th
+                scope="col"
+                className="bg-surface-soft px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint"
+              >
+                Route
+              </th>
+              {RUBRIC_COLUMNS.map((c) => (
+                <th
+                  key={c}
+                  scope="col"
+                  className="bg-surface-soft px-3 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint align-top"
+                >
+                  {c}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {ROUTE_RUBRIC_MATRIX.map((row, ri) => (
+              <tr
+                key={row.route}
+                className={cn(
+                  ri < ROUTE_RUBRIC_MATRIX.length - 1 && "border-b border-line/60",
+                )}
+              >
+                <th
+                  scope="row"
+                  className="px-4 py-3 font-semibold text-ink align-middle"
+                >
+                  {row.route}
+                </th>
+                {RUBRIC_COLUMNS.map((col) => (
+                  <td key={col} className="px-3 py-3 align-middle">
+                    <AnchorCell
+                      route={row.route}
+                      rubric={col}
+                      level={row.cells[col]}
+                    />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="max-w-3xl text-sm leading-relaxed text-ink-soft">
+        Each route in the UK Home Office framework weights the six rubrics
+        differently. Innovator Founder anchors on Innovation. Skilled Worker
+        anchors jointly on Economic Substance and Talent Localisation. Global
+        Talent is endorsement-led, drawing primarily on Innovation, Talent
+        Localisation, and Strategic Sector Alignment. Family routes anchor on
+        Talent Localisation (the relationship and integration evidence) with
+        Fiscal Contribution as a secondary lens.
+      </p>
+    </section>
+  );
+}
+
+function AnchorCell({
+  route,
+  rubric,
+  level,
+}: {
+  route: string;
+  rubric: string;
+  level: AnchorLevel;
+}) {
+  const { hover } = useAuditTrail();
+  const focus: AuditFocus = {
+    id: `rubric/route-anchor/${route}/${rubric}`,
+    proposition: `${route} on ${rubric}: ${level}.`,
+    evidence: REGIONS.map((c) => REGION_EVIDENCE[c]),
+    grade: {
+      rubricVersion: RUBRIC_VERSION,
+      rubricHref: "/atlas/rubric",
+      method:
+        "Per-route weighting per UK Home Office published rules. Anchor levels reflect which rubrics drive the route's eligibility decision.",
+    },
+  };
+  return (
+    <span
+      onMouseEnter={() => hover(focus)}
+      onMouseLeave={() => hover(null)}
+      onFocus={() => hover(focus)}
+      onBlur={() => hover(null)}
+      tabIndex={0}
+      role="img"
+      aria-label={`${route} on ${rubric}: ${level}`}
+      className={cn(
+        "inline-flex w-full items-center justify-center rounded-full px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.18em] outline-none transition-colors focus-visible:ring-2 focus-visible:ring-accent/40",
+        anchorChipClass(level),
+      )}
+    >
+      {level}
+    </span>
+  );
+}
+
+function anchorChipClass(level: AnchorLevel): string {
+  switch (level) {
+    case "Anchor":
+      return "bg-cyan text-surface border border-cyan";
+    case "Strong":
+      return "border border-cyan text-cyan bg-surface";
+    case "Contributing":
+      return "bg-slate text-surface border border-slate";
+    case "Informational":
+      return "border border-slate text-slate bg-surface";
+    case "Not applicable":
+      return "border border-dashed border-frost text-ink-muted bg-surface-soft/50";
+  }
 }
 
 // ----- Footer card -----

@@ -18,6 +18,10 @@ interface Props {
   focusedIso2: string | null;
   onCountryHover: (c: OriginCountry | null) => void;
   onCountryClick: (c: OriginCountry) => void;
+  /** Centre point and label for the pulse marker. Defaults to UAE so existing
+   *  callers behave unchanged. */
+  centerCentroid?: [number, number];
+  centerLabel?: string;
 }
 
 // Five-stop scale mirroring the heat map. Single source of truth across
@@ -108,6 +112,8 @@ export default function OriginMapLeaflet({
   focusedIso2,
   onCountryHover,
   onCountryClick,
+  centerCentroid = UAE_CENTROID,
+  centerLabel = "UAE",
 }: Props) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const mapRef = React.useRef<L.Map | null>(null);
@@ -137,13 +143,13 @@ export default function OriginMapLeaflet({
       { maxZoom: 10, minZoom: 2 },
     ).addTo(map);
 
-    // UAE destination marker with CSS pulse.
+    // Centre marker (UAE by default, UK on the UK origin map) with CSS pulse.
     const uaeIcon = L.divIcon({
       className: "atlas-uae-marker",
       html: `
         <div style="position: relative;">
           <div class="atlas-uae-dot"></div>
-          <div class="atlas-uae-label">UAE</div>
+          <div class="atlas-uae-label">${centerLabel}</div>
         </div>
         <style>
           .atlas-uae-dot {
@@ -167,7 +173,7 @@ export default function OriginMapLeaflet({
       iconSize: [22, 22],
       iconAnchor: [11, 11],
     });
-    L.marker(UAE_CENTROID, { icon: uaeIcon, interactive: false }).addTo(map);
+    L.marker(centerCentroid, { icon: uaeIcon, interactive: false }).addTo(map);
 
     mapRef.current = map;
 
@@ -194,7 +200,7 @@ export default function OriginMapLeaflet({
       if (!c.centroid || c.band_a_count === 0) continue;
 
       const baseWeight = Math.max(1, Math.min(4, c.band_a_count * 0.6));
-      const flow = L.polyline([c.centroid, UAE_CENTROID], {
+      const flow = L.polyline([c.centroid, centerCentroid], {
         color: colorForCount(c.band_a_count),
         weight: baseWeight,
         opacity: 0.4,
@@ -251,7 +257,7 @@ export default function OriginMapLeaflet({
       markerByIso.current.set(c.iso2, marker);
       flowByIso.current.set(c.iso2, flow);
     }
-  }, [countries, layer, onCountryHover, onCountryClick]);
+  }, [countries, layer, onCountryHover, onCountryClick, centerCentroid]);
 
   // Pan to focused country when sidebar selects one.
   React.useEffect(() => {

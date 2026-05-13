@@ -24,6 +24,19 @@ const TILES = [
     aspectClass: "aspect-[16/9]",
   },
   {
+    id: "00B",
+    href: "/atlas/uk/origin-map",
+    badge: "Geographic",
+    time: "~60s read",
+    label: "Visual 00B · The UK brain drain story",
+    title: "Where UK gained and lost talent.",
+    desc: "Both directions, scrubbable. Inbound shows the published origins of UK Band A; outbound traces the brain drain to UAE, US, and Singapore. Same surface, two framings.",
+    takeaway:
+      "2025 outbound : UAE absorbs 48 of UK's Band A entities post-Investor closure",
+    decor: "origin" as const,
+    aspectClass: "aspect-[16/9]",
+  },
+  {
     id: "01",
     href: "/atlas/uae/origin-map",
     badge: "Geographic",

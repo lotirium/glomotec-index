@@ -280,7 +280,7 @@ function SimulatorControls({
           onChange={(v) => setLever("ihs", v)}
           min={0}
           max={2000}
-          step={25}
+          step={5}
           formatValue={(v) => `£${v.toLocaleString("en-GB")}/yr`}
           metaLeft="£0"
           metaCentre={`Default £${DEFAULTS.ihs.toLocaleString("en-GB")}`}
@@ -335,7 +335,7 @@ function SimulatorControls({
           onChange={(v) => setLever("minSalary", v)}
           min={20_000}
           max={60_000}
-          step={500}
+          step={100}
           formatValue={(v) => `£${v.toLocaleString("en-GB")}`}
           metaLeft="£20K"
           metaCentre={`Default £${DEFAULTS.minSalary.toLocaleString("en-GB")}`}
@@ -396,7 +396,7 @@ function SimulatorControls({
           onChange={(v) => setLever("ilrFee", v)}
           min={0}
           max={6000}
-          step={100}
+          step={1}
           formatValue={(v) => `£${v.toLocaleString("en-GB")}`}
           metaLeft="£0"
           metaCentre={`Default £${DEFAULTS.ilrFee.toLocaleString("en-GB")}`}
