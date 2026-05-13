@@ -164,7 +164,7 @@ export const PER_RUBRIC_CATEGORIZATIONS: Record<
       "Saudi MHRSD Nitaqat classification, latest revision",
   },
   strategicSectorAlignment: {
-    label: "Strategic sector alignment categories",
+    label: "National security review framework",
     bands: [
       { code: "Anchor", label: "Anchor", composite: [80, 100], color: "navy" },
       {
@@ -187,10 +187,10 @@ export const PER_RUBRIC_CATEGORIZATIONS: Record<
       },
     ],
     sourceAuthority:
-      "Multi-jurisdictional national strategy alignment, illustrative composite",
+      "EU FDI Regulation 2025-26 + UK National Security and Investment Act 2021 + US CFIUS framework",
   },
   fiscalContribution: {
-    label: "Fiscal contribution tiers",
+    label: "OECD Pillar Two GloBE Rules with jurisdiction-specific tax thresholds",
     bands: [
       {
         code: "Major",
@@ -218,7 +218,7 @@ export const PER_RUBRIC_CATEGORIZATIONS: Record<
       },
     ],
     sourceAuthority:
-      "Jurisdiction-specific corporate tax and payroll contribution thresholds",
+      "OECD Pillar Two GloBE Rules 2024 + jurisdiction-specific corporate tax frameworks",
   },
   sustainabilityNetZero: {
     label: "CSRD / ISSB disclosure compliance tiers",

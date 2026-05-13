@@ -21,11 +21,14 @@ import {
   type RubricKey,
 } from "@/lib/atlas/rubric";
 import {
+  SIMULATOR_DEFAULT_SCOPE,
   SIMULATOR_DEFAULTS,
   useLeverState,
   useSimulatorHasHydrated,
+  useSimulatorScope,
   useSimulatorState,
 } from "@/lib/atlas/simulator-state";
+import { SCOPE_ROUTE_LABEL } from "@/lib/atlas/simulator-fixtures";
 import {
   cascadeHasAnyDelta,
   computeEffectiveWeight,
@@ -292,9 +295,14 @@ function FrameworkBody() {
 function ActiveSimulatorBanner() {
   const hydrated = useSimulatorHasHydrated();
   const levers = useLeverState();
+  const scope = useSimulatorScope();
   const reset = useSimulatorState((s) => s.reset);
 
-  const atDefaults = !cascadeHasAnyDelta(levers);
+  const scopeChanged = scope !== SIMULATOR_DEFAULT_SCOPE;
+  const cascadeFires = cascadeHasAnyDelta(levers, scope);
+  // The banner surfaces overrides whenever either the levers move the
+  // cascade or the user has narrowed the scope to a single route.
+  const atDefaults = !cascadeFires && !scopeChanged;
   // Until persist rehydrates from localStorage, render the defaults banner.
   // This avoids SSR/CSR mismatches when the user has lever overrides
   // persisted from a prior session.
@@ -322,9 +330,15 @@ function ActiveSimulatorBanner() {
           ) : (
             <>
               <p className="mt-1.5 text-sm font-semibold leading-snug text-ink">
-                Rubric weights reflect your current lever overrides.
+                Rubric weights reflect your current lever overrides and route
+                scope.
               </p>
               <ul className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] text-ink-soft tabular">
+                <SummaryItem
+                  label="Scope"
+                  value={SCOPE_ROUTE_LABEL[scope]}
+                  changed={scopeChanged}
+                />
                 <SummaryItem
                   label="Min salary"
                   value={`£${levers.minSalary.toLocaleString("en-GB")}`}
@@ -575,6 +589,7 @@ function RubricCard({ rubric }: { rubric: Rubric }) {
 function DimensionList({ rubric }: { rubric: Rubric }) {
   const hydrated = useSimulatorHasHydrated();
   const levers = useLeverState();
+  const scope = useSimulatorScope();
   const rubricKey = rubricKeyFromName(rubric.name);
 
   return (
@@ -582,7 +597,7 @@ function DimensionList({ rubric }: { rubric: Rubric }) {
       {rubric.dimensions.map((d) => {
         const eff =
           hydrated && rubricKey
-            ? computeEffectiveWeight(d.weight, rubricKey, d.name, levers)
+            ? computeEffectiveWeight(d.weight, rubricKey, d.name, levers, scope)
             : null;
         const delta = eff?.delta ?? 0;
         const effective = eff?.effective ?? d.weight;
@@ -639,12 +654,19 @@ function DimensionList({ rubric }: { rubric: Rubric }) {
 function CascadeWhy({ rubric }: { rubric: Rubric }) {
   const hydrated = useSimulatorHasHydrated();
   const levers = useLeverState();
+  const scope = useSimulatorScope();
   const rubricKey = rubricKeyFromName(rubric.name);
 
   if (!hydrated || !rubricKey) return null;
   const reasons: string[] = [];
   for (const d of rubric.dimensions) {
-    const eff = computeEffectiveWeight(d.weight, rubricKey, d.name, levers);
+    const eff = computeEffectiveWeight(
+      d.weight,
+      rubricKey,
+      d.name,
+      levers,
+      scope,
+    );
     for (const r of eff.reasons) {
       if (!reasons.includes(r)) reasons.push(r);
     }

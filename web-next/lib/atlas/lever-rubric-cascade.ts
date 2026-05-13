@@ -10,7 +10,11 @@ import {
   SIMULATOR_DEFAULTS,
   type LeverState,
 } from "@/lib/atlas/simulator-state";
-import { ENGLISH_ORDER } from "@/lib/atlas/simulator-fixtures";
+import {
+  ENGLISH_ORDER,
+  SCOPE_ROUTE_LABEL,
+  type ScopeRoute,
+} from "@/lib/atlas/simulator-fixtures";
 import type { RubricKey } from "@/lib/atlas/rubric";
 
 export interface CascadeRule {
@@ -33,6 +37,10 @@ export interface CascadeRule {
   /** Human-readable explanation surfaced in the rubric "Why" popover when
    *  the rule contributes a non-zero delta. */
   reason: (state: LeverState) => string;
+  /** Scopes under which this rule fires. A rule whose applicableRoutes
+   *  does not include the active simulator scope contributes zero
+   *  regardless of its computeDelta value. */
+  applicableRoutes: ScopeRoute[];
 }
 
 export const CASCADE_RULES: CascadeRule[] = [
@@ -52,6 +60,7 @@ export const CASCADE_RULES: CascadeRule[] = [
     },
     reason: (s) =>
       `Min salary at £${s.minSalary.toLocaleString("en-GB")} weights Local payroll higher in Economic Substance.`,
+    applicableRoutes: ["all", "skilledWorker"],
   },
   {
     id: "salary-supplier-integration",
@@ -69,6 +78,7 @@ export const CASCADE_RULES: CascadeRule[] = [
     },
     reason: () =>
       "Salary growth implies larger supply-chain integration with local payroll.",
+    applicableRoutes: ["all", "skilledWorker"],
   },
   {
     id: "english-sector-compliance",
@@ -88,6 +98,7 @@ export const CASCADE_RULES: CascadeRule[] = [
     },
     reason: (s) =>
       `English at ${s.englishLevel} raises sector-compliance weight in Talent Localisation.`,
+    applicableRoutes: ["all", "skilledWorker", "innovatorFounder"],
   },
   {
     id: "isc-local-payroll-down",
@@ -105,6 +116,7 @@ export const CASCADE_RULES: CascadeRule[] = [
     },
     reason: (s) =>
       `ISC at £${s.isc.toLocaleString("en-GB")}/yr discourages cost-sensitive sponsorship.`,
+    applicableRoutes: ["all", "skilledWorker"],
   },
   {
     id: "ilr-fee-tax-base",
@@ -122,6 +134,13 @@ export const CASCADE_RULES: CascadeRule[] = [
     },
     reason: (s) =>
       `ILR fee at £${s.ilrFee.toLocaleString("en-GB")} accrues more Treasury revenue per settlement.`,
+    applicableRoutes: [
+      "all",
+      "skilledWorker",
+      "innovatorFounder",
+      "globalTalent",
+      "family",
+    ],
   },
   {
     id: "settlement-retention",
@@ -139,6 +158,13 @@ export const CASCADE_RULES: CascadeRule[] = [
     },
     reason: (s) =>
       `Settlement at ${s.settlementYears} years adjusts retention weighting.`,
+    applicableRoutes: [
+      "all",
+      "skilledWorker",
+      "innovatorFounder",
+      "globalTalent",
+      "family",
+    ],
   },
   {
     id: "investor-capital-deployed",
@@ -159,8 +185,14 @@ export const CASCADE_RULES: CascadeRule[] = [
     },
     reason: (s) =>
       `Investor threshold at £${(s.investorThreshold / 1e6).toFixed(1)}M raises Capital deployed weight.`,
+    applicableRoutes: ["all"],
   },
 ];
+
+// Pretty-print the rule's applicable routes for the methodology table.
+export function formatApplicableRoutes(rule: CascadeRule): string {
+  return rule.applicableRoutes.map((r) => SCOPE_ROUTE_LABEL[r]).join(", ");
+}
 
 export interface EffectiveWeight {
   effective: number;
@@ -169,15 +201,20 @@ export interface EffectiveWeight {
 }
 
 // Compute the effective weight for a single rubric × dimension pair under
-// the current simulator state. Clamped to [0, 100].
+// the current simulator state, restricted to rules that fire for the
+// active route scope. Clamped to [0, 100].
 export function computeEffectiveWeight(
   baseWeight: number,
   rubric: RubricKey,
   dimension: string,
   state: LeverState,
+  scope: ScopeRoute,
 ): EffectiveWeight {
   const applicableRules = CASCADE_RULES.filter(
-    (r) => r.rubric === rubric && r.dimension === dimension,
+    (r) =>
+      r.rubric === rubric &&
+      r.dimension === dimension &&
+      r.applicableRoutes.includes(scope),
   );
   const totalDelta = applicableRules.reduce(
     (sum, r) => sum + r.computeDelta(state),
@@ -191,9 +228,13 @@ export function computeEffectiveWeight(
 }
 
 // Returns true when the cascade leaves at least one rubric dimension at
-// a non-zero delta under the current state. Cheap : runs every rule
-// once and short-circuits. Used by the rubric banner to decide whether
-// to surface lever overrides at all.
-export function cascadeHasAnyDelta(state: LeverState): boolean {
-  return CASCADE_RULES.some((r) => r.computeDelta(state) !== 0);
+// a non-zero delta under the current state and scope. Used by the
+// rubric banner to decide whether to surface lever overrides at all.
+export function cascadeHasAnyDelta(
+  state: LeverState,
+  scope: ScopeRoute,
+): boolean {
+  return CASCADE_RULES.some(
+    (r) => r.applicableRoutes.includes(scope) && r.computeDelta(state) !== 0,
+  );
 }

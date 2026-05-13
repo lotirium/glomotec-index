@@ -84,16 +84,19 @@ function SimulatorBody({ description }: { description: string }) {
   const liveLevers = useLeverState();
   const setStoreLever = useSimulatorState((s) => s.setLever);
   const storeReset = useSimulatorState((s) => s.reset);
+  const scopeRoute = useSimulatorState((s) => s.scope);
+  const setStoreScope = useSimulatorState((s) => s.setScope);
 
   const [backtestActive, setBacktestActive] = React.useState(false);
   const [scenarioId, setScenarioId] = React.useState<string>(
     BACKTEST_SCENARIOS[0].id,
   );
   const [horizonYears, setHorizonYears] = React.useState<HorizonYears>(3);
-  const [scopeRoute, setScopeRoute] = React.useState<ScopeRoute>("all");
   // Effective scope : backtest mode forces "all" so the historical scenarios
   // continue to span their full sample. The picker is rendered disabled in
-  // that state.
+  // that state. The route picker writes to the shared store via setStoreScope
+  // so /atlas/rubric can route-filter the cascade rules.
+  const setScopeRoute = setStoreScope;
   const effectiveScope: ScopeRoute = backtestActive ? "all" : scopeRoute;
 
   const scenario = React.useMemo(
@@ -126,8 +129,8 @@ function SimulatorBody({ description }: { description: string }) {
   );
 
   const reset = React.useCallback(() => {
+    // storeReset restores both levers and scope to defaults.
     storeReset();
-    setScopeRoute("all");
   }, [storeReset]);
 
   const setLever = React.useCallback(

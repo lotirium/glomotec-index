@@ -11,7 +11,10 @@ import { AuditAnchor } from "@/components/atlas/audit-anchor";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
 import { CollapsibleContext } from "@/components/atlas/collapsible-context";
 import { RUBRIC_VERSION } from "@/lib/atlas/rubric";
-import { CASCADE_RULES } from "@/lib/atlas/lever-rubric-cascade";
+import {
+  CASCADE_RULES,
+  formatApplicableRoutes,
+} from "@/lib/atlas/lever-rubric-cascade";
 
 interface Props {
   basePageAudit: Omit<PageAudit, "jurisdiction">;
@@ -59,17 +62,18 @@ const AUTHORITY_ROWS: AuthorityRow[] = [
     id: "auth/strategic-sector",
     rubric: "Strategic Sector Alignment",
     authority:
-      "Multi-jurisdictional national strategy alignment (composite, illustrative)",
+      "EU FDI Regulation 2025-26 + UK NSI Act 2021 + US CFIUS framework",
     anchors:
-      "Anchor / Strong / Moderate / Weak categories derived from the dominant national-strategy framings across UK, GCC, ASEAN.",
+      "Anchor / Strong / Moderate / Weak categories anchored on the three major national-security review frameworks operating across UK, US, and EU member states.",
+    href: "https://policy.trade.ec.europa.eu/enforcement-and-protection/investment-screening_en",
   },
   {
     id: "auth/fiscal-contribution",
     rubric: "Fiscal Contribution",
-    authority:
-      "Jurisdiction-specific corporate tax and payroll contribution thresholds",
+    authority: "OECD Pillar Two GloBE Rules 2024",
     anchors:
-      "Major / Significant / Modest / Minimal tiers anchored on each jurisdiction's published corporate-tax and payroll thresholds.",
+      "Major / Significant / Modest / Minimal tiers anchored on the OECD Pillar Two GloBE Rules and each jurisdiction's corporate-tax framework.",
+    href: "https://www.oecd.org/tax/beps/",
   },
   {
     id: "auth/sustainability",
@@ -467,11 +471,12 @@ function CascadeRules() {
       </header>
 
       <div className="overflow-x-auto rounded-md border border-line bg-surface">
-        <table className="w-full min-w-[860px] border-collapse text-2xs">
+        <table className="w-full min-w-[1000px] border-collapse text-2xs">
           <thead>
             <tr className="border-b border-line bg-surface-soft/60 text-left font-mono uppercase tracking-[0.18em] text-ink-faint">
               <th className="px-4 py-3 font-semibold">Rule</th>
               <th className="px-4 py-3 font-semibold">Magnitude</th>
+              <th className="px-4 py-3 font-semibold">Applicable routes</th>
               <th className="px-4 py-3 font-semibold">Authority basis</th>
               <th className="px-4 py-3 font-semibold">Reverse to baseline</th>
             </tr>
@@ -492,6 +497,9 @@ function CascadeRules() {
                 </td>
                 <td className="px-4 py-3 font-mono leading-snug text-ink-soft tabular">
                   {rule.magnitude}
+                </td>
+                <td className="px-4 py-3 leading-snug text-ink-soft">
+                  {formatApplicableRoutes(rule)}
                 </td>
                 <td className="px-4 py-3 leading-snug text-ink-soft">
                   {rule.authorityBasis}
