@@ -5,7 +5,7 @@
 // COMPASS framework lands cleanly in the 2025 snapshot.
 
 import { COUNTRY_TABLE } from "@/lib/atlas/country-centroids";
-import type { OriginCountry, OriginMapResponse } from "@/lib/atlas/types";
+import type { OriginCountry, OriginMapResponse, TalentMix } from "@/lib/atlas/types";
 
 export type SgFlowYear = 2000 | 2010 | 2015 | 2020 | 2025;
 export const SG_FLOW_YEARS: SgFlowYear[] = [2000, 2010, 2015, 2020, 2025];
@@ -160,6 +160,61 @@ export const SG_FLOW_YEAR_TAKEAWAY: Record<SgFlowYear, string> = {
   2025: "Singapore tightens with rhythm. The 2024 EP threshold raise to S$5,000 has visibly shifted the inbound mix toward UK and HK at the expense of regional ASEAN origins.",
 };
 
+// Per-country profile : [investors, founders, seniorEmployees,
+// midLevelProfessionals, students]. Paraphrased from MOM Employment Pass
+// occupational mix releases. Each row sums to 1.0.
+const SG_TALENT_PROFILE: Record<string, [number, number, number, number, number]> = {
+  // Tech and finance corridors with founder weight.
+  IN: [0.08, 0.18, 0.22, 0.36, 0.16],
+  // Manufacturing and trade weighted toward mid-level + senior employees.
+  CN: [0.12, 0.16, 0.28, 0.30, 0.14],
+  // Regional ASEAN. Manufacturing and services, lower founder weight.
+  MY: [0.06, 0.10, 0.26, 0.40, 0.18],
+  ID: [0.08, 0.10, 0.24, 0.40, 0.18],
+  PH: [0.04, 0.08, 0.22, 0.44, 0.22],
+  // Finance corridors, investor weight + senior employees.
+  GB: [0.18, 0.22, 0.28, 0.20, 0.12],
+  HK: [0.24, 0.20, 0.26, 0.18, 0.12],
+  AU: [0.16, 0.18, 0.28, 0.22, 0.16],
+  US: [0.18, 0.22, 0.26, 0.22, 0.12],
+};
+
+const SG_FALLBACK_PROFILE: [number, number, number, number, number] = [
+  0.1, 0.16, 0.26, 0.30, 0.18,
+];
+
+// Drift-corrected rounding so the five mix counts sum exactly to bandA.
+function talentMixForSg(iso2: string, bandA: number): TalentMix {
+  if (bandA <= 0) {
+    return {
+      investors: 0,
+      founders: 0,
+      seniorEmployees: 0,
+      midLevelProfessionals: 0,
+      students: 0,
+    };
+  }
+  const profile = SG_TALENT_PROFILE[iso2] ?? SG_FALLBACK_PROFILE;
+  const raw = profile.map((p) => p * bandA);
+  const rounded = raw.map((v) => Math.round(v));
+  let drift = bandA - rounded.reduce((s, v) => s + v, 0);
+  while (drift !== 0) {
+    const targetIdx =
+      drift > 0
+        ? raw.indexOf(Math.max(...raw))
+        : rounded.indexOf(Math.max(...rounded));
+    rounded[targetIdx] += drift > 0 ? 1 : -1;
+    drift = bandA - rounded.reduce((s, v) => s + v, 0);
+  }
+  return {
+    investors: Math.max(0, rounded[0]),
+    founders: Math.max(0, rounded[1]),
+    seniorEmployees: Math.max(0, rounded[2]),
+    midLevelProfessionals: Math.max(0, rounded[3]),
+    students: Math.max(0, rounded[4]),
+  };
+}
+
 function buildCountries(rows: RawRow[]): OriginCountry[] {
   return rows
     .map((row) => {
@@ -193,6 +248,7 @@ function buildCountries(rows: RawRow[]): OriginCountry[] {
         sector_breakdown,
         avg_composite: 82,
         centroid: record.centroid,
+        talent_mix: talentMixForSg(iso2, row.bandA),
       } as OriginCountry;
     })
     .filter((x): x is OriginCountry => x !== null)

@@ -12,8 +12,13 @@ import {
 } from "@/components/atlas/audit-context";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
 import { CollapsibleContext } from "@/components/atlas/collapsible-context";
+import { TalentLeversPanel } from "@/components/atlas/talent-levers-panel";
 import { TopOriginsList } from "@/components/atlas/top-origins-list";
 import OriginMapStatic from "@/components/atlas/origin-map-static";
+import {
+  applyTalentLevers,
+  useTalentLevers,
+} from "@/lib/atlas/talent-lever-fixtures";
 import { rubricGrade, RUBRIC_METHOD_LINE } from "@/components/atlas/audit-helpers";
 import { COUNTRY_TABLE } from "@/lib/atlas/country-centroids";
 import {
@@ -89,12 +94,20 @@ function UkOriginMapBody({ description }: { description: string }) {
   const [layer, setLayer] = React.useState<MapLayer>("entities");
   const isDesktop = useIsDesktop();
   const { hover } = useAuditTrail();
+  const talent = useTalentLevers();
 
   const data = React.useMemo(
     () => ukFlowResponseFor(year, direction),
     [year, direction],
   );
   const totals = React.useMemo(() => totalsForYear(year), [year]);
+  const renderCountries = React.useMemo(
+    () =>
+      layer === "talent"
+        ? applyTalentLevers(data.countries, talent.values)
+        : data.countries,
+    [layer, data.countries, talent.values],
+  );
 
   const evidence: AuditEvidence = React.useMemo(
     () => ({
@@ -184,7 +197,7 @@ function UkOriginMapBody({ description }: { description: string }) {
               ) : isDesktop ? (
                 <div key={`uk-map-${year}-${direction}-${layer}`} className="uk-origin-fade">
                   <OriginMapLeaflet
-                    countries={data.countries}
+                    countries={renderCountries}
                     layer={layer}
                     focusedIso2={focusedIso2}
                     onCountryHover={handleMapHover}
@@ -194,12 +207,12 @@ function UkOriginMapBody({ description }: { description: string }) {
                   />
                 </div>
               ) : (
-                <OriginMapStatic countries={data.countries} />
+                <OriginMapStatic countries={renderCountries} />
               )}
               {layer === "talent" && <TalentLegend />}
             </div>
             <TopOriginsList
-              countries={data.countries}
+              countries={renderCountries}
               evidence={evidence}
               focusedIso2={focusedIso2}
               onSelect={(iso2) => setFocusedIso2(iso2)}
@@ -207,6 +220,10 @@ function UkOriginMapBody({ description }: { description: string }) {
             />
           </div>
         </section>
+
+        {layer === "talent" && (
+          <TalentLeversPanel state={talent} evidence={evidence} />
+        )}
 
         <UkTakeawayBanner data={data} year={year} direction={direction} totals={totals} />
       </div>

@@ -12,8 +12,13 @@ import {
 import { cn } from "@/lib/utils";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
 import { CollapsibleContext } from "@/components/atlas/collapsible-context";
+import { TalentLeversPanel } from "@/components/atlas/talent-levers-panel";
 import { TopOriginsList } from "@/components/atlas/top-origins-list";
 import OriginMapStatic from "@/components/atlas/origin-map-static";
+import {
+  applyTalentLevers,
+  useTalentLevers,
+} from "@/lib/atlas/talent-lever-fixtures";
 import { rubricGrade, RUBRIC_METHOD_LINE } from "@/components/atlas/audit-helpers";
 import type { OriginMapResponse, OriginCountry } from "@/lib/atlas/types";
 import {
@@ -111,12 +116,24 @@ function OriginMapBody({
   const [layer, setLayer] = React.useState<MapLayer>("entities");
   const isDesktop = useIsDesktop();
   const { hover } = useAuditTrail();
+  const talent = useTalentLevers();
 
   // Display data is year-keyed : the production fixture is only used as the
   // page-audit anchor (it represents "what the live system holds"). The map,
   // strip, top-origins list and takeaway all run off origin-history.ts so
   // 2000 to 2025 can be scrubbed independently.
   const displayData = React.useMemo(() => originResponseForYear(year), [year]);
+
+  // Talent layer applies the per-demographic levers on top of the year-keyed
+  // mix. Entities layer ignores the levers entirely so the panel can't
+  // accidentally over-filter the marker pool when it isn't visible.
+  const renderCountries = React.useMemo(
+    () =>
+      layer === "talent"
+        ? applyTalentLevers(displayData.countries, talent.values)
+        : displayData.countries,
+    [layer, displayData.countries, talent.values],
+  );
 
   const evidence: AuditEvidence = React.useMemo(
     () => ({
@@ -202,7 +219,7 @@ function OriginMapBody({
                   className="origin-map-fade"
                 >
                   <OriginMapLeaflet
-                    countries={displayData.countries}
+                    countries={renderCountries}
                     layer={layer}
                     focusedIso2={focusedIso2}
                     onCountryHover={handleMapHover}
@@ -210,12 +227,12 @@ function OriginMapBody({
                   />
                 </div>
               ) : (
-                <OriginMapStatic countries={displayData.countries} />
+                <OriginMapStatic countries={renderCountries} />
               )}
               {layer === "talent" && <TalentLegend />}
             </div>
             <TopOriginsList
-              countries={displayData.countries}
+              countries={renderCountries}
               evidence={evidence}
               focusedIso2={focusedIso2}
               onSelect={(iso2) => setFocusedIso2(iso2)}
@@ -223,6 +240,10 @@ function OriginMapBody({
             />
           </div>
         </section>
+
+        {layer === "talent" && (
+          <TalentLeversPanel state={talent} evidence={evidence} />
+        )}
 
         <TakeawayBanner data={displayData} />
       </div>
