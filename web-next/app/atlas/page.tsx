@@ -50,6 +50,19 @@ const TILES = [
     aspectClass: "aspect-[16/9]",
   },
   {
+    id: "00D",
+    href: "/atlas/sg/origin-map",
+    badge: "Geographic",
+    time: "~60s read",
+    label: "Visual 00D · The Singapore lens · Where Singapore drew from",
+    title: "Where Singapore drew its talent.",
+    desc: "Five-year inbound snapshots from 2000 through 2025, each anchored to the EP threshold in force. The COMPASS framework added a multi-attribute lens in 2023. Scrub through years to see the corridor rebalance with every tightening.",
+    takeaway:
+      "2024 EP threshold S$5,000 shifted inbound mix toward UK and HK",
+    decor: "singapore" as const,
+    aspectClass: "aspect-[16/9]",
+  },
+  {
     id: "01",
     href: "/atlas/uae/origin-map",
     badge: "Geographic",
@@ -603,6 +616,109 @@ function TileDecor({ variant }: { variant: TileDecor }) {
             >
               2016
             </text>
+          </svg>
+        </div>
+      );
+    case "singapore":
+      return (
+        <div className="absolute inset-0 bg-gradient-to-br from-accent via-accent-deep to-cyan">
+          <svg
+            viewBox="0 0 320 180"
+            preserveAspectRatio="xMidYMid meet"
+            className="absolute inset-0 h-full w-full opacity-95"
+            aria-hidden
+          >
+            {/* Singapore convergence point on the right, balanced against the visual */}
+            <circle cx="220" cy="116" r="7" fill="#00A2E9" stroke="white" strokeWidth="2" />
+            <rect x="206" y="128" width="28" height="11" rx="2" fill="white" fillOpacity="0.92" />
+            <text
+              x="220"
+              y="136"
+              textAnchor="middle"
+              fontFamily="Inter, sans-serif"
+              fontSize="8"
+              fontWeight="700"
+              fill="#0F2C5C"
+            >
+              SG
+            </text>
+            {/* Origin dots roughly placed in regional clusters */}
+            {[
+              [180, 92, "MY"],
+              [206, 70, "CN"],
+              [196, 130, "ID"],
+              [120, 92, "IN"],
+              [232, 96, "HK"],
+              [42, 70, "UK"],
+              [266, 142, "AU"],
+              [196, 110, "PH"],
+            ].map(([x, y, label], i) => (
+              <g key={i}>
+                <circle cx={x as number} cy={y as number} r={3.5} fill="white" opacity={0.9} />
+                <text
+                  x={(x as number) + 6}
+                  y={(y as number) + 3}
+                  fontFamily="Inter, sans-serif"
+                  fontSize="7"
+                  fontWeight="700"
+                  fill="white"
+                  opacity={0.7}
+                >
+                  {label as string}
+                </text>
+              </g>
+            ))}
+            {/* Flow lines arcing into Singapore */}
+            {[
+              [180, 92],
+              [206, 70],
+              [196, 130],
+              [120, 92],
+              [232, 96],
+              [42, 70],
+              [266, 142],
+              [196, 110],
+            ].map(([x, y], i) => (
+              <path
+                key={`flow-${i}`}
+                d={`M ${x} ${y} Q ${((x as number) + 220) / 2} ${Math.min(y as number, 116) - 14}, 220 116`}
+                stroke="white"
+                strokeWidth="1.1"
+                strokeOpacity="0.45"
+                fill="none"
+                strokeDasharray="3 4"
+              />
+            ))}
+            {/* EP threshold ladder, bottom strip */}
+            <g transform="translate(20, 156)">
+              <text
+                x="0"
+                y="0"
+                fontFamily="Inter, sans-serif"
+                fontSize="7"
+                fontWeight="700"
+                fill="white"
+                opacity="0.85"
+                letterSpacing="0.12em"
+              >
+                EP THRESHOLD
+              </text>
+              {["S$3.0K", "S$3.3K", "S$3.9K", "S$5.0K"].map((t, i) => (
+                <text
+                  key={t}
+                  x={80 + i * 60}
+                  y="0"
+                  fontFamily="Inter, sans-serif"
+                  fontSize="8"
+                  fontWeight="700"
+                  fill="white"
+                  opacity={0.65 + i * 0.1}
+                  letterSpacing="0.04em"
+                >
+                  {t}
+                </text>
+              ))}
+            </g>
           </svg>
         </div>
       );
