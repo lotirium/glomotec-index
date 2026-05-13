@@ -1,8 +1,13 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  useLeverState,
+  useSimulatorState,
+} from "@/lib/atlas/simulator-state";
 import {
   AuditTrailProvider,
   useAuditTrail,
@@ -72,7 +77,14 @@ export function PolicySimulatorView({ basePageAudit, description }: Props) {
 // ----- Body -----
 
 function SimulatorBody({ description }: { description: string }) {
-  const [liveLevers, setLiveLevers] = React.useState<LeverState>(DEFAULTS);
+  // Live levers now live in the shared store so /atlas/rubric and
+  // /atlas/methodology read the same state. Backtest mode bypasses the
+  // store — the scenario's leversBeforeEvent feeds the re-score pipeline
+  // directly and never persists.
+  const liveLevers = useLeverState();
+  const setStoreLever = useSimulatorState((s) => s.setLever);
+  const storeReset = useSimulatorState((s) => s.reset);
+
   const [backtestActive, setBacktestActive] = React.useState(false);
   const [scenarioId, setScenarioId] = React.useState<string>(
     BACKTEST_SCENARIOS[0].id,
@@ -114,14 +126,14 @@ function SimulatorBody({ description }: { description: string }) {
   );
 
   const reset = React.useCallback(() => {
-    setLiveLevers(DEFAULTS);
+    storeReset();
     setScopeRoute("all");
-  }, []);
+  }, [storeReset]);
 
   const setLever = React.useCallback(
     <K extends keyof LeverState>(key: K, value: LeverState[K]) =>
-      setLiveLevers((prev) => ({ ...prev, [key]: value })),
-    [],
+      setStoreLever(key, value),
+    [setStoreLever],
   );
 
   return (
@@ -220,6 +232,13 @@ function SimulatorControls({
             <h2 className="mt-1 text-xl font-bold tracking-tight text-accent">
               {backtestActive ? "Rules of the day." : "Eight levers."}
             </h2>
+            <Link
+              href="/atlas/rubric"
+              className="mt-1.5 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.18em] text-cyan hover:underline"
+            >
+              View current weights on /atlas/rubric
+              <span aria-hidden>→</span>
+            </Link>
           </div>
           <div className="flex shrink-0 items-center gap-2">
             <button

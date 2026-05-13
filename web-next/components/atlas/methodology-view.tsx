@@ -11,6 +11,7 @@ import { AuditAnchor } from "@/components/atlas/audit-anchor";
 import { AuditSidebar } from "@/components/atlas/audit-sidebar";
 import { CollapsibleContext } from "@/components/atlas/collapsible-context";
 import { RUBRIC_VERSION } from "@/lib/atlas/rubric";
+import { CASCADE_RULES } from "@/lib/atlas/lever-rubric-cascade";
 
 interface Props {
   basePageAudit: Omit<PageAudit, "jurisdiction">;
@@ -225,6 +226,7 @@ export function MethodologyView({ basePageAudit }: Props) {
           <Article22cCard />
           <AuthoritySources />
           <LiveDataSources />
+          <CascadeRules />
           <PolicyEventCitations />
           <FrameworkLineage />
           <TakeawayBanner />
@@ -437,6 +439,97 @@ function LiveDataSources() {
           </tbody>
         </table>
       </div>
+    </section>
+  );
+}
+
+function CascadeRules() {
+  return (
+    <section aria-labelledby="cascade-rules-heading" className="space-y-5">
+      <header>
+        <p className="font-mono text-2xs uppercase tracking-[0.18em] text-cyan">
+          Framework reactivity
+        </p>
+        <h2
+          id="cascade-rules-heading"
+          className="mt-1 text-h2 font-bold tracking-tight text-ink"
+        >
+          Simulator-to-rubric cascade rules.
+        </h2>
+        <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-ink-soft md:text-[16px]">
+          The cascade rules document how policy levers in the simulator
+          modulate the rubric framework&apos;s dimension weights. Moving a
+          lever doesn&apos;t change the underlying {RUBRIC_VERSION} framework
+          ; it changes the <em>effective</em> weights for the entity pool
+          under that policy regime. Reset the simulator to April 2026
+          defaults to restore baseline weights.
+        </p>
+      </header>
+
+      <div className="overflow-x-auto rounded-md border border-line bg-surface">
+        <table className="w-full min-w-[860px] border-collapse text-2xs">
+          <thead>
+            <tr className="border-b border-line bg-surface-soft/60 text-left font-mono uppercase tracking-[0.18em] text-ink-faint">
+              <th className="px-4 py-3 font-semibold">Rule</th>
+              <th className="px-4 py-3 font-semibold">Magnitude</th>
+              <th className="px-4 py-3 font-semibold">Authority basis</th>
+              <th className="px-4 py-3 font-semibold">Reverse to baseline</th>
+            </tr>
+          </thead>
+          <tbody>
+            {CASCADE_RULES.map((rule) => (
+              <tr
+                key={rule.id}
+                className="border-b border-line/60 align-top last:border-b-0"
+              >
+                <td className="px-4 py-3">
+                  <p className="font-medium leading-snug text-ink">
+                    {rule.ruleSummary}
+                  </p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
+                    {rule.rubric} · {rule.dimension}
+                  </p>
+                </td>
+                <td className="px-4 py-3 font-mono leading-snug text-ink-soft tabular">
+                  {rule.magnitude}
+                </td>
+                <td className="px-4 py-3 leading-snug text-ink-soft">
+                  {rule.authorityBasis}
+                </td>
+                <td className="px-4 py-3 leading-snug text-ink-soft">
+                  {rule.reverseRule}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="max-w-3xl text-2xs leading-relaxed text-ink-muted">
+        Effective weight = base weight + sum of applicable rule deltas,
+        clamped to [0, 100]. Multiple rules can target the same dimension :
+        e.g. salary up and ISC up both touch Economic Substance · Local
+        payroll in opposite directions. The cascade is deterministic and
+        documented end-to-end so the audit trail explains every delta.
+      </p>
+
+      <p className="max-w-3xl text-2xs leading-relaxed text-ink-muted">
+        Read the rules live on{" "}
+        <Link
+          href="/atlas/rubric"
+          className="font-semibold text-cyan hover:underline"
+        >
+          /atlas/rubric
+        </Link>{" "}
+        ; move levers on{" "}
+        <Link
+          href="/atlas/simulator"
+          className="font-semibold text-cyan hover:underline"
+        >
+          /atlas/simulator
+        </Link>{" "}
+        and the per-dimension deltas update with the audit chain.
+      </p>
     </section>
   );
 }

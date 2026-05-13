@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   AuditTrailProvider,
@@ -16,7 +18,18 @@ import {
   RUBRIC_BAND_COLOR_HSL,
   RUBRIC_VERSION,
   rubricKeyFromName,
+  type RubricKey,
 } from "@/lib/atlas/rubric";
+import {
+  SIMULATOR_DEFAULTS,
+  useLeverState,
+  useSimulatorHasHydrated,
+  useSimulatorState,
+} from "@/lib/atlas/simulator-state";
+import {
+  cascadeHasAnyDelta,
+  computeEffectiveWeight,
+} from "@/lib/atlas/lever-rubric-cascade";
 
 // ----- Static framework content -----
 
@@ -259,6 +272,7 @@ function FrameworkBody() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_19rem] lg:gap-10">
       <div className="min-w-0 space-y-16">
+        <ActiveSimulatorBanner />
         <BandLadder />
         <CompositeFormula />
         <RubricsGrid />
@@ -270,6 +284,130 @@ function FrameworkBody() {
       </div>
       <AuditSidebar />
     </div>
+  );
+}
+
+// ----- Active simulator state banner -----
+
+function ActiveSimulatorBanner() {
+  const hydrated = useSimulatorHasHydrated();
+  const levers = useLeverState();
+  const reset = useSimulatorState((s) => s.reset);
+
+  const atDefaults = !cascadeHasAnyDelta(levers);
+  // Until persist rehydrates from localStorage, render the defaults banner.
+  // This avoids SSR/CSR mismatches when the user has lever overrides
+  // persisted from a prior session.
+  const showDefaults = !hydrated || atDefaults;
+
+  return (
+    <section
+      aria-label="Active simulator state"
+      className={cn(
+        "rounded-md border bg-surface px-5 py-4 md:px-6",
+        showDefaults
+          ? "border-line border-l-2 border-l-ink-faint"
+          : "border-cyan/40 border-l-4 border-l-cyan bg-cyan-tint/20",
+      )}
+    >
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0">
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan">
+            Active simulator state
+          </p>
+          {showDefaults ? (
+            <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
+              Simulator at April 2026 defaults. Rubric weights shown are baseline.
+            </p>
+          ) : (
+            <>
+              <p className="mt-1.5 text-sm font-semibold leading-snug text-ink">
+                Rubric weights reflect your current lever overrides.
+              </p>
+              <ul className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] text-ink-soft tabular">
+                <SummaryItem
+                  label="Min salary"
+                  value={`£${levers.minSalary.toLocaleString("en-GB")}`}
+                  changed={levers.minSalary !== SIMULATOR_DEFAULTS.minSalary}
+                />
+                <SummaryItem
+                  label="ISC"
+                  value={`£${levers.isc.toLocaleString("en-GB")}/yr`}
+                  changed={levers.isc !== SIMULATOR_DEFAULTS.isc}
+                />
+                <SummaryItem
+                  label="English"
+                  value={levers.englishLevel}
+                  changed={levers.englishLevel !== SIMULATOR_DEFAULTS.englishLevel}
+                />
+                <SummaryItem
+                  label="Settlement"
+                  value={`${levers.settlementYears}y`}
+                  changed={
+                    levers.settlementYears !== SIMULATOR_DEFAULTS.settlementYears
+                  }
+                />
+                <SummaryItem
+                  label="ILR fee"
+                  value={`£${levers.ilrFee.toLocaleString("en-GB")}`}
+                  changed={levers.ilrFee !== SIMULATOR_DEFAULTS.ilrFee}
+                />
+                <SummaryItem
+                  label="Investor"
+                  value={`£${(levers.investorThreshold / 1e6).toFixed(1)}M`}
+                  changed={
+                    levers.investorThreshold !==
+                    SIMULATOR_DEFAULTS.investorThreshold
+                  }
+                />
+              </ul>
+            </>
+          )}
+        </div>
+        <div className="flex shrink-0 flex-wrap items-center gap-2">
+          <Link
+            href="/atlas/simulator"
+            className="inline-flex items-center gap-1 rounded-full border border-line bg-surface-soft px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted transition-colors hover:text-ink hover:border-accent/40"
+          >
+            Sync from simulator
+            <span aria-hidden>→</span>
+          </Link>
+          {!showDefaults && (
+            <button
+              type="button"
+              onClick={reset}
+              className="inline-flex items-center gap-1 rounded-full border border-cyan bg-cyan px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-surface transition-colors hover:bg-cyan/85"
+            >
+              Reset simulator
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SummaryItem({
+  label,
+  value,
+  changed,
+}: {
+  label: string;
+  value: string;
+  changed: boolean;
+}) {
+  return (
+    <li className="flex items-baseline gap-1.5">
+      <span className="uppercase tracking-[0.18em] text-ink-faint">{label}</span>
+      <span
+        className={cn(
+          "font-semibold",
+          changed ? "text-cyan" : "text-ink-muted",
+        )}
+      >
+        {value}
+      </span>
+    </li>
   );
 }
 
@@ -412,19 +550,8 @@ function RubricCard({ rubric }: { rubric: Rubric }) {
       <p className="mt-2 text-2xs leading-relaxed text-ink-muted">
         Anchor for: {rubric.anchorProfile}
       </p>
-      <ul className="mt-4 space-y-1.5 border-t border-line/60 pt-4">
-        {rubric.dimensions.map((d) => (
-          <li
-            key={d.name}
-            className="flex items-baseline justify-between gap-3 text-2xs"
-          >
-            <span className="text-ink">{d.name}</span>
-            <span className="font-mono tabular text-ink-muted">
-              {d.weight}%
-            </span>
-          </li>
-        ))}
-      </ul>
+      <DimensionList rubric={rubric} />
+      <CascadeWhy rubric={rubric} />
       {rubric.hardCap ? (
         <div className="mt-4 rounded-sm border border-cyan/40 bg-cyan-tint/30 p-3 text-2xs leading-relaxed text-ink-soft">
           <p className="mb-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-cyan">
@@ -440,6 +567,108 @@ function RubricCard({ rubric }: { rubric: Rubric }) {
 
       <RubricBandLadder rubricName={rubric.name} />
     </button>
+  );
+}
+
+// ----- Cascade-aware dimension list -----
+
+function DimensionList({ rubric }: { rubric: Rubric }) {
+  const hydrated = useSimulatorHasHydrated();
+  const levers = useLeverState();
+  const rubricKey = rubricKeyFromName(rubric.name);
+
+  return (
+    <ul className="mt-4 space-y-1.5 border-t border-line/60 pt-4">
+      {rubric.dimensions.map((d) => {
+        const eff =
+          hydrated && rubricKey
+            ? computeEffectiveWeight(d.weight, rubricKey, d.name, levers)
+            : null;
+        const delta = eff?.delta ?? 0;
+        const effective = eff?.effective ?? d.weight;
+        const hasDelta = delta !== 0;
+        return (
+          <li
+            key={d.name}
+            className="flex items-baseline justify-between gap-3 text-2xs"
+          >
+            <span className="text-ink">{d.name}</span>
+            {hasDelta ? (
+              <span className="flex items-center gap-1.5 font-mono tabular">
+                <span className="text-ink-faint">{d.weight}%</span>
+                <ChevronRight
+                  aria-hidden
+                  className={cn(
+                    "h-3 w-3 shrink-0",
+                    delta > 0 ? "text-cyan" : "text-slate",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "text-sm font-bold",
+                    delta > 0 ? "text-cyan" : "text-slate",
+                  )}
+                >
+                  {effective}%
+                </span>
+                <span
+                  className={cn(
+                    "rounded-sm px-1.5 text-[10px] font-bold uppercase tracking-[0.08em]",
+                    delta > 0
+                      ? "bg-cyan-tint text-cyan"
+                      : "bg-glacier/60 text-slate",
+                  )}
+                  aria-label={`${delta > 0 ? "+" : ""}${delta} percentage points`}
+                >
+                  {delta > 0 ? "+" : ""}
+                  {delta}pp
+                </span>
+              </span>
+            ) : (
+              <span className="font-mono tabular text-ink-muted">
+                {d.weight}%
+              </span>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function CascadeWhy({ rubric }: { rubric: Rubric }) {
+  const hydrated = useSimulatorHasHydrated();
+  const levers = useLeverState();
+  const rubricKey = rubricKeyFromName(rubric.name);
+
+  if (!hydrated || !rubricKey) return null;
+  const reasons: string[] = [];
+  for (const d of rubric.dimensions) {
+    const eff = computeEffectiveWeight(d.weight, rubricKey, d.name, levers);
+    for (const r of eff.reasons) {
+      if (!reasons.includes(r)) reasons.push(r);
+    }
+  }
+  if (reasons.length === 0) return null;
+  // Rendered inline (not a <details> disclosure) because the parent card is
+  // a button — nesting interactive elements is invalid HTML.
+  return (
+    <div className="mt-3 rounded-sm border border-cyan/30 bg-cyan-tint/15 px-3 py-2.5">
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-cyan">
+        Why these effective weights
+      </p>
+      <ul className="mt-1.5 space-y-1 text-[11px] leading-snug text-ink-soft">
+        {reasons.map((r, i) => (
+          <li key={i} className="flex items-start gap-2">
+            <span
+              aria-hidden
+              className="mt-1 inline-block h-1 w-1 shrink-0 rounded-full bg-cyan"
+            />
+            <span>{r}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
