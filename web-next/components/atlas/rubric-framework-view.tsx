@@ -937,6 +937,13 @@ function FooterCard() {
         transparency requirements are satisfied natively because every score
         is anchored to its source.
       </p>
+      <a
+        href="/atlas/methodology"
+        className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan px-5 py-2.5 text-kicker uppercase text-surface transition-colors hover:bg-cyan/85"
+      >
+        See the full source index
+        <span aria-hidden>→</span>
+      </a>
     </section>
   );
 }
