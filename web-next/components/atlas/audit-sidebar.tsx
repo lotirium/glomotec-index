@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Pin, X } from "lucide-react";
+import { ChevronRight, Pin, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   useAuditTrail,
@@ -20,60 +20,101 @@ export function AuditSidebar() {
       ? "preview"
       : "page";
 
+  const innerBody = (
+    <>
+      <header className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <span
+            aria-hidden
+            className={cn(
+              "h-1.5 w-1.5 rounded-full",
+              mode === "pinned"
+                ? "bg-cyan"
+                : mode === "preview"
+                  ? "bg-accent"
+                  : "bg-ink-faint/60",
+            )}
+          />
+          <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
+            Audit trail
+          </p>
+        </div>
+        {mode === "pinned" ? (
+          <button
+            type="button"
+            onClick={unpin}
+            className="inline-flex items-center gap-1 rounded-full border border-line bg-surface-soft px-2 py-0.5 text-[10px] font-mono uppercase tracking-[0.18em] text-ink-muted hover:text-ink hover:border-accent/40 transition-colors"
+            aria-label="Unpin audit focus"
+          >
+            <X className="h-2.5 w-2.5" />
+            Unpin
+          </button>
+        ) : mode === "preview" ? (
+          <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
+            <Pin className="h-2.5 w-2.5" />
+            Click to pin
+          </span>
+        ) : (
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
+            Page view
+          </span>
+        )}
+      </header>
+
+      {mode === "page" ? <PageAuditView /> : <FocusView focus={active!} />}
+
+      <p className="mt-5 border-t border-line/60 pt-4 text-[10px] uppercase tracking-[0.18em] font-mono text-ink-faint">
+        Article 22C : evidence chain visible
+      </p>
+    </>
+  );
+
   return (
-    <aside className="sticky top-20 hidden self-start lg:block">
-      <div
+    <>
+      {/* Desktop : sticky right-rail sidebar at lg+ */}
+      <aside className="sticky top-20 hidden self-start lg:block">
+        <div
+          className={cn(
+            "rounded-md border bg-surface p-5 transition-colors",
+            mode === "pinned" ? "border-accent/40" : "border-line",
+          )}
+        >
+          {innerBody}
+        </div>
+      </aside>
+
+      {/* Mobile / tablet : collapsible disclosure below content, <lg */}
+      <details
         className={cn(
-          "rounded-md border bg-surface p-5 transition-colors",
+          "group rounded-md border bg-surface lg:hidden",
           mode === "pinned" ? "border-accent/40" : "border-line",
         )}
       >
-        <header className="flex items-center justify-between gap-3">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-md px-5 py-3 outline-none transition-colors hover:bg-surface-soft/60 focus-visible:ring-2 focus-visible:ring-accent/40">
           <div className="flex items-center gap-2">
-            <span
+            <ChevronRight
               aria-hidden
-              className={cn(
-                "h-1.5 w-1.5 rounded-full",
-                mode === "pinned"
-                  ? "bg-cyan"
-                  : mode === "preview"
-                    ? "bg-accent"
-                    : "bg-ink-faint/60",
-              )}
+              className="h-3 w-3 shrink-0 text-cyan transition-transform duration-200 group-open:rotate-90"
             />
-            <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
-              Audit trail
-            </p>
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-cyan">
+              View audit chain
+            </span>
           </div>
-          {mode === "pinned" ? (
-            <button
-              type="button"
-              onClick={unpin}
-              className="inline-flex items-center gap-1 rounded-full border border-line bg-surface-soft px-2 py-0.5 text-[10px] font-mono uppercase tracking-[0.18em] text-ink-muted hover:text-ink hover:border-accent/40 transition-colors"
-              aria-label="Unpin audit focus"
-            >
-              <X className="h-2.5 w-2.5" />
-              Unpin
-            </button>
-          ) : mode === "preview" ? (
-            <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
-              <Pin className="h-2.5 w-2.5" />
-              Click to pin
-            </span>
-          ) : (
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
-              Page view
-            </span>
-          )}
-        </header>
-
-        {mode === "page" ? <PageAuditView /> : <FocusView focus={active!} />}
-
-        <p className="mt-5 border-t border-line/60 pt-4 text-[10px] uppercase tracking-[0.18em] font-mono text-ink-faint">
-          Article 22C : evidence chain visible
-        </p>
-      </div>
-    </aside>
+          <span
+            aria-hidden
+            className={cn(
+              "inline-block h-1.5 w-1.5 rounded-full",
+              mode === "pinned"
+                ? "bg-cyan"
+                : mode === "preview"
+                  ? "bg-accent"
+                  : "bg-ink-faint/60",
+            )}
+          />
+        </summary>
+        <div className="border-t border-line/60 px-5 py-5">{innerBody}</div>
+      </details>
+    </>
   );
 }
 

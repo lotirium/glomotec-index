@@ -331,38 +331,54 @@ export function CompositeTrajectory({
             strokeDasharray="3 3"
             opacity="0.7"
           />
-          <rect
-            x={xAt(ilrIndex) - 70}
-            y={PAD.top + 8}
-            width="140"
-            height="36"
-            rx="6"
-            fill="white"
-            stroke="#00A2E9"
-            strokeWidth="1.5"
-          />
-          <text
-            x={xAt(ilrIndex)}
-            y={PAD.top + 22}
-            fontFamily="Inter"
-            fontSize="10"
-            fill="#00A2E9"
-            fontWeight="700"
-            textAnchor="middle"
-          >
-            UK ILR ELIGIBILITY
-          </text>
-          <text
-            x={xAt(ilrIndex)}
-            y={PAD.top + 36}
-            fontFamily="Inter"
-            fontSize="11"
-            fill="#2B3E8F"
-            fontWeight="600"
-            textAnchor="middle"
-          >
-            36 months from today
-          </text>
+          {(() => {
+            // Clamp the 140-wide annotation box so it stays inside the viewBox
+            // (it would otherwise overflow when ilrIndex sits near the right
+            // edge of the chart at narrow widths).
+            const annW = 140;
+            const annH = 36;
+            const half = annW / 2;
+            const cx = Math.min(
+              Math.max(xAt(ilrIndex), half + 4),
+              w - half - 4,
+            );
+            return (
+              <>
+                <rect
+                  x={cx - half}
+                  y={PAD.top + 8}
+                  width={annW}
+                  height={annH}
+                  rx="6"
+                  fill="white"
+                  stroke="#00A2E9"
+                  strokeWidth="1.5"
+                />
+                <text
+                  x={cx}
+                  y={PAD.top + 22}
+                  fontFamily="Inter"
+                  fontSize="10"
+                  fill="#00A2E9"
+                  fontWeight="700"
+                  textAnchor="middle"
+                >
+                  UK ILR ELIGIBILITY
+                </text>
+                <text
+                  x={cx}
+                  y={PAD.top + 36}
+                  fontFamily="Inter"
+                  fontSize="11"
+                  fill="#2B3E8F"
+                  fontWeight="600"
+                  textAnchor="middle"
+                >
+                  36 months from today
+                </text>
+              </>
+            );
+          })()}
         </svg>
       </div>
 

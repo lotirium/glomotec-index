@@ -320,7 +320,7 @@ function StatsStrip({
       <h2 id="flow-stats-heading" className="sr-only">
         Flow stats
       </h2>
-      <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         {cells.map((c) => {
           const focus: AuditFocus = {
             id: c.id,

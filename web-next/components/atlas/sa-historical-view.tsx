@@ -194,6 +194,18 @@ interface TimelineProps {
   setHoveredEventYear: (y: number | null) => void;
 }
 
+function useIsNarrow(query = "(max-width: 599px)"): boolean {
+  const [isMatch, setIsMatch] = React.useState(false);
+  React.useEffect(() => {
+    const mq = window.matchMedia(query);
+    const update = () => setIsMatch(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, [query]);
+  return isMatch;
+}
+
 function PolicyTimeline({
   cursorYear,
   setCursorYear,
@@ -202,6 +214,7 @@ function PolicyTimeline({
 }: TimelineProps) {
   const svgRef = React.useRef<SVGSVGElement | null>(null);
   const draggingRef = React.useRef(false);
+  const isNarrow = useIsNarrow();
 
   // Talent inflows are in thousands. Multiply for axis display.
   const linePoints = SA_NET_TALENT_INFLOW_BY_YEAR.map(
@@ -402,17 +415,19 @@ function PolicyTimeline({
                   stroke="hsl(var(--surface))"
                   strokeWidth={1.5}
                 />
-                <text
-                  x={x + 6}
-                  y={PAD_TOP - 6}
-                  fontFamily="var(--font-inter), Inter, sans-serif"
-                  fontSize="10"
-                  fontWeight={600}
-                  fill="hsl(var(--ink))"
-                  transform={`rotate(-45 ${x + 6} ${PAD_TOP - 6})`}
-                >
-                  {`${ev.year} · ${ev.label}`}
-                </text>
+                {!isNarrow && (
+                  <text
+                    x={x + 6}
+                    y={PAD_TOP - 6}
+                    fontFamily="var(--font-inter), Inter, sans-serif"
+                    fontSize="10"
+                    fontWeight={600}
+                    fill="hsl(var(--ink))"
+                    transform={`rotate(-45 ${x + 6} ${PAD_TOP - 6})`}
+                  >
+                    {`${ev.year} · ${ev.label}`}
+                  </text>
+                )}
                 <rect
                   x={x - 8}
                   y={PAD_TOP - 4}

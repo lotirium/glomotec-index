@@ -201,6 +201,18 @@ interface ChartProps {
   setHoveredEventYear: (y: number | null) => void;
 }
 
+function useIsNarrow(query = "(max-width: 599px)"): boolean {
+  const [isMatch, setIsMatch] = React.useState(false);
+  React.useEffect(() => {
+    const mq = window.matchMedia(query);
+    const update = () => setIsMatch(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, [query]);
+  return isMatch;
+}
+
 function TimelineChart({
   cursorYear,
   setCursorYear,
@@ -209,6 +221,7 @@ function TimelineChart({
 }: ChartProps) {
   const svgRef = React.useRef<SVGSVGElement | null>(null);
   const draggingRef = React.useRef(false);
+  const isNarrow = useIsNarrow();
 
   const linePoints = NET_MIGRATION_BY_YEAR.map(
     (p) => `${xForYear(p.year).toFixed(2)},${yForValue(p.value).toFixed(2)}`,
@@ -404,17 +417,19 @@ function TimelineChart({
                   stroke="hsl(var(--surface))"
                   strokeWidth={1.5}
                 />
-                <text
-                  x={x + 6}
-                  y={PAD_TOP - 6}
-                  fontFamily="var(--font-inter), Inter, sans-serif"
-                  fontSize="10"
-                  fontWeight={600}
-                  fill="hsl(var(--ink))"
-                  transform={`rotate(-45 ${x + 6} ${PAD_TOP - 6})`}
-                >
-                  {`${ev.year} · ${ev.label}`}
-                </text>
+                {!isNarrow && (
+                  <text
+                    x={x + 6}
+                    y={PAD_TOP - 6}
+                    fontFamily="var(--font-inter), Inter, sans-serif"
+                    fontSize="10"
+                    fontWeight={600}
+                    fill="hsl(var(--ink))"
+                    transform={`rotate(-45 ${x + 6} ${PAD_TOP - 6})`}
+                  >
+                    {`${ev.year} · ${ev.label}`}
+                  </text>
+                )}
                 {/* Invisible hit-target widens the hover zone around the line */}
                 <rect
                   x={x - 8}
