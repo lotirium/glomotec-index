@@ -22,11 +22,14 @@ import {
   INVESTOR_CLOSED,
   INVESTOR_MIN,
   INVESTOR_STEP,
+  SCOPE_ROUTES,
+  SCOPE_ROUTE_LABEL,
   SIMULATOR_ENTITIES,
   SIMULATOR_FIXTURE_VERSION,
   backtestUnitLabel,
   categoriseEntities,
   dominantSalaryFloorSectors,
+  entityPoolSize,
   findScenario,
   formatBacktestValue,
   projectEligibleTrajectory,
@@ -35,6 +38,7 @@ import {
   type EnglishLevel,
   type ForecastTrajectory,
   type LeverState,
+  type ScopeRoute,
 } from "@/lib/atlas/simulator-fixtures";
 
 // Horizon options for the forecast chart. The numbers are years from
@@ -74,6 +78,11 @@ function SimulatorBody({ description }: { description: string }) {
     BACKTEST_SCENARIOS[0].id,
   );
   const [horizonYears, setHorizonYears] = React.useState<HorizonYears>(3);
+  const [scopeRoute, setScopeRoute] = React.useState<ScopeRoute>("all");
+  // Effective scope : backtest mode forces "all" so the historical scenarios
+  // continue to span their full sample. The picker is rendered disabled in
+  // that state.
+  const effectiveScope: ScopeRoute = backtestActive ? "all" : scopeRoute;
 
   const scenario = React.useMemo(
     () => findScenario(scenarioId) ?? BACKTEST_SCENARIOS[0],
@@ -87,8 +96,14 @@ function SimulatorBody({ description }: { description: string }) {
     ? scenario.leversBeforeEvent
     : liveLevers;
 
-  const baseline = React.useMemo(() => categoriseEntities(DEFAULTS), []);
-  const current = React.useMemo(() => categoriseEntities(levers), [levers]);
+  const baseline = React.useMemo(
+    () => categoriseEntities(DEFAULTS, effectiveScope),
+    [effectiveScope],
+  );
+  const current = React.useMemo(
+    () => categoriseEntities(levers, effectiveScope),
+    [levers, effectiveScope],
+  );
   const forecast = React.useMemo(
     () =>
       projectEligibleTrajectory(
@@ -98,7 +113,10 @@ function SimulatorBody({ description }: { description: string }) {
     [baseline.counts.eligible, current.counts.eligible],
   );
 
-  const reset = React.useCallback(() => setLiveLevers(DEFAULTS), []);
+  const reset = React.useCallback(() => {
+    setLiveLevers(DEFAULTS);
+    setScopeRoute("all");
+  }, []);
 
   const setLever = React.useCallback(
     <K extends keyof LeverState>(key: K, value: LeverState[K]) =>
@@ -121,9 +139,16 @@ function SimulatorBody({ description }: { description: string }) {
           setBacktestActive={setBacktestActive}
           scenarioId={scenarioId}
           setScenarioId={setScenarioId}
+          scopeRoute={scopeRoute}
+          setScopeRoute={setScopeRoute}
+          effectiveScope={effectiveScope}
         />
         <div className="min-w-0 space-y-6">
-          <StateDistributionBar result={current} backtestActive={backtestActive} />
+          <StateDistributionBar
+            result={current}
+            backtestActive={backtestActive}
+            scope={effectiveScope}
+          />
           {backtestActive && <BacktestComparisonPanel scenario={scenario} />}
           <ForecastChart
             forecast={forecast}
@@ -137,6 +162,7 @@ function SimulatorBody({ description }: { description: string }) {
             backtestActive={backtestActive}
             scenario={scenario}
             horizonYears={horizonYears}
+            scope={effectiveScope}
           />
         </div>
         <AuditSidebar />
@@ -155,6 +181,9 @@ interface ControlsProps {
   setBacktestActive: (active: boolean) => void;
   scenarioId: string;
   setScenarioId: (id: string) => void;
+  scopeRoute: ScopeRoute;
+  setScopeRoute: (s: ScopeRoute) => void;
+  effectiveScope: ScopeRoute;
 }
 
 function SimulatorControls({
@@ -165,6 +194,9 @@ function SimulatorControls({
   setBacktestActive,
   scenarioId,
   setScenarioId,
+  scopeRoute,
+  setScopeRoute,
+  effectiveScope,
 }: ControlsProps) {
   const readOnly = backtestActive;
   const isDefault =
@@ -242,6 +274,13 @@ function SimulatorControls({
           </div>
         )}
       </header>
+
+      <RoutePicker
+        scopeRoute={scopeRoute}
+        setScopeRoute={setScopeRoute}
+        effectiveScope={effectiveScope}
+        backtestActive={backtestActive}
+      />
 
       <LeverSection label="Cost levers" defaultOpen>
         <SliderGroup
@@ -449,6 +488,98 @@ function SimulatorControls({
         />
       </LeverSection>
     </aside>
+  );
+}
+
+// ----- Route picker -----
+//
+// Five-pill segmented control scoping the simulator to a single Home Office
+// route. Disabled during backtest mode (the historical scenarios scope by
+// year, not by route). The audit sidebar gets a per-pick focus describing
+// the route + pool size.
+
+function RoutePicker({
+  scopeRoute,
+  setScopeRoute,
+  effectiveScope,
+  backtestActive,
+}: {
+  scopeRoute: ScopeRoute;
+  setScopeRoute: (s: ScopeRoute) => void;
+  effectiveScope: ScopeRoute;
+  backtestActive: boolean;
+}) {
+  const { hover } = useAuditTrail();
+  const focusFor = React.useCallback(
+    (scope: ScopeRoute): AuditFocus => ({
+      id: `simulator/scope/${scope}`,
+      proposition: `Simulator scope: ${SCOPE_ROUTE_LABEL[scope]}. ${entityPoolSize(scope)} entities in pool.`,
+      evidence: [
+        {
+          authority: "gMC v1.0 route definitions",
+          dataset: "Entity classification (fixture)",
+          lastUpdated: SIMULATOR_FIXTURE_VERSION,
+          confidence: "high",
+          fixtureRef: "lib/atlas/simulator-fixtures.ts",
+        },
+      ],
+      grade: {
+        rubricVersion: RUBRIC_VERSION,
+        rubricHref: "/atlas/rubric",
+        method:
+          "Live re-score filtered to the picked route. Lever filters and cost pressure apply per the route's policy lens.",
+      },
+    }),
+    [],
+  );
+
+  return (
+    <div
+      className={cn(
+        "rounded-md border bg-surface-soft/40 p-3",
+        backtestActive ? "border-dashed border-slate/60" : "border-line",
+      )}
+    >
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cyan">
+          Scope
+        </p>
+        <div
+          role="tablist"
+          aria-label="Simulator scope"
+          className="flex w-full flex-1 flex-wrap items-center gap-1.5"
+        >
+          {SCOPE_ROUTES.map((s) => {
+            const active = effectiveScope === s;
+            return (
+              <button
+                key={s}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                disabled={backtestActive}
+                onClick={() => setScopeRoute(s)}
+                onMouseEnter={() => hover(focusFor(s))}
+                onMouseLeave={() => hover(null)}
+                className={cn(
+                  "flex-1 rounded-full border px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] tabular transition-colors disabled:cursor-not-allowed disabled:opacity-60",
+                  active
+                    ? "border-cyan bg-cyan text-surface"
+                    : "border-line bg-surface text-ink-muted hover:border-cyan/40 hover:text-ink",
+                )}
+              >
+                {SCOPE_ROUTE_LABEL[s]}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      {backtestActive && (
+        <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-slate">
+          Scope locked to all routes during backtest mode.
+        </p>
+      )}
+    </div>
   );
 }
 
@@ -677,9 +808,11 @@ function EnglishLevelSelector({
 function StateDistributionBar({
   result,
   backtestActive = false,
+  scope = "all",
 }: {
   result: CategoriseResult;
   backtestActive?: boolean;
+  scope?: ScopeRoute;
 }) {
   const { counts } = result;
   const total =
@@ -734,7 +867,9 @@ function StateDistributionBar({
             id="state-dist-heading"
             className="mt-1 text-[1.05rem] font-bold tracking-tight text-accent"
           >
-            How the levers categorise the {total} entities.
+            {scope === "all"
+              ? `How the levers categorise the ${total} entities.`
+              : `${total} ${SCOPE_ROUTE_LABEL[scope]} entities, re-scored.`}
           </h3>
         </div>
         <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
@@ -1023,6 +1158,7 @@ function InsightBanner({
   backtestActive,
   scenario,
   horizonYears,
+  scope,
 }: {
   levers: LeverState;
   current: CategoriseResult;
@@ -1030,13 +1166,14 @@ function InsightBanner({
   backtestActive: boolean;
   scenario: BacktestScenario;
   horizonYears: HorizonYears;
+  scope: ScopeRoute;
 }) {
   const endYear = FORECAST_BASE_YEAR + horizonYears;
   let body: string;
   if (backtestActive) {
     body = scenario.punchline;
   } else {
-    const sentences = buildInsight(levers, current, baseline);
+    const sentences = buildInsight(levers, current, baseline, scope);
     const isDefault = sentences.length === 1 && sentences[0].startsWith("You are at the current April 2026 policy");
     body = isDefault
       ? sentences.join(" ")
@@ -1063,7 +1200,9 @@ function buildInsight(
   levers: LeverState,
   current: CategoriseResult,
   baseline: CategoriseResult,
+  scope: ScopeRoute = "all",
 ): string[] {
+  const scopeNoun = scope === "all" ? "entities" : `${SCOPE_ROUTE_LABEL[scope]} entities`;
   const allDefault =
     levers.isc === DEFAULTS.isc &&
     levers.ihs === DEFAULTS.ihs &&
@@ -1106,7 +1245,7 @@ function buildInsight(
       0,
     );
     sentences.push(
-      `Skilled Worker minimum salary at £${levers.minSalary.toLocaleString("en-GB")} excludes ${excluded} entities. ${sectorCount} of those are ${sectorsText} roles, where the floor most often binds.`,
+      `Skilled Worker minimum salary at £${levers.minSalary.toLocaleString("en-GB")} excludes ${excluded} ${scope === "all" ? "entities" : scopeNoun}. ${sectorCount} of those are ${sectorsText} roles, where the floor most often binds.`,
     );
   }
 
@@ -1127,7 +1266,7 @@ function buildInsight(
       current.counts.excluded - baseline.counts.excluded;
     const direction = eligibleDelta < 0 ? "narrows" : "broadens";
     sentences.push(
-      `Current levers ${direction} the eligible pool by ${Math.abs(eligibleDelta)} entities and shift ${Math.abs(excludedDelta)} into the excluded category.`,
+      `Current levers ${direction} the eligible pool by ${Math.abs(eligibleDelta)} ${scopeNoun} and shift ${Math.abs(excludedDelta)} into the excluded category.`,
     );
   }
 
@@ -1135,7 +1274,7 @@ function buildInsight(
   if (sentences.length > 1) {
     const eligibleDelta = current.counts.eligible - baseline.counts.eligible;
     sentences.push(
-      `Combined effect : ${Math.abs(eligibleDelta)} fewer entities now reach the eligible state at the current lever positions.`,
+      `Combined effect : ${Math.abs(eligibleDelta)} fewer ${scopeNoun} now reach the eligible state at the current lever positions.`,
     );
   }
 

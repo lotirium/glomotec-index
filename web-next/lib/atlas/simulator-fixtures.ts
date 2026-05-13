@@ -198,7 +198,59 @@ export interface CategoriseResult {
 
 const SECTORS_BOUND_BY_FLOOR = new Set(["Healthcare", "Education", "Logistics"]);
 
-export function categoriseEntities(levers: LeverState): CategoriseResult {
+// ----- Route scope -----
+//
+// The simulator can be scoped to a single Home Office route or run across
+// all 280 entities. The four scoped routes mirror the route-anchoring
+// matrix on /atlas/rubric. "Other" entities map to the Family routes scope.
+
+export type ScopeRoute =
+  | "all"
+  | "skilledWorker"
+  | "innovatorFounder"
+  | "globalTalent"
+  | "family";
+
+export const SCOPE_ROUTES: ScopeRoute[] = [
+  "all",
+  "skilledWorker",
+  "innovatorFounder",
+  "globalTalent",
+  "family",
+];
+
+export const SCOPE_ROUTE_LABEL: Record<ScopeRoute, string> = {
+  all: "All routes",
+  skilledWorker: "Skilled Worker",
+  innovatorFounder: "Innovator Founder",
+  globalTalent: "Global Talent",
+  family: "Family routes",
+};
+
+const SCOPE_TO_ENTITY_ROUTE: Record<Exclude<ScopeRoute, "all">, Route> = {
+  skilledWorker: "Skilled Worker",
+  innovatorFounder: "Innovator Founder",
+  globalTalent: "Global Talent",
+  family: "Other",
+};
+
+export function entityMatchesScope(
+  entity: SimulatorEntity,
+  scope: ScopeRoute,
+): boolean {
+  if (scope === "all") return true;
+  return entity.route === SCOPE_TO_ENTITY_ROUTE[scope];
+}
+
+export function entityPoolSize(scope: ScopeRoute): number {
+  if (scope === "all") return SIMULATOR_ENTITIES.length;
+  return SIMULATOR_ENTITIES.filter((e) => entityMatchesScope(e, scope)).length;
+}
+
+export function categoriseEntities(
+  levers: LeverState,
+  scope: ScopeRoute = "all",
+): CategoriseResult {
   const counts: StateCounts = {
     eligible: 0,
     marginal: 0,
@@ -218,7 +270,14 @@ export function categoriseEntities(levers: LeverState): CategoriseResult {
   const investorClosed = levers.investorThreshold >= INVESTOR_CLOSED;
 
   for (const e of SIMULATOR_ENTITIES) {
-    if (e.route === "Other") {
+    if (!entityMatchesScope(e, scope)) continue;
+
+    // In "all" scope, Family-route ("Other") entities sit outside the four
+    // named-route policy levers — they bucket as uncategorised. Under
+    // scope="family" they are the entire pool and flow through normally
+    // (English + ILR fee filters still apply; ISC/IHS/CoS/min-salary
+    // never gate them because the route guards below skip non-SW entities).
+    if (scope === "all" && e.route === "Other") {
       counts.uncategorised++;
       perEntityState[e.id] = "uncategorised";
       continue;
