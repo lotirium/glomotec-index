@@ -37,6 +37,19 @@ const TILES = [
     aspectClass: "aspect-[16/9]",
   },
   {
+    id: "00C",
+    href: "/atlas/sa",
+    badge: "Strategy lens",
+    time: "2-3 min",
+    label: "Visual 00C · The strategy lens · Saudi Arabia · Vision 2030",
+    title: "Where the model forecasts the runway.",
+    desc: "Saudi Arabia's Vision 2030 spine, paired with the Nitaqat localisation regime. Fourteen priority sectors with declared 2030 hiring targets, against eight policy events from 2011 onwards. Scrub the cursor to read targets, FDI, and Nitaqat tier mix side by side.",
+    takeaway:
+      "Tech +420K, Mining +340K, Renewable Energy +230K roles to fill by 2030",
+    decor: "strategy" as const,
+    aspectClass: "aspect-[16/9]",
+  },
+  {
     id: "01",
     href: "/atlas/uae/origin-map",
     badge: "Geographic",
@@ -498,6 +511,98 @@ function TileDecor({ variant }: { variant: TileDecor }) {
               strokeWidth="1.5"
               strokeDasharray="3 3"
             />
+          </svg>
+        </div>
+      );
+    case "strategy":
+      return (
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-deep via-accent to-cyan">
+          <svg
+            viewBox="0 0 320 180"
+            preserveAspectRatio="xMidYMid meet"
+            className="absolute inset-0 h-full w-full"
+            aria-hidden
+          >
+            {/* Faint gridlines */}
+            {[40, 80, 120].map((y) => (
+              <line
+                key={`g${y}`}
+                x1="20"
+                x2="300"
+                y1={y}
+                y2={y}
+                stroke="white"
+                strokeOpacity="0.16"
+                strokeWidth="1"
+              />
+            ))}
+            {/* Skilled inflow line, mirroring the 2010-2025 dip and recovery */}
+            <polyline
+              points="20,108 50,98 80,92 110,110 140,124 170,140 200,118 220,100 250,72 280,46"
+              fill="none"
+              stroke="white"
+              strokeWidth="2.5"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+            />
+            {/* Forward target marker at 2030, projected */}
+            <line
+              x1="300"
+              x2="300"
+              y1="20"
+              y2="160"
+              stroke="#00A2E9"
+              strokeOpacity="0.7"
+              strokeWidth="1.25"
+              strokeDasharray="3 3"
+            />
+            <circle cx="300" cy="24" r="4" fill="#00A2E9" stroke="white" strokeWidth="1.5" />
+            {/* Event markers */}
+            {[
+              { x: 26, c: "#9CA3AF" }, // Nitaqat 2011
+              { x: 100, c: "#00A2E9" }, // Vision 2030 2016
+              { x: 145, c: "#00A2E9" }, // Premium Residency / tourist 2019
+              { x: 175, c: "#0F2C5C" }, // RHQ 2021
+              { x: 220, c: "#00A2E9" }, // NEOM 2023
+              { x: 250, c: "#00A2E9" }, // Premium Residency expanded 2024
+              { x: 280, c: "#9CA3AF" }, // NTS 2030 2025
+            ].map((m, i) => (
+              <g key={i}>
+                <line
+                  x1={m.x}
+                  x2={m.x}
+                  y1="20"
+                  y2="160"
+                  stroke={m.c}
+                  strokeOpacity="0.55"
+                  strokeWidth="1.25"
+                />
+                <circle cx={m.x} cy="20" r="3.5" fill={m.c} stroke="white" strokeWidth="1.5" />
+              </g>
+            ))}
+            {/* Cursor at 2016 (x=100) */}
+            <line
+              x1="100"
+              x2="100"
+              y1="14"
+              y2="166"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeDasharray="4 3"
+            />
+            <circle cx="100" cy="92" r="6" fill="#00A2E9" stroke="white" strokeWidth="2.5" />
+            <rect x="82" y="165" width="36" height="10" rx="2" fill="white" fillOpacity="0.9" />
+            <text
+              x="100"
+              y="173"
+              textAnchor="middle"
+              fontFamily="Inter, sans-serif"
+              fontSize="8"
+              fontWeight="700"
+              fill="#0F2C5C"
+            >
+              2016
+            </text>
           </svg>
         </div>
       );
