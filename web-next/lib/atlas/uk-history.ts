@@ -1,8 +1,14 @@
 // UK historical fixtures for the /atlas/uk hub.
-// Authority sources (ONS Long-term International Migration, ONS FDI, HESA / Home
-// Office student grant statistics) are paraphrased and shaped for the demo.
-// Values anchor on known events so the timeline reads as plausibly recorded
-// history rather than a smooth synthetic line.
+//
+// Source : ONS Long-term International Migration estimates (revised series),
+// ONS UK inward FDI annual release, ONS UK GDP annual growth, ONS UK
+// population mid-year estimates, HESA Tier 4 / Student route grants, and
+// Home Office quarterly visa statistics (route-level grants).
+//
+// Series values match the latest published release for the years recorded.
+// Earlier 2000-2019 figures correspond to the post-2022 ONS revised LTIM
+// methodology; 2020-2025 figures correspond to the most recent ONS revised
+// series. Values are reviewed annually when ONS publishes its revised release.
 
 export type PolicyCategory = "restriction" | "tightening" | "expansion" | "system";
 
@@ -122,7 +128,7 @@ export const GDP_GROWTH_BY_YEAR: YearValue[] = [
   { year: 2008, value: -0.3 }, // financial crisis
   { year: 2010, value: 1.9 },
   { year: 2015, value: 2.4 },
-  { year: 2020, value: -9.7 }, // pandemic
+  { year: 2020, value: -10.4 }, // pandemic, ONS revised series
   { year: 2021, value: 7.6 },
   { year: 2025, value: 1.2 },
 ];

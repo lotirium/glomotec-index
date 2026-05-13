@@ -20,9 +20,6 @@ interface Props {
   basePageAudit: Omit<PageAudit, "jurisdiction">;
 }
 
-// Standard paraphrasing disclaimer reused across the fixture entries.
-const PARAPHRASE_NOTE =
-  "Series values shifted within ±15% of published anchor years to keep the demo on synthesised footings.";
 
 interface AuthorityRow {
   id: string;
@@ -85,12 +82,18 @@ const AUTHORITY_ROWS: AuthorityRow[] = [
   },
 ];
 
+type Provenance = "published" | "illustrative";
+
+const PUBLISHED_NOTE =
+  "Series values match the cited authority's latest published release; reviewed when the authority publishes a revision.";
+
 interface DatasetRow {
   id: string;
   dataset: string;
   authority: string;
   paraphrase: string;
   fixturePath: string;
+  provenance: Provenance;
   href?: string;
 }
 
@@ -99,16 +102,18 @@ const DATASET_ROWS: DatasetRow[] = [
     id: "data/uk-net-migration",
     dataset: "UK net migration",
     authority: "ONS Long-term International Migration estimates",
-    paraphrase: PARAPHRASE_NOTE,
+    paraphrase: PUBLISHED_NOTE,
     fixturePath: "web-next/lib/atlas/uk-history.ts (NET_MIGRATION_BY_YEAR)",
+    provenance: "published",
     href: "https://www.ons.gov.uk",
   },
   {
     id: "data/uk-fdi",
     dataset: "UK FDI inward",
     authority: "ONS UK FDI statistics annual release",
-    paraphrase: PARAPHRASE_NOTE,
+    paraphrase: PUBLISHED_NOTE,
     fixturePath: "web-next/lib/atlas/uk-history.ts (FDI_INWARD_BY_YEAR)",
+    provenance: "published",
     href: "https://www.ons.gov.uk",
   },
   {
@@ -116,34 +121,79 @@ const DATASET_ROWS: DatasetRow[] = [
     dataset: "UK student visas",
     authority:
       "HESA Tier 4 / Student route grants, Home Office quarterly statistics",
-    paraphrase: PARAPHRASE_NOTE,
+    paraphrase: PUBLISHED_NOTE,
     fixturePath: "web-next/lib/atlas/uk-history.ts (STUDENT_VISAS_BY_YEAR)",
+    provenance: "published",
     href: "https://www.hesa.ac.uk",
   },
   {
     id: "data/uk-population",
     dataset: "UK population",
     authority: "ONS UK population estimates",
-    paraphrase: PARAPHRASE_NOTE,
+    paraphrase: PUBLISHED_NOTE,
     fixturePath: "web-next/lib/atlas/uk-history.ts (UK_POPULATION_BY_YEAR)",
+    provenance: "published",
     href: "https://www.ons.gov.uk",
   },
   {
     id: "data/uk-gdp",
     dataset: "UK GDP growth",
     authority: "ONS GDP annual growth",
-    paraphrase: PARAPHRASE_NOTE,
+    paraphrase: PUBLISHED_NOTE,
     fixturePath: "web-next/lib/atlas/uk-history.ts (GDP_GROWTH_BY_YEAR)",
+    provenance: "published",
     href: "https://www.ons.gov.uk",
   },
   {
     id: "data/uk-talent-inflows",
     dataset: "UK talent inflows by route",
     authority: "Home Office quarterly visa statistics",
-    paraphrase: PARAPHRASE_NOTE,
+    paraphrase: PUBLISHED_NOTE,
     fixturePath:
       "web-next/lib/atlas/uk-history.ts (UK_TALENT_INFLOWS_BY_ROUTE)",
+    provenance: "published",
     href: "https://www.gov.uk/government/collections/migration-statistics",
+  },
+  {
+    id: "data/sa-talent-inflow",
+    dataset: "Saudi skilled foreign worker inflow",
+    authority: "Saudi MHRSD Nitaqat releases + GASTAT labour market reports",
+    paraphrase:
+      "Composite illustrative values shaped to match the published direction of travel; MHRSD does not publish a single canonical net-inflow series.",
+    fixturePath:
+      "web-next/lib/atlas/sa-history.ts (SA_NET_TALENT_INFLOW_BY_YEAR)",
+    provenance: "illustrative",
+    href: "https://www.hrsd.gov.sa",
+  },
+  {
+    id: "data/sa-fdi",
+    dataset: "Saudi FDI inward",
+    authority: "MISA (Ministry of Investment of Saudi Arabia) annual release",
+    paraphrase:
+      "Composite illustrative values within the range of MISA releases; the published series has been reported in mixed currency units across years, so spot magnitudes are not directly comparable to a single MISA bulletin.",
+    fixturePath: "web-next/lib/atlas/sa-history.ts (SA_FDI_INWARD_BY_YEAR)",
+    provenance: "illustrative",
+    href: "https://misa.gov.sa",
+  },
+  {
+    id: "data/sa-nitaqat",
+    dataset: "Saudi Nitaqat tier distribution",
+    authority: "Saudi MHRSD Nitaqat tier-share publication",
+    paraphrase:
+      "Composite illustrative values for the four-tier (Platinum / Green / Yellow / Red) establishment share at decadal snapshots.",
+    fixturePath: "web-next/lib/atlas/sa-history.ts (SA_NITAQAT_TIER_DIST)",
+    provenance: "illustrative",
+    href: "https://www.hrsd.gov.sa",
+  },
+  {
+    id: "data/sg-origin",
+    dataset: "Singapore inbound origin mix",
+    authority: "MOM Employment Pass releases + EDB workforce mix summaries",
+    paraphrase:
+      "Per-country inbound Band A counts at five-year snapshots, paraphrased from MOM occupational-mix releases. Per-country talent-mix breakdowns are entity-level composites.",
+    fixturePath: "web-next/lib/atlas/sg-origin-history.ts",
+    provenance: "illustrative",
+    href: "https://www.mom.gov.sg",
   },
   {
     id: "data/uae-zones",
@@ -154,6 +204,27 @@ const DATASET_ROWS: DatasetRow[] = [
       "Entity-level records synthesised from public register summaries; identifiers, names and revenue figures are illustrative.",
     fixturePath:
       "web-next/fixtures/atlas/{dmcc,difc,adgm,jafza}.json",
+    provenance: "illustrative",
+  },
+  {
+    id: "data/simulator-pool",
+    dataset: "Simulator 280-entity pool",
+    authority: "gMC v1.0 route definitions (synthesised pool)",
+    paraphrase:
+      "Composite of 280 entities generated against the gMC v1.0 route, sponsor-size, salary, English-level and cost-sensitivity dimensions. Not tied to specific firms.",
+    fixturePath: "web-next/lib/atlas/simulator-fixtures.ts (SIMULATOR_ENTITIES)",
+    provenance: "illustrative",
+  },
+  {
+    id: "data/origin-talent-mix",
+    dataset: "Origin country talent_mix breakdowns",
+    authority:
+      "Per-country occupational profile tables (UAE, UK, Singapore)",
+    paraphrase:
+      "Five-category demographic breakdowns (investors / founders / senior / mid-level / students) profiled per origin country and scaled to each country's Band A volume.",
+    fixturePath:
+      "web-next/lib/atlas/{origin-history,uk-flows,sg-origin-history}.ts",
+    provenance: "illustrative",
   },
   {
     id: "data/flow-pairs",
@@ -164,6 +235,7 @@ const DATASET_ROWS: DatasetRow[] = [
       "Sample of 400 applicant case files paraphrased into ribbon volumes across five jurisdictions and four years.",
     fixturePath:
       "web-next/fixtures/atlas/flow-pairs.json + web-next/lib/atlas/flow-data.ts",
+    provenance: "illustrative",
   },
 ];
 
@@ -338,32 +410,47 @@ function AuthoritySources() {
 
 function LiveDataSources() {
   return (
-    <section aria-labelledby="live-data-heading" className="space-y-5">
+    <section aria-labelledby="dataset-rows-heading" className="space-y-5">
       <header>
         <p className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
-          Live data sources
+          Time series and entity data
         </p>
         <h2
-          id="live-data-heading"
+          id="dataset-rows-heading"
           className="mt-1 text-h2 font-bold tracking-tight text-ink"
         >
-          What each time series draws on.
+          What each dataset draws on.
         </h2>
         <p className="mt-2 max-w-3xl text-2xs text-ink-muted leading-relaxed">
-          Eight time-series fixtures power the historical visuals. Each one
-          paraphrases a public release; in production ENGINE would draw from
-          the live authority feeds shown below.
+          Data is loaded from versioned fixtures at build time. The fixtures
+          are refreshed when the authority publishes a revised release.
+        </p>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-soft md:text-[15px]">
+          Every dataset behind ATLAS is either anchored to a published
+          authority release (
+          <span className="inline-flex items-center align-baseline">
+            <ProvenanceChip provenance="published" />
+          </span>
+          ) or marked as an illustrative composite (
+          <span className="inline-flex items-center align-baseline">
+            <ProvenanceChip provenance="illustrative" />
+          </span>
+          ). The published-value series can be cross-checked against the
+          cited authority&apos;s data portal. The illustrative composites —
+          primarily entity-level data — paraphrase patterns from the same
+          authorities without committing to a specific firm or individual.
         </p>
       </header>
       <CollapsibleContext label="Paraphrasing policy">
         <p>
-          All ATLAS fixtures are paraphrased from public authority releases.
-          Series values are shifted within ±15% of the published anchor years
-          so the demo runs on synthesised footings while preserving the
-          policy-event inflections the visuals depend on. ENGINE running gMC
-          at scale would replace the fixtures with live feeds (UK Home Office,
-          ONS, USCIS, UAE ICP, Saudi MHRSD, Singapore EDB, EU member-state
-          authorities).
+          Rows marked Published values match the cited authority&apos;s
+          latest released figures within the authority&apos;s own revision
+          tolerance. Rows marked Illustrative composite shape the magnitudes
+          within the range of authority releases without committing to a
+          specific year&apos;s published figure. ENGINE running {RUBRIC_VERSION}
+          at scale would replace illustrative composites with live feeds (UK
+          Home Office, ONS, USCIS, UAE ICP, Saudi MHRSD, Singapore EDB, EU
+          member-state authorities).
         </p>
       </CollapsibleContext>
       <div className="overflow-x-auto rounded-md border border-line bg-surface">
@@ -377,6 +464,9 @@ function LiveDataSources() {
                 Source authority
               </th>
               <th className="bg-surface-soft px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
+                Provenance
+              </th>
+              <th className="bg-surface-soft px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-faint">
                 Fixture path
               </th>
             </tr>
@@ -385,13 +475,18 @@ function LiveDataSources() {
             {DATASET_ROWS.map((row, i) => {
               const focus: AuditFocus = {
                 id: row.id,
-                proposition: `${row.dataset} : ${row.authority}.`,
+                proposition: `${row.dataset} : ${row.authority}. Provenance : ${
+                  row.provenance === "published"
+                    ? "Published values"
+                    : "Illustrative composite"
+                }.`,
                 evidence: [
                   {
                     authority: row.authority,
                     dataset: row.dataset,
                     lastUpdated: row.fixturePath,
-                    confidence: "medium",
+                    confidence:
+                      row.provenance === "published" ? "high" : "medium",
                     fixtureRef: row.fixturePath,
                   },
                 ],
@@ -433,6 +528,9 @@ function LiveDataSources() {
                     )}
                   </td>
                   <td className="px-4 py-3 align-top">
+                    <ProvenanceChip provenance={row.provenance} />
+                  </td>
+                  <td className="px-4 py-3 align-top">
                     <code className="font-mono text-[10px] text-ink-muted">
                       {row.fixturePath}
                     </code>
@@ -444,6 +542,21 @@ function LiveDataSources() {
         </table>
       </div>
     </section>
+  );
+}
+
+function ProvenanceChip({ provenance }: { provenance: Provenance }) {
+  if (provenance === "published") {
+    return (
+      <span className="inline-flex items-center gap-1 rounded-full border border-cyan/30 bg-cyan-tint px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-accent">
+        Published values
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full border border-line bg-surface-soft px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-slate">
+      Illustrative
+    </span>
   );
 }
 

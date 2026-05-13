@@ -1,8 +1,14 @@
 // Saudi Arabia historical + projected fixtures for /atlas/sa.
-// Saudi has a shorter published record than the UK but a stronger forward
-// narrative. Vision 2030 sectoral targets and the Nitaqat localisation
-// regime anchor the macro panel; the timeline charts net skilled-foreign
-// worker inflows against the eight major policy events from 2011 onwards.
+//
+// Source : Saudi MHRSD Nitaqat releases, MISA annual FDI release,
+// GASTAT labour market reports. Composite illustrative values based on
+// published patterns — magnitudes are within the range of the cited
+// authority releases but are not directly tied to a specific year's
+// published figure (MHRSD does not publish a single canonical net-
+// inflow series and MISA's FDI series has been reported in mixed
+// currency units across releases). The shape of the series reflects
+// the cited authorities' direction of travel; spot magnitudes should
+// be read as illustrative rather than as published values.
 
 export type SaPolicyCategory =
   | "system"
